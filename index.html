@@ -8,7 +8,7 @@
     name="description"
     content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building THE 1, Kerniq, and writing Building What's Next."
   />
-  <meta name="theme-color" content="#040714" />
+  <meta name="theme-color" content="#3b0816" id="metaThemeColor" />
 
   <!-- Ensure page always starts cleanly at the top when opened -->
   <script>
@@ -29,101 +29,120 @@
 
   <style>
     /* =====================================================================
-       1. THEME TOKENS — DARK MODE (NAVY, PURPLE, RED)
-          & LIGHT MODE (ORANGE, RED, YELLOW, GREEN)
+       1. THEME TOKENS — DARK MODE (RED -> NAVY BLUE -> DARK COLORFUL)
+          & LIGHT MODE (RED -> LIGHT BLUE -> YELLOW -> ORANGE -> GREEN)
     ===================================================================== */
     :root,
     [data-theme="dark"] {
-      --bg-page: #040714;
-      --glass-bg: rgba(12, 20, 48, 0.52);
-      --glass-bg-strong: rgba(10, 17, 42, 0.76);
-      --glass-pill: rgba(13, 22, 54, 0.66);
-      --glass-hover: rgba(255, 255, 255, 0.075);
+      --bg-page: #140718;
+      --bg-gradient: linear-gradient(
+        135deg,
+        #3b0816 0%,
+        #0a1b4d 28%,
+        #240b4c 54%,
+        #062b34 78%,
+        #2b0933 100%
+      );
+
+      --glass-bg: rgba(12, 16, 40, 0.56);
+      --glass-bg-strong: rgba(10, 14, 36, 0.80);
+      --glass-pill: rgba(13, 18, 44, 0.70);
+      --glass-hover: rgba(255, 255, 255, 0.08);
 
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
-      --text-muted: #8b9cc0;
+      --text-muted: #94a3b8;
 
-      --border-glass: rgba(255, 255, 255, 0.14);
-      --border-glass-strong: rgba(255, 255, 255, 0.24);
+      --border-glass: rgba(255, 255, 255, 0.15);
+      --border-glass-strong: rgba(255, 255, 255, 0.25);
       --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
 
       --grid-line: rgba(255, 255, 255, 0.065);
-      --track-line: rgba(255, 255, 255, 0.16);
+      --track-line: rgba(255, 255, 255, 0.18);
       --stem-line: rgba(255, 255, 255, 0.24);
       --stem-active: #c084fc;
 
-      /* Dark Mode Signature Palette: Navy Blue, Purple, Red */
-      --grad-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 52%, #e11d48 100%);
-      --grad-text: linear-gradient(115deg, #60a5fa 0%, #c084fc 50%, #fb7185 100%);
-      --grad-bar: linear-gradient(90deg, #2563eb 0%, #9333ea 52%, #f43f5e 100%);
-      --accent-1: #60a5fa;
-      --accent-2: #c084fc;
-      --accent-3: #fb7185;
+      /* Dark Mode Signature Palette: Red -> Navy Blue -> Violet -> Teal */
+      --grad-primary: linear-gradient(135deg, #e11d48 0%, #1e3a8a 34%, #7c3aed 68%, #0d9488 100%);
+      --grad-text: linear-gradient(115deg, #fb7185 0%, #60a5fa 34%, #c084fc 68%, #2dd4bf 100%);
+      --grad-bar: linear-gradient(90deg, #f43f5e 0%, #2563eb 34%, #9333ea 68%, #14b8a6 100%);
+      --accent-1: #fb7185;
+      --accent-2: #818cf8;
+      --accent-3: #2dd4bf;
 
       /* High-contrast SA monogram badge */
-      --logo-bg: linear-gradient(135deg, #1e3a8a 0%, #6d28d9 55%, #be123c 100%);
+      --logo-bg: linear-gradient(135deg, #be123c 0%, #1e3a8a 52%, #6d28d9 100%);
       --logo-fg: #ffffff;
-      --logo-border: rgba(255, 255, 255, 0.28);
+      --logo-border: rgba(255, 255, 255, 0.30);
 
-      --cta-bg: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 52%, #e11d48 100%);
+      --cta-bg: linear-gradient(135deg, #e11d48 0%, #1d4ed8 48%, #7c3aed 100%);
       --cta-text: #ffffff;
-      --cta-shadow: 0 14px 36px -8px rgba(124, 58, 237, 0.55);
+      --cta-shadow: 0 14px 36px -8px rgba(225, 29, 72, 0.45);
 
       --ambient-mesh:
-        radial-gradient(circle at 14% 12%, rgba(30, 58, 138, 0.52) 0%, transparent 48%),
-        radial-gradient(circle at 84% 18%, rgba(109, 40, 217, 0.42) 0%, transparent 46%),
-        radial-gradient(circle at 72% 62%, rgba(190, 18, 60, 0.32) 0%, transparent 50%),
-        radial-gradient(circle at 22% 78%, rgba(37, 99, 235, 0.34) 0%, transparent 52%);
+        radial-gradient(circle at 10% 12%, rgba(190, 18, 60, 0.48) 0%, transparent 45%),
+        radial-gradient(circle at 38% 26%, rgba(29, 78, 216, 0.48) 0%, transparent 48%),
+        radial-gradient(circle at 64% 52%, rgba(109, 40, 217, 0.44) 0%, transparent 48%),
+        radial-gradient(circle at 84% 74%, rgba(13, 148, 136, 0.38) 0%, transparent 48%),
+        radial-gradient(circle at 20% 84%, rgba(162, 28, 175, 0.38) 0%, transparent 48%);
 
       --shadow-glass: 0 28px 70px -18px rgba(2, 6, 23, 0.85);
     }
 
     [data-theme="light"] {
-      --bg-page: #fffcf7;
-      --glass-bg: rgba(255, 255, 255, 0.66);
-      --glass-bg-strong: rgba(255, 255, 255, 0.88);
-      --glass-pill: rgba(255, 255, 255, 0.82);
+      --bg-page: #fff5f5;
+      --bg-gradient: linear-gradient(
+        135deg,
+        #fecaca 0%,
+        #bae6fd 26%,
+        #fef08a 52%,
+        #fed7aa 76%,
+        #bbf7d0 100%
+      );
+
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --glass-bg-strong: rgba(255, 255, 255, 0.90);
+      --glass-pill: rgba(255, 255, 255, 0.84);
       --glass-hover: rgba(15, 23, 42, 0.055);
 
       --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
+      --text-secondary: #1e293b;
+      --text-muted: #475569;
 
-      --border-glass: rgba(15, 23, 42, 0.11);
-      --border-glass-strong: rgba(15, 23, 42, 0.2);
+      --border-glass: rgba(15, 23, 42, 0.12);
+      --border-glass-strong: rgba(15, 23, 42, 0.22);
       --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
 
       --grid-line: rgba(15, 23, 42, 0.075);
-      --track-line: rgba(15, 23, 42, 0.18);
-      --stem-line: rgba(15, 23, 42, 0.24);
-      --stem-active: #ea580c;
+      --track-line: rgba(15, 23, 42, 0.20);
+      --stem-line: rgba(15, 23, 42, 0.26);
+      --stem-active: #0284c7;
 
-      /* Light Mode Signature Palette: Orange, Red, Yellow, Green */
-      --grad-primary: linear-gradient(135deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
-      --grad-text: linear-gradient(115deg, #ea580c 0%, #e11d48 36%, #ca8a04 70%, #059669 100%);
-      --grad-bar: linear-gradient(90deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
-      --accent-1: #ea580c;
-      --accent-2: #e11d48;
-      --accent-3: #059669;
+      /* Light Mode Signature Palette: Red -> Light Blue -> Yellow -> Orange -> Green */
+      --grad-primary: linear-gradient(135deg, #ef4444 0%, #38bdf8 28%, #eab308 54%, #f97316 78%, #10b981 100%);
+      --grad-text: linear-gradient(115deg, #dc2626 0%, #0284c7 28%, #ca8a04 54%, #ea580c 78%, #059669 100%);
+      --grad-bar: linear-gradient(90deg, #ef4444 0%, #38bdf8 28%, #eab308 54%, #f97316 78%, #10b981 100%);
+      --accent-1: #ef4444;
+      --accent-2: #0284c7;
+      --accent-3: #10b981;
 
       /* High-contrast SA monogram badge in Light Mode */
       --logo-bg: #0f172a;
       --logo-fg: #ffffff;
-      --logo-border: rgba(234, 88, 12, 0.65);
+      --logo-border: rgba(239, 68, 68, 0.65);
 
-      --cta-bg: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #10b981 100%);
+      --cta-bg: linear-gradient(135deg, #ef4444 0%, #0ea5e9 45%, #f97316 76%, #10b981 100%);
       --cta-text: #ffffff;
-      --cta-shadow: 0 14px 34px -8px rgba(249, 115, 22, 0.42);
+      --cta-shadow: 0 14px 34px -8px rgba(14, 165, 233, 0.38);
 
       --ambient-mesh:
-        radial-gradient(circle at 12% 14%, rgba(251, 146, 60, 0.32) 0%, transparent 46%),
-        radial-gradient(circle at 86% 16%, rgba(244, 63, 94, 0.24) 0%, transparent 45%),
-        radial-gradient(circle at 52% 48%, rgba(250, 204, 21, 0.25) 0%, transparent 48%),
-        radial-gradient(circle at 80% 82%, rgba(16, 185, 129, 0.26) 0%, transparent 50%),
-        radial-gradient(circle at 18% 84%, rgba(249, 115, 22, 0.22) 0%, transparent 48%);
+        radial-gradient(circle at 8% 10%, rgba(244, 63, 94, 0.34) 0%, transparent 42%),
+        radial-gradient(circle at 34% 24%, rgba(56, 189, 248, 0.36) 0%, transparent 45%),
+        radial-gradient(circle at 55% 48%, rgba(250, 204, 21, 0.34) 0%, transparent 45%),
+        radial-gradient(circle at 76% 70%, rgba(249, 115, 22, 0.34) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.36) 0%, transparent 46%);
 
-      --shadow-glass: 0 24px 60px -16px rgba(234, 88, 12, 0.14);
+      --shadow-glass: 0 24px 60px -16px rgba(15, 23, 42, 0.14);
     }
 
     :root {
@@ -179,8 +198,17 @@
     }
 
     /* =====================================================================
-       2. AMBIENT GRADIENT FIELD & GLASSMORPHISM SURFACES
+       2. FIXED THEME GRADIENT BACKDROP, AMBIENT MESH & GLASSMORPHISM
     ===================================================================== */
+    .page-bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--bg-gradient);
+      transition: background 0.5s ease;
+    }
+
     .ambient-field {
       position: fixed;
       inset: -12%;
@@ -1495,7 +1523,7 @@
       inset: 0;
       background: repeating-conic-gradient(
         from 0deg at 50% 50%,
-        rgba(124, 58, 237, 0.11) 0deg 6deg,
+        rgba(225, 29, 72, 0.12) 0deg 6deg,
         transparent 6deg 18deg
       );
       mask-image: radial-gradient(circle at 50% 50%, black 16%, transparent 74%);
@@ -1506,7 +1534,7 @@
     [data-theme="light"] .radial-beams {
       background: repeating-conic-gradient(
         from 0deg at 50% 50%,
-        rgba(249, 115, 22, 0.14) 0deg 6deg,
+        rgba(2, 132, 199, 0.14) 0deg 6deg,
         transparent 6deg 18deg
       );
     }
@@ -1824,7 +1852,8 @@
   </style>
 </head>
 <body>
-  <!-- Living Multi-Layer Ambient Gradient Field -->
+  <!-- Fixed Theme Gradient Backdrop & Living Multi-Layer Ambient Field -->
+  <div class="page-bg-gradient" aria-hidden="true"></div>
   <div class="ambient-field" aria-hidden="true"></div>
 
   <!-- ===================================================================
@@ -2567,6 +2596,7 @@
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const iconSun = document.getElementById('themeIconSun');
     const iconMoon = document.getElementById('themeIconMoon');
+    const metaThemeColor = document.getElementById('metaThemeColor');
 
     function applyTheme(theme) {
       htmlEl.setAttribute('data-theme', theme);
@@ -2574,9 +2604,11 @@
       if (theme === 'light') {
         iconSun.style.display = 'none';
         iconMoon.style.display = 'block';
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#fecaca');
       } else {
         iconSun.style.display = 'block';
         iconMoon.style.display = 'none';
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#3b0816');
       }
     }
 
@@ -2805,7 +2837,6 @@
         if (prefersReducedMotion || userOverride) return;
         const rect = wrap.getBoundingClientRect();
         const vh = window.innerHeight;
-        // Progress from when switcher enters lower-middle viewport (0.72vh) to upper-middle (0.18vh)
         const startY = vh * 0.72;
         const endY = vh * 0.18;
         const raw = Math.min(1, Math.max(0, (startY - rect.top) / Math.max(1, startY - endY)));
@@ -2986,7 +3017,7 @@
     })();
 
     /* =======================================================================
-       9. HERO 3D WEBGL ORB
+       9. HERO 3D WEBGL ORB (MATCHING NEW DARK & LIGHT PALETTES)
     ======================================================================= */
     function createWebGLDisplacedOrb(canvas) {
       if (!canvas) return null;
@@ -3042,19 +3073,26 @@
 
           float band1 = sin(vWorldPos.x * 2.1 + vWorldPos.y * 1.7 + uTime * 0.45) * 0.5 + 0.5;
           float band2 = cos(vWorldPos.y * 2.3 - vWorldPos.z * 1.9 + uTime * 0.35) * 0.5 + 0.5;
+          float band3 = sin(vWorldPos.z * 2.0 + vWorldPos.x * 1.8 - uTime * 0.3) * 0.5 + 0.5;
 
-          vec3 dNavy   = vec3(0.11, 0.29, 0.78);
-          vec3 dPurple = vec3(0.54, 0.22, 0.94);
-          vec3 dRed    = vec3(0.92, 0.16, 0.38);
-          vec3 darkCol = mix(dNavy, dPurple, band1);
-          darkCol = mix(darkCol, dRed, pow(band2, 1.25) * 0.85);
+          // Dark Mode: Red -> Navy Blue -> Dark Purple / Dark Teal
+          vec3 dRed    = vec3(0.88, 0.12, 0.32);
+          vec3 dNavy   = vec3(0.09, 0.22, 0.65);
+          vec3 dPurple = vec3(0.46, 0.18, 0.85);
+          vec3 dTeal   = vec3(0.06, 0.55, 0.52);
+          vec3 darkCol = mix(dRed, dNavy, band1);
+          darkCol = mix(darkCol, dPurple, band2 * 0.75);
+          darkCol = mix(darkCol, dTeal, band3 * 0.55);
 
-          vec3 lOrange = vec3(0.98, 0.45, 0.09);
-          vec3 lRed    = vec3(0.94, 0.22, 0.28);
-          vec3 lYellow = vec3(0.96, 0.78, 0.12);
-          vec3 lGreen  = vec3(0.08, 0.74, 0.48);
-          vec3 lightCol = mix(lOrange, lRed, band1);
-          lightCol = mix(lightCol, lYellow, band2 * 0.78);
+          // Light Mode: Red -> Light Blue -> Yellow -> Orange -> Green
+          vec3 lRed    = vec3(0.95, 0.24, 0.28);
+          vec3 lBlue   = vec3(0.22, 0.74, 0.97);
+          vec3 lYellow = vec3(0.98, 0.82, 0.14);
+          vec3 lOrange = vec3(0.98, 0.48, 0.12);
+          vec3 lGreen  = vec3(0.10, 0.76, 0.48);
+          vec3 lightCol = mix(lRed, lBlue, band1);
+          lightCol = mix(lightCol, lYellow, band2 * 0.75);
+          lightCol = mix(lightCol, lOrange, band3 * 0.65);
           lightCol = mix(lightCol, lGreen, smoothstep(0.25, 0.92, -N.y * 0.5 + 0.5) * 0.65);
 
           vec3 baseCol = mix(darkCol, lightCol, uIsLight);
@@ -3068,7 +3106,7 @@
           float spec = pow(max(dot(N, H), 0.0), 34.0);
 
           float fresnel = pow(1.0 - max(dot(N, V), 0.0), 2.5);
-          vec3 rimCol = mix(dPurple, lYellow, uIsLight);
+          vec3 rimCol = mix(dRed, lBlue, uIsLight);
 
           vec3 finalColor = baseCol * (0.52 + 0.58 * diff) + vec3(1.0, 0.97, 0.92) * spec * 0.55 + rimCol * fresnel * 0.65;
           float alpha = smoothstep(0.0, 0.14, max(dot(N, V), 0.0) + 0.06);
@@ -3267,20 +3305,24 @@
             float ribbon2 = smoothstep(0.5, 0.99, cos(angle * 4.0 - depth * 1.4) * 0.5 + 0.5);
             float ring = smoothstep(0.82, 1.0, sin(depth * 2.2) * 0.5 + 0.5);
 
-            vec3 dNavy   = vec3(0.09, 0.24, 0.68);
-            vec3 dPurple = vec3(0.48, 0.18, 0.88);
-            vec3 dRed    = vec3(0.88, 0.14, 0.35);
-            vec3 darkCol = mix(dNavy, dPurple, ribbon1);
-            darkCol = mix(darkCol, dRed, ribbon2 * 0.72);
-            darkCol += vec3(0.65, 0.55, 1.0) * ring * 0.22;
+            // Dark Mode: Red -> Navy Blue -> Dark Purple / Dark Teal
+            vec3 dRed    = vec3(0.86, 0.12, 0.32);
+            vec3 dNavy   = vec3(0.08, 0.22, 0.66);
+            vec3 dPurple = vec3(0.45, 0.16, 0.85);
+            vec3 dTeal   = vec3(0.06, 0.52, 0.50);
+            vec3 darkCol = mix(dRed, dNavy, ribbon1);
+            darkCol = mix(darkCol, dPurple, ribbon2 * 0.72);
+            darkCol = mix(darkCol, dTeal, ring * 0.45);
 
-            vec3 lOrange = vec3(0.98, 0.46, 0.10);
-            vec3 lRed    = vec3(0.92, 0.20, 0.28);
-            vec3 lYellow = vec3(0.96, 0.78, 0.12);
-            vec3 lGreen  = vec3(0.08, 0.72, 0.46);
-            vec3 lightCol = mix(lOrange, lRed, ribbon1);
-            lightCol = mix(lightCol, lYellow, ribbon2 * 0.72);
-            lightCol = mix(lightCol, lGreen, smoothstep(0.2, 0.85, sin(angle + depth * 0.5) * 0.5 + 0.5) * 0.58);
+            // Light Mode: Red -> Light Blue -> Yellow -> Orange -> Green
+            vec3 lRed    = vec3(0.94, 0.22, 0.28);
+            vec3 lBlue   = vec3(0.22, 0.74, 0.97);
+            vec3 lYellow = vec3(0.98, 0.82, 0.14);
+            vec3 lOrange = vec3(0.98, 0.48, 0.12);
+            vec3 lGreen  = vec3(0.10, 0.76, 0.48);
+            vec3 lightCol = mix(lRed, lBlue, ribbon1);
+            lightCol = mix(lightCol, lYellow, ribbon2 * 0.65);
+            lightCol = mix(lightCol, mix(lOrange, lGreen, sin(angle + depth * 0.5) * 0.5 + 0.5), 0.55);
 
             vec3 col = mix(darkCol, lightCol, uIsLight);
             float outerMask = smoothstep(0.04, 0.2, dist) * (1.0 - smoothstep(0.52, 1.05, dist));
@@ -3346,7 +3388,6 @@
         smoothProgress += (rawProgress - smoothProgress) * 0.16;
 
         if (!prefersReducedMotion) {
-          // Gentle ~25% easing near each milestone center — always visibly gliding on scroll
           const shapedProgress = gentleEaseCurve(smoothProgress, MILESTONES.length);
           const maxPan = Math.max(0, totalTrackWidth - window.innerWidth + startPad * 0.5);
           const panX = shapedProgress * maxPan;
@@ -3412,8 +3453,8 @@
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      const darkPalette = ['#1d4ed8', '#60a5fa', '#7c3aed', '#c084fc', '#e11d48', '#fb7185'];
-      const lightPalette = ['#f97316', '#ef4444', '#eab308', '#10b981', '#fb923c', '#059669'];
+      const darkPalette = ['#e11d48', '#1e3a8a', '#3b82f6', '#7c3aed', '#0d9488', '#c026d3'];
+      const lightPalette = ['#ef4444', '#38bdf8', '#eab308', '#f97316', '#10b981', '#0284c7'];
 
       function render(t) {
         const w = canvas.width;
