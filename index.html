@@ -8,86 +8,104 @@
     name="description"
     content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building THE 1, Kerniq, and writing Building What's Next."
   />
-  <meta name="theme-color" content="#05070e" />
+  <meta name="theme-color" content="#040714" />
+
+  <!-- Ensure the page ALWAYS starts at the very top when opened or refreshed -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
   <style>
     /* =====================================================================
-       1. THEME TOKENS — DARK MODE (DEFAULT) & LIGHT MODE
+       1. THEME TOKENS — DARK MODE (NAVY, PURPLE, RED)
+          & LIGHT MODE (ORANGE, RED, YELLOW, GREEN)
     ===================================================================== */
     :root,
     [data-theme="dark"] {
-      --bg-page: #05070e;
-      --bg-surface: #0a0e1a;
-      --bg-card: rgba(13, 18, 33, 0.84);
-      --bg-card-solid: #0d1221;
-      --bg-pill: rgba(14, 19, 34, 0.86);
-      --bg-hover: rgba(255, 255, 255, 0.055);
+      --bg-page: #040714;
+      --bg-surface: rgba(9, 15, 36, 0.72);
+      --glass-bg: rgba(12, 20, 48, 0.46);
+      --glass-bg-strong: rgba(10, 17, 42, 0.68);
+      --glass-pill: rgba(13, 22, 54, 0.56);
+      --glass-hover: rgba(255, 255, 255, 0.08);
 
       --text-primary: #f8fafc;
-      --text-secondary: #c2cde0;
-      --text-muted: #7f8ea8;
+      --text-secondary: #cbd5e1;
+      --text-muted: #8b9cc0;
 
-      --border-subtle: rgba(255, 255, 255, 0.09);
-      --border-strong: rgba(255, 255, 255, 0.17);
+      --border-glass: rgba(255, 255, 255, 0.14);
+      --border-glass-strong: rgba(255, 255, 255, 0.24);
+      --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.24);
 
-      --accent-gold: #fbbf24;
-      --accent-emerald: #34d399;
-      --accent-cyan: #22d3ee;
-      --accent-cobalt: #3b82f6;
-      --accent-indigo: #818cf8;
-      --accent-magenta: #f472b6;
+      /* Dark Mode Signature Palette: Navy Blue, Purple, Red */
+      --grad-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 52%, #e11d48 100%);
+      --grad-text: linear-gradient(115deg, #60a5fa 0%, #c084fc 50%, #fb7185 100%);
+      --grad-bar: linear-gradient(90deg, #2563eb 0%, #9333ea 52%, #f43f5e 100%);
+      --accent-1: #60a5fa; /* Navy / Electric Blue */
+      --accent-2: #c084fc; /* Purple */
+      --accent-3: #fb7185; /* Crimson Red */
 
-      --cta-bg: linear-gradient(135deg, #fffbeb 0%, #fde68a 52%, #fbbf24 100%);
-      --cta-text: #070a12;
-      --cta-shadow: 0 12px 34px -6px rgba(251, 191, 36, 0.42);
+      --cta-bg: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 52%, #e11d48 100%);
+      --cta-text: #ffffff;
+      --cta-shadow: 0 14px 36px -8px rgba(124, 58, 237, 0.55);
 
-      --hero-gradient:
-        radial-gradient(ellipse 58% 48% at 14% 16%, rgba(16, 185, 129, 0.16) 0%, transparent 70%),
-        radial-gradient(ellipse 52% 46% at 84% 22%, rgba(99, 102, 241, 0.22) 0%, transparent 70%),
-        radial-gradient(ellipse 64% 42% at 50% 60%, rgba(245, 158, 11, 0.11) 0%, transparent 70%);
+      --ambient-mesh:
+        radial-gradient(circle at 14% 12%, rgba(30, 58, 138, 0.55) 0%, transparent 48%),
+        radial-gradient(circle at 84% 18%, rgba(109, 40, 217, 0.44) 0%, transparent 46%),
+        radial-gradient(circle at 72% 62%, rgba(190, 18, 60, 0.34) 0%, transparent 50%),
+        radial-gradient(circle at 22% 78%, rgba(37, 99, 235, 0.36) 0%, transparent 52%);
 
-      --shadow-elevated: 0 30px 75px -18px rgba(0, 0, 0, 0.88);
+      --shadow-glass: 0 28px 70px -18px rgba(2, 6, 23, 0.85);
     }
 
     [data-theme="light"] {
-      --bg-page: #f6f8fc;
-      --bg-surface: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.9);
-      --bg-card-solid: #ffffff;
-      --bg-pill: rgba(255, 255, 255, 0.9);
-      --bg-hover: rgba(15, 23, 42, 0.045);
+      --bg-page: #fffcf7;
+      --bg-surface: rgba(255, 255, 255, 0.76);
+      --glass-bg: rgba(255, 255, 255, 0.54);
+      --glass-bg-strong: rgba(255, 255, 255, 0.78);
+      --glass-pill: rgba(255, 255, 255, 0.66);
+      --glass-hover: rgba(15, 23, 42, 0.055);
 
-      --text-primary: #0a0f1d;
+      --text-primary: #0f172a;
       --text-secondary: #334155;
       --text-muted: #64748b;
 
-      --border-subtle: rgba(15, 23, 42, 0.09);
-      --border-strong: rgba(15, 23, 42, 0.16);
+      --border-glass: rgba(255, 255, 255, 0.85);
+      --border-glass-strong: rgba(15, 23, 42, 0.14);
+      --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
 
-      --accent-gold: #d97706;
-      --accent-emerald: #059669;
-      --accent-cyan: #0891b2;
-      --accent-cobalt: #2563eb;
-      --accent-indigo: #4f46e5;
-      --accent-magenta: #db2777;
+      /* Light Mode Signature Palette: Orange, Red, Yellow, Green */
+      --grad-primary: linear-gradient(135deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
+      --grad-text: linear-gradient(115deg, #ea580c 0%, #e11d48 36%, #ca8a04 70%, #059669 100%);
+      --grad-bar: linear-gradient(90deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
+      --accent-1: #ea580c; /* Orange */
+      --accent-2: #e11d48; /* Red */
+      --accent-3: #059669; /* Green */
 
-      --cta-bg: linear-gradient(135deg, #0a0f1d 0%, #1e293b 100%);
+      --cta-bg: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #10b981 100%);
       --cta-text: #ffffff;
-      --cta-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.32);
+      --cta-shadow: 0 14px 34px -8px rgba(249, 115, 22, 0.42);
 
-      --hero-gradient:
-        radial-gradient(ellipse 58% 48% at 14% 16%, rgba(16, 185, 129, 0.13) 0%, transparent 70%),
-        radial-gradient(ellipse 52% 46% at 84% 22%, rgba(99, 102, 241, 0.15) 0%, transparent 70%),
-        radial-gradient(ellipse 64% 42% at 50% 60%, rgba(245, 158, 11, 0.11) 0%, transparent 70%);
+      --ambient-mesh:
+        radial-gradient(circle at 12% 14%, rgba(251, 146, 60, 0.34) 0%, transparent 46%),
+        radial-gradient(circle at 86% 16%, rgba(244, 63, 94, 0.26) 0%, transparent 45%),
+        radial-gradient(circle at 52% 48%, rgba(250, 204, 21, 0.28) 0%, transparent 48%),
+        radial-gradient(circle at 80% 82%, rgba(16, 185, 129, 0.28) 0%, transparent 50%),
+        radial-gradient(circle at 18% 84%, rgba(249, 115, 22, 0.24) 0%, transparent 48%);
 
-      --shadow-elevated: 0 24px 60px -18px rgba(15, 23, 42, 0.12);
+      --shadow-glass: 0 24px 60px -16px rgba(234, 88, 12, 0.14);
     }
 
     :root {
@@ -95,7 +113,8 @@
       --font-serif: 'Instrument Serif', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
       --container: 1220px;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --spring: cubic-bezier(0.22, 1, 0.36, 1);
+      --bounce-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     *,
@@ -117,11 +136,12 @@
     }
 
     body {
+      position: relative;
       background-color: var(--bg-page);
       color: var(--text-primary);
       line-height: 1.65;
       overflow-x: clip;
-      transition: background-color 0.35s ease, color 0.35s ease;
+      transition: background-color 0.45s var(--spring), color 0.35s ease;
     }
 
     a {
@@ -141,34 +161,153 @@
     }
 
     /* =====================================================================
-       2. TOP FLOATING HEADER & PORTRAIT AVATAR LOGO (ROUNDED CORNERS)
+       2. LIVING AMBIENT GRADIENT FIELD (BACKDROP FOR GLASSMORPHISM)
+    ===================================================================== */
+    .ambient-field {
+      position: fixed;
+      inset: -12%;
+      z-index: 0;
+      pointer-events: none;
+      background-image: var(--ambient-mesh);
+      filter: blur(42px);
+      animation: auroraFloat 18s ease-in-out infinite alternate;
+      transition: opacity 0.45s ease;
+    }
+
+    @keyframes auroraFloat {
+      0% {
+        transform: translate3d(-1.5%, -1.5%, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(1.8%, 1.2%, 0) scale(1.04);
+      }
+      100% {
+        transform: translate3d(-0.8%, 2%, 0) scale(1.02);
+      }
+    }
+
+    main,
+    header,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Reusable Frosted Glass Surface + Cursor Specular Sheen */
+    .glass-panel {
+      position: relative;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(26px) saturate(180%);
+      -webkit-backdrop-filter: blur(26px) saturate(180%);
+      box-shadow: var(--specular-top), var(--shadow-glass);
+      transition:
+        transform 0.35s var(--spring),
+        border-color 0.3s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .glass-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(
+        420px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 255, 255, 0.14),
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-panel:hover::after {
+      opacity: 1;
+    }
+
+    /* Scroll-Driven Staggered Reveal Choreography */
+    [data-reveal] {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate3d(0, 32px, 0) scale(0.975);
+      transition:
+        opacity 0.85s var(--spring),
+        filter 0.85s var(--spring),
+        transform 0.85s var(--spring);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    /* =====================================================================
+       3. ANIMATED GLASSMORPHIC TOP DOCK (TRACKS SCROLL POSITION LIVE)
     ===================================================================== */
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 120;
-      padding: 16px 0;
+      z-index: 150;
+      padding: 14px 0;
       pointer-events: none;
     }
 
-    .nav-bar {
+    .top-dock-shell {
+      pointer-events: auto;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
+      padding: 8px 12px 8px 14px;
+      border-radius: 999px;
+      background: var(--glass-pill);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(30px) saturate(190%);
+      -webkit-backdrop-filter: blur(30px) saturate(190%);
+      box-shadow:
+        var(--specular-top),
+        0 18px 46px -12px rgba(2, 6, 23, 0.55);
+      overflow: hidden;
+      transition: transform 0.35s var(--spring), background-color 0.35s ease;
+    }
+
+    /* Live Scroll Progress Beam inside bottom rim of Top Dock */
+    .dock-progress-track {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 0;
+      height: 2.5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .dock-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--grad-bar);
+      border-radius: 999px;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.65);
+      transition: width 0.08s linear;
     }
 
     .brand-link {
-      pointer-events: auto;
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       font-weight: 700;
-      font-size: 1.02rem;
+      font-size: 0.96rem;
       letter-spacing: -0.02em;
       color: var(--text-primary);
+      flex-shrink: 0;
     }
 
     .brand-avatar-wrap {
@@ -176,13 +315,13 @@
       height: 34px;
       border-radius: 10px;
       overflow: hidden;
-      border: 1.5px solid var(--border-strong);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      border: 1.5px solid var(--border-glass-strong);
+      background: var(--grad-primary);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
     }
 
     .brand-avatar {
@@ -194,85 +333,114 @@
     }
 
     .brand-fallback {
-      font-size: 0.76rem;
-      font-weight: 700;
+      font-size: 0.74rem;
+      font-weight: 800;
       color: #ffffff;
-      letter-spacing: 0.02em;
     }
 
-    .nav-pill-group {
-      pointer-events: auto;
+    /* Sliding Glass Indicator Navigation */
+    .dock-nav {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding: 6px;
+      gap: 2px;
+      padding: 3px;
       border-radius: 999px;
-      background: var(--bg-pill);
-      border: 1px solid var(--border-subtle);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-glass);
     }
 
-    .nav-pill-group a {
-      padding: 7px 16px;
+    .nav-active-pill {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      height: calc(100% - 6px);
+      width: 74px;
       border-radius: 999px;
-      font-size: 0.83rem;
-      font-weight: 500;
+      background: var(--grad-primary);
+      box-shadow: 0 6px 20px -4px rgba(124, 58, 237, 0.5);
+      transition:
+        transform 0.48s var(--bounce-spring),
+        width 0.42s var(--spring);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .dock-nav a {
+      position: relative;
+      z-index: 1;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--text-secondary);
-      transition: color 0.2s ease, background-color 0.2s ease;
+      transition: color 0.25s ease, transform 0.25s var(--spring);
+      white-space: nowrap;
     }
 
-    .nav-pill-group a:hover,
-    .nav-pill-group a.active {
+    .dock-nav a:hover {
       color: var(--text-primary);
-      background: var(--bg-hover);
+      transform: translateY(-1px);
     }
 
-    .nav-actions {
-      pointer-events: auto;
+    .dock-nav a.active {
+      color: #ffffff;
+    }
+
+    .dock-right {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .dock-location-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
+      color: var(--text-secondary);
+      white-space: nowrap;
     }
 
     .icon-btn {
-      width: 38px;
-      height: 38px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-pill);
-      border: 1px solid var(--border-subtle);
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
       color: var(--text-primary);
-      backdrop-filter: blur(14px);
       cursor: pointer;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: transform 0.3s var(--bounce-spring), border-color 0.2s ease;
     }
 
     .icon-btn:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-1px);
+      transform: scale(1.08) rotate(8deg);
+      border-color: var(--border-glass-strong);
     }
 
     .nav-cta-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 18px;
+      gap: 6px;
+      padding: 7px 15px;
       border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       background: var(--cta-bg);
       color: var(--cta-text);
       box-shadow: var(--cta-shadow);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.3s var(--bounce-spring);
     }
 
     .nav-cta-pill:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
+      transform: translateY(-1.5px) scale(1.03);
     }
 
     .mobile-toggle {
@@ -284,10 +452,11 @@
       display: none;
       margin-top: 10px;
       padding: 12px;
-      border-radius: 18px;
-      background: var(--bg-card-solid);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-elevated);
+      border-radius: 20px;
+      background: var(--glass-bg-strong);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(28px) saturate(180%);
+      box-shadow: var(--shadow-glass);
       flex-direction: column;
       gap: 4px;
     }
@@ -298,57 +467,30 @@
 
     .mobile-menu a {
       padding: 10px 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-secondary);
     }
 
+    .mobile-menu a.active,
     .mobile-menu a:hover {
-      background: var(--bg-hover);
-      color: var(--text-primary);
+      background: var(--grad-primary);
+      color: #ffffff;
     }
 
     /* =====================================================================
-       3. HERO SECTION — FULL-WIDTH SPLIT + TRUE 3D WEBGL DISPLACED ORB
+       4. HERO SECTION — ZERO OVERLAPPING DATES + SEPARATE ORB & GLASS STAGE
     ===================================================================== */
     .hero-section {
       position: relative;
-      padding: 128px 0 76px;
-      background-image: var(--hero-gradient);
+      padding: 124px 0 84px;
       overflow: hidden;
-    }
-
-    .hero-aurora {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 0.72;
-    }
-
-    .hero-aurora::before {
-      content: "";
-      position: absolute;
-      left: -10%;
-      right: -10%;
-      top: 24%;
-      height: 290px;
-      background: linear-gradient(
-        90deg,
-        rgba(16, 185, 129, 0.16) 0%,
-        rgba(245, 158, 11, 0.16) 46%,
-        rgba(99, 102, 241, 0.2) 100%
-      );
-      transform: rotate(-3.5deg);
-      filter: blur(44px);
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 2;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.06fr 0.94fr;
       gap: 44px;
       align-items: center;
       margin-bottom: 56px;
@@ -358,23 +500,35 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.82rem;
-      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(18px);
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--text-secondary);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .hero-eyebrow-bar {
-      width: 24px;
-      height: 2px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold));
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      box-shadow: 0 0 12px var(--accent-2);
+      animation: pulseGlow 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.7; }
     }
 
     .hero-title {
-      font-size: clamp(2.9rem, 5.5vw, 4.65rem);
-      font-weight: 700;
-      line-height: 1.03;
+      font-size: clamp(3rem, 5.6vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.02;
       letter-spacing: -0.04em;
       color: var(--text-primary);
       margin-bottom: 20px;
@@ -385,20 +539,14 @@
       font-style: italic;
       font-weight: 400;
       letter-spacing: -0.01em;
-      background: linear-gradient(115deg, #34d399 0%, #fbbf24 55%, #f59e0b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    [data-theme="light"] .hero-title .italic-gradient {
-      background: linear-gradient(115deg, #059669 0%, #d97706 60%, #4f46e5 100%);
+      background: var(--grad-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      line-height: 1.72;
+      line-height: 1.74;
       color: var(--text-secondary);
       max-width: 52ch;
       margin-bottom: 28px;
@@ -409,7 +557,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .btn-luminous {
@@ -419,37 +567,39 @@
       padding: 13px 24px;
       border-radius: 999px;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
       background: var(--cta-bg);
       color: var(--cta-text);
       box-shadow: var(--cta-shadow);
-      transition: transform 0.25s var(--ease-out);
+      transition: transform 0.35s var(--bounce-spring), box-shadow 0.3s ease;
       cursor: pointer;
       border: none;
     }
 
     .btn-luminous:hover {
-      transform: translateY(-2px);
+      transform: translateY(-2.5px) scale(1.02);
     }
 
-    .btn-outline {
+    .btn-glass {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 13px 22px;
       border-radius: 999px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      transition: transform 0.25s var(--ease-out), border-color 0.2s ease;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(20px) saturate(170%);
+      box-shadow: var(--specular-top);
+      transition: transform 0.35s var(--bounce-spring), border-color 0.25s ease;
       cursor: pointer;
     }
 
-    .btn-outline:hover {
+    .btn-glass:hover {
       transform: translateY(-2px);
-      border-color: var(--accent-gold);
+      border-color: var(--accent-2);
     }
 
     .hero-footnote {
@@ -463,36 +613,81 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
-      padding: 10px 15px;
-      border-radius: 10px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(18px);
       font-family: var(--font-mono);
       font-size: 0.76rem;
       color: var(--text-secondary);
     }
 
-    /* Right Hero Visual: Card + Overlapping True 3D WebGL Displaced-Mesh Orb (00:00-00:06) */
-    .hero-visual-wrap {
+    /* Right Hero Column: Dedicated Orb Stage ABOVE the Snapshot Card (ZERO Overlap!) */
+    .hero-right-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-orb-stage {
       position: relative;
-      min-height: 390px;
+      height: 225px;
+      border-radius: 24px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
+      padding: 20px 26px;
+      overflow: hidden;
+    }
+
+    .orb-stage-meta {
+      position: relative;
+      z-index: 2;
+      max-width: 215px;
+    }
+
+    .orb-stage-kicker {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--grad-primary);
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .orb-stage-meta h2 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.28;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .orb-stage-meta p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    #heroWebGLOrb {
+      width: 210px;
+      height: 210px;
+      flex-shrink: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 14px 28px rgba(124, 58, 237, 0.32));
     }
 
     .hero-preview-card {
-      position: relative;
-      z-index: 1;
       width: 100%;
-      max-width: 470px;
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 22px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      box-shadow: var(--shadow-elevated);
     }
 
     .preview-card-bar {
@@ -501,8 +696,9 @@
       justify-content: space-between;
       padding-bottom: 12px;
       margin-bottom: 14px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-glass);
       font-size: 0.76rem;
+      font-weight: 600;
       color: var(--text-muted);
     }
 
@@ -515,7 +711,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--border-strong);
+      background: var(--grad-primary);
     }
 
     .preview-rows {
@@ -528,46 +724,38 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: var(--bg-hover);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.83rem;
+      gap: 14px;
+      padding: 12px 15px;
+      border-radius: 14px;
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
+      font-size: 0.84rem;
+      transition: transform 0.3s var(--spring), border-color 0.25s ease;
+    }
+
+    .preview-row:hover {
+      transform: translateX(4px);
+      border-color: var(--border-glass-strong);
     }
 
     .preview-row strong {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
     }
 
     .preview-tag {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 11px;
       border-radius: 999px;
-      color: var(--accent-gold);
-      background: rgba(251, 191, 36, 0.12);
+      color: #ffffff;
+      background: var(--grad-primary);
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     }
 
-    /* WebGL Orb overlaps bottom-right of preview card exactly like 00:00 in video */
-    #heroWebGLOrb {
-      position: absolute;
-      right: -14px;
-      bottom: -34px;
-      width: 280px;
-      height: 280px;
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    /* 2-Tab Feature Switcher Under Hero */
-    .hero-switcher-wrap {
-      position: relative;
-      z-index: 2;
-    }
-
+    /* 2-Tab Feature Switcher */
     .hero-switcher-tabs {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -579,22 +767,27 @@
     .switcher-tab {
       text-align: left;
       padding: 15px 20px;
-      border-radius: 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(22px) saturate(170%);
       cursor: pointer;
-      transition: border-color 0.2s ease, background-color 0.2s ease;
+      transition: transform 0.3s var(--bounce-spring), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .switcher-tab:hover {
+      transform: translateY(-2px);
     }
 
     .switcher-tab.active {
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.25);
+      border-color: var(--accent-2);
+      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.35);
     }
 
     .switcher-tab-title {
       display: block;
-      font-size: 0.92rem;
-      font-weight: 600;
+      font-size: 0.94rem;
+      font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 2px;
     }
@@ -606,11 +799,8 @@
     }
 
     .hero-showcase-frame {
-      border-radius: 20px;
-      padding: clamp(22px, 3.2vw, 34px);
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-elevated);
+      border-radius: 24px;
+      padding: clamp(24px, 3.4vw, 36px);
     }
 
     .showcase-frame-grid {
@@ -618,11 +808,23 @@
       grid-template-columns: 1fr 1.15fr;
       gap: 32px;
       align-items: center;
+      animation: panelFadeSlide 0.45s var(--spring);
+    }
+
+    @keyframes panelFadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .showcase-copy h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.42rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
     }
@@ -642,19 +844,19 @@
 
     .showcase-pills span {
       font-size: 0.76rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 5px 12px;
       border-radius: 999px;
-      background: var(--bg-hover);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
+      color: var(--text-primary);
     }
 
     .showcase-mock {
       padding: 18px;
-      border-radius: 14px;
-      background: var(--bg-page);
-      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -664,20 +866,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 11px 14px;
-      border-radius: 10px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
       font-size: 0.83rem;
     }
 
     /* =====================================================================
-       4. ARCHITECTURAL RECOGNITION STRIP (FULL-WIDTH UTILIZATION)
+       5. ARCHITECTURAL RECOGNITION STRIP
     ===================================================================== */
     .recognition-section {
-      padding: 40px 0 76px;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 44px 0 80px;
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
     }
 
     .recognition-top {
@@ -686,16 +889,18 @@
       gap: 28px;
       align-items: center;
       padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-glass);
       margin-bottom: 28px;
     }
 
     .rec-stat-num {
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 2.8rem;
+      font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 1.05;
-      color: var(--text-primary);
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .rec-stat-sub {
@@ -712,13 +917,11 @@
 
     .rec-badge {
       padding: 15px 12px;
-      border-radius: 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
       text-align: center;
-      font-size: 0.83rem;
-      font-weight: 600;
-      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
     }
 
     .rec-cards {
@@ -728,35 +931,36 @@
     }
 
     .rec-card {
-      padding: 22px 24px;
-      border-radius: 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      padding: 24px;
+      border-radius: 18px;
     }
 
     .rec-card-kicker {
+      font-family: var(--font-mono);
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--accent-emerald);
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .rec-card p {
-      font-size: 0.89rem;
-      line-height: 1.62;
+      font-size: 0.9rem;
+      line-height: 1.64;
       color: var(--text-secondary);
     }
 
     /* =====================================================================
-       5. TRUE 3D WEBGL HYPERBOLIC TUNNEL -> POLAR GRID -> DISPLACED ORB
-          + APP ICON ACHIEVEMENTS (MATCHES 00:12 TO 00:23 EXACTLY)
+       6. TRUE 3D WEBGL CHROMATIC LIGHT-VORTEX -> DISPLACED ORB
+          + COLORFUL CHROMATIC DATE CAPSULES (NO WIREFRAME, NO AI ICONS!)
     ===================================================================== */
     .wormhole-section {
       position: relative;
-      height: 520vh;
+      height: 500vh;
     }
 
     .wormhole-sticky {
@@ -770,7 +974,6 @@
       justify-content: center;
     }
 
-    /* Fullscreen WebGL Hyperbolic Gravity-Well & Polar Grid Canvas */
     #tunnelWebGLCanvas {
       position: absolute;
       inset: 0;
@@ -780,7 +983,6 @@
       pointer-events: none;
     }
 
-    /* Central WebGL Iridescent Displaced-Mesh Orb emerging from Polar Grid (00:19-00:23) */
     #tunnelWebGLOrb {
       position: absolute;
       left: 50%;
@@ -792,9 +994,9 @@
       opacity: 0;
       pointer-events: none;
       will-change: transform, opacity;
+      filter: drop-shadow(0 24px 60px rgba(124, 58, 237, 0.35));
     }
 
-    /* Phase A: LED Span Pill + Headline at Top of Funnel (00:12-00:14) */
     .wh-intro {
       position: absolute;
       top: 12vh;
@@ -802,7 +1004,7 @@
       transform: translateX(-50%);
       z-index: 6;
       text-align: center;
-      width: min(92vw, 720px);
+      width: min(92vw, 740px);
       pointer-events: none;
       will-change: transform, opacity;
     }
@@ -811,79 +1013,89 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 16px;
-      border-radius: 10px;
-      background: rgba(16, 185, 129, 0.13);
-      border: 1px solid rgba(52, 211, 153, 0.38);
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(20px);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent-emerald);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      box-shadow: var(--specular-top);
       margin-bottom: 14px;
     }
 
     .wh-intro h2 {
-      font-size: clamp(2rem, 4.3vw, 3.35rem);
-      font-weight: 700;
+      font-size: clamp(2.05rem, 4.4vw, 3.45rem);
+      font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.08;
     }
 
-    /* Phase B: macOS-Style Squircle App Icons for All 16 Achievements */
-    .wh-icons-layer {
+    .wh-capsules-layer {
       position: absolute;
       inset: 0;
       z-index: 5;
       pointer-events: none;
     }
 
-    .app-icon-node {
+    /* Colorful Frosted-Glass Chromatic Milestone Capsule (Zero AI Icons!) */
+    .chromatic-node {
       position: absolute;
       left: 50%;
-      top: 52%;
-      display: flex;
-      flex-direction: column;
+      top: 54%;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 11px;
+      padding: 9px 16px 9px 10px;
+      border-radius: 999px;
+      background: var(--glass-bg-strong);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(22px) saturate(185%);
+      -webkit-backdrop-filter: blur(22px) saturate(185%);
+      box-shadow:
+        var(--specular-top),
+        0 18px 40px -10px rgba(0, 0, 0, 0.45);
       will-change: transform, opacity;
+      white-space: nowrap;
     }
 
-    .app-squircle {
-      width: 58px;
-      height: 58px;
-      border-radius: 15px;
+    .chromatic-orb-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
-      box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.45),
-        inset 0 1.5px 1px rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      position: relative;
-    }
-
-    .app-icon-caption {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-    }
-
-    [data-theme="light"] .app-icon-caption {
-      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
-    }
-
-    .app-icon-date {
       font-family: var(--font-mono);
-      font-size: 0.64rem;
-      color: var(--accent-gold);
-      margin-top: -3px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #ffffff;
+      box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.55), 0 6px 16px rgba(0, 0, 0, 0.3);
+      flex-shrink: 0;
     }
 
-    /* Phase C: Side Headlines Flanking the Emerging WebGL Orb + Bottom App Icon Dock (00:22-00:23) */
+    .chromatic-node-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .chromatic-node-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .chromatic-node-date {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
     .wh-orb-overlay {
       position: absolute;
       inset: 0;
@@ -891,7 +1103,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 14vh clamp(24px, 6vw, 96px) 5vh;
+      padding: 15vh clamp(24px, 6vw, 96px) 5vh;
       pointer-events: none;
       opacity: 0;
     }
@@ -905,13 +1117,19 @@
     }
 
     .wh-callout-block {
-      max-width: 290px;
+      max-width: 295px;
+      padding: 20px 24px;
+      border-radius: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(22px);
+      box-shadow: var(--specular-top);
     }
 
     .wh-callout-block h3 {
-      font-size: clamp(1.25rem, 2.3vw, 1.75rem);
-      font-weight: 600;
-      line-height: 1.24;
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.25;
       letter-spacing: -0.025em;
     }
 
@@ -919,49 +1137,46 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
+      gap: 10px;
       padding-top: 12px;
     }
 
-    .dock-mini-icon {
-      display: flex;
-      flex-direction: column;
+    .dock-mini-pill {
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--glass-bg-strong);
+      border: 1px solid var(--border-glass-strong);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--specular-top);
     }
 
-    .dock-mini-squircle {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    .dock-mini-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px currentColor;
     }
 
     .dock-mini-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-primary);
     }
 
     /* =====================================================================
-       6. CHRONOLOGICAL TIMELINE EXPLORER WINDOW (MATCHES 00:23 - 00:24)
+       7. CHRONOLOGICAL TIMELINE EXPLORER WINDOW (08/2023 -> 11/2026)
     ===================================================================== */
     .timeline-explorer-section {
       position: relative;
       z-index: 8;
       padding: 40px 0 96px;
-      background: var(--bg-page);
     }
 
     .explorer-window {
-      border-radius: 22px;
-      background: var(--bg-card-solid);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-elevated);
+      border-radius: 26px;
       overflow: hidden;
     }
 
@@ -971,26 +1186,27 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 15px 22px;
-      border-bottom: 1px solid var(--border-subtle);
-      background: var(--bg-surface);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-glass);
+      background: var(--glass-hover);
     }
 
     .explorer-title-group {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     .explorer-badge {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      padding: 3px 9px;
-      border-radius: 6px;
-      background: rgba(34, 211, 238, 0.12);
-      color: var(--accent-cyan);
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--grad-primary);
+      color: #ffffff;
     }
 
     .explorer-body {
@@ -1001,15 +1217,15 @@
 
     .explorer-sidebar {
       padding: 20px 16px;
-      border-right: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-glass);
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
 
     .sidebar-label {
       font-size: 0.68rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--text-muted);
@@ -1021,23 +1237,27 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      padding: 9px 12px;
-      border-radius: 10px;
-      border: none;
+      padding: 10px 13px;
+      border-radius: 12px;
+      border: 1px solid transparent;
       background: transparent;
       color: var(--text-secondary);
       font-size: 0.84rem;
-      font-weight: 500;
+      font-weight: 600;
       text-align: left;
       cursor: pointer;
-      transition: background-color 0.15s ease, color 0.15s ease;
+      transition: all 0.25s var(--spring);
     }
 
-    .cat-filter-btn:hover,
-    .cat-filter-btn.active {
-      background: var(--bg-hover);
+    .cat-filter-btn:hover {
+      background: var(--glass-hover);
       color: var(--text-primary);
-      font-weight: 600;
+    }
+
+    .cat-filter-btn.active {
+      background: var(--grad-primary);
+      color: #ffffff;
+      box-shadow: 0 8px 20px -6px rgba(124, 58, 237, 0.45);
     }
 
     .explorer-main {
@@ -1053,33 +1273,43 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      padding: 16px 18px;
-      border-radius: 15px;
-      background: var(--bg-page);
-      border: 1px solid var(--border-subtle);
+      padding: 17px 19px;
+      border-radius: 18px;
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass);
       cursor: pointer;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: transform 0.3s var(--spring), border-color 0.25s ease, background-color 0.25s ease;
     }
 
-    .milestone-row:hover,
+    .milestone-row:hover {
+      transform: translateX(4px);
+      border-color: var(--border-glass-strong);
+    }
+
     .milestone-row.selected {
-      border-color: var(--accent-gold);
+      border-color: var(--accent-2);
+      background: var(--glass-bg-strong);
+      box-shadow: var(--specular-top);
     }
 
     .milestone-row.is-hidden {
       display: none;
     }
 
-    .row-app-icon {
+    /* Colorful Chromatic Index Pill (Zero AI Icons!) */
+    .row-chroma-badge {
       width: 44px;
       height: 44px;
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 800;
       color: #ffffff;
       flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.38);
+      box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, 0.5), 0 8px 18px rgba(0, 0, 0, 0.26);
       margin-top: 2px;
     }
 
@@ -1094,30 +1324,33 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .mr-date {
       font-family: var(--font-mono);
       font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent-gold);
+      font-weight: 700;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .mr-cat {
       font-size: 0.68rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 2px 9px;
+      padding: 3px 10px;
       border-radius: 999px;
-      background: var(--bg-hover);
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
       color: var(--text-secondary);
     }
 
     .mr-title {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.35;
       color: var(--text-primary);
       margin-bottom: 4px;
@@ -1131,22 +1364,24 @@
 
     .explorer-inspector {
       padding: 22px 20px;
-      border-left: 1px solid var(--border-subtle);
-      background: var(--bg-surface);
+      border-left: 1px solid var(--border-glass);
+      background: var(--glass-hover);
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
 
     .inspector-box {
-      padding: 15px;
-      border-radius: 12px;
-      background: var(--bg-page);
-      border: 1px solid var(--border-subtle);
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--specular-top);
     }
 
     .inspector-box h4 {
       font-size: 0.7rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
@@ -1160,22 +1395,22 @@
     }
 
     /* =====================================================================
-       7. THREE PILLARS + STICKY CASE STUDY SHOWCASE (MATCHES 00:26 - 00:33)
+       8. THREE PILLARS + CASE STUDY SHOWCASE
     ===================================================================== */
     .pillars-section {
-      padding: 88px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 92px 0;
+      border-top: 1px solid var(--border-glass);
     }
 
     .centered-header {
       text-align: center;
-      max-width: 660px;
-      margin: 0 auto 48px;
+      max-width: 680px;
+      margin: 0 auto 50px;
     }
 
     .centered-header h2 {
-      font-size: clamp(2rem, 3.8vw, 2.95rem);
-      font-weight: 700;
+      font-size: clamp(2.05rem, 3.9vw, 3rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.12;
       margin-bottom: 12px;
@@ -1193,59 +1428,38 @@
     }
 
     .pillar-card {
-      padding: 30px 26px;
-      border-radius: 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      padding: 32px 28px;
+      border-radius: 22px;
       text-align: center;
-      transition: transform 0.25s var(--ease-out), border-color 0.25s ease;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .pillar-card--gold {
-      border-color: rgba(251, 191, 36, 0.42);
-      box-shadow: 0 22px 52px -20px rgba(251, 191, 36, 0.26);
-    }
-
-    .pillar-card--indigo {
-      border-color: rgba(99, 102, 241, 0.42);
-      box-shadow: 0 22px 52px -20px rgba(99, 102, 241, 0.26);
-    }
-
-    .pillar-card--emerald {
-      border-color: rgba(52, 211, 153, 0.42);
-      box-shadow: 0 22px 52px -20px rgba(52, 211, 153, 0.26);
     }
 
     .pillar-badge {
       display: inline-block;
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      padding: 4px 11px;
-      border-radius: 8px;
-      background: var(--bg-hover);
-      color: var(--text-primary);
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--grad-primary);
+      color: #ffffff;
       margin-bottom: 16px;
     }
 
     .pillar-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
     .pillar-card p {
-      font-size: 0.9rem;
+      font-size: 0.91rem;
       color: var(--text-secondary);
-      line-height: 1.65;
+      line-height: 1.66;
     }
 
     .cases-section {
-      padding: 88px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 92px 0;
+      border-top: 1px solid var(--border-glass);
     }
 
     .cases-split {
@@ -1257,17 +1471,20 @@
 
     .case-kicker {
       font-family: var(--font-mono);
-      font-size: 0.74rem;
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent-gold);
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: block;
       margin-bottom: 10px;
     }
 
     .cases-left h2 {
-      font-size: clamp(1.9rem, 3.2vw, 2.55rem);
-      font-weight: 700;
+      font-size: clamp(1.95rem, 3.3vw, 2.6rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.14;
       margin-bottom: 14px;
@@ -1283,7 +1500,7 @@
     .case-selector-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .case-select-btn {
@@ -1291,37 +1508,43 @@
       align-items: center;
       gap: 14px;
       width: 100%;
-      padding: 14px 18px;
-      border-radius: 13px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text-muted);
+      padding: 15px 18px;
+      border-radius: 15px;
+      border: 1px solid var(--border-glass);
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      color: var(--text-secondary);
       font-size: 0.94rem;
-      font-weight: 500;
+      font-weight: 600;
       text-align: left;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s var(--spring);
     }
 
-    .case-select-btn:hover,
-    .case-select-btn.active {
-      background: var(--bg-card);
-      border-color: var(--border-strong);
+    .case-select-btn:hover {
+      transform: translateX(4px);
       color: var(--text-primary);
+    }
+
+    .case-select-btn.active {
+      border-color: var(--accent-2);
+      color: var(--text-primary);
+      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.3);
     }
 
     .case-select-num {
       font-family: var(--font-mono);
       font-size: 0.78rem;
-      color: var(--accent-gold);
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 8px;
+      background: var(--grad-primary);
+      color: #ffffff;
     }
 
     .case-display-card {
-      padding: clamp(26px, 3.6vw, 38px);
-      border-radius: 22px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-elevated);
+      padding: clamp(28px, 3.8vw, 40px);
+      border-radius: 24px;
     }
 
     .case-display-top {
@@ -1332,12 +1555,12 @@
       gap: 12px;
       padding-bottom: 18px;
       margin-bottom: 18px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-glass);
     }
 
     .case-display-title {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.55rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
@@ -1352,13 +1575,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 12px;
     }
 
     .case-highlights li {
       position: relative;
-      padding-left: 16px;
-      font-size: 0.9rem;
+      padding-left: 18px;
+      font-size: 0.91rem;
       color: var(--text-secondary);
     }
 
@@ -1366,19 +1589,19 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0.68em;
-      width: 5px;
-      height: 5px;
+      top: 0.62em;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--accent-emerald);
+      background: var(--grad-primary);
     }
 
     /* =====================================================================
-       8. ENGINEERING ASYMMETRIC BENTO (MATCHES 00:33 - 00:34)
+       9. ENGINEERING ASYMMETRIC BENTO
     ===================================================================== */
     .engineering-section {
-      padding: 88px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 92px 0;
+      border-top: 1px solid var(--border-glass);
     }
 
     .eng-bento {
@@ -1389,9 +1612,7 @@
 
     .eng-hero-card {
       padding: clamp(28px, 4vw, 42px);
-      border-radius: 22px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1399,8 +1620,8 @@
     }
 
     .eng-hero-card h2 {
-      font-size: clamp(1.9rem, 3.2vw, 2.55rem);
-      font-weight: 700;
+      font-size: clamp(1.95rem, 3.3vw, 2.6rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.14;
       margin-bottom: 14px;
@@ -1413,22 +1634,19 @@
     }
 
     .eng-spectrum-box {
-      height: 164px;
-      border-radius: 16px;
-      background:
-        radial-gradient(circle at 22% 50%, rgba(52, 211, 153, 0.36), transparent 55%),
-        radial-gradient(circle at 52% 40%, rgba(251, 191, 36, 0.36), transparent 55%),
-        radial-gradient(circle at 82% 60%, rgba(99, 102, 241, 0.42), transparent 60%),
-        var(--bg-page);
-      border: 1px solid var(--border-subtle);
+      height: 156px;
+      border-radius: 18px;
+      background: var(--grad-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 18px;
+      padding: 0 20px;
       text-align: center;
       font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
     .eng-stack-col {
@@ -1438,15 +1656,13 @@
     }
 
     .eng-sub-card {
-      padding: 25px 28px;
-      border-radius: 18px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      padding: 26px 28px;
+      border-radius: 20px;
     }
 
     .eng-sub-card h3 {
-      font-size: 1.08rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
@@ -1457,12 +1673,12 @@
     }
 
     /* =====================================================================
-       9. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING (MATCHES 00:35)
+       10. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING
     ===================================================================== */
     .writing-spotlight {
       position: relative;
-      padding: 104px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 108px 0;
+      border-top: 1px solid var(--border-glass);
       overflow: hidden;
     }
 
@@ -1471,7 +1687,7 @@
       inset: 0;
       background: repeating-conic-gradient(
         from 0deg at 50% 50%,
-        rgba(99, 102, 241, 0.09) 0deg 6deg,
+        rgba(124, 58, 237, 0.11) 0deg 6deg,
         transparent 6deg 18deg
       );
       mask-image: radial-gradient(circle at 50% 50%, black 16%, transparent 74%);
@@ -1479,40 +1695,45 @@
       pointer-events: none;
     }
 
+    [data-theme="light"] .radial-beams {
+      background: repeating-conic-gradient(
+        from 0deg at 50% 50%,
+        rgba(249, 115, 22, 0.14) 0deg 6deg,
+        transparent 6deg 18deg
+      );
+    }
+
     .spotlight-card {
       position: relative;
       z-index: 2;
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: clamp(34px, 5vw, 52px);
-      border-radius: 24px;
-      background: var(--bg-card-solid);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-elevated);
+      padding: clamp(36px, 5vw, 54px);
+      border-radius: 28px;
       text-align: center;
     }
 
     .spotlight-card h2 {
-      font-size: clamp(1.8rem, 3.1vw, 2.35rem);
-      font-weight: 700;
+      font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.16;
       margin-bottom: 14px;
     }
 
     .spotlight-card p {
-      font-size: 0.96rem;
+      font-size: 0.97rem;
       line-height: 1.72;
       color: var(--text-secondary);
       margin-bottom: 24px;
     }
 
     /* =====================================================================
-       10. CLEAN 2-COLUMN EXPANDABLE RECORD (FULL-WIDTH UTILIZATION)
+       11. CLEAN 2-COLUMN EXPANDABLE RECORD
     ===================================================================== */
     .record-section {
-      padding: 88px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 92px 0;
+      border-top: 1px solid var(--border-glass);
     }
 
     .accordion-columns {
@@ -1523,7 +1744,7 @@
 
     .acc-col-title {
       font-size: 0.78rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
@@ -1533,24 +1754,22 @@
     .acc-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .acc-item {
-      border-radius: 14px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
       overflow: hidden;
     }
 
     .acc-trigger {
       width: 100%;
-      padding: 16px 20px;
+      padding: 17px 20px;
       background: transparent;
       border: none;
       color: var(--text-primary);
-      font-size: 0.92rem;
-      font-weight: 500;
+      font-size: 0.93rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1561,62 +1780,63 @@
 
     .acc-plus {
       font-family: var(--font-mono);
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      transition: transform 0.2s ease;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      transition: transform 0.3s var(--bounce-spring);
     }
 
     .acc-item.open .acc-plus {
       transform: rotate(45deg);
-      color: var(--accent-gold);
     }
 
     .acc-panel {
       display: none;
       padding: 0 20px 18px;
-      font-size: 0.88rem;
+      font-size: 0.89rem;
       line-height: 1.66;
       color: var(--text-secondary);
     }
 
     .acc-item.open .acc-panel {
       display: block;
+      animation: panelFadeSlide 0.3s var(--spring);
     }
 
     /* =====================================================================
-       11. CLOSING CTA & FULL-BLEED DOTTED MATRIX FOOTER (MATCHES 00:39 - 00:40)
+       12. CLOSING CTA & CHROMATIC DOTTED MATRIX FOOTER
     ===================================================================== */
     .closing-section {
       position: relative;
-      padding: 88px 0 42px;
-      border-top: 1px solid var(--border-subtle);
+      padding: 92px 0 46px;
+      border-top: 1px solid var(--border-glass);
       overflow: hidden;
     }
 
     .closing-top {
       text-align: center;
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 36px;
       position: relative;
       z-index: 2;
     }
 
     .closing-top h2 {
-      font-size: clamp(1.95rem, 3.6vw, 2.8rem);
-      font-weight: 700;
+      font-size: clamp(2rem, 3.7vw, 2.85rem);
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.14;
       margin-bottom: 10px;
     }
 
     .closing-top p {
-      font-size: 0.96rem;
+      font-size: 0.97rem;
       color: var(--text-secondary);
     }
 
     #dotMatrixCanvas {
       width: 100%;
-      height: 230px;
+      height: 210px;
       display: block;
       margin-bottom: 28px;
     }
@@ -1628,7 +1848,7 @@
       justify-content: space-between;
       gap: 20px;
       padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-glass);
       margin-bottom: 20px;
     }
 
@@ -1659,17 +1879,20 @@
     }
 
     /* =====================================================================
-       12. RESPONSIVE & REDUCED MOTION
+       13. RESPONSIVE & REDUCED MOTION
     ===================================================================== */
-    @media (max-width: 980px) {
-      .nav-pill-group {
+    @media (max-width: 1060px) {
+      .dock-nav,
+      .dock-location-badge {
         display: none;
       }
 
       .mobile-toggle {
         display: inline-flex;
       }
+    }
 
+    @media (max-width: 960px) {
       .hero-grid,
       .showcase-frame-grid,
       .recognition-top,
@@ -1679,11 +1902,10 @@
         grid-template-columns: 1fr;
       }
 
-      #heroWebGLOrb {
-        width: 210px;
-        height: 210px;
-        right: 0;
-        bottom: -24px;
+      .hero-orb-stage {
+        height: auto;
+        flex-direction: column;
+        text-align: center;
       }
 
       .rec-logos {
@@ -1701,14 +1923,14 @@
 
       .explorer-sidebar {
         border-right: none;
-        border-bottom: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-glass);
         flex-direction: row;
         flex-wrap: wrap;
       }
 
       .explorer-inspector {
         border-left: none;
-        border-top: 1px solid var(--border-subtle);
+        border-top: 1px solid var(--border-glass);
       }
 
       .wh-orb-callouts {
@@ -1727,6 +1949,16 @@
         scroll-behavior: auto;
       }
 
+      .ambient-field {
+        animation: none;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+
       .wormhole-section {
         height: auto;
         padding: 40px 0;
@@ -1739,7 +1971,7 @@
 
       #tunnelWebGLCanvas,
       #tunnelWebGLOrb,
-      .wh-icons-layer,
+      .wh-capsules-layer,
       .wh-orb-overlay {
         display: none;
       }
@@ -1747,13 +1979,16 @@
   </style>
 </head>
 <body>
+  <!-- Living Multi-Layer Ambient Gradient Field (Refracted through Glass Cards) -->
+  <div class="ambient-field" aria-hidden="true"></div>
+
   <!-- ===================================================================
-       TOP FLOATING NAVIGATION BAR (WITH PORTRAIT LOGO)
+       ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
   =================================================================== -->
   <header class="site-header">
     <div class="container">
-      <div class="nav-bar">
-        <a href="#top" class="brand-link">
+      <div class="top-dock-shell" id="topDockShell">
+        <a href="#overview" class="brand-link">
           <span class="brand-avatar-wrap">
             <img
               src="1788752177068.png"
@@ -1766,33 +2001,38 @@
           <span>Samar Agshikar</span>
         </a>
 
-        <nav class="nav-pill-group" aria-label="Primary">
-          <a href="#timeline">Timeline</a>
-          <a href="#projects">Projects</a>
-          <a href="#engineering">Engineering</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+        <nav class="dock-nav" id="dockNav" aria-label="Section Navigation">
+          <span class="nav-active-pill" id="navActivePill" aria-hidden="true"></span>
+          <a href="#overview" data-section="overview" class="active">Overview</a>
+          <a href="#timeline" data-section="timeline">Timeline</a>
+          <a href="#projects" data-section="projects">Projects</a>
+          <a href="#engineering" data-section="engineering">Engineering</a>
+          <a href="#writing" data-section="writing">Writing</a>
+          <a href="#record" data-section="record">Record</a>
+          <a href="#contact" data-section="contact">Contact</a>
         </nav>
 
-        <div class="nav-actions">
+        <div class="dock-right">
+          <span class="dock-location-badge" id="dockLocationBadge">Overview · 0%</span>
+
           <button
             class="icon-btn"
             id="themeToggleBtn"
             type="button"
             aria-label="Switch between dark and light mode"
-            title="Toggle Dark / Light Theme"
+            title="Switch Dark / Light Theme"
           >
-            <svg id="themeIconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
               <circle cx="12" cy="12" r="4" />
               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
             </svg>
-            <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display: none;">
+            <svg id="themeIconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display: none;">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
 
           <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
             </svg>
           </a>
@@ -1803,37 +2043,41 @@
           </a>
 
           <button class="icon-btn mobile-toggle" id="mobileMenuBtn" type="button" aria-label="Menu" aria-expanded="false">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
               <line x1="4" y1="7" x2="20" y2="7" />
               <line x1="4" y1="12" x2="20" y2="12" />
               <line x1="4" y1="17" x2="20" y2="17" />
             </svg>
           </button>
         </div>
+
+        <div class="dock-progress-track" aria-hidden="true">
+          <div class="dock-progress-fill" id="dockProgressFill"></div>
+        </div>
       </div>
 
-      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-        <a href="#timeline">Timeline</a>
-        <a href="#projects">Projects</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+        <a href="#overview" data-section="overview" class="active">Overview</a>
+        <a href="#timeline" data-section="timeline">Timeline</a>
+        <a href="#projects" data-section="projects">Projects</a>
+        <a href="#engineering" data-section="engineering">Engineering</a>
+        <a href="#writing" data-section="writing">Writing</a>
+        <a href="#record" data-section="record">Record</a>
+        <a href="#contact" data-section="contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <!-- =================================================================
-         1. HERO SECTION + TRUE 3D WEBGL DISPLACED-MESH ORB
+         1. OVERVIEW / HERO SECTION (ZERO OVERLAPPING DATES!)
     ================================================================= -->
-    <section class="hero-section">
-      <div class="hero-aurora" aria-hidden="true"></div>
-
+    <section class="hero-section" id="overview" data-scroll-section="Overview">
       <div class="container">
         <div class="hero-grid">
-          <div>
+          <div data-reveal>
             <div class="hero-eyebrow">
-              <span class="hero-eyebrow-bar" aria-hidden="true"></span>
+              <span class="eyebrow-dot" aria-hidden="true"></span>
               <span>Student · Software Developer · Aspiring Entrepreneur</span>
             </div>
 
@@ -1842,16 +2086,16 @@
             </h1>
 
             <p class="hero-sub">
-              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. Scroll down to enter the 3D chronological tunnel of my milestones, products, and leadership journey.
+              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. Scroll continuously from top to bottom to traverse my 3D chromatic timeline, projects, engineering craft, and record.
             </p>
 
             <div class="hero-cta-row">
               <a href="#timeline" class="btn-luminous">
-                <span>Enter 3D Timeline Tunnel</span>
+                <span>Scroll Into 3D Timeline</span>
                 <span aria-hidden="true">↓</span>
               </a>
-              <a href="#projects" class="btn-outline">
-                <span>Explore Project Case Studies</span>
+              <a href="#projects" class="btn-glass">
+                <span>View Case Studies</span>
               </a>
             </div>
 
@@ -1864,8 +2108,18 @@
             </div>
           </div>
 
-          <div class="hero-visual-wrap">
-            <div class="hero-preview-card">
+          <!-- Right Column: Cleanly Stacked 3D Orb Stage ABOVE Chronological Snapshot (Zero Date Overlap) -->
+          <div class="hero-right-stack" data-reveal style="--delay: 120ms;">
+            <div class="hero-orb-stage glass-panel" data-tilt>
+              <div class="orb-stage-meta">
+                <span class="orb-stage-kicker">Interactive Shader</span>
+                <h2>Chromatic Intelligence Field</h2>
+                <p>Real-time 3D displaced-mesh surface reactive to theme and scroll.</p>
+              </div>
+              <canvas id="heroWebGLOrb" width="440" height="440" aria-hidden="true"></canvas>
+            </div>
+
+            <div class="hero-preview-card glass-panel" data-tilt>
               <div class="preview-card-bar">
                 <div class="preview-dots"><span></span><span></span><span></span></div>
                 <span>Chronological Snapshot · 2023–2026</span>
@@ -1874,34 +2128,31 @@
                 <div class="preview-row">
                   <div>
                     <strong>THE 1</strong>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">ADIS School Pilot &amp; Product Hunt Launch</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">ADIS School Pilot &amp; Product Hunt Launch</div>
                   </div>
                   <span class="preview-tag">10/2026</span>
                 </div>
                 <div class="preview-row">
                   <div>
                     <strong>Kerniq &amp; Building What’s Next</strong>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">AI Reasoning System &amp; Substack Publication</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">AI Reasoning System &amp; Substack Publication</div>
                   </div>
                   <span class="preview-tag">11/2026</span>
                 </div>
                 <div class="preview-row">
                   <div>
                     <strong>Google Gemini Invitation</strong>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">Potential involvement with a future version</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">Potential involvement with a future version</div>
                   </div>
                   <span class="preview-tag">11/2026</span>
                 </div>
               </div>
             </div>
-
-            <!-- True 3D WebGL Displaced-Mesh Shader Orb -->
-            <canvas id="heroWebGLOrb" width="560" height="560" aria-hidden="true"></canvas>
           </div>
         </div>
 
         <!-- 2-Tab Feature Switcher -->
-        <div class="hero-switcher-wrap">
+        <div data-reveal style="--delay: 200ms;">
           <div class="hero-switcher-tabs" role="tablist" aria-label="Featured software">
             <button class="switcher-tab active" data-showcase="the1" type="button">
               <span class="switcher-tab-title">THE 1</span>
@@ -1913,7 +2164,7 @@
             </button>
           </div>
 
-          <div class="hero-showcase-frame" id="heroShowcaseFrame">
+          <div class="hero-showcase-frame glass-panel" id="heroShowcaseFrame" data-tilt>
             <div class="showcase-frame-grid">
               <div class="showcase-copy">
                 <h3>THE 1 — All-in-one workspace for students</h3>
@@ -1930,15 +2181,15 @@
               <div class="showcase-mock">
                 <div class="mock-item">
                   <span><strong>06/2026</strong> · Started building THE 1</span>
-                  <span style="color: var(--accent-emerald); font-size: 0.76rem;">the-1.app</span>
+                  <span class="preview-tag">the-1.app</span>
                 </div>
                 <div class="mock-item">
                   <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-                  <span style="color: var(--accent-gold); font-size: 0.76rem;">ADIS Pilot</span>
+                  <span class="preview-tag">ADIS Pilot</span>
                 </div>
                 <div class="mock-item">
                   <span><strong>10/2026</strong> · Public launch on Product Hunt</span>
-                  <span style="color: var(--accent-cyan); font-size: 0.76rem;">Launched</span>
+                  <span class="preview-tag">Launched</span>
                 </div>
               </div>
             </div>
@@ -1948,34 +2199,34 @@
     </section>
 
     <!-- =================================================================
-         2. ARCHITECTURAL RECOGNITION & MILESTONE BAR
+         2. RECOGNITION & MILESTONE HIGHLIGHTS
     ================================================================= -->
     <section class="recognition-section" aria-label="Academic and leadership highlights">
       <div class="container">
-        <div class="recognition-top">
+        <div class="recognition-top" data-reveal>
           <div>
             <div class="rec-stat-num">16</div>
             <div class="rec-stat-sub">Chronological milestones · 08/2023 to 11/2026</div>
           </div>
           <div class="rec-logos">
-            <div class="rec-badge">Gymnasium Coswig</div>
-            <div class="rec-badge">SOF Math Gold</div>
-            <div class="rec-badge">ASSET Math 98%</div>
-            <div class="rec-badge">ADIS Pilot</div>
-            <div class="rec-badge">Product Hunt</div>
+            <div class="rec-badge glass-panel">Gymnasium Coswig</div>
+            <div class="rec-badge glass-panel">SOF Math Gold</div>
+            <div class="rec-badge glass-panel">ASSET Math 98%</div>
+            <div class="rec-badge glass-panel">ADIS Pilot</div>
+            <div class="rec-badge glass-panel">Product Hunt</div>
           </div>
         </div>
 
         <div class="rec-cards">
-          <div class="rec-card">
+          <div class="rec-card glass-panel" data-tilt data-reveal style="--delay: 60ms;">
             <span class="rec-card-kicker">11/2026 · Technology</span>
             <p>Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini.</p>
           </div>
-          <div class="rec-card">
+          <div class="rec-card glass-panel" data-tilt data-reveal style="--delay: 140ms;">
             <span class="rec-card-kicker">10/2026 · Leadership</span>
             <p>Joined the Round Square Student Committee for 2026–27 alongside Student Council and Culture &amp; Events.</p>
           </div>
-          <div class="rec-card">
+          <div class="rec-card glass-panel" data-tilt data-reveal style="--delay: 220ms;">
             <span class="rec-card-kicker">11/2026 · Community &amp; Writing</span>
             <p>Became an Internshala Student Partner and started <em>Building What’s Next</em> on Substack.</p>
           </div>
@@ -1984,27 +2235,24 @@
     </section>
 
     <!-- =================================================================
-         3. TRUE 3D WEBGL HYPERBOLIC TUNNEL -> POLAR GRID -> DISPLACED ORB
-            WITH ALL 16 ACHIEVEMENTS AS APP ICONS
+         3. 3D WEBGL CHROMATIC LIGHT-VORTEX + COLORFUL MILESTONE CAPSULES
+            (NO WIREFRAME TUNNEL, NO AI ICONS!)
     ================================================================= -->
-    <section class="wormhole-section" id="timeline" aria-label="3D Chronological Tunnel">
+    <section class="wormhole-section" id="timeline" data-scroll-section="Timeline" aria-label="3D Chronological Vortex">
       <div class="wormhole-sticky">
-        <!-- WebGL Hyperbolic Gravity-Well Mesh & Polar Grid -->
         <canvas id="tunnelWebGLCanvas" aria-hidden="true"></canvas>
-
-        <!-- WebGL Iridescent Displaced-Mesh Orb emerging from center of Polar Grid -->
         <canvas id="tunnelWebGLOrb" width="760" height="760" aria-hidden="true"></canvas>
 
-        <!-- Phase A: LED Span Badge + Headline -->
+        <!-- Phase A: Span Pill + Headline -->
         <div class="wh-intro" id="whIntro">
           <div class="wh-clock-pill">08/2023 → 11/2026</div>
           <h2>Every milestone, from beginning to present.</h2>
         </div>
 
-        <!-- Phase B: All 16 Achievements as Rounded-Square App Icons -->
-        <div class="wh-icons-layer" id="whIconsLayer" aria-hidden="true"></div>
+        <!-- Phase B: All 16 Achievements as Colorful Chromatic Date Capsules -->
+        <div class="wh-capsules-layer" id="whCapsulesLayer" aria-hidden="true"></div>
 
-        <!-- Phase C: Side Headlines Flanking Emerging WebGL Orb + Bottom Icon Dock -->
+        <!-- Phase C: Glass Callouts Flanking Emerging WebGL Orb + Bottom Chromatic Dock -->
         <div class="wh-orb-overlay" id="whOrbOverlay">
           <div class="wh-orb-callouts">
             <div class="wh-callout-block">
@@ -2025,17 +2273,16 @@
     ================================================================= -->
     <section class="timeline-explorer-section" aria-label="Complete Chronological Timeline">
       <div class="container">
-        <div class="explorer-window">
+        <div class="explorer-window glass-panel" data-reveal>
           <div class="explorer-topbar">
             <div class="explorer-title-group">
               <span>Chronological Timeline</span>
               <span class="explorer-badge">08/2023 — 11/2026 · Earliest First</span>
             </div>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">Click any milestone app icon or card to inspect details</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Select any milestone capsule to inspect details</span>
           </div>
 
           <div class="explorer-body">
-            <!-- Left Category Sidebar -->
             <aside class="explorer-sidebar" aria-label="Filter milestones by category">
               <span class="sidebar-label">Categories</span>
               <button class="cat-filter-btn active" data-cat="all" type="button">
@@ -2064,14 +2311,12 @@
               </button>
             </aside>
 
-            <!-- Center Chronological Stream (Strict Order: 08/2023 -> 11/2026) -->
             <div class="explorer-main" id="timelineList"></div>
 
-            <!-- Right Inspector Pane -->
             <aside class="explorer-inspector" id="timelineInspector" aria-live="polite">
               <div class="inspector-box">
                 <h4>Selected Date / Period</h4>
-                <p id="inspDate" style="font-family: var(--font-mono); color: var(--accent-gold); font-weight: 600;">08/2023</p>
+                <p id="inspDate" style="font-family: var(--font-mono); font-weight: 700; color: var(--text-primary);">08/2023</p>
               </div>
               <div class="inspector-box">
                 <h4>Category</h4>
@@ -2090,29 +2335,29 @@
     </section>
 
     <!-- =================================================================
-         5. THREE PILLARS CARDS
+         5. PROJECTS SECTION — THREE PILLARS + INTERACTIVE CASE STUDIES
     ================================================================= -->
-    <section class="pillars-section">
+    <section class="pillars-section" id="projects" data-scroll-section="Projects">
       <div class="container">
-        <div class="centered-header">
+        <div class="centered-header" data-reveal>
           <h2>One builder. Three product initiatives.</h2>
           <p>Focused on practical software tools that solve real academic and student challenges.</p>
         </div>
 
         <div class="pillars-grid">
-          <div class="pillar-card pillar-card--gold">
+          <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 60ms;">
             <span class="pillar-badge">06/2026 · Live</span>
             <h3>THE 1</h3>
             <p>Unified student workspace piloted at Adani International School and launched on Product Hunt.</p>
           </div>
 
-          <div class="pillar-card pillar-card--indigo">
+          <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 140ms;">
             <span class="pillar-badge">11/2026 · Active</span>
             <h3>Kerniq</h3>
             <p>Structured AI reasoning and conceptual synthesis system within the THE 1 ecosystem.</p>
           </div>
 
-          <div class="pillar-card pillar-card--emerald">
+          <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 220ms;">
             <span class="pillar-badge">05/2026–08/2026</span>
             <h3>College Chances India</h3>
             <p>AI-assisted university exploration platform founded in May 2026 and concluded in August 2026.</p>
@@ -2121,13 +2366,10 @@
       </div>
     </section>
 
-    <!-- =================================================================
-         6. INTERACTIVE CASE STUDY SHOWCASE
-    ================================================================= -->
-    <section class="cases-section" id="projects">
+    <section class="cases-section" aria-label="Project Case Studies">
       <div class="container">
         <div class="cases-split">
-          <div class="cases-left">
+          <div class="cases-left" data-reveal>
             <span class="case-kicker">Project Case Studies</span>
             <h2>From student friction to working software.</h2>
             <p>Select an initiative below to inspect its problem, architecture, real-world testing, and current status.</p>
@@ -2148,10 +2390,10 @@
             </div>
           </div>
 
-          <div class="case-display-card" id="caseDisplayCard">
+          <div class="case-display-card glass-panel" id="caseDisplayCard" data-tilt data-reveal style="--delay: 120ms;">
             <div class="case-display-top">
               <h3 class="case-display-title">THE 1</h3>
-              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">
+              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
                 <span>Open the-1.app</span>
                 <span aria-hidden="true">↗</span>
               </a>
@@ -2172,12 +2414,12 @@
     </section>
 
     <!-- =================================================================
-         7. ENGINEERING ASYMMETRIC BENTO
+         6. ENGINEERING ASYMMETRIC BENTO
     ================================================================= -->
-    <section class="engineering-section" id="engineering">
+    <section class="engineering-section" id="engineering" data-scroll-section="Engineering">
       <div class="container">
         <div class="eng-bento">
-          <div class="eng-hero-card">
+          <div class="eng-hero-card glass-panel" data-tilt data-reveal>
             <div>
               <h2>Engineering with clarity.<br />Built for real use.</h2>
               <p>
@@ -2190,15 +2432,15 @@
           </div>
 
           <div class="eng-stack-col">
-            <div class="eng-sub-card">
+            <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 80ms;">
               <h3>Unified Workspace State</h3>
               <p>Structuring schedules, notes, deadlines, and revision sessions around a shared subject context so information stays connected.</p>
             </div>
-            <div class="eng-sub-card">
+            <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 160ms;">
               <h3>Deterministic Core, Grounded AI</h3>
               <p>Keeping daily student organization reliable and deterministic while allowing AI features in THE 1 and Kerniq to reference explicit user notes.</p>
             </div>
-            <div class="eng-sub-card">
+            <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 240ms;">
               <h3>Pilot-Led Iteration</h3>
               <p>Testing THE 1 directly with students at Adani International School prior to the Product Hunt launch to remove real workflow friction.</p>
             </div>
@@ -2208,18 +2450,18 @@
     </section>
 
     <!-- =================================================================
-         8. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING
+         7. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING
     ================================================================= -->
-    <section class="writing-spotlight" id="writing">
+    <section class="writing-spotlight" id="writing" data-scroll-section="Writing">
       <div class="radial-beams" aria-hidden="true"></div>
       <div class="container">
-        <div class="spotlight-card">
+        <div class="spotlight-card glass-panel" data-tilt data-reveal>
           <span class="wh-clock-pill" style="margin-bottom: 16px;">Started 11/2026 · Substack Publication</span>
           <h2>Building What’s Next.</h2>
           <p>
             My Substack publication exploring artificial intelligence, software craft, education, and the lessons of building products as a student.
           </p>
-          <a href="#contact" class="btn-outline">
+          <a href="#contact" class="btn-luminous">
             <span>Connect &amp; Follow Updates</span>
             <span aria-hidden="true">↓</span>
           </a>
@@ -2228,20 +2470,20 @@
     </section>
 
     <!-- =================================================================
-         9. CLEAN 2-COLUMN EXPANDABLE RECORD
+         8. CLEAN 2-COLUMN EXPANDABLE RECORD
     ================================================================= -->
-    <section class="record-section" aria-label="Academic and Leadership Record">
+    <section class="record-section" id="record" data-scroll-section="Record" aria-label="Academic and Leadership Record">
       <div class="container">
-        <div class="centered-header">
+        <div class="centered-header" data-reveal>
           <h2>Academic &amp; leadership record.</h2>
           <p>Key educational transitions, academic distinctions, and student leadership roles.</p>
         </div>
 
         <div class="accordion-columns">
-          <div>
+          <div data-reveal style="--delay: 80ms;">
             <div class="acc-col-title">Education &amp; Academic Distinctions</div>
             <div class="acc-list">
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Gymnasium Coswig, Germany (08/2023 – 06/2025)</span>
                   <span class="acc-plus">+</span>
@@ -2250,7 +2492,7 @@
                   Began secondary school studies at Gymnasium Coswig in Germany in August 2023 and completed studies in Germany in June 2025.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Relocation to Ahmedabad, India (07/2025)</span>
                   <span class="acc-plus">+</span>
@@ -2259,7 +2501,7 @@
                   Moved to Ahmedabad, India in July 2025, continuing academic coursework alongside software development and leadership roles.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>SOF Mathematics Gold Medal of Excellence (11/2025)</span>
                   <span class="acc-plus">+</span>
@@ -2268,7 +2510,7 @@
                   Received the Science Olympiad Foundation (SOF) Mathematics Gold Medal of Excellence in November 2025.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>ASSET Mathematics Gold &amp; Science Silver (01/2026)</span>
                   <span class="acc-plus">+</span>
@@ -2280,10 +2522,10 @@
             </div>
           </div>
 
-          <div>
+          <div data-reveal style="--delay: 160ms;">
             <div class="acc-col-title">Leadership &amp; Recognition</div>
             <div class="acc-list">
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Student Council &amp; Culture &amp; Events (07/2026)</span>
                   <span class="acc-plus">+</span>
@@ -2292,7 +2534,7 @@
                   Joined the Student Council and Culture &amp; Events team in July 2026, supporting student representation and school events.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Round Square Student Committee 2026–27 (10/2026)</span>
                   <span class="acc-plus">+</span>
@@ -2301,7 +2543,7 @@
                   Joined the Round Square Student Committee for the 2026–27 term in October 2026.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Internshala Student Partner (11/2026)</span>
                   <span class="acc-plus">+</span>
@@ -2310,7 +2552,7 @@
                   Became an Internshala Student Partner in November 2026, sharing skill-building and internship resources with peers.
                 </div>
               </div>
-              <div class="acc-item">
+              <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
                   <span>Google Gemini Invitation (11/2026)</span>
                   <span class="acc-plus">+</span>
@@ -2326,19 +2568,19 @@
     </section>
 
     <!-- =================================================================
-         10. CLOSING CTA & DOTTED MATRIX FOOTER (WITH PORTRAIT AVATAR LOGO)
+         9. CLOSING CONTACT & CHROMATIC MATRIX FOOTER
     ================================================================= -->
-    <footer class="closing-section" id="contact">
+    <footer class="closing-section" id="contact" data-scroll-section="Contact">
       <div class="container">
-        <div class="closing-top">
+        <div class="closing-top" data-reveal>
           <h2>Let’s connect and build what’s next.</h2>
           <p>Reach out directly regarding software, AI, education, or new collaborations.</p>
         </div>
 
         <canvas id="dotMatrixCanvas" aria-hidden="true"></canvas>
 
-        <div class="footer-bottom-row">
-          <a href="#top" class="brand-link">
+        <div class="footer-bottom-row" data-reveal>
+          <a href="#overview" class="brand-link">
             <span class="brand-avatar-wrap">
               <img
                 src="1788752177068.png"
@@ -2355,10 +2597,10 @@
             <a href="mailto:samar.agshikar1@gmail.com" class="btn-luminous">
               <span>samar.agshikar1@gmail.com</span>
             </a>
-            <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener noreferrer" class="btn-outline">
+            <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener noreferrer" class="btn-glass">
               <span>LinkedIn ↗</span>
             </a>
-            <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer" class="btn-outline">
+            <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer" class="btn-glass">
               <span>GitHub ↗</span>
             </a>
           </div>
@@ -2366,6 +2608,7 @@
 
         <div class="footer-meta">
           <nav class="footer-nav" aria-label="Footer">
+            <a href="#overview">Overview</a>
             <a href="#timeline">Timeline</a>
             <a href="#projects">Projects</a>
             <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
@@ -2380,163 +2623,219 @@
 
   <script>
     /* =======================================================================
-       1. ALL 16 CHRONOLOGICAL MILESTONES WITH CUSTOM APP ICON ARTWORK
+       0. FORCE START AT TOP ON OPEN / REFRESH
+    ======================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    });
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted && !window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    });
+
+    /* =======================================================================
+       1. ALL 16 CHRONOLOGICAL MILESTONES WITH CHROMATIC PALETTES (NO AI ICONS!)
           (STRICT CHRONOLOGICAL ORDER: 08/2023 -> 11/2026)
     ======================================================================= */
     const MILESTONES = [
       {
+        num: '01',
         date: '08/2023',
         shortLabel: 'Gymnasium Coswig',
         category: 'Education',
-        gradient: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%)',
+        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
+        dotColor: '#60a5fa',
         title: 'Began studying at Gymnasium Coswig in Germany',
         desc: 'Started secondary school studies at Gymnasium Coswig in Germany, building a strong academic foundation in mathematics and science.'
       },
       {
+        num: '02',
         date: '06/2025',
         shortLabel: 'Germany Studies',
         category: 'Education',
-        gradient: 'linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+        lightGrad: 'linear-gradient(135deg, #fb923c 0%, #eab308 100%)',
+        dotColor: '#818cf8',
         title: 'Completed my studies in Germany',
         desc: 'Concluded secondary school studies at Gymnasium Coswig in Germany.'
       },
       {
+        num: '03',
         date: '07/2025',
         shortLabel: 'Ahmedabad, India',
         category: 'Education',
-        gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #4f46e5 0%, #be123c 100%)',
+        lightGrad: 'linear-gradient(135deg, #eab308 0%, #10b981 100%)',
+        dotColor: '#c084fc',
         title: 'Moved to Ahmedabad, India',
         desc: 'Relocated to Ahmedabad, India, continuing academic studies while building software projects and joining student initiatives.'
       },
       {
+        num: '04',
         date: '11/2025',
         shortLabel: 'SOF Math Gold',
         category: 'Academics',
-        gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #7c3aed 0%, #e11d48 100%)',
+        lightGrad: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
+        dotColor: '#fb7185',
         title: 'Received the SOF Mathematics Gold Medal of Excellence',
         desc: 'Awarded the Science Olympiad Foundation (SOF) Mathematics Gold Medal of Excellence.'
       },
       {
+        num: '05',
         date: '01/2026',
         shortLabel: 'ASSET Math 98%',
         category: 'Academics',
-        gradient: 'linear-gradient(135deg, #fbbf24 0%, #ea580c 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 7V4H6l6 8-6 8h12v-3"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #1e40af 0%, #db2777 100%)',
+        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #eab308 100%)',
+        dotColor: '#f43f5e',
         title: 'Achieved ASSET Mathematics Gold — 98th percentile',
         desc: 'Earned ASSET Mathematics Gold recognition, scoring in the 98th percentile.'
       },
       {
+        num: '06',
         date: '01/2026',
         shortLabel: 'ASSET Science 93%',
         category: 'Academics',
-        gradient: 'linear-gradient(135deg, #06b6d4 0%, #0284c7 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #3b82f6 0%, #7e22ce 100%)',
+        lightGrad: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+        dotColor: '#38bdf8',
         title: 'Achieved ASSET Science Silver — 93rd percentile',
         desc: 'Earned ASSET Science Silver recognition, scoring in the 93rd percentile.'
       },
       {
+        num: '07',
         date: '05/2026–08/2026',
         shortLabel: 'College Chances',
         category: 'Entrepreneurship',
-        gradient: 'linear-gradient(135deg, #14b8a6 0%, #0f766e 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #6d28d9 0%, #be123c 100%)',
+        lightGrad: 'linear-gradient(135deg, #f97316 0%, #10b981 100%)',
+        dotColor: '#a855f7',
         title: 'College Chances India (May–August 2026)',
         desc: 'Founded and developed College Chances India across May–August 2026 as an AI-assisted university exploration platform, concluding the project in August 2026.'
       },
       {
+        num: '08',
         date: '06/2026',
         shortLabel: 'THE 1 Build',
         category: 'Technology',
-        gradient: 'linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #9333ea 55%, #e11d48 100%)',
+        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 55%, #eab308 100%)',
+        dotColor: '#60a5fa',
         title: 'Started building THE 1',
         desc: 'Began developing THE 1 (the-1.app) as an integrated student workspace for timetables, notes, homework, revision, and AI study assistance.'
       },
       {
+        num: '09',
         date: '07/2026',
         shortLabel: 'Student Council',
         category: 'Leadership',
-        gradient: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #9333ea 0%, #f43f5e 100%)',
+        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #f97316 100%)',
+        dotColor: '#fb7185',
         title: 'Joined the Student Council and Culture & Events team',
         desc: 'Joined the Student Council and Culture & Events team to contribute to student representation and school programming.'
       },
       {
+        num: '10',
         date: '10/2026',
         shortLabel: 'ADIS Pilot',
         category: 'Entrepreneurship',
-        gradient: 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)',
+        lightGrad: 'linear-gradient(135deg, #10b981 0%, #eab308 100%)',
+        dotColor: '#818cf8',
         title: "Conducted THE 1's school pilot at Adani International School",
         desc: 'Ran a live school pilot of THE 1 at Adani International School to test student workflows and gather direct user feedback.'
       },
       {
+        num: '11',
         date: '10/2026',
         shortLabel: 'Product Hunt',
         category: 'Technology',
-        gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #be123c 0%, #7c3aed 100%)',
+        lightGrad: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)',
+        dotColor: '#f43f5e',
         title: 'Launched THE 1 on Product Hunt, following the school pilot',
         desc: 'Launched THE 1 publicly on Product Hunt after incorporating improvements from the Adani International School pilot.'
       },
       {
+        num: '12',
         date: '10/2026',
         shortLabel: 'Round Square',
         category: 'Leadership',
-        gradient: 'linear-gradient(135deg, #6366f1 0%, #4338ca 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)',
+        lightGrad: 'linear-gradient(135deg, #eab308 0%, #f97316 100%)',
+        dotColor: '#c084fc',
         title: 'Joined the Round Square Student Committee for 2026–27',
         desc: 'Joined the Round Square Student Committee for the 2026–27 term.'
       },
       {
+        num: '13',
         date: '11/2026',
         shortLabel: 'Kerniq',
         category: 'Technology',
-        gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #4338ca 0%, #9333ea 50%, #e11d48 100%)',
+        lightGrad: 'linear-gradient(135deg, #f97316 0%, #eab308 50%, #10b981 100%)',
+        dotColor: '#a855f7',
         title: 'Started developing Kerniq',
         desc: 'Began developing Kerniq (kerniq.the-1.app) within the THE 1 ecosystem to explore structured AI reasoning and conceptual synthesis.'
       },
       {
+        num: '14',
         date: '11/2026',
         shortLabel: 'Internshala',
         category: 'Leadership',
-        gradient: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #be123c 100%)',
+        lightGrad: 'linear-gradient(135deg, #059669 0%, #f97316 100%)',
+        dotColor: '#60a5fa',
         title: 'Became an Internshala Student Partner',
         desc: 'Selected as an Internshala Student Partner, connecting peers with skill-building and internship opportunities.'
       },
       {
+        num: '15',
         date: '11/2026',
         shortLabel: "Building What's Next",
         category: 'Entrepreneurship',
-        gradient: 'linear-gradient(135deg, #f97316 0%, #d97706 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #7c3aed 0%, #f43f5e 100%)',
+        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #eab308 100%)',
+        dotColor: '#fb7185',
         title: "Started Building What's Next, my Substack publication",
         desc: "Launched Building What's Next on Substack to write about AI, software development, education, and student entrepreneurship."
       },
       {
+        num: '16',
         date: '11/2026',
         shortLabel: 'Google Gemini',
         category: 'Technology',
-        gradient: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 52%, #ec4899 100%)',
-        svg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12.4 7.3 16.7 11.6 22 12C16.7 12.4 12.4 16.7 12 22C11.6 16.7 7.3 12.4 2 12C7.3 11.6 11.6 7.3 12 2Z"/></svg>',
+        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f43f5e 100%)',
+        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%)',
+        dotColor: '#c084fc',
         title: 'Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini',
         desc: 'Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini.'
       }
     ];
 
     /* =======================================================================
-       2. DARK & LIGHT THEME SWITCHER
+       2. THEME SWITCHER (UPDATES UI & CHROMATIC CAPSULES DYNAMICALLY)
     ======================================================================= */
     const htmlEl = document.documentElement;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const iconSun = document.getElementById('themeIconSun');
     const iconMoon = document.getElementById('themeIconMoon');
+
+    function syncChromaticGradients() {
+      const isLight = htmlEl.getAttribute('data-theme') === 'light';
+      document.querySelectorAll('[data-chroma-idx]').forEach((el) => {
+        const m = MILESTONES[Number(el.dataset.chromaIdx)];
+        if (m) {
+          el.style.background = isLight ? m.lightGrad : m.darkGrad;
+        }
+      });
+    }
 
     function applyTheme(theme) {
       htmlEl.setAttribute('data-theme', theme);
@@ -2548,6 +2847,7 @@
         iconSun.style.display = 'block';
         iconMoon.style.display = 'none';
       }
+      syncChromaticGradients();
     }
 
     applyTheme(localStorage.getItem('samar-theme') || 'dark');
@@ -2558,7 +2858,72 @@
     });
 
     /* =======================================================================
-       3. MOBILE NAVIGATION & ACCORDION
+       3. ANIMATED GLASSMORPHIC TOP DOCK (TRACKS ACTIVE SECTION + PROGRESS %)
+    ======================================================================= */
+    const dockNav = document.getElementById('dockNav');
+    const navActivePill = document.getElementById('navActivePill');
+    const dockProgressFill = document.getElementById('dockProgressFill');
+    const dockLocationBadge = document.getElementById('dockLocationBadge');
+    const dockLinks = Array.from(dockNav.querySelectorAll('a[data-section]'));
+    const mobileLinks = Array.from(document.querySelectorAll('#mobileMenu a[data-section]'));
+    const trackedSections = Array.from(document.querySelectorAll('section[id], footer[id]'));
+
+    let currentActiveId = 'overview';
+
+    function positionActivePill(activeLink) {
+      if (!activeLink || !navActivePill || dockNav.offsetParent === null) return;
+      const navRect = dockNav.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+      const offsetX = linkRect.left - navRect.left - 3;
+      navActivePill.style.width = `${linkRect.width}px`;
+      navActivePill.style.transform = `translate3d(${offsetX}px, 0, 0)`;
+    }
+
+    function updateDockNavigation() {
+      const scrollY = window.scrollY;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const pct = Math.min(100, Math.max(0, Math.round((scrollY / maxScroll) * 100)));
+
+      if (dockProgressFill) {
+        dockProgressFill.style.width = `${pct}%`;
+      }
+
+      const probeY = scrollY + window.innerHeight * 0.34;
+      let activeSec = trackedSections[0];
+      for (const sec of trackedSections) {
+        if (probeY >= sec.offsetTop) {
+          activeSec = sec;
+        }
+      }
+
+      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 24) {
+        activeSec = trackedSections[trackedSections.length - 1];
+      }
+
+      const nextId = activeSec ? activeSec.id : 'overview';
+      const labelName = activeSec ? activeSec.dataset.scrollSection || 'Overview' : 'Overview';
+
+      if (dockLocationBadge) {
+        dockLocationBadge.textContent = `${labelName} · ${pct}%`;
+      }
+
+      if (nextId !== currentActiveId) {
+        currentActiveId = nextId;
+        dockLinks.forEach((a) => a.classList.toggle('active', a.dataset.section === nextId));
+        mobileLinks.forEach((a) => a.classList.toggle('active', a.dataset.section === nextId));
+      }
+
+      const activeLink = dockLinks.find((a) => a.dataset.section === currentActiveId);
+      positionActivePill(activeLink);
+    }
+
+    window.addEventListener('scroll', updateDockNavigation, { passive: true });
+    window.addEventListener('resize', updateDockNavigation, { passive: true });
+    window.addEventListener('load', updateDockNavigation);
+    requestAnimationFrame(updateDockNavigation);
+
+    /* =======================================================================
+       4. MOBILE NAVIGATION, ACCORDION & 3D GLASS TILT + SPECULAR CURSOR
     ======================================================================= */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -2579,8 +2944,48 @@
       });
     });
 
+    // Interactive Cursor Specular Sheen + Subtle 3D Tilt on Glass Panels
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      document.querySelectorAll('.glass-panel').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mx', `${x}px`);
+          card.style.setProperty('--my', `${y}px`);
+
+          if (card.hasAttribute('data-tilt')) {
+            const rx = ((y / rect.height) - 0.5) * -4.5;
+            const ry = ((x / rect.width) - 0.5) * 4.5;
+            card.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (card.hasAttribute('data-tilt')) {
+            card.style.transform = '';
+          }
+        });
+      });
+    }
+
+    // Staggered Scroll-Reveal Choreography
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+
     /* =======================================================================
-       4. HERO 2-TAB SHOWCASE & CASE STUDY SWITCHERS
+       5. HERO 2-TAB SHOWCASE & CASE STUDY SWITCHERS
     ======================================================================= */
     const showcaseContent = {
       the1: `
@@ -2600,15 +3005,15 @@
           <div class="showcase-mock">
             <div class="mock-item">
               <span><strong>06/2026</strong> · Started building THE 1</span>
-              <span style="color: var(--accent-emerald); font-size: 0.76rem;">the-1.app</span>
+              <span class="preview-tag">the-1.app</span>
             </div>
             <div class="mock-item">
               <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-              <span style="color: var(--accent-gold); font-size: 0.76rem;">ADIS Pilot</span>
+              <span class="preview-tag">ADIS Pilot</span>
             </div>
             <div class="mock-item">
               <span><strong>10/2026</strong> · Public launch on Product Hunt</span>
-              <span style="color: var(--accent-cyan); font-size: 0.76rem;">Launched</span>
+              <span class="preview-tag">Launched</span>
             </div>
           </div>
         </div>
@@ -2629,11 +3034,11 @@
           <div class="showcase-mock">
             <div class="mock-item">
               <span><strong>11/2026</strong> · Started developing Kerniq</span>
-              <span style="color: var(--accent-indigo); font-size: 0.76rem;">kerniq.the-1.app</span>
+              <span class="preview-tag">kerniq.the-1.app</span>
             </div>
             <div class="mock-item">
               <span><strong>Architecture</strong> · Shared workspace subject context</span>
-              <span style="color: var(--accent-cyan); font-size: 0.76rem;">Active</span>
+              <span class="preview-tag">Active</span>
             </div>
           </div>
         </div>
@@ -2655,12 +3060,12 @@
       the1: `
         <div class="case-display-top">
           <h3 class="case-display-title">THE 1</h3>
-          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">
+          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
             <span>Open the-1.app</span>
             <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div class="case-display-body">
+        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
             Started in June 2026, THE 1 replaces scattered timetables, note apps, task lists, and generic AI chat tabs with a unified academic workspace.
           </p>
@@ -2674,12 +3079,12 @@
       kerniq: `
         <div class="case-display-top">
           <h3 class="case-display-title">Kerniq</h3>
-          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">
+          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
             <span>Open kerniq.the-1.app</span>
             <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div class="case-display-body">
+        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
             Started in November 2026 within the THE 1 ecosystem, Kerniq explores structured AI reasoning and conceptual synthesis for learners.
           </p>
@@ -2692,9 +3097,9 @@
       cci: `
         <div class="case-display-top">
           <h3 class="case-display-title">College Chances India</h3>
-          <span class="wh-clock-pill" style="margin: 0;">05/2026–08/2026</span>
+          <span class="preview-tag">05/2026–08/2026</span>
         </div>
-        <div class="case-display-body">
+        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
             Founded in May 2026 and concluded in August 2026, College Chances India was an AI-assisted university exploration platform built to help students compare higher-education pathways in India.
           </p>
@@ -2718,7 +3123,7 @@
     });
 
     /* =======================================================================
-       5. CHRONOLOGICAL TIMELINE EXPLORER + BOTTOM APP-ICON DOCK
+       6. CHRONOLOGICAL TIMELINE EXPLORER + BOTTOM CHROMATIC PILL DOCK
     ======================================================================= */
     const timelineList = document.getElementById('timelineList');
     const inspDate = document.getElementById('inspDate');
@@ -2727,12 +3132,14 @@
     const bottomDock = document.getElementById('whBottomDock');
 
     MILESTONES.forEach((m, idx) => {
-      // Populate Explorer Row with App Icon
+      const isLight = htmlEl.getAttribute('data-theme') === 'light';
+      const activeGrad = isLight ? m.lightGrad : m.darkGrad;
+
       const row = document.createElement('article');
       row.className = 'milestone-row' + (idx === 0 ? ' selected' : '');
       row.dataset.category = m.category;
       row.innerHTML = `
-        <div class="row-app-icon" style="background: ${m.gradient};">${m.svg}</div>
+        <div class="row-chroma-badge" data-chroma-idx="${idx}" style="background: ${activeGrad};">${m.num}</div>
         <div class="row-content">
           <div class="mr-top">
             <span class="mr-date">${m.date}</span>
@@ -2751,12 +3158,11 @@
       });
       timelineList.appendChild(row);
 
-      // Populate Dock App Icons shown beneath the Orb at 00:22-00:23
       if (bottomDock && idx % 2 === 0) {
         const dockItem = document.createElement('div');
-        dockItem.className = 'dock-mini-icon';
+        dockItem.className = 'dock-mini-pill';
         dockItem.innerHTML = `
-          <div class="dock-mini-squircle" style="background: ${m.gradient};">${m.svg}</div>
+          <span class="dock-mini-dot" style="background: ${m.dotColor}; color: ${m.dotColor};"></span>
           <span class="dock-mini-label">${m.shortLabel}</span>
         `;
         bottomDock.appendChild(dockItem);
@@ -2776,8 +3182,7 @@
     });
 
     /* =======================================================================
-       6. TRUE 3D WEBGL DISPLACED-MESH SHADER ORB (WITH SPECULAR & FRESNEL)
-          USED FOR BOTH THE HERO ORB & THE TUNNEL EMERGENCE ORB
+       7. TRUE 3D WEBGL DISPLACED-MESH SHADER ORB (THEME-ADAPTIVE PALETTE)
     ======================================================================= */
     function createWebGLDisplacedOrb(canvas) {
       if (!canvas) return null;
@@ -2794,9 +3199,9 @@
         varying vec2 vUv;
 
         vec3 displace(vec3 p) {
-          float w1 = sin(p.x * 3.4 + uTime * 1.15) * cos(p.y * 3.1 - uTime * 0.9);
-          float w2 = sin(p.z * 3.8 + uTime * 1.35) * sin(p.x * 2.4 + p.y * 2.9);
-          float w3 = cos(p.y * 5.2 - uTime * 1.6) * 0.35;
+          float w1 = sin(p.x * 3.2 + uTime * 1.15) * cos(p.y * 3.0 - uTime * 0.9);
+          float w2 = sin(p.z * 3.6 + uTime * 1.35) * sin(p.x * 2.4 + p.y * 2.8);
+          float w3 = cos(p.y * 4.8 - uTime * 1.5) * 0.32;
           float d = (w1 * 0.55 + w2 * 0.35 + w3 * 0.25) * uAmp;
           return p * (1.0 + d);
         }
@@ -2805,7 +3210,6 @@
           vUv = aUv;
           vec3 p0 = displace(aPos);
 
-          // Finite-difference tangent frame for accurate displaced normals
           vec3 up = abs(aPos.y) < 0.99 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
           vec3 t1 = normalize(cross(up, aPos));
           vec3 t2 = cross(aPos, t1);
@@ -2823,6 +3227,7 @@
       const fsSource = `
         precision highp float;
         uniform float uTime;
+        uniform float uIsLight;
         varying vec3 vNormal;
         varying vec3 vWorldPos;
         varying vec2 vUv;
@@ -2831,38 +3236,39 @@
           vec3 N = normalize(vNormal);
           vec3 V = vec3(0.0, 0.0, 1.0);
 
-          // Multi-stop iridescent palette (gold, coral/magenta, violet, cobalt, cyan/emerald)
           float band1 = sin(vWorldPos.x * 2.1 + vWorldPos.y * 1.7 + uTime * 0.45) * 0.5 + 0.5;
           float band2 = cos(vWorldPos.y * 2.3 - vWorldPos.z * 1.9 + uTime * 0.35) * 0.5 + 0.5;
 
-          vec3 cGold    = vec3(0.99, 0.78, 0.22);
-          vec3 cMagenta = vec3(0.95, 0.32, 0.58);
-          vec3 cViolet  = vec3(0.49, 0.28, 0.96);
-          vec3 cCyan    = vec3(0.14, 0.83, 0.93);
-          vec3 cEmerald = vec3(0.16, 0.82, 0.58);
+          // Dark Mode: Navy Blue, Royal Purple, Crimson Red
+          vec3 dNavy   = vec3(0.11, 0.29, 0.78);
+          vec3 dPurple = vec3(0.54, 0.22, 0.94);
+          vec3 dRed    = vec3(0.92, 0.16, 0.38);
+          vec3 darkCol = mix(dNavy, dPurple, band1);
+          darkCol = mix(darkCol, dRed, pow(band2, 1.25) * 0.85);
 
-          vec3 baseCol = mix(cViolet, cMagenta, band1);
-          baseCol = mix(baseCol, cGold, pow(band2, 1.35) * 0.85);
-          baseCol = mix(baseCol, cCyan, smoothstep(0.2, 0.9, N.x * 0.5 + 0.5) * 0.55);
-          baseCol = mix(baseCol, cEmerald, smoothstep(0.3, 0.95, -N.y * 0.5 + 0.5) * 0.42);
+          // Light Mode: Orange, Red, Yellow, Green
+          vec3 lOrange = vec3(0.98, 0.45, 0.09);
+          vec3 lRed    = vec3(0.94, 0.22, 0.28);
+          vec3 lYellow = vec3(0.96, 0.78, 0.12);
+          vec3 lGreen  = vec3(0.08, 0.74, 0.48);
+          vec3 lightCol = mix(lOrange, lRed, band1);
+          lightCol = mix(lightCol, lYellow, band2 * 0.78);
+          lightCol = mix(lightCol, lGreen, smoothstep(0.25, 0.92, -N.y * 0.5 + 0.5) * 0.65);
 
-          // Fine contour latitude/longitude mesh ridges etched onto the 3D surface
-          float latLines = smoothstep(0.84, 0.98, abs(sin(vUv.y * 3.14159 * 42.0)));
-          float lonLines = smoothstep(0.88, 0.99, abs(sin(vUv.x * 3.14159 * 56.0)));
-          float ridge = max(latLines * 0.34, lonLines * 0.16);
-          baseCol += vec3(0.95, 0.97, 1.0) * ridge * 0.42;
+          vec3 baseCol = mix(darkCol, lightCol, uIsLight);
 
-          // Key directional light + Blinn-Phong specular highlight
+          float ridge = smoothstep(0.86, 0.98, abs(sin(vUv.y * 3.14159 * 36.0))) * 0.25;
+          baseCol += vec3(1.0) * ridge * 0.32;
+
           vec3 L = normalize(vec3(-0.55, 0.68, 0.85));
           vec3 H = normalize(L + V);
           float diff = max(dot(N, L), 0.0);
           float spec = pow(max(dot(N, H), 0.0), 34.0);
 
-          // Fresnel iridescent rim glow
-          float fresnel = pow(1.0 - max(dot(N, V), 0.0), 2.6);
-          vec3 rimCol = mix(cCyan, cGold, band1);
+          float fresnel = pow(1.0 - max(dot(N, V), 0.0), 2.5);
+          vec3 rimCol = mix(dPurple, lYellow, uIsLight);
 
-          vec3 finalColor = baseCol * (0.48 + 0.62 * diff) + vec3(1.0, 0.96, 0.9) * spec * 0.55 + rimCol * fresnel * 0.68;
+          vec3 finalColor = baseCol * (0.52 + 0.58 * diff) + vec3(1.0, 0.97, 0.92) * spec * 0.55 + rimCol * fresnel * 0.65;
           float alpha = smoothstep(0.0, 0.14, max(dot(N, V), 0.0) + 0.06);
 
           gl_FragColor = vec4(finalColor, alpha);
@@ -2882,7 +3288,6 @@
       gl.linkProgram(prog);
       gl.useProgram(prog);
 
-      // High-density UV sphere mesh (72 x 72)
       const latBands = 72;
       const lonBands = 72;
       const positions = [];
@@ -2895,10 +3300,7 @@
         const cosT = Math.cos(theta);
         for (let lon = 0; lon <= lonBands; lon++) {
           const phi = (lon * 2 * Math.PI) / lonBands;
-          const x = Math.cos(phi) * sinT;
-          const y = cosT;
-          const z = Math.sin(phi) * sinT;
-          positions.push(x, y, z);
+          positions.push(Math.cos(phi) * sinT, cosT, Math.sin(phi) * sinT);
           uvs.push(lon / lonBands, lat / latBands);
         }
       }
@@ -2932,18 +3334,20 @@
 
       const uTimeLoc = gl.getUniformLocation(prog, 'uTime');
       const uAmpLoc = gl.getUniformLocation(prog, 'uAmp');
+      const uIsLightLoc = gl.getUniformLocation(prog, 'uIsLight');
 
       gl.enable(gl.DEPTH_TEST);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
       return {
-        draw(timeSec, amp = 0.14) {
+        draw(timeSec, amp = 0.14, isLight = 0.0) {
           gl.viewport(0, 0, canvas.width, canvas.height);
           gl.clearColor(0, 0, 0, 0);
           gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
           gl.uniform1f(uTimeLoc, timeSec);
           gl.uniform1f(uAmpLoc, amp);
+          gl.uniform1f(uIsLightLoc, isLight);
           gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
         }
       };
@@ -2953,86 +3357,92 @@
     const tunnelOrbRenderer = createWebGLDisplacedOrb(document.getElementById('tunnelWebGLOrb'));
 
     /* =======================================================================
-       7. TRUE 3D WEBGL CURVED HYPERBOLIC GRAVITY-WELL MESH -> POLAR GRID
-          + APP ICON ACHIEVEMENTS SPIRALING INTO THE TUNNEL (00:12 - 00:23)
+       8. SMOOTH-DAMPED 3D WEBGL CHROMATIC LIGHT-VORTEX + COLORFUL CAPSULES
+          (REPLACES WIREFRAME TUNNEL & AI ICONS WITH SILKY CHROMATIC RIBBONS)
     ======================================================================= */
-    (function initWebGLTunnelExperience() {
+    (function initChromaticVortexExperience() {
       const section = document.getElementById('timeline');
       const tunnelCanvas = document.getElementById('tunnelWebGLCanvas');
       const tunnelOrbCanvas = document.getElementById('tunnelWebGLOrb');
       const introEl = document.getElementById('whIntro');
-      const iconsLayer = document.getElementById('whIconsLayer');
+      const capsulesLayer = document.getElementById('whCapsulesLayer');
       const orbOverlay = document.getElementById('whOrbOverlay');
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      if (!section || !tunnelCanvas || prefersReduced) return;
+      if (!section || !tunnelCanvas || prefersReducedMotion) return;
 
-      // Populate all 16 achievements as macOS-style squircle app icons
-      const iconNodes = MILESTONES.map((m, idx) => {
+      // Create 16 Colorful Frosted-Glass Chromatic Date Capsules (Zero AI Icons!)
+      const capsuleNodes = MILESTONES.map((m, idx) => {
+        const isLight = htmlEl.getAttribute('data-theme') === 'light';
         const el = document.createElement('div');
-        el.className = 'app-icon-node';
+        el.className = 'chromatic-node';
         el.innerHTML = `
-          <div class="app-squircle" style="background: ${m.gradient};">${m.svg}</div>
-          <span class="app-icon-caption">${m.shortLabel}</span>
-          <span class="app-icon-date">${m.date}</span>
+          <div class="chromatic-orb-badge" data-chroma-idx="${idx}" style="background: ${isLight ? m.lightGrad : m.darkGrad};">${m.num}</div>
+          <div class="chromatic-node-text">
+            <span class="chromatic-node-title">${m.shortLabel}</span>
+            <span class="chromatic-node-date">${m.date}</span>
+          </div>
         `;
-        iconsLayer.appendChild(el);
+        capsulesLayer.appendChild(el);
         return { el, idx };
       });
 
+      // Full-screen WebGL Fragment Shader for Silky Volumetric Chromatic Light-Vortex
       const gl = tunnelCanvas.getContext('webgl', { alpha: true, antialias: true });
-      let prog, aPolarLoc, uAspectLoc, uScrollLoc, uMorphLoc, uIsLightLoc, vertexCount;
+      let prog, uResLoc, uTimeLoc, uScrollLoc, uIsLightLoc;
 
       if (gl) {
         const vsSrc = `
-          attribute vec2 aPolar; // x = normalized radius [0..1], y = angle [0..2PI]
-          uniform float uAspect;
-          uniform float uScroll;
-          uniform float uMorph;  // 0.0 = tilted 3D hyperbolic gravity well, 1.0 = top-down polar radial grid
-          varying float vRadius;
-
+          attribute vec2 aPos;
           void main() {
-            // Advect rings smoothly toward the center throat as user scrolls
-            float r = fract(aPolar.x - uScroll * 1.45);
-            if (r < 0.035) r += 1.0;
-            vRadius = r;
-
-            float angle = aPolar.y + uScroll * 0.25 * (1.0 - uMorph);
-            float rad = 0.06 + pow(r, 1.38) * 1.48;
-
-            float x = cos(angle) * rad;
-            float z = sin(angle) * rad;
-
-            // Curved hyperbolic gravity-well equation y = -depth / (rad + 0.14)
-            float wellY = -0.34 / (rad + 0.14) + 0.24;
-
-            // Camera tilt transitions from angled 3D perspective (uMorph=0) to overhead polar view (uMorph=1)
-            float tilt = mix(0.66, 1.54, uMorph);
-            float cosT = cos(tilt);
-            float sinT = sin(tilt);
-
-            float yRot = wellY * cosT - z * sinT;
-            float zRot = wellY * sinT + z * cosT + mix(1.42, 1.35, uMorph);
-
-            float fov = 1.18;
-            float px = (x * fov) / (zRot * uAspect);
-            float py = ((yRot - mix(0.08, 0.0, uMorph)) * fov) / zRot;
-
-            gl_Position = vec4(px, py, 0.0, 1.0);
+            gl_Position = vec4(aPos, 0.0, 1.0);
           }
         `;
 
         const fsSrc = `
-          precision mediump float;
+          precision highp float;
+          uniform vec2 uRes;
+          uniform float uTime;
+          uniform float uScroll;
           uniform float uIsLight;
-          varying float vRadius;
 
           void main() {
-            float edgeFade = smoothstep(0.03, 0.14, vRadius) * (1.0 - smoothstep(0.75, 1.0, vRadius));
-            vec3 darkGrid  = mix(vec3(0.32, 0.45, 0.72), vec3(0.62, 0.68, 0.78), vRadius);
-            vec3 lightGrid = mix(vec3(0.22, 0.35, 0.65), vec3(0.28, 0.34, 0.45), vRadius);
-            vec3 col = mix(darkGrid, lightGrid, uIsLight);
-            gl_FragColor = vec4(col, edgeFade * 0.48);
+            vec2 uv = (gl_FragCoord.xy - 0.5 * uRes.xy) / min(uRes.x, uRes.y);
+            float dist = length(uv);
+            float angle = atan(uv.y, uv.x);
+
+            // Depth-warped chromatic tunnel coordinates
+            float depth = 0.42 / (dist + 0.075) + uScroll * 6.5 + uTime * 0.45;
+            float spiral = angle * 3.0 + depth * 1.15 + sin(depth * 0.7 - uTime * 0.6) * 0.85;
+
+            float ribbon1 = smoothstep(0.35, 0.98, sin(spiral) * 0.5 + 0.5);
+            float ribbon2 = smoothstep(0.45, 0.99, cos(angle * 4.0 - depth * 1.45) * 0.5 + 0.5);
+            float pulseRing = smoothstep(0.75, 1.0, sin(depth * 2.4) * 0.5 + 0.5);
+
+            // Dark Mode: Navy Blue, Royal Purple, Crimson Red
+            vec3 dNavy   = vec3(0.09, 0.24, 0.68);
+            vec3 dPurple = vec3(0.48, 0.18, 0.88);
+            vec3 dRed    = vec3(0.88, 0.14, 0.35);
+            vec3 darkVortex = mix(dNavy, dPurple, ribbon1);
+            darkVortex = mix(darkVortex, dRed, ribbon2 * 0.75);
+            darkVortex += vec3(0.65, 0.55, 1.0) * pulseRing * 0.25;
+
+            // Light Mode: Orange, Red, Yellow, Green
+            vec3 lOrange = vec3(0.98, 0.46, 0.10);
+            vec3 lRed    = vec3(0.92, 0.20, 0.28);
+            vec3 lYellow = vec3(0.96, 0.78, 0.12);
+            vec3 lGreen  = vec3(0.08, 0.72, 0.46);
+            vec3 lightVortex = mix(lOrange, lRed, ribbon1);
+            lightVortex = mix(lightVortex, lYellow, ribbon2 * 0.72);
+            lightVortex = mix(lightVortex, lGreen, smoothstep(0.2, 0.85, sin(angle + depth * 0.5) * 0.5 + 0.5) * 0.58);
+
+            vec3 col = mix(darkVortex, lightVortex, uIsLight);
+
+            // Soft luminous center core + outer vignette
+            float coreGlow = exp(-dist * 4.2) * 0.65;
+            float outerMask = smoothstep(0.03, 0.18, dist) * (1.0 - smoothstep(0.55, 1.05, dist));
+            float intensity = (ribbon1 * 0.45 + ribbon2 * 0.35 + pulseRing * 0.22) * outerMask + coreGlow;
+
+            gl_FragColor = vec4(col, clamp(intensity * 0.82, 0.0, 0.88));
           }
         `;
 
@@ -3049,42 +3459,18 @@
         gl.linkProgram(prog);
         gl.useProgram(prog);
 
-        // Build 3D Polar Concentric Rings + Radial Spokes line segments
-        const verts = [];
-        const rings = 32;
-        const segs = 96;
-        for (let i = 0; i < rings; i++) {
-          const r = i / rings;
-          for (let j = 0; j < segs; j++) {
-            const a1 = (j / segs) * Math.PI * 2;
-            const a2 = ((j + 1) / segs) * Math.PI * 2;
-            verts.push(r, a1, r, a2);
-          }
-        }
-
-        const spokes = 32;
-        const rSteps = 48;
-        for (let s = 0; s < spokes; s++) {
-          const a = (s / spokes) * Math.PI * 2;
-          for (let k = 0; k < rSteps; k++) {
-            const r1 = k / rSteps;
-            const r2 = (k + 1) / rSteps;
-            verts.push(r1, a, r2, a);
-          }
-        }
-
-        vertexCount = verts.length / 2;
+        const quad = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
         const buf = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
+        gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
 
-        aPolarLoc = gl.getAttribLocation(prog, 'aPolar');
-        gl.enableVertexAttribArray(aPolarLoc);
-        gl.vertexAttribPointer(aPolarLoc, 2, gl.FLOAT, false, 0, 0);
+        const aPos = gl.getAttribLocation(prog, 'aPos');
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
 
-        uAspectLoc = gl.getUniformLocation(prog, 'uAspect');
+        uResLoc = gl.getUniformLocation(prog, 'uRes');
+        uTimeLoc = gl.getUniformLocation(prog, 'uTime');
         uScrollLoc = gl.getUniformLocation(prog, 'uScroll');
-        uMorphLoc = gl.getUniformLocation(prog, 'uMorph');
         uIsLightLoc = gl.getUniformLocation(prog, 'uIsLight');
 
         gl.enable(gl.BLEND);
@@ -3099,80 +3485,77 @@
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
+      // Smooth-damped scroll progress (spring lerp)
+      let smoothProgress = 0;
+
       function tick(nowMs) {
         const tSec = nowMs * 0.001;
+        const isLight = htmlEl.getAttribute('data-theme') === 'light' ? 1.0 : 0.0;
 
-        // Render Hero WebGL Displaced Orb continuously
         if (heroOrbRenderer) {
-          heroOrbRenderer.draw(tSec, 0.14);
+          heroOrbRenderer.draw(tSec, 0.14, isLight);
         }
 
-        // Scroll progress across the 3D Timeline Tunnel runway
         const rect = section.getBoundingClientRect();
         const scrollable = Math.max(1, section.offsetHeight - window.innerHeight);
-        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        const targetProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        smoothProgress += (targetProgress - smoothProgress) * 0.09;
+        const progress = smoothProgress;
 
-        // Phase A: Top headline fades out as we dive into the funnel (0.0 -> 0.22)
-        const introAlpha = Math.max(0, 1 - progress * 4.6);
+        const introAlpha = Math.max(0, 1 - progress * 4.5);
         introEl.style.opacity = introAlpha.toFixed(3);
-        introEl.style.transform = `translate(-50%, ${(-progress * 95).toFixed(1)}px)`;
+        introEl.style.transform = `translate(-50%, ${(-progress * 90).toFixed(1)}px)`;
 
-        // Morph from tilted 3D hyperbolic gravity well (0.0..0.46) -> top-down polar grid (0.46..0.68)
-        const morph = Math.max(0, Math.min(1, (progress - 0.44) / 0.24));
-
-        // Render WebGL Hyperbolic Gravity-Well & Polar Grid
         if (gl && prog) {
-          const gridFade = progress > 0.88 ? Math.max(0, 1 - (progress - 0.88) / 0.12) : 1;
-          tunnelCanvas.style.opacity = gridFade.toFixed(3);
+          const vortexFade = progress > 0.88 ? Math.max(0, 1 - (progress - 0.88) / 0.12) : 1;
+          tunnelCanvas.style.opacity = vortexFade.toFixed(3);
 
           gl.viewport(0, 0, tunnelCanvas.width, tunnelCanvas.height);
           gl.clearColor(0, 0, 0, 0);
           gl.clear(gl.COLOR_BUFFER_BIT);
-          gl.uniform1f(uAspectLoc, tunnelCanvas.width / Math.max(1, tunnelCanvas.height));
+          gl.uniform2f(uResLoc, tunnelCanvas.width, tunnelCanvas.height);
+          gl.uniform1f(uTimeLoc, tSec);
           gl.uniform1f(uScrollLoc, progress);
-          gl.uniform1f(uMorphLoc, morph);
-          gl.uniform1f(uIsLightLoc, htmlEl.getAttribute('data-theme') === 'light' ? 1.0 : 0.0);
-          gl.drawArrays(gl.LINES, 0, vertexCount);
+          gl.uniform1f(uIsLightLoc, isLight);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         }
 
-        // Phase B: All 16 achievements as app icons spiraling down into the hyperbolic funnel (0.06 -> 0.66)
+        // Spiral all 16 Colorful Frosted-Glass Chromatic Capsules smoothly
         const w = window.innerWidth;
         const h = window.innerHeight;
-        iconNodes.forEach(({ el, idx }) => {
+        capsuleNodes.forEach(({ el, idx }) => {
           const stagger = idx / MILESTONES.length;
           const localP = (progress - stagger * 0.42) / 0.28;
           if (localP <= 0 || localP >= 1) {
             el.style.opacity = '0';
             return;
           }
-          const radiusFactor = 1 - Math.pow(localP, 1.35);
-          const angle = idx * 1.15 + localP * 2.5;
-          const rx = Math.min(w * 0.4, 460) * radiusFactor;
-          const ry = Math.min(h * 0.24, 210) * radiusFactor;
+          const radiusFactor = 1 - Math.pow(localP, 1.32);
+          const angle = idx * 1.18 + localP * 2.65;
+          const rx = Math.min(w * 0.39, 450) * radiusFactor;
+          const ry = Math.min(h * 0.25, 215) * radiusFactor;
           const x = Math.cos(angle) * rx;
-          // Follow the downward hyperbolic gravity-well curve as radiusFactor -> 0
-          const y = Math.sin(angle) * ry + Math.pow(1 - radiusFactor, 1.7) * 58;
-          const scale = 0.28 + radiusFactor * 0.82;
+          const y = Math.sin(angle) * ry;
+          const scale = 0.42 + radiusFactor * 0.68;
           const alpha = Math.sin(localP * Math.PI);
 
           el.style.opacity = alpha.toFixed(3);
           el.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
         });
 
-        // Phase C: True 3D WebGL Displaced-Mesh Orb emerges out of the polar grid center (0.62 -> 1.0)
+        // Emerge 3D Displaced Chromatic Orb at center
         const orbGrow = Math.max(0, Math.min(1, (progress - 0.62) / 0.26));
         if (orbGrow > 0.01) {
           const eased = 1 - Math.pow(1 - orbGrow, 3);
           tunnelOrbCanvas.style.opacity = Math.min(1, orbGrow * 1.6).toFixed(3);
           tunnelOrbCanvas.style.transform = `translate(-50%, -50%) scale(${(0.08 + eased * 0.92).toFixed(3)})`;
           if (tunnelOrbRenderer) {
-            tunnelOrbRenderer.draw(tSec, 0.14 * eased);
+            tunnelOrbRenderer.draw(tSec, 0.14 * eased, isLight);
           }
         } else {
           tunnelOrbCanvas.style.opacity = '0';
         }
 
-        // Flanking Callouts + Bottom App Icon Dock (0.76 -> 1.0)
         const overlayAlpha = Math.max(0, Math.min(1, (progress - 0.76) / 0.16));
         orbOverlay.style.opacity = overlayAlpha.toFixed(3);
 
@@ -3183,13 +3566,12 @@
     })();
 
     /* =======================================================================
-       8. CLOSING COLORFUL DOTTED MATRIX HALFTONE WAVE CANVAS (00:39 - 00:40)
+       9. THEME-REACTIVE CHROMATIC DOTTED MATRIX HALFTONE FOOTER
     ======================================================================= */
     (function initDotMatrix() {
       const canvas = document.getElementById('dotMatrixCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function resize() {
         canvas.width = canvas.offsetWidth;
@@ -3198,12 +3580,16 @@
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      const palette = ['#fbbf24', '#34d399', '#22d3ee', '#3b82f6', '#818cf8', '#f472b6'];
+      const darkPalette = ['#1d4ed8', '#60a5fa', '#7c3aed', '#c084fc', '#e11d48', '#fb7185'];
+      const lightPalette = ['#f97316', '#ef4444', '#eab308', '#10b981', '#fb923c', '#059669'];
 
       function render(t) {
         const w = canvas.width;
         const h = canvas.height;
         ctx.clearRect(0, 0, w, h);
+
+        const isLight = htmlEl.getAttribute('data-theme') === 'light';
+        const palette = isLight ? lightPalette : darkPalette;
 
         const gap = 14;
         const cols = Math.floor(w / gap);
@@ -3214,21 +3600,21 @@
             const x = c * gap + gap * 0.5;
             const y = r * gap + gap * 0.5;
             const wave =
-              Math.sin(c * 0.13 + (prefersReduced ? 0 : t * 0.0018)) +
-              Math.cos(r * 0.21 - (prefersReduced ? 0 : t * 0.0014));
-            if (wave > 0.22) {
+              Math.sin(c * 0.13 + (prefersReducedMotion ? 0 : t * 0.002)) +
+              Math.cos(r * 0.21 - (prefersReducedMotion ? 0 : t * 0.0015));
+            if (wave > 0.2) {
               const colorIdx = (c + r) % palette.length;
               ctx.fillStyle = palette[colorIdx];
-              ctx.globalAlpha = Math.min(0.88, (wave - 0.22) * 0.58);
+              ctx.globalAlpha = Math.min(0.9, (wave - 0.2) * 0.62);
               ctx.beginPath();
-              ctx.arc(x, y, 2.3, 0, Math.PI * 2);
+              ctx.arc(x, y, 2.4, 0, Math.PI * 2);
               ctx.fill();
             }
           }
         }
         ctx.globalAlpha = 1;
 
-        if (!prefersReduced) requestAnimationFrame(render);
+        if (!prefersReducedMotion) requestAnimationFrame(render);
       }
 
       requestAnimationFrame(render);
