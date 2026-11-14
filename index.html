@@ -35,9 +35,9 @@
     :root,
     [data-theme="dark"] {
       --bg-page: #040714;
-      --glass-bg: rgba(12, 20, 48, 0.48);
-      --glass-bg-strong: rgba(10, 17, 42, 0.72);
-      --glass-pill: rgba(13, 22, 54, 0.62);
+      --glass-bg: rgba(12, 20, 48, 0.5);
+      --glass-bg-strong: rgba(10, 17, 42, 0.74);
+      --glass-pill: rgba(13, 22, 54, 0.64);
       --glass-hover: rgba(255, 255, 255, 0.075);
 
       --text-primary: #f8fafc;
@@ -81,9 +81,9 @@
 
     [data-theme="light"] {
       --bg-page: #fffcf7;
-      --glass-bg: rgba(255, 255, 255, 0.62);
-      --glass-bg-strong: rgba(255, 255, 255, 0.84);
-      --glass-pill: rgba(255, 255, 255, 0.78);
+      --glass-bg: rgba(255, 255, 255, 0.64);
+      --glass-bg-strong: rgba(255, 255, 255, 0.86);
+      --glass-pill: rgba(255, 255, 255, 0.8);
       --glass-hover: rgba(15, 23, 42, 0.055);
 
       --text-primary: #0f172a;
@@ -475,12 +475,11 @@
     }
 
     /* =====================================================================
-       4. HERO SECTION — ZERO UNREQUESTED LABELS, ZERO OVERLAPPING DATES
+       4. HERO SECTION + SCROLL-DRIVEN 2-TAB FEATURE SWITCHER
     ===================================================================== */
     .hero-section {
       position: relative;
-      padding: 124px 0 84px;
-      overflow: hidden;
+      padding: 124px 0 36px;
     }
 
     .hero-grid {
@@ -488,7 +487,7 @@
       grid-template-columns: 1.06fr 0.94fr;
       gap: 44px;
       align-items: center;
-      margin-bottom: 56px;
+      margin-bottom: 36px;
     }
 
     .hero-eyebrow {
@@ -612,7 +611,6 @@
       color: var(--text-secondary);
     }
 
-    /* Right Hero Column: Pure Sculptural 3D Orb above Snapshot Card (Zero Extra Labels, Zero Overlap) */
     .hero-right-stack {
       display: flex;
       flex-direction: column;
@@ -705,7 +703,18 @@
       flex-shrink: 0;
     }
 
-    /* 2-Tab Feature Switcher */
+    /* Scroll-Driven Pinned 2-Tab Feature Switcher Runway */
+    .hero-switcher-runway {
+      position: relative;
+      height: 195vh;
+    }
+
+    .hero-switcher-sticky {
+      position: sticky;
+      top: 96px;
+      padding: 16px 0 48px;
+    }
+
     .hero-switcher-tabs {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -715,14 +724,19 @@
     }
 
     .switcher-tab {
+      position: relative;
+      overflow: hidden;
       text-align: left;
-      padding: 15px 20px;
+      padding: 15px 20px 18px;
       border-radius: 16px;
       background: var(--glass-bg);
       border: 1px solid var(--border-glass);
       backdrop-filter: blur(22px) saturate(170%);
       cursor: pointer;
-      transition: transform 0.3s var(--bounce-spring), border-color 0.25s ease;
+      transition:
+        transform 0.35s var(--bounce-spring),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .switcher-tab:hover {
@@ -731,7 +745,18 @@
 
     .switcher-tab.active {
       border-color: var(--accent-2);
-      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.3);
+      transform: translateY(-2px) scale(1.015);
+      box-shadow: var(--specular-top), 0 14px 32px -10px rgba(124, 58, 237, 0.38);
+    }
+
+    .tab-dwell-bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--grad-bar);
+      transition: width 0.1s linear;
     }
 
     .switcher-tab-title {
@@ -751,6 +776,7 @@
     .hero-showcase-frame {
       border-radius: 24px;
       padding: clamp(24px, 3.4vw, 36px);
+      overflow: hidden;
     }
 
     .showcase-frame-grid {
@@ -758,12 +784,20 @@
       grid-template-columns: 1fr 1.15fr;
       gap: 32px;
       align-items: center;
-      animation: panelFadeSlide 0.45s var(--spring);
+      animation: cardMorphIn 0.55s var(--spring);
     }
 
-    @keyframes panelFadeSlide {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes cardMorphIn {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translate3d(0, 16px, 0) scale(0.985);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0) scale(1);
+      }
     }
 
     .showcase-copy h3 {
@@ -899,12 +933,12 @@
     }
 
     /* =====================================================================
-       6. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE (MATCHING ATTACHED REFERENCE)
-          + SLOW-SCROLL PINNED EXPERIENCE + 3D DEPTH TUNNEL
+       6. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE (REFERENCE LAYOUT)
+          + SLOW-SCROLL READING PLATEAUS + 3D DEPTH TUNNEL
     ===================================================================== */
     .timeline-scroll-runway {
       position: relative;
-      height: 580vh;
+      height: 660vh;
     }
 
     .timeline-sticky-stage {
@@ -918,7 +952,6 @@
       justify-content: space-between;
     }
 
-    /* Subtle 3D Depth Tunnel Backdrop */
     #tunnelWebGLCanvas {
       position: absolute;
       inset: 0;
@@ -929,7 +962,6 @@
       opacity: 0.65;
     }
 
-    /* Architectural Vertical Column Grid Lines (Matching Attached Screenshot) */
     .timeline-arch-grid {
       position: absolute;
       inset: 0;
@@ -944,7 +976,6 @@
       );
     }
 
-    /* Top Header matching "1999 to Present / Milestones..." in Screenshot */
     .timeline-stage-header {
       position: relative;
       z-index: 6;
@@ -1012,7 +1043,6 @@
       color: #ffffff;
     }
 
-    /* Horizontal Translating Track Viewport */
     .timeline-viewport {
       position: relative;
       z-index: 5;
@@ -1029,7 +1059,6 @@
       will-change: transform;
     }
 
-    /* Continuous Horizontal Baseline Track at Bottom */
     .timeline-baseline {
       position: absolute;
       bottom: 72px;
@@ -1049,7 +1078,6 @@
       box-shadow: 0 0 14px rgba(168, 85, 247, 0.55);
     }
 
-    /* Individual Milestone Column + Vertical Stem (Exact Reference Format) */
     .tl-node {
       position: absolute;
       bottom: 72px;
@@ -1078,7 +1106,6 @@
       box-shadow: 0 0 12px var(--accent-2);
     }
 
-    /* Diamond / Square Anchor Node on the Horizontal Baseline */
     .tl-node-anchor {
       position: absolute;
       left: -4.5px;
@@ -1098,13 +1125,12 @@
     }
 
     .tl-node.is-current .tl-node-anchor {
-      transform: rotate(45deg) scale(1.35);
+      transform: rotate(45deg) scale(1.38);
       border-color: #ffffff;
       background: var(--accent-2);
       box-shadow: 0 0 14px var(--accent-2);
     }
 
-    /* Text Block Pinned to Top-Right of the Vertical Stem (Matching Screenshot) */
     .tl-node-content {
       position: absolute;
       left: 0;
@@ -1115,7 +1141,7 @@
     }
 
     .tl-node.is-current .tl-node-content {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
     .tl-node-date {
@@ -1150,7 +1176,7 @@
     }
 
     /* =====================================================================
-       7. PROJECTS SECTION — THREE INITIATIVES + CASE STUDIES
+       7. PROJECTS SECTION + SCROLL-DRIVEN CASE STUDY AUTO-STEPPER
     ===================================================================== */
     .pillars-section {
       padding: 92px 0;
@@ -1212,9 +1238,20 @@
       line-height: 1.66;
     }
 
-    .cases-section {
-      padding: 92px 0;
+    /* Scroll-Driven Pinned Case Studies Runway (Auto-Clicks 01 -> 02 -> 03) */
+    .cases-runway {
+      position: relative;
+      height: 310vh;
       border-top: 1px solid var(--border-glass);
+    }
+
+    .cases-sticky {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 96px 0 48px;
     }
 
     .cases-split {
@@ -1222,6 +1259,7 @@
       grid-template-columns: 0.92fr 1.08fr;
       gap: 44px;
       align-items: center;
+      width: 100%;
     }
 
     .case-kicker {
@@ -1259,11 +1297,13 @@
     }
 
     .case-select-btn {
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       gap: 14px;
       width: 100%;
-      padding: 15px 18px;
+      padding: 15px 18px 18px;
       border-radius: 15px;
       border: 1px solid var(--border-glass);
       background: var(--glass-bg);
@@ -1273,7 +1313,7 @@
       font-weight: 600;
       text-align: left;
       cursor: pointer;
-      transition: all 0.3s var(--spring);
+      transition: all 0.35s var(--spring);
     }
 
     .case-select-btn:hover {
@@ -1284,7 +1324,18 @@
     .case-select-btn.active {
       border-color: var(--accent-2);
       color: var(--text-primary);
-      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.3);
+      transform: translateX(6px);
+      box-shadow: var(--specular-top), 0 14px 32px -10px rgba(124, 58, 237, 0.36);
+    }
+
+    .case-dwell-bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--grad-bar);
+      transition: width 0.1s linear;
     }
 
     .case-select-num {
@@ -1300,6 +1351,10 @@
     .case-display-card {
       padding: clamp(28px, 3.8vw, 40px);
       border-radius: 24px;
+    }
+
+    .case-display-inner {
+      animation: cardMorphIn 0.5s var(--spring);
     }
 
     .case-display-top {
@@ -1499,11 +1554,21 @@
     }
 
     /* =====================================================================
-       10. ACADEMIC & LEADERSHIP RECORD ACCORDION
+       10. ACADEMIC & LEADERSHIP RECORD (SCROLL-DRIVEN AUTO-EXPAND)
     ===================================================================== */
-    .record-section {
-      padding: 92px 0;
+    .record-runway {
+      position: relative;
+      height: 280vh;
       border-top: 1px solid var(--border-glass);
+    }
+
+    .record-sticky {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 96px 0 48px;
     }
 
     .accordion-columns {
@@ -1524,21 +1589,27 @@
     .acc-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .acc-item {
       border-radius: 16px;
       overflow: hidden;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--spring);
+    }
+
+    .acc-item.is-focused {
+      border-color: var(--accent-2);
+      box-shadow: var(--specular-top), 0 12px 28px -10px rgba(124, 58, 237, 0.32);
     }
 
     .acc-trigger {
       width: 100%;
-      padding: 17px 20px;
+      padding: 15px 18px;
       background: transparent;
       border: none;
       color: var(--text-primary);
-      font-size: 0.93rem;
+      font-size: 0.91rem;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -1553,24 +1624,34 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--accent-2);
-      transition: transform 0.3s var(--bounce-spring);
+      transition: transform 0.35s var(--bounce-spring);
+      flex-shrink: 0;
     }
 
     .acc-item.open .acc-plus {
       transform: rotate(45deg);
     }
 
-    .acc-panel {
-      display: none;
-      padding: 0 20px 18px;
-      font-size: 0.89rem;
-      line-height: 1.66;
-      color: var(--text-secondary);
+    /* Smooth animated accordion grid expansion */
+    .acc-panel-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s var(--spring);
     }
 
-    .acc-item.open .acc-panel {
-      display: block;
-      animation: panelFadeSlide 0.3s var(--spring);
+    .acc-item.open .acc-panel-wrap {
+      grid-template-rows: 1fr;
+    }
+
+    .acc-panel {
+      overflow: hidden;
+    }
+
+    .acc-panel-inner {
+      padding: 0 18px 16px;
+      font-size: 0.87rem;
+      line-height: 1.62;
+      color: var(--text-secondary);
     }
 
     /* =====================================================================
@@ -1689,6 +1770,21 @@
       .pillars-grid {
         grid-template-columns: 1fr;
       }
+
+      /* Natural unpinned flow on mobile/tablet so tall stacked content never clips */
+      .hero-switcher-runway,
+      .cases-runway,
+      .record-runway {
+        height: auto;
+      }
+
+      .hero-switcher-sticky,
+      .cases-sticky,
+      .record-sticky {
+        position: static;
+        min-height: auto;
+        padding: 48px 0;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1732,17 +1828,32 @@
         transform: none;
       }
 
+      .hero-switcher-runway,
+      .cases-runway,
+      .record-runway,
       .timeline-scroll-runway {
         height: auto;
       }
 
+      .hero-switcher-sticky,
+      .cases-sticky,
+      .record-sticky,
       .timeline-sticky-stage {
         position: static;
+        min-height: auto;
+        height: auto;
+      }
+
+      .timeline-sticky-stage {
         height: 620px;
       }
 
       .timeline-viewport {
         overflow-x: auto;
+      }
+
+      .acc-panel-wrap {
+        grid-template-rows: 1fr;
       }
     }
   </style>
@@ -1905,46 +2016,52 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- 2-Tab Feature Switcher -->
-        <div data-reveal style="--delay: 200ms;">
-          <div class="hero-switcher-tabs" role="tablist" aria-label="Featured software">
-            <button class="switcher-tab active" data-showcase="the1" type="button">
-              <span class="switcher-tab-title">THE 1</span>
-              <span class="switcher-tab-sub">All-in-one student workspace</span>
-            </button>
-            <button class="switcher-tab" data-showcase="kerniq" type="button">
-              <span class="switcher-tab-title">Kerniq</span>
-              <span class="switcher-tab-sub">Within the THE 1 ecosystem</span>
-            </button>
-          </div>
+      <!-- Scroll-Driven Pinned 2-Tab Feature Switcher (Auto-Clicks THE 1 -> Kerniq on Scroll) -->
+      <div class="hero-switcher-runway" id="heroSwitcherRunway" data-dwell-zone="0.46">
+        <div class="hero-switcher-sticky">
+          <div class="container">
+            <div class="hero-switcher-tabs" role="tablist" aria-label="Featured software">
+              <button class="switcher-tab active" data-showcase="the1" data-tab-idx="0" type="button">
+                <span class="switcher-tab-title">THE 1</span>
+                <span class="switcher-tab-sub">All-in-one student workspace</span>
+                <span class="tab-dwell-bar"></span>
+              </button>
+              <button class="switcher-tab" data-showcase="kerniq" data-tab-idx="1" type="button">
+                <span class="switcher-tab-title">Kerniq</span>
+                <span class="switcher-tab-sub">Within the THE 1 ecosystem</span>
+                <span class="tab-dwell-bar"></span>
+              </button>
+            </div>
 
-          <div class="hero-showcase-frame glass-panel" id="heroShowcaseFrame" data-tilt>
-            <div class="showcase-frame-grid">
-              <div class="showcase-copy">
-                <h3>THE 1 — All-in-one workspace for students</h3>
-                <p>
-                  Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
-                </p>
-                <div class="showcase-pills">
-                  <span>Timetable</span>
-                  <span>Notes &amp; Homework</span>
-                  <span>Revision</span>
-                  <span>AI Study Tools</span>
+            <div class="hero-showcase-frame glass-panel" id="heroShowcaseFrame" data-tilt>
+              <div class="showcase-frame-grid">
+                <div class="showcase-copy">
+                  <h3>THE 1 — All-in-one workspace for students</h3>
+                  <p>
+                    Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
+                  </p>
+                  <div class="showcase-pills">
+                    <span>Timetable</span>
+                    <span>Notes &amp; Homework</span>
+                    <span>Revision</span>
+                    <span>AI Study Tools</span>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-mock">
-                <div class="mock-item">
-                  <span><strong>06/2026</strong> · Started building THE 1</span>
-                  <span class="preview-tag">the-1.app</span>
-                </div>
-                <div class="mock-item">
-                  <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-                  <span class="preview-tag">Pilot</span>
-                </div>
-                <div class="mock-item">
-                  <span><strong>10/2026</strong> · Launched on Product Hunt</span>
-                  <span class="preview-tag">Launched</span>
+                <div class="showcase-mock">
+                  <div class="mock-item">
+                    <span><strong>06/2026</strong> · Started building THE 1</span>
+                    <span class="preview-tag">the-1.app</span>
+                  </div>
+                  <div class="mock-item">
+                    <span><strong>10/2026</strong> · School pilot at Adani International School</span>
+                    <span class="preview-tag">Pilot</span>
+                  </div>
+                  <div class="mock-item">
+                    <span><strong>10/2026</strong> · Launched on Product Hunt</span>
+                    <span class="preview-tag">Launched</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1991,9 +2108,9 @@
 
     <!-- =================================================================
          3. TIMELINE — ARCHITECTURAL HORIZONTAL-WAVE TRACK (REFERENCE LAYOUT)
-            + SLOW-SCROLL PINNED RUNWAY + 3D DEPTH TUNNEL
+            + SLOW-SCROLL READING PLATEAUS + 3D DEPTH TUNNEL
     ================================================================= -->
-    <section class="timeline-scroll-runway" id="timeline" data-scroll-section="Timeline" aria-label="Chronological Timeline">
+    <section class="timeline-scroll-runway" id="timeline" data-scroll-section="Timeline" data-dwell-zone="0.44" aria-label="Chronological Timeline">
       <div class="timeline-sticky-stage">
         <canvas id="tunnelWebGLCanvas" aria-hidden="true"></canvas>
         <div class="timeline-arch-grid" aria-hidden="true"></div>
@@ -2022,7 +2139,7 @@
     </section>
 
     <!-- =================================================================
-         4. PROJECTS SECTION — THREE INITIATIVES + CASE STUDIES
+         4. PROJECTS SECTION — THREE INITIATIVES + SCROLL-AUTO-CLICK CASE STUDIES
     ================================================================= -->
     <section class="pillars-section" id="projects" data-scroll-section="Projects">
       <div class="container">
@@ -2053,47 +2170,54 @@
       </div>
     </section>
 
-    <section class="cases-section" aria-label="Project Case Studies">
-      <div class="container">
-        <div class="cases-split">
-          <div class="cases-left" data-reveal>
-            <span class="case-kicker">Project Details</span>
-            <h2>From student problems to working software.</h2>
-            <p>Select a project to view its background, real-world testing, and timeline.</p>
+    <section class="cases-runway" id="casesRunway" data-dwell-zone="0.46" aria-label="Project Case Studies">
+      <div class="cases-sticky">
+        <div class="container">
+          <div class="cases-split">
+            <div class="cases-left" data-reveal>
+              <span class="case-kicker">Project Details</span>
+              <h2>From student problems to working software.</h2>
+              <p>Keep scrolling to step through each project automatically, or select one directly.</p>
 
-            <div class="case-selector-list" role="tablist">
-              <button class="case-select-btn active" data-project="the1" type="button">
-                <span class="case-select-num">01</span>
-                <span>THE 1</span>
-              </button>
-              <button class="case-select-btn" data-project="kerniq" type="button">
-                <span class="case-select-num">02</span>
-                <span>Kerniq</span>
-              </button>
-              <button class="case-select-btn" data-project="cci" type="button">
-                <span class="case-select-num">03</span>
-                <span>College Chances India (05/2026–08/2026)</span>
-              </button>
+              <div class="case-selector-list" role="tablist">
+                <button class="case-select-btn active" data-project="the1" data-case-idx="0" type="button">
+                  <span class="case-select-num">01</span>
+                  <span>THE 1</span>
+                  <span class="case-dwell-bar"></span>
+                </button>
+                <button class="case-select-btn" data-project="kerniq" data-case-idx="1" type="button">
+                  <span class="case-select-num">02</span>
+                  <span>Kerniq</span>
+                  <span class="case-dwell-bar"></span>
+                </button>
+                <button class="case-select-btn" data-project="cci" data-case-idx="2" type="button">
+                  <span class="case-select-num">03</span>
+                  <span>College Chances India (05/2026–08/2026)</span>
+                  <span class="case-dwell-bar"></span>
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div class="case-display-card glass-panel" id="caseDisplayCard" data-tilt data-reveal style="--delay: 120ms;">
-            <div class="case-display-top">
-              <h3 class="case-display-title">THE 1</h3>
-              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
-                <span>Open the-1.app</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-            <div class="case-display-body">
-              <p>
-                Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
-              </p>
-              <ul class="case-highlights">
-                <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
-                <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
-                <li><strong>Live Website:</strong> Available at the-1.app.</li>
-              </ul>
+            <div class="case-display-card glass-panel" id="caseDisplayCard" data-tilt data-reveal style="--delay: 120ms;">
+              <div class="case-display-inner">
+                <div class="case-display-top">
+                  <h3 class="case-display-title">THE 1</h3>
+                  <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
+                    <span>Open the-1.app</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+                <div class="case-display-body">
+                  <p>
+                    Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
+                  </p>
+                  <ul class="case-highlights">
+                    <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
+                    <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
+                    <li><strong>Live Website:</strong> Available at the-1.app.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2139,7 +2263,7 @@
     <!-- =================================================================
          6. WRITING SPOTLIGHT — SUBSTACK
     ================================================================= -->
-    <section class="writing-spotlight" id="writing" data-scroll-section="Writing">
+    <section class="writing-spotlight" id="writing" data-scroll-section="Writing" data-dwell-zone="0.58">
       <div class="radial-beams" aria-hidden="true"></div>
       <div class="container">
         <div class="spotlight-card glass-panel" data-tilt data-reveal>
@@ -2157,95 +2281,129 @@
     </section>
 
     <!-- =================================================================
-         7. ACADEMIC & LEADERSHIP RECORD
+         7. ACADEMIC & LEADERSHIP RECORD (SCROLL-AUTO-EXPANDING ACCORDIONS)
     ================================================================= -->
-    <section class="record-section" id="record" data-scroll-section="Record" aria-label="Academic and Leadership Record">
-      <div class="container">
-        <div class="centered-header" data-reveal>
-          <h2>Education, academics &amp; leadership.</h2>
-          <p>Academic milestones, distinctions, and leadership roles from 08/2023 to 11/2026.</p>
-        </div>
+    <section class="record-runway" id="record" data-scroll-section="Record" data-dwell-zone="0.48" aria-label="Academic and Leadership Record">
+      <div class="record-sticky">
+        <div class="container">
+          <div class="centered-header" data-reveal style="margin-bottom: 32px;">
+            <h2>Education, academics &amp; leadership.</h2>
+            <p>Academic milestones, distinctions, and leadership roles from 08/2023 to 11/2026.</p>
+          </div>
 
-        <div class="accordion-columns">
-          <div data-reveal style="--delay: 80ms;">
-            <div class="acc-col-title">Education &amp; Academic Distinctions</div>
-            <div class="acc-list">
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Gymnasium Coswig, Germany (08/2023 – 06/2025)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Began studying at Gymnasium Coswig in Germany in August 2023 and completed studies in Germany in June 2025.
+          <div class="accordion-columns">
+            <div>
+              <div class="acc-col-title">Education &amp; Academic Distinctions</div>
+              <div class="acc-list">
+                <div class="acc-item glass-panel" data-acc-order="0">
+                  <button class="acc-trigger" type="button">
+                    <span>Gymnasium Coswig, Germany (08/2023 – 06/2025)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Began studying at Gymnasium Coswig in Germany in August 2023 and completed studies in Germany in June 2025.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Moved to Ahmedabad, India (07/2025)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Moved to Ahmedabad, India in July 2025.
+                <div class="acc-item glass-panel" data-acc-order="2">
+                  <button class="acc-trigger" type="button">
+                    <span>Moved to Ahmedabad, India (07/2025)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Moved to Ahmedabad, India in July 2025.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>SOF Mathematics Gold Medal (11/2025)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Received the SOF Mathematics Gold Medal of Excellence in November 2025.
+                <div class="acc-item glass-panel" data-acc-order="4">
+                  <button class="acc-trigger" type="button">
+                    <span>SOF Mathematics Gold Medal (11/2025)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Received the SOF Mathematics Gold Medal of Excellence in November 2025.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>ASSET Mathematics Gold &amp; Science Silver (01/2026)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Achieved ASSET Mathematics Gold (98th percentile) and ASSET Science Silver (93rd percentile) in January 2026.
+                <div class="acc-item glass-panel" data-acc-order="6">
+                  <button class="acc-trigger" type="button">
+                    <span>ASSET Mathematics Gold &amp; Science Silver (01/2026)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Achieved ASSET Mathematics Gold (98th percentile) and ASSET Science Silver (93rd percentile) in January 2026.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div data-reveal style="--delay: 160ms;">
-            <div class="acc-col-title">Leadership &amp; Recognition</div>
-            <div class="acc-list">
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Student Council &amp; Culture &amp; Events (07/2026)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Joined the Student Council and Culture &amp; Events team in July 2026.
+            <div>
+              <div class="acc-col-title">Leadership &amp; Recognition</div>
+              <div class="acc-list">
+                <div class="acc-item glass-panel" data-acc-order="1">
+                  <button class="acc-trigger" type="button">
+                    <span>Student Council &amp; Culture &amp; Events (07/2026)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Joined the Student Council and Culture &amp; Events team in July 2026.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Round Square Student Committee 2026–27 (10/2026)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Joined the Round Square Student Committee for 2026–27 in October 2026.
+                <div class="acc-item glass-panel" data-acc-order="3">
+                  <button class="acc-trigger" type="button">
+                    <span>Round Square Student Committee 2026–27 (10/2026)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Joined the Round Square Student Committee for 2026–27 in October 2026.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Internshala Student Partner (11/2026)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Became an Internshala Student Partner in November 2026.
+                <div class="acc-item glass-panel" data-acc-order="5">
+                  <button class="acc-trigger" type="button">
+                    <span>Internshala Student Partner (11/2026)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Became an Internshala Student Partner in November 2026.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="acc-item glass-panel">
-                <button class="acc-trigger" type="button">
-                  <span>Google Gemini Invitation (11/2026)</span>
-                  <span class="acc-plus">+</span>
-                </button>
-                <div class="acc-panel">
-                  Received an invitation from Google Gemini in November 2026 concerning potential involvement with a future version.
+                <div class="acc-item glass-panel" data-acc-order="7">
+                  <button class="acc-trigger" type="button">
+                    <span>Google Gemini Invitation (11/2026)</span>
+                    <span class="acc-plus">+</span>
+                  </button>
+                  <div class="acc-panel-wrap">
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        Received an invitation from Google Gemini in November 2026 concerning potential involvement with a future version.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2315,9 +2473,73 @@
       }
     });
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     /* =======================================================================
-       1. ALL 16 MILESTONES IN EXACT CHRONOLOGICAL ORDER (08/2023 -> 11/2026)
-          WITH ASCENDING-ARCH STEM HEIGHTS MATCHING ATTACHED REFERENCE
+       1. STRICTLY MONOTONIC DWELL CURVE
+          Slows visual progression ~6.5x at the center of each milestone/item
+          so readers can comfortably read each entry at steady scroll speed.
+    ======================================================================= */
+    function dwellProgress(t, steps) {
+      if (steps <= 1) return t;
+      const clamped = Math.max(0, Math.min(1, t));
+      const scaled = clamped * steps;
+      const idx = Math.min(steps - 1, Math.floor(scaled));
+      const frac = scaled - idx;
+      const shaped = frac + 0.135 * Math.sin(2.0 * Math.PI * frac);
+      return (idx + shaped) / steps;
+    }
+
+    /* =======================================================================
+       2. ADAPTIVE SCROLL-SPEED DECELERATION IN IMPORTANT READING ZONES
+          Modulates wheel/trackpad velocity smoothly inside [data-dwell-zone]
+          without ever trapping the user or blocking touch/keyboard/anchors.
+    ======================================================================= */
+    (function initAdaptiveScrollPacing() {
+      if (prefersReducedMotion) return;
+      const dwellZones = Array.from(document.querySelectorAll('[data-dwell-zone]'));
+      if (!dwellZones.length) return;
+
+      let currentFactor = 1.0;
+
+      function getTargetSpeedFactor() {
+        const probeY = window.innerHeight * 0.5;
+        for (const zone of dwellZones) {
+          const rect = zone.getBoundingClientRect();
+          if (rect.top <= probeY && rect.bottom >= probeY) {
+            return parseFloat(zone.dataset.dwellZone) || 0.48;
+          }
+        }
+        return 1.0;
+      }
+
+      window.addEventListener(
+        'wheel',
+        (e) => {
+          // Only modulate standard vertical mouse-wheel / trackpad scrolling (ignore pinch-zoom ctrlKey)
+          if (e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+
+          const targetFactor = getTargetSpeedFactor();
+          currentFactor += (targetFactor - currentFactor) * 0.25;
+
+          if (currentFactor < 0.96) {
+            e.preventDefault();
+            let delta = e.deltaY;
+            if (e.deltaMode === 1) delta *= 32;
+            else if (e.deltaMode === 2) delta *= window.innerHeight;
+            window.scrollBy({
+              top: delta * currentFactor,
+              left: 0,
+              behavior: 'instant'
+            });
+          }
+        },
+        { passive: false }
+      );
+    })();
+
+    /* =======================================================================
+       3. ALL 16 MILESTONES IN EXACT CHRONOLOGICAL ORDER (08/2023 -> 11/2026)
     ======================================================================= */
     const MILESTONES = [
       {
@@ -2419,7 +2641,7 @@
     ];
 
     /* =======================================================================
-       2. THEME SWITCHER
+       4. THEME SWITCHER
     ======================================================================= */
     const htmlEl = document.documentElement;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
@@ -2446,7 +2668,7 @@
     });
 
     /* =======================================================================
-       3. ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
+       5. ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
     ======================================================================= */
     const dockNav = document.getElementById('dockNav');
     const navActivePill = document.getElementById('navActivePill');
@@ -2454,7 +2676,7 @@
     const dockLocationBadge = document.getElementById('dockLocationBadge');
     const dockLinks = Array.from(dockNav.querySelectorAll('a[data-section]'));
     const mobileLinks = Array.from(document.querySelectorAll('#mobileMenu a[data-section]'));
-    const trackedSections = Array.from(document.querySelectorAll('section[id], footer[id]'));
+    const trackedSections = Array.from(document.querySelectorAll('[data-scroll-section]'));
 
     let currentActiveId = 'overview';
 
@@ -2511,7 +2733,7 @@
     requestAnimationFrame(updateDockNavigation);
 
     /* =======================================================================
-       4. MOBILE MENU, ACCORDIONS & GLASS SPECULAR TILT
+       6. MOBILE MENU & GLASS SPECULAR TILT
     ======================================================================= */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -2526,13 +2748,6 @@
       });
     });
 
-    document.querySelectorAll('.acc-trigger').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        btn.parentElement.classList.toggle('open');
-      });
-    });
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReducedMotion) {
       document.querySelectorAll('.glass-panel').forEach((card) => {
         card.addEventListener('mousemove', (e) => {
@@ -2571,145 +2786,293 @@
     document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
 
     /* =======================================================================
-       5. HERO 2-TAB SHOWCASE & CASE STUDY SWITCHERS
+       7. SCROLL-DRIVEN AUTO-CLICKING HERO 2-TAB FEATURE SWITCHER
+          Automatically switches THE 1 -> Kerniq on scroll AND supports clicks
     ======================================================================= */
-    const showcaseContent = {
-      the1: `
-        <div class="showcase-frame-grid">
-          <div class="showcase-copy">
-            <h3>THE 1 — All-in-one workspace for students</h3>
-            <p>
-              Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
-            </p>
-            <div class="showcase-pills">
-              <span>Timetable</span>
-              <span>Notes &amp; Homework</span>
-              <span>Revision</span>
-              <span>AI Study Tools</span>
-            </div>
-          </div>
-          <div class="showcase-mock">
-            <div class="mock-item">
-              <span><strong>06/2026</strong> · Started building THE 1</span>
-              <span class="preview-tag">the-1.app</span>
-            </div>
-            <div class="mock-item">
-              <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-              <span class="preview-tag">Pilot</span>
-            </div>
-            <div class="mock-item">
-              <span><strong>10/2026</strong> · Launched on Product Hunt</span>
-              <span class="preview-tag">Launched</span>
-            </div>
-          </div>
-        </div>
-      `,
-      kerniq: `
-        <div class="showcase-frame-grid">
-          <div class="showcase-copy">
-            <h3>Kerniq — Within the THE 1 ecosystem</h3>
-            <p>
-              Started in November 2026 within the THE 1 ecosystem (kerniq.the-1.app) to support structured AI learning and concept exploration.
-            </p>
-            <div class="showcase-pills">
-              <span>THE 1 Ecosystem</span>
-              <span>AI Study Support</span>
-              <span>kerniq.the-1.app</span>
-            </div>
-          </div>
-          <div class="showcase-mock">
-            <div class="mock-item">
-              <span><strong>11/2026</strong> · Started developing Kerniq</span>
-              <span class="preview-tag">kerniq.the-1.app</span>
-            </div>
-            <div class="mock-item">
-              <span><strong>Ecosystem</strong> · Integrated with THE 1</span>
-              <span class="preview-tag">Active</span>
-            </div>
-          </div>
-        </div>
-      `
-    };
+    (function initScrollHeroSwitcher() {
+      const runway = document.getElementById('heroSwitcherRunway');
+      const frame = document.getElementById('heroShowcaseFrame');
+      const tabs = Array.from(document.querySelectorAll('.switcher-tab'));
+      if (!runway || !frame || !tabs.length) return;
 
-    document.querySelectorAll('.switcher-tab').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.switcher-tab').forEach((t) => t.classList.remove('active'));
-        tab.classList.add('active');
-        const frame = document.getElementById('heroShowcaseFrame');
-        if (frame && showcaseContent[tab.dataset.showcase]) {
-          frame.innerHTML = showcaseContent[tab.dataset.showcase];
+      const showcaseKeys = ['the1', 'kerniq'];
+      const showcaseContent = {
+        the1: `
+          <div class="showcase-frame-grid">
+            <div class="showcase-copy">
+              <h3>THE 1 — All-in-one workspace for students</h3>
+              <p>
+                Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
+              </p>
+              <div class="showcase-pills">
+                <span>Timetable</span>
+                <span>Notes &amp; Homework</span>
+                <span>Revision</span>
+                <span>AI Study Tools</span>
+              </div>
+            </div>
+            <div class="showcase-mock">
+              <div class="mock-item">
+                <span><strong>06/2026</strong> · Started building THE 1</span>
+                <span class="preview-tag">the-1.app</span>
+              </div>
+              <div class="mock-item">
+                <span><strong>10/2026</strong> · School pilot at Adani International School</span>
+                <span class="preview-tag">Pilot</span>
+              </div>
+              <div class="mock-item">
+                <span><strong>10/2026</strong> · Launched on Product Hunt</span>
+                <span class="preview-tag">Launched</span>
+              </div>
+            </div>
+          </div>
+        `,
+        kerniq: `
+          <div class="showcase-frame-grid">
+            <div class="showcase-copy">
+              <h3>Kerniq — Within the THE 1 ecosystem</h3>
+              <p>
+                Started in November 2026 within the THE 1 ecosystem (kerniq.the-1.app) to support structured AI learning and concept exploration.
+              </p>
+              <div class="showcase-pills">
+                <span>THE 1 Ecosystem</span>
+                <span>AI Study Support</span>
+                <span>kerniq.the-1.app</span>
+              </div>
+            </div>
+            <div class="showcase-mock">
+              <div class="mock-item">
+                <span><strong>11/2026</strong> · Started developing Kerniq</span>
+                <span class="preview-tag">kerniq.the-1.app</span>
+              </div>
+              <div class="mock-item">
+                <span><strong>Ecosystem</strong> · Integrated with THE 1</span>
+                <span class="preview-tag">Active</span>
+              </div>
+            </div>
+          </div>
+        `
+      };
+
+      let activeIdx = 0;
+
+      function setHeroTab(idx, progressInTab = 1) {
+        const clampedIdx = Math.max(0, Math.min(showcaseKeys.length - 1, idx));
+        if (clampedIdx !== activeIdx) {
+          activeIdx = clampedIdx;
+          frame.innerHTML = showcaseContent[showcaseKeys[activeIdx]];
         }
-      });
-    });
+        tabs.forEach((tab, i) => {
+          const isCurr = i === activeIdx;
+          tab.classList.toggle('active', isCurr);
+          const bar = tab.querySelector('.tab-dwell-bar');
+          if (bar) {
+            bar.style.width = isCurr ? `${Math.round(progressInTab * 100)}%` : i < activeIdx ? '100%' : '0%';
+          }
+        });
+      }
 
-    const projectCards = {
-      the1: `
-        <div class="case-display-top">
-          <h3 class="case-display-title">THE 1</h3>
-          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
-            <span>Open the-1.app</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
-          <p>
-            Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
-          </p>
-          <ul class="case-highlights">
-            <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
-            <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
-            <li><strong>Live Website:</strong> Available at the-1.app.</li>
-          </ul>
-        </div>
-      `,
-      kerniq: `
-        <div class="case-display-top">
-          <h3 class="case-display-title">Kerniq</h3>
-          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
-            <span>Open kerniq.the-1.app</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
-          <p>
-            Started in November 2026 within the THE 1 ecosystem, Kerniq is an AI tool developed to support structured learning.
-          </p>
-          <ul class="case-highlights">
-            <li><strong>Started (11/2026):</strong> Began developing Kerniq within the THE 1 ecosystem.</li>
-            <li><strong>Live Website:</strong> Available at kerniq.the-1.app.</li>
-          </ul>
-        </div>
-      `,
-      cci: `
-        <div class="case-display-top">
-          <h3 class="case-display-title">College Chances India</h3>
-          <span class="preview-tag">05/2026–08/2026</span>
-        </div>
-        <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
-          <p>
-            Founded in May 2026 and concluded in August 2026, College Chances India was an AI-assisted university exploration platform for students in India.
-          </p>
-          <ul class="case-highlights">
-            <li><strong>Period:</strong> May 2026 – August 2026.</li>
-            <li><strong>Focus:</strong> Founding and initial development of an AI-assisted university exploration platform.</li>
-          </ul>
-        </div>
-      `
-    };
-
-    document.querySelectorAll('.case-select-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.case-select-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const card = document.getElementById('caseDisplayCard');
-        if (card && projectCards[btn.dataset.project]) {
-          card.innerHTML = projectCards[btn.dataset.project];
-        }
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener('click', () => {
+          setHeroTab(idx, 1);
+          if (window.innerWidth > 960 && !prefersReducedMotion) {
+            const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight * 0.7);
+            const targetY = runway.offsetTop + (idx === 0 ? 0.15 : 0.68) * scrollable;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        });
       });
-    });
+
+      function onScrollHeroSwitcher() {
+        if (window.innerWidth <= 960 || prefersReducedMotion) return;
+        const rect = runway.getBoundingClientRect();
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight * 0.7);
+        const raw = Math.min(1, Math.max(0, (-rect.top + 96) / scrollable));
+        const shaped = dwellProgress(raw, 2);
+        const scaled = shaped * 2;
+        const idx = Math.min(1, Math.floor(scaled));
+        const frac = Math.min(1, Math.max(0.05, scaled - idx));
+        setHeroTab(idx, frac);
+      }
+
+      window.addEventListener('scroll', onScrollHeroSwitcher, { passive: true });
+    })();
 
     /* =======================================================================
-       6. HERO 3D WEBGL ORB
+       8. SCROLL-DRIVEN AUTO-CLICKING PROJECT CASE STUDIES (01 -> 02 -> 03)
+    ======================================================================= */
+    (function initScrollCaseStudies() {
+      const runway = document.getElementById('casesRunway');
+      const card = document.getElementById('caseDisplayCard');
+      const buttons = Array.from(document.querySelectorAll('.case-select-btn'));
+      if (!runway || !card || !buttons.length) return;
+
+      const projectKeys = ['the1', 'kerniq', 'cci'];
+      const projectCards = {
+        the1: `
+          <div class="case-display-inner">
+            <div class="case-display-top">
+              <h3 class="case-display-title">THE 1</h3>
+              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
+                <span>Open the-1.app</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="case-display-body">
+              <p>
+                Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
+              </p>
+              <ul class="case-highlights">
+                <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
+                <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
+                <li><strong>Live Website:</strong> Available at the-1.app.</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        kerniq: `
+          <div class="case-display-inner">
+            <div class="case-display-top">
+              <h3 class="case-display-title">Kerniq</h3>
+              <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 8px 16px; font-size: 0.8rem;">
+                <span>Open kerniq.the-1.app</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="case-display-body">
+              <p>
+                Started in November 2026 within the THE 1 ecosystem, Kerniq is an AI tool developed to support structured learning.
+              </p>
+              <ul class="case-highlights">
+                <li><strong>Started (11/2026):</strong> Began developing Kerniq within the THE 1 ecosystem.</li>
+                <li><strong>Live Website:</strong> Available at kerniq.the-1.app.</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        cci: `
+          <div class="case-display-inner">
+            <div class="case-display-top">
+              <h3 class="case-display-title">College Chances India</h3>
+              <span class="preview-tag">05/2026–08/2026</span>
+            </div>
+            <div class="case-display-body">
+              <p>
+                Founded in May 2026 and concluded in August 2026, College Chances India was an AI-assisted university exploration platform for students in India.
+              </p>
+              <ul class="case-highlights">
+                <li><strong>Period:</strong> May 2026 – August 2026.</li>
+                <li><strong>Focus:</strong> Founding and initial development of an AI-assisted university exploration platform.</li>
+              </ul>
+            </div>
+          </div>
+        `
+      };
+
+      let activeCaseIdx = 0;
+
+      function setActiveCase(idx, progressInCase = 1) {
+        const clamped = Math.max(0, Math.min(projectKeys.length - 1, idx));
+        if (clamped !== activeCaseIdx) {
+          activeCaseIdx = clamped;
+          card.innerHTML = projectCards[projectKeys[activeCaseIdx]];
+        }
+        buttons.forEach((btn, i) => {
+          const isCurr = i === activeCaseIdx;
+          btn.classList.toggle('active', isCurr);
+          const bar = btn.querySelector('.case-dwell-bar');
+          if (bar) {
+            bar.style.width = isCurr ? `${Math.round(progressInCase * 100)}%` : i < activeCaseIdx ? '100%' : '0%';
+          }
+        });
+      }
+
+      buttons.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+          setActiveCase(idx, 1);
+          if (window.innerWidth > 960 && !prefersReducedMotion) {
+            const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+            const targetProgress = (idx + 0.45) / projectKeys.length;
+            window.scrollTo({ top: runway.offsetTop + targetProgress * scrollable, behavior: 'smooth' });
+          }
+        });
+      });
+
+      function onScrollCases() {
+        if (window.innerWidth <= 960 || prefersReducedMotion) return;
+        const rect = runway.getBoundingClientRect();
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+        const raw = Math.min(1, Math.max(0, -rect.top / scrollable));
+        const shaped = dwellProgress(raw, projectKeys.length);
+        const scaled = shaped * projectKeys.length;
+        const idx = Math.min(projectKeys.length - 1, Math.floor(scaled));
+        const frac = Math.min(1, Math.max(0.05, scaled - idx));
+        setActiveCase(idx, frac);
+      }
+
+      window.addEventListener('scroll', onScrollCases, { passive: true });
+    })();
+
+    /* =======================================================================
+       9. SCROLL-DRIVEN AUTO-EXPANDING ACADEMIC & LEADERSHIP ACCORDIONS
+          Automatically clicks open all 8 items in sequence while scrolling
+    ======================================================================= */
+    (function initScrollRecordAccordions() {
+      const runway = document.getElementById('record');
+      const items = Array.from(document.querySelectorAll('.acc-item[data-acc-order]')).sort(
+        (a, b) => Number(a.dataset.accOrder) - Number(b.dataset.accOrder)
+      );
+      if (!runway || !items.length) return;
+
+      const manuallyToggled = new Set();
+
+      items.forEach((item, idx) => {
+        const trigger = item.querySelector('.acc-trigger');
+        if (trigger) {
+          trigger.addEventListener('click', () => {
+            manuallyToggled.add(idx);
+            item.classList.toggle('open');
+          });
+        }
+      });
+
+      function onScrollRecord() {
+        if (prefersReducedMotion) return;
+
+        // On mobile/tablet (unpinned flow), auto-open each item smoothly as it enters the viewport
+        if (window.innerWidth <= 960) {
+          const triggerLine = window.innerHeight * 0.78;
+          items.forEach((item, idx) => {
+            if (manuallyToggled.has(idx)) return;
+            const rect = item.getBoundingClientRect();
+            if (rect.top < triggerLine) {
+              item.classList.add('open');
+            }
+          });
+          return;
+        }
+
+        // On desktop (pinned runway), progressively click open each item in chronological sequence
+        const rect = runway.getBoundingClientRect();
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+        const raw = Math.min(1, Math.max(0, -rect.top / scrollable));
+        const shaped = dwellProgress(raw, items.length);
+        const activeFloat = shaped * items.length;
+        const focusedIdx = Math.min(items.length - 1, Math.floor(activeFloat));
+
+        items.forEach((item, idx) => {
+          item.classList.toggle('is-focused', raw > 0.01 && raw < 0.99 && idx === focusedIdx);
+          if (manuallyToggled.has(idx)) return;
+          const shouldOpen = raw > 0.02 && idx <= focusedIdx;
+          item.classList.toggle('open', shouldOpen);
+        });
+      }
+
+      window.addEventListener('scroll', onScrollRecord, { passive: true });
+    })();
+
+    /* =======================================================================
+       10. HERO 3D WEBGL ORB
     ======================================================================= */
     function createWebGLDisplacedOrb(canvas) {
       if (!canvas) return null;
@@ -2881,8 +3244,8 @@
     const heroOrbRenderer = createWebGLDisplacedOrb(document.getElementById('heroWebGLOrb'));
 
     /* =======================================================================
-       7. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE + SLOW-SCROLL 3D TUNNEL
-          (FOLLOWS ATTACHED SCREENSHOT & UNCOVERS ACHIEVEMENTS ON SCROLL)
+       11. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE + DWELL PLATEAUS + 3D TUNNEL
+           (FOLLOWS ATTACHED SCREENSHOT & UNCOVERS ACHIEVEMENTS ON SCROLL)
     ======================================================================= */
     (function initArchitecturalTimeline() {
       const runway = document.getElementById('timeline');
@@ -2896,7 +3259,6 @@
 
       if (!runway || !trackCanvas) return;
 
-      // Build all 16 Milestone Nodes along the Horizontal Track
       const nodeEls = MILESTONES.map((m, idx) => {
         const node = document.createElement('article');
         node.className = 'tl-node' + (idx === 0 ? ' is-uncovered is-current' : '');
@@ -2925,7 +3287,6 @@
         colStep = vw < 640 ? 275 : vw < 960 ? 310 : 340;
         startPad = Math.max(28, Math.min(120, vw * 0.08));
 
-        // Scale vertical arch heights cleanly so there is never overlap with the top header
         const availH = Math.max(260, vh - 275);
         const hScale = Math.min(1, availH / 370);
 
@@ -2948,11 +3309,11 @@
 
       function scrollToMilestone(idx) {
         const clamped = Math.max(0, Math.min(MILESTONES.length - 1, idx));
-        const targetProgress = clamped / (MILESTONES.length - 1);
+        const targetProgress = (clamped + 0.5) / MILESTONES.length;
         const runwayTop = runway.offsetTop;
         const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
         window.scrollTo({
-          top: runwayTop + targetProgress * scrollable,
+          top: runwayTop + Math.min(1, targetProgress) * scrollable,
           behavior: 'smooth'
         });
       }
@@ -3071,21 +3432,21 @@
         smoothProgress += (rawProgress - smoothProgress) * 0.1;
 
         if (!prefersReducedMotion) {
+          // Apply reading-plateau dwell shaping across all 16 milestones
+          const shapedProgress = dwellProgress(smoothProgress, MILESTONES.length);
           const maxPan = Math.max(0, totalTrackWidth - window.innerWidth + startPad * 0.5);
-          const panX = smoothProgress * maxPan;
+          const panX = shapedProgress * maxPan;
           trackCanvas.style.transform = `translate3d(${(-panX).toFixed(1)}px, 0, 0)`;
 
-          const activeFloat = smoothProgress * (MILESTONES.length - 1);
+          const activeFloat = shapedProgress * (MILESTONES.length - 1);
           currentIdx = Math.round(activeFloat);
 
-          // Advance glowing progress bar along the bottom baseline track
           const activeLinePx = Math.min(
             (MILESTONES.length - 1) * colStep,
             Math.max(0, activeFloat * colStep)
           );
           baselineProgress.style.width = `${activeLinePx.toFixed(1)}px`;
 
-          // Uncover achievements progressively as user scrolls forward
           nodeEls.forEach((node, idx) => {
             const uncovered = idx <= activeFloat + 0.35;
             const isCurr = idx === currentIdx;
@@ -3123,7 +3484,7 @@
     })();
 
     /* =======================================================================
-       8. THEME-REACTIVE DOTTED MATRIX FOOTER
+       12. THEME-REACTIVE DOTTED MATRIX FOOTER
     ======================================================================= */
     (function initDotMatrix() {
       const canvas = document.getElementById('dotMatrixCanvas');
