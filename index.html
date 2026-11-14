@@ -1,2413 +1,613 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samar Agshikar | Building What's Next</title>
-  <meta name="description" content="Samar Agshikar — Student, software developer and aspiring entrepreneur. Building What's Next across AI, technology, mathematics, education and entrepreneurship." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Samar Agshikar — exploring technology, AI, entrepreneurship and the future of software.">
+  <title>Samar Agshikar — Building What's Next</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      /* Midnight Navy-Blue Foundation */
-      --bg-void: #030712;
-      --bg-navy-deep: #050b1c;
-      --bg-navy-mid: #08122b;
-      --bg-navy-surface: #0c1938;
-
-      /* Liquid Glass Tokens */
-      --glass-fill: linear-gradient(155deg, rgba(22, 39, 82, 0.44) 0%, rgba(8, 16, 38, 0.64) 100%);
-      --glass-fill-elevated: linear-gradient(155deg, rgba(30, 52, 108, 0.56) 0%, rgba(10, 20, 48, 0.78) 100%);
-      --glass-border: rgba(148, 188, 255, 0.16);
-      --glass-border-strong: rgba(186, 216, 255, 0.30);
-      --glass-specular: rgba(235, 246, 255, 0.36);
-
-      /* Typography & Accents */
-      --text-primary: #f1f6ff;
-      --text-secondary: #9fb2d6;
-      --text-muted: #6479a3;
-      --accent-sky: #7dd3fc;
-      --accent-cobalt: #38bdf8;
-      --accent-indigo: #818cf8;
-      --accent-gold: #fbbf24;
-      --accent-silver: #cbd5e1;
-
-      /* Spatial 3D Variables (Updated dynamically via Scroll Engine) */
-      --scroll-depth: 0;
-      --mouse-x: 50%;
-      --mouse-y: 50%;
+      --bg: #080d18;
+      --surface: #101a2b;
+      --text: #f3f6fc;
+      --muted: #9baac0;
+      --blue: #76aaff;
+      --border: rgba(255,255,255,.09);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-void);
-      color: var(--text-primary);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 78, 168, 0.28) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 45% at 85% 35%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 65% 50% at 15% 70%, rgba(99, 102, 241, 0.10) 0%, transparent 60%),
-        linear-gradient(180deg, #040918 0%, #050c20 45%, #040917 100%);
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Fixed 2D -> 3D WebGL-Style Spatial Canvas */
-    #spatial-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, 88%);
+      margin: auto;
     }
 
-    /* Subtle Ambient Noise & Specular Vignette */
-    .ambient-vignette {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(2, 5, 14, 0.72) 100%);
-      pointer-events: none;
-      z-index: 1;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,13,24,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
 
-    /* =========================================================
-       LIQUID GLASS MATERIAL SYSTEM
-    ========================================================= */
-    .liquid-glass {
-      position: relative;
-      background: var(--glass-fill);
-      backdrop-filter: blur(24px) saturate(165%);
-      -webkit-backdrop-filter: blur(24px) saturate(165%);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 24px 60px -15px rgba(2, 6, 20, 0.78),
-        inset 0 1px 0 0 var(--glass-specular),
-        inset 0 0 24px rgba(125, 211, 252, 0.04);
-      transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-    }
-
-    .liquid-glass::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: radial-gradient(
-        420px circle at var(--gx, 50%) var(--gy, 0%),
-        rgba(186, 230, 253, 0.42),
-        rgba(129, 140, 248, 0.12) 40%,
-        transparent 75%
-      );
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0.75;
-      transition: opacity 0.3s ease;
-    }
-
-    .liquid-glass:hover {
-      border-color: var(--glass-border-strong);
-      box-shadow:
-        0 30px 72px -12px rgba(2, 6, 20, 0.88),
-        inset 0 1px 0 0 rgba(255, 255, 255, 0.48),
-        inset 0 0 32px rgba(56, 189, 248, 0.08);
-    }
-
-    .liquid-glass-pill {
-      background: linear-gradient(160deg, rgba(25, 45, 92, 0.55) 0%, rgba(10, 20, 46, 0.72) 100%);
-      backdrop-filter: blur(20px) saturate(170%);
-      -webkit-backdrop-filter: blur(20px) saturate(170%);
-      border: 1px solid rgba(165, 202, 255, 0.22);
-      box-shadow:
-        0 10px 30px -8px rgba(2, 6, 20, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    }
-
-    /* =========================================================
-       FLOATING NAVIGATION BAR (SENTIENT OS STYLE)
-    ========================================================= */
-    header.nav-wrapper {
-      position: fixed;
-      top: 18px;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      padding: 0 20px;
-      pointer-events: none;
-    }
-
-    .nav-bar {
-      pointer-events: auto;
-      width: 100%;
-      max-width: 1120px;
-      height: 54px;
-      border-radius: 999px;
-      padding: 0 10px 0 18px;
+    .nav-inner {
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
 
-    .brand-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-orb {
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 55%, #0f172a 100%);
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.7);
-      display: grid;
-      place-items: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      color: #fff;
+      font-size: 20px;
+      letter-spacing: -1px;
     }
+
+    .logo span { color: var(--blue); }
 
     .nav-links {
       display: flex;
+      gap: 27px;
       align-items: center;
-      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 0.84rem;
-      font-weight: 450;
-      letter-spacing: -0.01em;
-      transition: color 0.2s ease;
-    }
+    .nav-links a:hover { color: white; }
 
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
-
-    .nav-actions {
+    .hero {
+      min-height: 650px;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-
-    /* Live 2D -> 3D Spatial Depth Telemetry Pill */
-    .spatial-badge {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(8, 17, 40, 0.72);
-      border: 1px solid rgba(125, 211, 252, 0.22);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.71rem;
-      color: var(--accent-sky);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      user-select: none;
-    }
-
-    .spatial-badge:hover {
-      border-color: rgba(125, 211, 252, 0.5);
-      background: rgba(15, 31, 70, 0.85);
-    }
-
-    .spatial-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-cobalt);
-      box-shadow: 0 0 8px var(--accent-cobalt);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .spatial-badge.is-3d .spatial-dot {
-      background: #34d399;
-      box-shadow: 0 0 10px #34d399;
-      transform: scale(1.25);
-    }
-
-    .nav-cta {
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #f8fbff 0%, #dbeafe 100%);
-      color: #050b1c;
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      box-shadow: 0 4px 16px rgba(186, 230, 253, 0.25), inset 0 1px 0 #fff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(186, 230, 253, 0.4);
-    }
-
-    /* =========================================================
-       MAIN SPATIAL CONTAINER & 2D -> 3D STAGE SYSTEM
-    ========================================================= */
-    main {
       position: relative;
-      z-index: 2;
-      width: 100%;
+      overflow: hidden;
     }
 
-    .spatial-stage {
-      perspective: 1500px;
-      transform-style: preserve-3d;
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .spatial-plane {
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform 0.08s linear;
-    }
-
-    .z-layer-1 { transform: translateZ(calc(var(--stage-z, 0) * 24px)); transform-style: preserve-3d; }
-    .z-layer-2 { transform: translateZ(calc(var(--stage-z, 0) * 48px)); transform-style: preserve-3d; }
-    .z-layer-3 { transform: translateZ(calc(var(--stage-z, 0) * 76px)); transform-style: preserve-3d; }
-
-    /* =========================================================
-       SECTION 1: HERO (2D ENTRANCE -> EXTRUDES TO 3D ON SCROLL)
-    ========================================================= */
-    .hero-section {
-      padding-top: 138px;
-      padding-bottom: 90px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 6px 15px;
-      border-radius: 999px;
-      font-size: 0.79rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 26px;
-    }
-
-    .eyebrow-pill .pulse {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent-sky);
-      box-shadow: 0 0 10px var(--accent-sky);
-    }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 6.4vw, 5.15rem);
-      font-weight: 600;
-      line-height: 1.03;
-      letter-spacing: -0.04em;
-      max-width: 860px;
-      background: linear-gradient(180deg, #ffffff 0%, #dbeafe 58%, #8fb3e8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 22px;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.02rem, 1.8vw, 1.22rem);
-      line-height: 1.6;
-      color: var(--text-secondary);
-      max-width: 640px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 34px;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .btn-primary-glass {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 26px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
-      color: #040918;
-      font-weight: 600;
-      font-size: 0.92rem;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      box-shadow:
-        0 14px 34px -6px rgba(125, 211, 252, 0.35),
-        inset 0 1px 0 #ffffff;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary-glass:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 20px 42px -6px rgba(125, 211, 252, 0.5),
-        inset 0 1px 0 #ffffff;
-    }
-
-    .btn-secondary-glass {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 24px;
-      border-radius: 999px;
-      color: var(--text-primary);
-      font-weight: 500;
-      font-size: 0.92rem;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      transition: transform 0.22s ease, border-color 0.22s ease;
-    }
-
-    .btn-secondary-glass:hover {
-      transform: translateY(-2px);
-      border-color: rgba(186, 230, 253, 0.45);
-    }
-
-    /* Sentient OS Homebrew-Style Monospace Command Bar */
-    .command-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 9px 14px 9px 18px;
-      border-radius: 999px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      margin-bottom: 54px;
-      cursor: pointer;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .command-bar:hover {
-      border-color: rgba(125, 211, 252, 0.45);
-      transform: translateY(-1px);
-    }
-
-    .command-bar .prompt-sign {
-      color: var(--accent-sky);
-      font-weight: 600;
-    }
-
-    .copy-chip {
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(125, 211, 252, 0.12);
-      border: 1px solid rgba(125, 211, 252, 0.24);
-      color: var(--accent-sky);
-      font-size: 0.7rem;
-    }
-
-    /* =========================================================
-       HERO 2D -> 3D MACOS LIQUID GLASS WORKSPACE STAGE
-    ========================================================= */
-    .hero-window-stage {
-      width: 100%;
-      max-width: 1020px;
-      perspective: 1600px;
-      transform-style: preserve-3d;
-    }
-
-    .macos-shell {
-      position: relative;
-      width: 100%;
-      border-radius: 26px;
-      padding: 0;
-      text-align: left;
-      transform-style: preserve-3d;
-      will-change: transform;
-      overflow: visible;
-    }
-
-    .macos-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(148, 188, 255, 0.12);
-      position: relative;
-    }
-
-    .traffic-lights {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .traffic-lights span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: inline-block;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .tl-red { background: rgba(248, 113, 113, 0.75); }
-    .tl-yellow { background: rgba(251, 191, 36, 0.75); }
-    .tl-green { background: rgba(52, 211, 153, 0.75); }
-
-    /* Sentient OS Signature MacBook Notch Pill */
-    .mac-notch {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: rgba(3, 7, 18, 0.92);
-      border: 1px solid rgba(125, 211, 252, 0.26);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.16);
-      font-size: 0.76rem;
-      color: var(--text-primary);
-    }
-
-    .notch-indicator {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #38bdf8;
-      box-shadow: 0 0 8px #38bdf8;
-      animation: pulseGlow 2.4s infinite ease-in-out;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.65; transform: scale(0.95); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    .window-tabs {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .win-tab {
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      background: transparent;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .win-tab.active, .win-tab:hover {
-      color: var(--text-primary);
-      background: rgba(125, 211, 252, 0.12);
-      border-color: rgba(125, 211, 252, 0.28);
-    }
-
-    .macos-body {
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
-      gap: 22px;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-
-    /* Z-Extruded Floating Cards inside Hero Workspace */
-    .hero-main-pane {
-      border-radius: 18px;
-      padding: 24px;
-      background: rgba(7, 15, 36, 0.62);
-      border: 1px solid rgba(148, 188, 255, 0.14);
-      transform-style: preserve-3d;
-      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    }
-
-    .hero-side-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transform-style: preserve-3d;
-    }
-
-    .floating-subcard {
-      border-radius: 18px;
-      padding: 20px;
-      background: linear-gradient(155deg, rgba(24, 44, 92, 0.56), rgba(9, 18, 42, 0.76));
-      border: 1px solid rgba(165, 205, 255, 0.22);
-      box-shadow: 0 18px 40px -10px rgba(2, 6, 20, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.28);
-      transform-style: preserve-3d;
-      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    }
-
-    .mono-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent-sky);
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    /* Animated Live Cursor (Sentient OS Sidekick Signature) */
-    .live-cursor {
+    .hero::before {
+      content: "";
       position: absolute;
-      bottom: 24px;
-      right: 34px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(53,116,220,.19), transparent 68%);
+      top: -140px;
+      right: -170px;
       pointer-events: none;
-      z-index: 20;
-      animation: floatCursor 6s ease-in-out infinite;
     }
 
-    .cursor-pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
-      color: #fff;
-      font-size: 0.71rem;
-      font-weight: 600;
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.45);
-    }
-
-    @keyframes floatCursor {
-      0%, 100% { transform: translate(0px, 0px); }
-      33% { transform: translate(-42px, -26px); }
-      66% { transform: translate(-18px, -48px); }
-    }
-
-    /* =========================================================
-       SECTION HEADERS & TYPOGRAPHY
-    ========================================================= */
-    .section-block {
-      padding: 96px 0;
-    }
-
-    .section-header {
-      max-width: 680px;
-      margin-bottom: 48px;
-    }
-
-    .section-header.centered {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .section-kicker {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+    .eyebrow {
+      color: var(--blue);
       text-transform: uppercase;
-      color: var(--accent-sky);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      font-size: 1.04rem;
-      line-height: 1.62;
-      color: var(--text-secondary);
-    }
-
-    /* =========================================================
-       DUAL FLAGSHIP SHOWCASE (SIDEKICK / DOUBLE TAP LAYOUT)
-    ========================================================= */
-    .dual-showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      transform-style: preserve-3d;
-    }
-
-    .showcase-card {
-      border-radius: 24px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-      transform-style: preserve-3d;
-    }
-
-    .showcase-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .showcase-card h3 {
-      font-size: 1.45rem;
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
-    }
-
-    .showcase-card p {
-      font-size: 0.94rem;
-      line-height: 1.58;
-      color: var(--text-secondary);
-    }
-
-    .external-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      color: var(--accent-sky);
-      text-decoration: none;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .external-pill:hover {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: rgba(125, 211, 252, 0.55);
-      transform: translateY(-1px);
-    }
-
-    .mini-app-frame {
-      border-radius: 16px;
-      padding: 18px;
-      background: rgba(4, 10, 26, 0.72);
-      border: 1px solid rgba(148, 188, 255, 0.14);
-    }
-
-    .mini-pill-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .mini-tab {
-      padding: 5px 11px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      background: rgba(15, 28, 62, 0.55);
-      border: 1px solid rgba(148, 188, 255, 0.12);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .mini-tab.active {
-      color: #fff;
-      background: rgba(56, 189, 248, 0.2);
-      border-color: rgba(125, 211, 252, 0.45);
-    }
-
-    /* Marquee Strip (Sentient OS Pill Ticker) */
-    .marquee-wrapper {
-      margin-top: 34px;
-      overflow: hidden;
-      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 14px;
-      width: max-content;
-      animation: marqueeScroll 34s linear infinite;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .ticker-pill {
-      padding: 9px 18px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-    }
-
-    .ticker-pill strong {
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    /* =========================================================
-       CONNECTED KNOWLEDGE GRAPH (SENTIENT OS CONSTELLATION)
-    ========================================================= */
-    .knowledge-shell {
-      border-radius: 26px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 28px;
-      align-items: stretch;
-      transform-style: preserve-3d;
-    }
-
-    .constellation-box {
-      border-radius: 18px;
-      background: radial-gradient(circle at 50% 50%, rgba(20, 42, 92, 0.45), rgba(4, 9, 22, 0.85));
-      border: 1px solid rgba(148, 188, 255, 0.14);
-      position: relative;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .constellation-svg {
-      width: 100%;
-      height: 250px;
-      overflow: visible;
-    }
-
-    .graph-node {
-      cursor: pointer;
-      transition: transform 0.25s ease;
-    }
-
-    .graph-node circle {
-      transition: all 0.25s ease;
-    }
-
-    .graph-node:hover circle, .graph-node.active circle {
-      fill: #38bdf8;
-      stroke: #ffffff;
-      stroke-width: 2.5px;
-      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.85));
-    }
-
-    .graph-node text {
-      font-family: 'Inter', sans-serif;
+      letter-spacing: 2.5px;
       font-size: 11px;
-      fill: #cbd5e1;
-      font-weight: 500;
-      pointer-events: none;
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
-    .graph-node.active text {
-      fill: #ffffff;
-      font-weight: 600;
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 1.03;
+      letter-spacing: -5px;
+      max-width: 850px;
     }
 
-    .markdown-reader {
-      border-radius: 18px;
-      padding: 26px;
-      background: rgba(6, 13, 32, 0.72);
-      border: 1px solid rgba(148, 188, 255, 0.14);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
+    h1 span {
+      background: linear-gradient(100deg, #8abaff, #d3e5ff);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .md-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(148, 188, 255, 0.12);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      color: var(--text-muted);
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 590px;
+      margin: 28px 0 34px;
     }
 
-    .md-body h4 {
-      font-size: 1.32rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
 
-    .md-body p {
-      font-size: 0.94rem;
-      line-height: 1.66;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    .linked-notes-bar {
-      padding-top: 14px;
-      border-top: 1px solid rgba(148, 188, 255, 0.12);
-    }
-
-    .linked-notes-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .linked-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .note-link-pill {
-      padding: 6px 12px;
+    .button {
+      padding: 12px 21px;
       border-radius: 8px;
-      background: rgba(20, 38, 82, 0.55);
-      border: 1px solid rgba(125, 211, 252, 0.2);
-      color: var(--accent-sky);
-      font-size: 0.78rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: .2s;
     }
 
-    .note-link-pill:hover, .note-link-pill.active {
-      background: rgba(56, 189, 248, 0.22);
-      border-color: rgba(125, 211, 252, 0.55);
-      color: #fff;
+    .button.primary {
+      background: #dceaff;
+      color: #101827;
+      border-color: #dceaff;
     }
 
-    /* =========================================================
-       NUMBERED ROWS (SENTIENT OS 01 - 07 CAPABILITY / MILESTONE LIST)
-    ========================================================= */
-    .numbered-split {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: start;
-      transform-style: preserve-3d;
-    }
+    .button:hover { transform: translateY(-3px); }
 
-    .numbered-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    section { padding: 105px 0; }
 
-    .num-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 22px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .num-row-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .num-index {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent-sky);
-      min-width: 26px;
-    }
-
-    .num-title {
-      font-size: 1.02rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      letter-spacing: -0.015em;
-    }
-
-    .num-sub {
-      font-size: 0.83rem;
-      color: var(--text-secondary);
-      margin-top: 2px;
-    }
-
-    .num-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    .badge-gold {
-      background: rgba(251, 191, 36, 0.14);
-      border: 1px solid rgba(251, 191, 36, 0.36);
-      color: var(--accent-gold);
-    }
-
-    .badge-silver {
-      background: rgba(203, 213, 225, 0.14);
-      border: 1px solid rgba(203, 213, 225, 0.34);
-      color: var(--accent-silver);
-    }
-
-    .badge-role {
-      background: rgba(125, 211, 252, 0.12);
-      border: 1px solid rgba(125, 211, 252, 0.26);
-      color: var(--accent-sky);
-    }
-
-    .num-row.active {
-      background: var(--glass-fill-elevated);
-      border-color: rgba(125, 211, 252, 0.42);
-      transform: translateX(6px);
-    }
-
-    .inspector-card {
-      border-radius: 22px;
-      padding: 28px;
-      position: sticky;
-      top: 96px;
-    }
-
-    /* =========================================================
-       STACKED PROACTIVE / PUBLICATION CARDS ("BUILDING WHAT'S NEXT")
-    ========================================================= */
-    .publications-stack {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      transform-style: preserve-3d;
-    }
-
-    .pub-card {
-      border-radius: 22px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .pub-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .pub-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.71rem;
-      letter-spacing: 0.06em;
+    .section-label {
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent-sky);
+      font-weight: 700;
+      margin-bottom: 13px;
     }
 
-    .pub-card h3 {
-      font-size: 1.24rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      margin: 8px 0 10px;
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(34px, 5vw, 48px);
+      letter-spacing: -2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
 
-    .pub-card p {
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 38px;
     }
 
-    .read-essay-btn {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 15px;
-      border-radius: 999px;
-      background: rgba(125, 211, 252, 0.12);
-      border: 1px solid rgba(125, 211, 252, 0.26);
-      color: var(--text-primary);
-      font-size: 0.81rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .read-essay-btn:hover {
-      background: rgba(56, 189, 248, 0.24);
-      border-color: rgba(125, 211, 252, 0.55);
-    }
-
-    /* =========================================================
-       THREE-PILLAR PRINCIPLES GRID
-    ========================================================= */
-    .pillars-grid {
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      transform-style: preserve-3d;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 55px;
+      align-items: start;
     }
 
-    .pillar-card {
-      border-radius: 22px;
-      padding: 28px;
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .pillar-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(125, 211, 252, 0.28);
-      display: grid;
-      place-items: center;
-      color: var(--accent-sky);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+    .about-text p { margin-bottom: 17px; }
+
+    .interest-box {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: linear-gradient(145deg, #111e33, #0b1220);
+    }
+
+    .interest-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
       margin-bottom: 18px;
     }
 
-    .pillar-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+
+    .tag {
+      border: 1px solid rgba(118,170,255,.2);
+      background: rgba(118,170,255,.07);
+      color: #c4dcff;
+      border-radius: 6px;
+      padding: 7px 11px;
+      font-size: 12px;
+    }
+
+    .projects {
+      background: #0b1220;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    .project-card {
+      padding: 29px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(118,170,255,.4);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 12px;
+      margin-bottom: 22px;
+      letter-spacing: 1px;
+    }
+
+    .project-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 23px;
       margin-bottom: 10px;
     }
 
-    .pillar-card p {
-      font-size: 0.91rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      min-height: 72px;
     }
 
-    /* =========================================================
-       FAQ ACCORDION ("BEFORE WE CONNECT")
-    ========================================================= */
-    .faq-list {
-      max-width: 820px;
-      margin: 0 auto;
+    .project-link {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 13px;
+      margin-top: 20px;
+      font-weight: 700;
+    }
+
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .achievement {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .achievement strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .leadership {
+      background: #0b1220;
+      border-top: 1px solid var(--border);
+    }
+
+    .leadership-list { border-top: 1px solid var(--border); }
+
+    .leadership-item {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .faq-item {
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 20px 24px;
-      background: transparent;
-      border: none;
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 0.98rem;
-      font-weight: 500;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-    }
-
-    .faq-plus {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.2rem;
-      color: var(--accent-sky);
-      transition: transform 0.25s ease;
-    }
-
-    .faq-item.open .faq-plus {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.32s ease, padding 0.32s ease;
-      padding: 0 24px;
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 240px;
-      padding: 0 24px 20px;
-    }
-
-    /* =========================================================
-       CLOSING CTA & FOOTER
-    ========================================================= */
-    .closing-card {
-      border-radius: 28px;
-      padding: 56px 32px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    footer {
-      border-top: 1px solid rgba(148, 188, 255, 0.12);
-      padding: 40px 24px 60px;
-      max-width: 1120px;
-      margin: 40px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
       gap: 20px;
-      color: var(--text-muted);
-      font-size: 0.83rem;
-      position: relative;
-      z-index: 2;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .footer-links {
+    .leadership-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .leadership-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .writing-card {
+      padding: 38px;
+      border: 1px solid rgba(118,170,255,.2);
+      border-radius: 15px;
+      background: linear-gradient(120deg, #142541, #101827);
+    }
+
+    .writing-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .writing-card p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 22px;
+    }
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg), #101d32);
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+
+    .socials {
       display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-primary);
-    }
-
-    /* =========================================================
-       LIQUID GLASS ESSAY READER MODAL
-    ========================================================= */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 6, 18, 0.78);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 200;
-      display: none;
-      align-items: center;
       justify-content: center;
-      padding: 24px;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: #b9c9df;
+      font-size: 13px;
     }
 
-    .modal-backdrop.open {
+    .socials a:hover { color: var(--blue); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: #78869a;
+      font-size: 12px;
+    }
+
+    footer .container {
       display: flex;
+      justify-content: space-between;
+      gap: 15px;
     }
 
-    .modal-card {
-      width: 100%;
-      max-width: 680px;
-      max-height: 84vh;
-      overflow-y: auto;
-      border-radius: 24px;
-      padding: 32px;
-    }
-
-    /* =========================================================
-       RESPONSIVE DESIGN
-    ========================================================= */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .macos-body,
-      .dual-showcase-grid,
-      .knowledge-shell,
-      .numbered-split,
-      .publications-stack,
-      .pillars-grid {
-        grid-template-columns: 1fr;
-      }
-      .inspector-card {
-        position: static;
-      }
+    @media(max-width: 700px) {
+      .nav-links { gap: 13px; font-size: 11px; }
+      .nav-links a:nth-child(3),
+      .nav-links a:nth-child(4) { display: none; }
+      .hero { min-height: 580px; }
+      h1 { letter-spacing: -3px; }
+      section { padding: 75px 0; }
+      .about-grid, .project-grid { grid-template-columns: 1fr; }
+      .achievement-grid { grid-template-columns: 1fr 1fr; }
+      .leadership-item { flex-direction: column; gap: 5px; }
+      footer .container { flex-direction: column; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 2D -> 3D Scroll-Driven Spatial Canvas -->
-  <canvas id="spatial-canvas"></canvas>
-  <div class="ambient-vignette"></div>
-
-  <!-- Floating Liquid Glass Header (Sentient OS Navigation Architecture) -->
-  <header class="nav-wrapper">
-    <nav class="nav-bar liquid-glass-pill" aria-label="Primary Navigation">
-      <a href="#top" class="brand-link">
-        <span class="brand-orb">SA</span>
-        <span>Samar Agshikar</span>
-      </a>
-
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">S<span>.</span>A</a>
       <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#knowledge">Knowledge</a>
-        <a href="#achievements">Achievements &amp; Leadership</a>
-        <a href="#publications">Building What's Next</a>
-        <a href="#faq">FAQ</a>
+        <a href="#academics">Academics</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
       </div>
+    </div>
+  </nav>
 
-      <div class="nav-actions">
-        <button id="spatialModeToggle" class="spatial-badge" type="button" title="Scroll down to transform from 2D to 3D, or click to toggle interactive 3D orbit lock">
-          <span class="spatial-dot"></span>
-          <span id="spatialTelemetry">2D PLANE · 0%</span>
-        </button>
-        <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="nav-cta">Explore THE 1</a>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">Technology · AI · Entrepreneurship</div>
+      <h1>I'm Samar.<br>I'm here to build <span>what's next.</span></h1>
+      <p class="hero-description">
+        Exploring the intersection of technology, artificial intelligence
+        and entrepreneurship — learning by building, experimenting and
+        turning ideas into real products.
+      </p>
+      <div class="actions">
+        <a href="#projects" class="button primary">Explore my work ↗</a>
+        <a href="#about" class="button">A little about me</a>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main id="top">
-    <!-- =====================================================
-         HERO SECTION (STARTS IN CRISP 2D -> EXTRUDES INTO 3D)
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="hero">
-      <section class="hero-section spatial-plane" id="heroPlane">
-        <div class="eyebrow-pill liquid-glass-pill z-layer-1">
-          <span class="pulse"></span>
-          <span>Student · Software Developer · Aspiring Entrepreneur</span>
+  <section id="about">
+    <div class="container">
+      <div class="section-label">01 / About</div>
+      <div class="about-grid">
+        <div>
+          <h2>Curiosity is where everything starts.</h2>
+          <div class="about-text">
+            <p>
+              I'm Samar Agshikar, a student, developer and aspiring
+              entrepreneur interested in how technology can change the
+              way people learn, work and interact with the world.
+            </p>
+            <p>
+              My interests span artificial intelligence, software
+              development, education and aerospace. I enjoy taking an
+              idea, exploring how it could work and building something
+              tangible from it.
+            </p>
+            <p>
+              I believe you don't have to wait until college to start
+              creating. You can learn, experiment and contribute today.
+            </p>
+          </div>
         </div>
 
-        <h1 class="hero-title z-layer-2">Building What's Next.</h1>
+        <div class="interest-box">
+          <h3>Areas I'm exploring</h3>
+          <div class="tags">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Entrepreneurship</span>
+            <span class="tag">Education Technology</span>
+            <span class="tag">Mathematics</span>
+            <span class="tag">Aerospace</span>
+            <span class="tag">Product Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p class="hero-subtitle z-layer-1">
-          Focused on AI, technology, mathematics, education, and entrepreneurship—designing calm, intelligent software products that turn ideas into working reality.
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-label">02 / Selected work</div>
+      <h2>Ideas turned into projects.</h2>
+      <p class="section-intro">
+        A selection of products and initiatives I'm developing and
+        contributing to.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-number">PROJECT 01</div>
+          <h3>THE 1</h3>
+          <p>
+            An AI-powered student workspace designed to bring learning,
+            organisation and productivity together in one place.
+          </p>
+          <a class="project-link" href="https://the-1.app" target="_blank" rel="noopener">Explore THE 1 ↗</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 02</div>
+          <h3>Kerniq</h3>
+          <p>
+            An emerging software and AI initiative exploring new ways
+            to build useful technology and intelligent tools.
+          </p>
+          <a class="project-link" href="https://kerniq.the-1.app" target="_blank" rel="noopener">Explore Kerniq ↗</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 03</div>
+          <h3>College Chances India</h3>
+          <p>
+            An AI-powered platform focused on helping students explore
+            universities, opportunities and possible academic pathways.
+          </p>
+          <span class="project-link">Education initiative</span>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 04</div>
+          <h3>More to come</h3>
+          <p>
+            This portfolio will evolve alongside the ideas, experiments
+            and products I work on.
+          </p>
+          <a class="project-link" href="#contact">Stay connected ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="academics">
+    <div class="container">
+      <div class="section-label">03 / Academics</div>
+      <h2>Learning beyond the classroom.</h2>
+      <p class="section-intro">
+        Some academic milestones that reflect my interest in
+        mathematics, science and continuous learning.
+      </p>
+
+      <div class="achievement-grid">
+        <div class="achievement">
+          <strong>Gold</strong>
+          <p>SOF Mathematics Gold Medal of Excellence</p>
+        </div>
+        <div class="achievement">
+          <strong>98th</strong>
+          <p>ASSET Mathematics percentile</p>
+        </div>
+        <div class="achievement">
+          <strong>93rd</strong>
+          <p>ASSET Science percentile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="section-label">04 / Leadership</div>
+      <h2>Taking ideas beyond myself.</h2>
+      <p class="section-intro">
+        Learning to collaborate, contribute and take responsibility
+        through school and student initiatives.
+      </p>
+
+      <div class="leadership-list">
+        <div class="leadership-item">
+          <div>
+            <h3>Student Council</h3>
+            <p>Student leadership and school initiatives</p>
+          </div>
+          <p>ADIS</p>
+        </div>
+        <div class="leadership-item">
+          <div>
+            <h3>Round Square Student Committee</h3>
+            <p>Student participation and community initiatives</p>
+          </div>
+          <p>2026–27</p>
+        </div>
+        <div class="leadership-item">
+          <div>
+            <h3>Internshala Student Partner</h3>
+            <p>Student outreach and engagement</p>
+          </div>
+          <p>Student initiative</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="container">
+      <div class="section-label">05 / Writing & ideas</div>
+      <div class="writing-card">
+        <div class="eyebrow">My publication</div>
+        <h3>Building What's Next</h3>
+        <p>
+          Documenting my journey through technology, AI and
+          entrepreneurship — the experiments, lessons, challenges
+          and ideas behind building products from scratch.
         </p>
-
-        <div class="hero-cta-row z-layer-2">
-          <a href="#projects" class="btn-primary-glass">Explore Projects</a>
-          <a href="#publications" class="btn-secondary-glass liquid-glass-pill">Read Building What's Next</a>
-        </div>
-
-        <div class="command-bar liquid-glass-pill z-layer-1" id="copyIdentityCmd" role="button" tabindex="0" title="Click to copy">
-          <span class="prompt-sign">$</span>
-          <span id="cmdText">samar-agshikar --focus "AI · Mathematics · Education · Entrepreneurship"</span>
-          <span class="copy-chip" id="copyStatus">copy</span>
-        </div>
-
-        <!-- Hero macOS Liquid Glass Window (Extrudes along Z-axis as you scroll) -->
-        <div class="hero-window-stage">
-          <div class="macos-shell liquid-glass" id="heroMacWindow">
-            <div class="macos-topbar">
-              <div class="traffic-lights">
-                <span class="tl-red"></span>
-                <span class="tl-yellow"></span>
-                <span class="tl-green"></span>
-              </div>
-
-              <!-- Sentient OS Signature Notch -->
-              <div class="mac-notch">
-                <span class="notch-indicator"></span>
-                <span id="notchStatusText">Samar Agshikar · Active Workspace</span>
-              </div>
-
-              <div class="window-tabs" role="tablist">
-                <button class="win-tab active" data-hero-tab="the1" type="button">THE 1</button>
-                <button class="win-tab" data-hero-tab="kerniq" type="button">Kerniq</button>
-                <button class="win-tab" data-hero-tab="cci" type="button">College Chances India</button>
-              </div>
-            </div>
-
-            <div class="macos-body">
-              <div class="hero-main-pane z-layer-2" id="heroMainPane">
-                <span class="mono-tag" id="heroPaneTag">FLAGSHIP WORKSPACE · THE-1.APP</span>
-                <h2 id="heroPaneTitle" style="font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 10px;">
-                  THE 1 — All-in-One Student Workspace
-                </h2>
-                <p id="heroPaneDesc" style="color: var(--text-secondary); font-size: 0.94rem; line-height: 1.62; margin-bottom: 18px;">
-                  A calm, unified workspace bringing classes, structured notes, homework, spaced revision, quizzes, and AI-powered learning into one cohesive environment.
-                </p>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-                  <a id="heroPaneLink" href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="external-pill">
-                    Launch the-1.app ↗
-                  </a>
-                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--text-muted);" id="heroPaneMeta">
-                    Education · Productivity · AI Learning
-                  </span>
-                </div>
-              </div>
-
-              <div class="hero-side-stack">
-                <div class="floating-subcard z-layer-3">
-                  <span class="mono-tag">ACADEMIC RECOGNITION</span>
-                  <div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 4px;">SOF Mathematics Gold Medal of Excellence</div>
-                  <div style="font-size: 0.82rem; color: var(--text-secondary);">ASSET Mathematics: 98th Percentile (Gold) · ASSET Science: 93rd Percentile (Silver)</div>
-                </div>
-
-                <div class="floating-subcard z-layer-2">
-                  <span class="mono-tag">LEADERSHIP · 2026–27</span>
-                  <div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 4px;">Round Square Student Committee 2026–27</div>
-                  <div style="font-size: 0.82rem; color: var(--text-secondary);">Student Council · Culture &amp; Events Team · Internshala Student Partner</div>
-                </div>
-              </div>
-
-              <!-- Animated Live Cursor -->
-              <div class="live-cursor" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8">
-                  <path d="M4 3l16 9-7 2-2 7z" />
-                </svg>
-                <span class="cursor-pill">Samar · Building</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <a class="button primary" href="https://substack.com/" target="_blank" rel="noopener">
+          Read my writing ↗
+        </a>
+      </div>
     </div>
+  </section>
 
-    <!-- =====================================================
-         SECTION 2: FLAGSHIP PRODUCTS (DUAL INTERACTIVE SHOWCASE)
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="showcase">
-      <section class="section-block spatial-plane" id="projects">
-        <div class="section-header z-layer-1">
-          <span class="section-kicker">Products &amp; Platforms</span>
-          <h2 class="section-title">Software built around clarity and intelligence.</h2>
-          <p class="section-desc">
-            From unified student workspaces to AI-powered exploration, each project is designed to replace fragmented complexity with focus.
-          </p>
-        </div>
-
-        <div class="dual-showcase-grid">
-          <!-- Card 1: THE 1 -->
-          <article class="showcase-card liquid-glass z-layer-2">
-            <div>
-              <div class="showcase-top">
-                <div>
-                  <span class="mono-tag">01 · STUDENT WORKSPACE</span>
-                  <h3>THE 1</h3>
-                </div>
-                <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="external-pill">the-1.app ↗</a>
-              </div>
-              <p>
-                An all-in-one student workspace unifying timetables, rich notes, homework tracking, retrieval-based revision, practice quizzes, and context-aware AI tutoring.
-              </p>
-            </div>
-
-            <div class="mini-app-frame z-layer-1">
-              <div class="mini-pill-bar" id="the1Tabs">
-                <button class="mini-tab active" data-the1="timetable" type="button">Timetable</button>
-                <button class="mini-tab" data-the1="notes" type="button">Notes</button>
-                <button class="mini-tab" data-the1="revision" type="button">Revision</button>
-                <button class="mini-tab" data-the1="tutor" type="button">AI Tutor</button>
-              </div>
-              <div id="the1PreviewContent" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55;">
-                <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Weekly Class &amp; Study Alignment</strong>
-                Plan study sessions directly against your real weekly schedule so every subject has dedicated focus time.
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2: Kerniq -->
-          <article class="showcase-card liquid-glass z-layer-2">
-            <div>
-              <div class="showcase-top">
-                <div>
-                  <span class="mono-tag">02 · INTELLIGENCE LAYER</span>
-                  <h3>Kerniq</h3>
-                </div>
-                <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="external-pill">kerniq.the-1.app ↗</a>
-              </div>
-              <p>
-                Built within the THE 1 ecosystem—bringing structured AI reasoning, deeper conceptual synthesis, and intelligent academic workflows to learners.
-              </p>
-            </div>
-
-            <div class="mini-app-frame z-layer-1">
-              <div class="mini-pill-bar" id="kerniqTabs">
-                <button class="mini-tab active" data-kerniq="synthesis" type="button">Concept Synthesis</button>
-                <button class="mini-tab" data-kerniq="reasoning" type="button">Guided Reasoning</button>
-                <button class="mini-tab" data-kerniq="ecosystem" type="button">THE 1 Integration</button>
-              </div>
-              <div id="kerniqPreviewContent" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55;">
-                <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Connected Knowledge Synthesis</strong>
-                Transform raw study material into structured mental models and active recall prompts without friction.
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Horizontal Domain Marquee (Purely Authentic Themes) -->
-        <div class="marquee-wrapper z-layer-1" aria-label="Core Focus Areas">
-          <div class="marquee-track">
-            <div class="ticker-pill liquid-glass-pill"><strong>AI &amp; Intelligent Systems</strong> · Applied Software</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Mathematics</strong> · SOF Gold Medal of Excellence</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>THE 1</strong> · the-1.app</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Kerniq</strong> · kerniq.the-1.app</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>College Chances India</strong> · AI University Exploration</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Entrepreneurship</strong> · Building What's Next</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Leadership</strong> · Round Square Student Committee 2026–27</div>
-            <!-- Duplicate set for seamless loop -->
-            <div class="ticker-pill liquid-glass-pill"><strong>AI &amp; Intelligent Systems</strong> · Applied Software</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Mathematics</strong> · SOF Gold Medal of Excellence</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>THE 1</strong> · the-1.app</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Kerniq</strong> · kerniq.the-1.app</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>College Chances India</strong> · AI University Exploration</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Entrepreneurship</strong> · Building What's Next</div>
-            <div class="ticker-pill liquid-glass-pill"><strong>Leadership</strong> · Round Square Student Committee 2026–27</div>
-          </div>
-        </div>
-      </section>
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label">06 / Connect</div>
+      <h2>Let's connect.</h2>
+      <p>
+        Interested in technology, building products or exchanging ideas?
+        Find me across these platforms.
+      </p>
+      <div class="socials">
+        <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://the-1.app" target="_blank" rel="noopener">THE 1 ↗</a>
+      </div>
     </div>
-
-    <!-- =====================================================
-         SECTION 3: INTERACTIVE CONNECTED KNOWLEDGE GRAPH
-         (1:1 RECREATION OF SENTIENT OS LINKED NOTES CONSTELLATION)
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="knowledge">
-      <section class="section-block spatial-plane" id="knowledge">
-        <div class="section-header centered z-layer-1">
-          <span class="section-kicker">AI · Mathematics · Technology · Education · Entrepreneurship</span>
-          <h2 class="section-title">Ideas stay connected.</h2>
-          <p class="section-desc">
-            Every product, academic pursuit, and leadership role connects back to a shared foundation. Select a node in the constellation to explore how these domains intersect.
-          </p>
-        </div>
-
-        <div class="knowledge-shell liquid-glass z-layer-2">
-          <!-- Left: Interactive Constellation Graph -->
-          <div class="constellation-box">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="mono-tag" style="margin: 0;">KNOWLEDGE CONSTELLATION</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">5 connected domains</span>
-            </div>
-
-            <svg class="constellation-svg" viewBox="0 0 420 250" aria-label="Interactive Knowledge Graph">
-              <!-- Connecting Edges -->
-              <g stroke="rgba(125, 211, 252, 0.24)" stroke-width="1.2">
-                <line x1="210" y1="120" x2="95" y2="58" />
-                <line x1="210" y1="120" x2="328" y2="62" />
-                <line x1="210" y1="120" x2="88" y2="192" />
-                <line x1="210" y1="120" x2="332" y2="188" />
-                <line x1="95" y1="58" x2="328" y2="62" stroke-dasharray="3 3" />
-                <line x1="88" y1="192" x2="332" y2="188" stroke-dasharray="3 3" />
-              </g>
-
-              <!-- Center Node: AI & Technology -->
-              <g class="graph-node active" data-node="ai" transform="translate(210, 120)">
-                <circle r="16" fill="rgba(56, 189, 248, 0.22)" />
-                <circle r="7" fill="#38bdf8" />
-                <text y="28" text-anchor="middle">AI &amp; Technology</text>
-              </g>
-
-              <!-- Node 2: Mathematics -->
-              <g class="graph-node" data-node="math" transform="translate(95, 58)">
-                <circle r="13" fill="rgba(129, 140, 248, 0.18)" />
-                <circle r="6" fill="#818cf8" />
-                <text y="-16" text-anchor="middle">Mathematics</text>
-              </g>
-
-              <!-- Node 3: Education -->
-              <g class="graph-node" data-node="education" transform="translate(328, 62)">
-                <circle r="13" fill="rgba(129, 140, 248, 0.18)" />
-                <circle r="6" fill="#818cf8" />
-                <text y="-16" text-anchor="middle">Education</text>
-              </g>
-
-              <!-- Node 4: Entrepreneurship -->
-              <g class="graph-node" data-node="entrepreneurship" transform="translate(88, 192)">
-                <circle r="13" fill="rgba(129, 140, 248, 0.18)" />
-                <circle r="6" fill="#818cf8" />
-                <text y="24" text-anchor="middle">Entrepreneurship</text>
-              </g>
-
-              <!-- Node 5: Leadership -->
-              <g class="graph-node" data-node="leadership" transform="translate(332, 188)">
-                <circle r="13" fill="rgba(129, 140, 248, 0.18)" />
-                <circle r="6" fill="#818cf8" />
-                <text y="24" text-anchor="middle">Leadership</text>
-              </g>
-            </svg>
-
-            <div style="font-size: 0.78rem; color: var(--text-muted);">
-              Click any node or linked note pill to inspect connections.
-            </div>
-          </div>
-
-          <!-- Right: Liquid Glass Markdown Reader -->
-          <div class="markdown-reader">
-            <div>
-              <div class="md-header">
-                <span id="mdFilePath">~/samar-agshikar/ai-and-technology.md</span>
-                <span>Plain Markdown</span>
-              </div>
-              <div class="md-body" style="margin-top: 18px;">
-                <h4 id="mdTitle">AI &amp; Applied Software Engineering</h4>
-                <p id="mdPara1">
-                  Artificial intelligence becomes most valuable when embedded directly into thoughtful workflows rather than isolated behind generic chat boxes.
-                </p>
-                <p id="mdPara2">
-                  This philosophy drives projects like THE 1, Kerniq, and College Chances India—combining intelligent assistance with clean, inspectable interfaces that amplify human learning and decision-making.
-                </p>
-              </div>
-            </div>
-
-            <div class="linked-notes-bar">
-              <span class="linked-notes-label">Linked notes · Follow a link to explore</span>
-              <div class="linked-pills" id="linkedNotesPills">
-                <button class="note-link-pill active" data-node="ai" type="button">AI &amp; Technology</button>
-                <button class="note-link-pill" data-node="math" type="button">Mathematics</button>
-                <button class="note-link-pill" data-node="education" type="button">Education</button>
-                <button class="note-link-pill" data-node="entrepreneurship" type="button">Entrepreneurship</button>
-                <button class="note-link-pill" data-node="leadership" type="button">Leadership</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- =====================================================
-         SECTION 4: NUMBERED MILESTONES, ACHIEVEMENTS & LEADERSHIP
-         (SENTIENT OS 01-07 INTERACTIVE LIST + INSPECTOR)
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="milestones">
-      <section class="section-block spatial-plane" id="achievements">
-        <div class="section-header z-layer-1">
-          <span class="section-kicker">Track Record &amp; Responsibility</span>
-          <h2 class="section-title">Academic excellence &amp; student leadership.</h2>
-          <p class="section-desc">
-            A foundation built on analytical rigor in mathematics and science alongside active leadership across student governance, culture, and global initiatives.
-          </p>
-        </div>
-
-        <div class="numbered-split">
-          <div class="numbered-list z-layer-2" id="milestoneList">
-            <div class="num-row liquid-glass active" data-milestone="0">
-              <div class="num-row-left">
-                <span class="num-index">01</span>
-                <div>
-                  <div class="num-title">SOF Mathematics Gold Medal of Excellence</div>
-                  <div class="num-sub">Academic Achievement · Mathematics</div>
-                </div>
-              </div>
-              <span class="num-badge badge-gold">Gold Medal</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="1">
-              <div class="num-row-left">
-                <span class="num-index">02</span>
-                <div>
-                  <div class="num-title">ASSET Mathematics: 98th Percentile</div>
-                  <div class="num-sub">Academic Achievement · Quantitative Reasoning</div>
-                </div>
-              </div>
-              <span class="num-badge badge-gold">98th %ile · Gold</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="2">
-              <div class="num-row-left">
-                <span class="num-index">03</span>
-                <div>
-                  <div class="num-title">ASSET Science: 93rd Percentile</div>
-                  <div class="num-sub">Academic Achievement · Scientific Inquiry</div>
-                </div>
-              </div>
-              <span class="num-badge badge-silver">93rd %ile · Silver</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="3">
-              <div class="num-row-left">
-                <span class="num-index">04</span>
-                <div>
-                  <div class="num-title">Round Square Student Committee 2026–27</div>
-                  <div class="num-sub">Leadership · Global Citizenship &amp; Service</div>
-                </div>
-              </div>
-              <span class="num-badge badge-role">2026–27</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="4">
-              <div class="num-row-left">
-                <span class="num-index">05</span>
-                <div>
-                  <div class="num-title">Student Council</div>
-                  <div class="num-sub">Leadership · Student Governance &amp; Representation</div>
-                </div>
-              </div>
-              <span class="num-badge badge-role">Council</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="5">
-              <div class="num-row-left">
-                <span class="num-index">06</span>
-                <div>
-                  <div class="num-title">Culture and Events Team</div>
-                  <div class="num-sub">Leadership · Campus Experience &amp; Execution</div>
-                </div>
-              </div>
-              <span class="num-badge badge-role">Events</span>
-            </div>
-
-            <div class="num-row liquid-glass" data-milestone="6">
-              <div class="num-row-left">
-                <span class="num-index">07</span>
-                <div>
-                  <div class="num-title">Internshala Student Partner</div>
-                  <div class="num-sub">Leadership · Career &amp; Skill Ecosystem</div>
-                </div>
-              </div>
-              <span class="num-badge badge-role">Partner</span>
-            </div>
-          </div>
-
-          <!-- Right Sticky Liquid Glass Inspector -->
-          <aside class="inspector-card liquid-glass z-layer-3" id="milestoneInspector">
-            <span class="mono-tag" id="inspTag">01 · ACADEMIC ACHIEVEMENT</span>
-            <h3 id="inspTitle" style="font-size: 1.4rem; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 12px;">
-              SOF Mathematics Gold Medal of Excellence
-            </h3>
-            <p id="inspDesc" style="font-size: 0.94rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 20px;">
-              Awarded the Gold Medal of Excellence in the Science Olympiad Foundation (SOF) Mathematics Olympiad, recognizing high-precision analytical reasoning and problem-solving capability.
-            </p>
-            <div style="padding-top: 16px; border-top: 1px solid rgba(148, 188, 255, 0.14); display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--accent-sky);" id="inspCategory">
-                Discipline: Mathematics
-              </span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--text-muted);" id="inspBadgeCopy">
-                Gold Distinction
-              </span>
-            </div>
-          </aside>
-        </div>
-      </section>
-    </div>
-
-    <!-- =====================================================
-         SECTION 5: PUBLICATIONS ("BUILDING WHAT'S NEXT")
-         (1:1 RECREATION OF SENTIENT OS STACKED CARDS + READER)
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="publications">
-      <section class="section-block spatial-plane" id="publications">
-        <div class="section-header z-layer-1">
-          <span class="section-kicker">Publications &amp; Essays</span>
-          <h2 class="section-title">Building What's Next.</h2>
-          <p class="section-desc">
-            Writing about technology, AI, entrepreneurship, and the craft of building purposeful software products from first principles.
-          </p>
-        </div>
-
-        <div class="publications-stack">
-          <article class="pub-card liquid-glass z-layer-2">
-            <div>
-              <span class="pub-meta">BUILDING WHAT'S NEXT · AI &amp; PRODUCT</span>
-              <h3>Why Student Software Should Feel Calm, Not Crowded</h3>
-              <p>
-                Reflections from building THE 1: replacing fragmented tools with a single quiet workspace where notes, schedules, and AI context work together.
-              </p>
-            </div>
-            <button class="read-essay-btn" data-essay="0" type="button">read the essay →</button>
-          </article>
-
-          <article class="pub-card liquid-glass z-layer-2">
-            <div>
-              <span class="pub-meta">BUILDING WHAT'S NEXT · TECHNOLOGY &amp; AI</span>
-              <h3>Designing AI That Augments Thinking Instead of Replacing It</h3>
-              <p>
-                Lessons from developing Kerniq and College Chances India—how structured reasoning and transparent context turn AI into a genuine intellectual partner.
-              </p>
-            </div>
-            <button class="read-essay-btn" data-essay="1" type="button">read the essay →</button>
-          </article>
-
-          <article class="pub-card liquid-glass z-layer-2">
-            <div>
-              <span class="pub-meta">BUILDING WHAT'S NEXT · MATHEMATICS &amp; CODE</span>
-              <h3>From Olympiad Problem-Solving to Software Architecture</h3>
-              <p>
-                How mathematical rigor shapes the way I break down ambiguous product problems, model systems, and write clean, resilient code.
-              </p>
-            </div>
-            <button class="read-essay-btn" data-essay="2" type="button">read the essay →</button>
-          </article>
-
-          <article class="pub-card liquid-glass z-layer-2">
-            <div>
-              <span class="pub-meta">BUILDING WHAT'S NEXT · ENTREPRENEURSHIP</span>
-              <h3>Shipping Early as a Student Builder</h3>
-              <p>
-                Balancing academics, student leadership, and product development—why momentum comes from turning curiosity into real, usable software.
-              </p>
-            </div>
-            <button class="read-essay-btn" data-essay="3" type="button">read the essay →</button>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <!-- =====================================================
-         SECTION 6: THREE-PILLAR PRINCIPLES GRID
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="principles">
-      <section class="section-block spatial-plane">
-        <div class="section-header centered z-layer-1">
-          <span class="section-kicker">Core Philosophy</span>
-          <h2 class="section-title">Principles behind the work.</h2>
-        </div>
-
-        <div class="pillars-grid">
-          <div class="pillar-card liquid-glass z-layer-2">
-            <div class="pillar-icon">01</div>
-            <h3>First-Principles Clarity</h3>
-            <p>
-              Rooted in mathematics and analytical reasoning—stripping away unnecessary noise to focus on the core structure of every problem.
-            </p>
-          </div>
-
-          <div class="pillar-card liquid-glass z-layer-2">
-            <div class="pillar-icon">02</div>
-            <h3>AI With Purpose</h3>
-            <p>
-              Applying artificial intelligence where it creates real leverage in education, university discovery, and everyday student workflows.
-            </p>
-          </div>
-
-          <div class="pillar-card liquid-glass z-layer-2">
-            <div class="pillar-icon">03</div>
-            <h3>Bias Toward Building</h3>
-            <p>
-              Ideas matter most when shipped. From THE 1 and Kerniq to College Chances India, every concept is tested in real hands.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- =====================================================
-         SECTION 7: FAQ ACCORDION ("BEFORE WE CONNECT")
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="faq">
-      <section class="section-block spatial-plane" id="faq">
-        <div class="section-header centered z-layer-1">
-          <span class="section-kicker">Overview</span>
-          <h2 class="section-title">Before we connect.</h2>
-        </div>
-
-        <div class="faq-list z-layer-2">
-          <div class="faq-item liquid-glass open">
-            <button class="faq-question" type="button">
-              <span>What are you currently building?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-answer">
-              I am building <strong>THE 1</strong> (<a href="https://the-1.app" target="_blank" rel="noopener noreferrer" style="color: var(--accent-sky);">the-1.app</a>), an all-in-one student workspace; <strong>Kerniq</strong> (<a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" style="color: var(--accent-sky);">kerniq.the-1.app</a>), its intelligence layer; and <strong>College Chances India</strong>, an AI-powered university exploration platform.
-            </div>
-          </div>
-
-          <div class="faq-item liquid-glass">
-            <button class="faq-question" type="button">
-              <span>What is "Building What's Next"?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-answer">
-              <strong>Building What's Next</strong> is both my personal theme and my publication—where I write about technology, AI, entrepreneurship, and the process of designing and shipping software products.
-            </div>
-          </div>
-
-          <div class="faq-item liquid-glass">
-            <button class="faq-question" type="button">
-              <span>What are your primary academic and intellectual interests?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-answer">
-              My core interests span artificial intelligence, technology, mathematics, education, and entrepreneurship—backed by distinctions including the SOF Mathematics Gold Medal of Excellence, ASSET Mathematics (98th percentile — Gold), and ASSET Science (93rd percentile — Silver).
-            </div>
-          </div>
-
-          <div class="faq-item liquid-glass">
-            <button class="faq-question" type="button">
-              <span>What student leadership roles do you hold?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-answer">
-              I serve on the Student Council, the Culture and Events team, the Round Square Student Committee (2026–27), and as an Internshala Student Partner.
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- =====================================================
-         SECTION 8: CLOSING HORIZON CTA
-    ====================================================== -->
-    <div class="spatial-stage" data-spatial-stage="closing">
-      <section class="section-block spatial-plane" style="padding-top: 40px;">
-        <div class="closing-card liquid-glass z-layer-2">
-          <span class="section-kicker">Samar Agshikar</span>
-          <h2 class="section-title" style="max-width: 640px;">Always building what's next.</h2>
-          <p class="section-desc" style="max-width: 540px; margin-bottom: 30px;">
-            Explore live products across student productivity, AI learning, and university discovery.
-          </p>
-          <div class="hero-cta-row" style="margin-bottom: 0;">
-            <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-primary-glass">Open THE 1 (the-1.app) ↗</a>
-            <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-secondary-glass liquid-glass-pill">Open Kerniq ↗</a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+  </section>
 
   <footer>
-    <div>© 2026 Samar Agshikar · Building What's Next.</div>
-    <div class="footer-links">
-      <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
-      <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer">Kerniq</a>
-      <a href="#projects">College Chances India</a>
-      <a href="#publications">Publications</a>
-      <a href="#achievements">Achievements</a>
+    <div class="container">
+      <span>© <span id="year"></span> Samar Agshikar</span>
+      <span>Built with curiosity. Always evolving.</span>
     </div>
   </footer>
 
-  <!-- Liquid Glass Essay Modal -->
-  <div class="modal-backdrop" id="essayModal" role="dialog" aria-modal="true" aria-labelledby="modalEssayTitle">
-    <div class="modal-card liquid-glass">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-        <span class="mono-tag" id="modalEssayMeta" style="margin: 0;">BUILDING WHAT'S NEXT</span>
-        <button id="closeEssayModal" class="note-link-pill" type="button">Close ✕</button>
-      </div>
-      <h3 id="modalEssayTitle" style="font-size: 1.55rem; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 16px;"></h3>
-      <div id="modalEssayBody" style="color: var(--text-secondary); font-size: 0.96rem; line-height: 1.72; display: flex; flex-direction: column; gap: 14px;"></div>
-    </div>
-  </div>
-
   <script>
-    /* =========================================================================
-       1. LIQUID GLASS SPECULAR CURSOR TRACKING
-    ========================================================================= */
-    document.querySelectorAll('.liquid-glass').forEach((card) => {
-      card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--gx', `${x}%`);
-        card.style.setProperty('--gy', `${y}%`);
-      });
-    });
-
-    /* =========================================================================
-       2. CONTINUOUS 2D -> 3D SCROLL TRANSFORMATION ENGINE + SPATIAL CANVAS
-    ========================================================================= */
-    const canvas = document.getElementById('spatial-canvas');
-    const ctx = canvas.getContext('2d');
-    const telemetryLabel = document.getElementById('spatialTelemetry');
-    const spatialToggleBtn = document.getElementById('spatialModeToggle');
-    const heroMacWindow = document.getElementById('heroMacWindow');
-    const spatialStages = Array.from(document.querySelectorAll('[data-spatial-stage]'));
-
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-    let orbitLock = false;
-    let pointerNormX = 0;
-    let pointerNormY = 0;
-    let smoothScrollDepth = 0;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    window.addEventListener('pointermove', (e) => {
-      pointerNormX = (e.clientX / width - 0.5) * 2;
-      pointerNormY = (e.clientY / height - 0.5) * 2;
-    });
-
-    spatialToggleBtn.addEventListener('click', () => {
-      orbitLock = !orbitLock;
-      spatialToggleBtn.classList.toggle('is-3d', orbitLock);
-    });
-
-    // 3D Floating Spatial Polyhedra / Star Nodes for Background Canvas
-    const spatialNodes = Array.from({ length: 48 }, (_, i) => ({
-      x: (Math.random() - 0.5) * 2200,
-      y: (Math.random() - 0.5) * 1400,
-      z: Math.random() * 1600 + 100,
-      size: Math.random() * 2.2 + 0.8,
-      hue: i % 3 === 0 ? '129, 140, 248' : '56, 189, 248'
-    }));
-
-    function project3D(x, y, z, fov, pitchRad, yawRad) {
-      // Rotate around Y (yaw)
-      const cosY = Math.cos(yawRad);
-      const sinY = Math.sin(yawRad);
-      const x1 = x * cosY - z * sinY;
-      const z1 = z * cosY + x * sinY;
-
-      // Rotate around X (pitch)
-      const cosX = Math.cos(pitchRad);
-      const sinX = Math.sin(pitchRad);
-      const y2 = y * cosX - z1 * sinX;
-      const z2 = z1 * cosX + y * sinX;
-
-      const depth = Math.max(80, z2 + fov);
-      const scale = fov / depth;
-      return {
-        sx: width / 2 + x1 * scale,
-        sy: height / 2 + y2 * scale,
-        scale,
-        z2
-      };
-    }
-
-    function renderSpatialScene() {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const scrollRatio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-
-      // Target depth: 0 at very top (pure 2D), ramps rapidly to 1.0 as you scroll into 3D space
-      const targetDepth = orbitLock ? 1 : Math.min(1, window.scrollY / 420);
-      smoothScrollDepth += (targetDepth - smoothScrollDepth) * 0.12;
-
-      document.documentElement.style.setProperty('--scroll-depth', smoothScrollDepth.toFixed(3));
-
-      // Update Top Pill Telemetry
-      const pct = Math.round(smoothScrollDepth * 100);
-      if (orbitLock) {
-        telemetryLabel.textContent = `3D ORBIT LOCK · ${pct}%`;
-        spatialToggleBtn.classList.add('is-3d');
-      } else if (pct < 8) {
-        telemetryLabel.textContent = `2D PLANE · ${pct}%`;
-        spatialToggleBtn.classList.remove('is-3d');
-      } else if (pct < 75) {
-        telemetryLabel.textContent = `2D → 3D · ${pct}%`;
-        spatialToggleBtn.classList.add('is-3d');
-      } else {
-        telemetryLabel.textContent = `3D SPATIAL · ${pct}%`;
-        spatialToggleBtn.classList.add('is-3d');
-      }
-
-      // 1. Transform Hero macOS Window from Flat 2D (0deg) to Tilted 3D Spatial Stage
-      if (heroMacWindow) {
-        const heroTiltX = smoothScrollDepth * 14 + (orbitLock ? -pointerNormY * 10 : -pointerNormY * 3 * smoothScrollDepth);
-        const heroTiltY = orbitLock ? pointerNormX * 14 : pointerNormX * 4 * smoothScrollDepth;
-        const heroLiftZ = smoothScrollDepth * 28;
-        heroMacWindow.style.transform = `rotateX(${heroTiltX.toFixed(2)}deg) rotateY(${heroTiltY.toFixed(2)}deg) translateZ(${heroLiftZ.toFixed(1)}px)`;
-      }
-
-      // 2. Transform Each Section Stage in 3D Perspective Space as You Scroll Through
-      const vh = window.innerHeight;
-      spatialStages.forEach((stage) => {
-        const plane = stage.querySelector('.spatial-plane');
-        if (!plane) return;
-        const rect = stage.getBoundingClientRect();
-        const centerOffset = (rect.top + rect.height * 0.5 - vh * 0.5) / vh; // -1 to +1
-        const clampedOffset = Math.max(-1.2, Math.min(1.2, centerOffset));
-
-        // Z extrusion strength increases with scroll depth
-        const stageZ = smoothScrollDepth * (1 - Math.min(1, Math.abs(clampedOffset) * 0.65));
-        plane.style.setProperty('--stage-z', stageZ.toFixed(3));
-
-        if (stage.dataset.spatialStage !== 'hero') {
-          const rx = clampedOffset * -11 * smoothScrollDepth + (orbitLock ? -pointerNormY * 6 : 0);
-          const ry = orbitLock ? pointerNormX * 8 : pointerNormX * 2.5 * smoothScrollDepth;
-          const tz = -Math.abs(clampedOffset) * 45 * smoothScrollDepth;
-          plane.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(${tz.toFixed(1)}px)`;
-        }
-      });
-
-      // 3. Render Canvas: Morphs from Subtle 2D Dot Matrix -> Deep 3D Perspective Grid & Starfield
-      ctx.clearRect(0, 0, width, height);
-
-      const fov = 560;
-      const pitch = smoothScrollDepth * 0.92 + (orbitLock ? pointerNormY * 0.25 : 0); // 0 rad (2D) -> 0.92 rad (3D horizon)
-      const yaw = (orbitLock ? pointerNormX * 0.35 : pointerNormX * 0.08 * smoothScrollDepth);
-      const zTravel = window.scrollY * 0.85;
-
-      // Draw morphing 2D -> 3D spatial grid
-      const gridCols = 14;
-      const gridRows = 14;
-      const spacing = 150;
-      const gridYPlane = 240 + (1 - smoothScrollDepth) * 180;
-
-      ctx.lineWidth = 1;
-      for (let r = -gridRows / 2; r <= gridRows / 2; r++) {
-        ctx.beginPath();
-        for (let c = -gridCols / 2; c <= gridCols / 2; c++) {
-          const wx = c * spacing;
-          const wz = ((r * spacing - (zTravel % spacing)) + 1100);
-          const wy = smoothScrollDepth < 0.05 ? r * spacing : gridYPlane;
-          const p = project3D(wx, wy, wz, fov, pitch, yaw);
-          if (c === -gridCols / 2) ctx.moveTo(p.sx, p.sy);
-          else ctx.lineTo(p.sx, p.sy);
-        }
-        const alpha = (0.03 + smoothScrollDepth * 0.11) * (1 - Math.abs(r) / (gridRows * 0.65));
-        ctx.strokeStyle = `rgba(96, 165, 250, ${Math.max(0, alpha).toFixed(3)})`;
-        ctx.stroke();
-      }
-
-      for (let c = -gridCols / 2; c <= gridCols / 2; c++) {
-        ctx.beginPath();
-        for (let r = -gridRows / 2; r <= gridRows / 2; r++) {
-          const wx = c * spacing;
-          const wz = ((r * spacing - (zTravel % spacing)) + 1100);
-          const wy = smoothScrollDepth < 0.05 ? r * spacing : gridYPlane;
-          const p = project3D(wx, wy, wz, fov, pitch, yaw);
-          if (r === -gridRows / 2) ctx.moveTo(p.sx, p.sy);
-          else ctx.lineTo(p.sx, p.sy);
-        }
-        const alpha = (0.03 + smoothScrollDepth * 0.11) * (1 - Math.abs(c) / (gridCols * 0.65));
-        ctx.strokeStyle = `rgba(56, 189, 248, ${Math.max(0, alpha).toFixed(3)})`;
-        ctx.stroke();
-      }
-
-      // Draw 3D volumetric particles & constellation links
-      spatialNodes.forEach((node) => {
-        const loopedZ = ((node.z - zTravel * 0.6) % 1600 + 1600) % 1600 + 80;
-        const p = project3D(node.x, node.y, loopedZ, fov, pitch * 0.45, yaw);
-        const radius = Math.max(0.6, node.size * p.scale * (1 + smoothScrollDepth * 0.9));
-        const alpha = Math.min(0.85, p.scale * (0.35 + smoothScrollDepth * 0.55));
-
-        ctx.beginPath();
-        ctx.arc(p.sx, p.sy, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${node.hue}, ${alpha.toFixed(3)})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(renderSpatialScene);
-    }
-
-    requestAnimationFrame(renderSpatialScene);
-
-    /* =========================================================================
-       3. INTERACTIVE HERO COMMAND COPY & WORKSPACE SWITCHER
-    ========================================================================= */
-    const copyCmd = document.getElementById('copyIdentityCmd');
-    const copyStatus = document.getElementById('copyStatus');
-    copyCmd.addEventListener('click', () => {
-      navigator.clipboard?.writeText('samar-agshikar --focus "AI · Mathematics · Education · Entrepreneurship"');
-      copyStatus.textContent = 'copied ✓';
-      setTimeout(() => (copyStatus.textContent = 'copy'), 1800);
-    });
-
-    const heroData = {
-      the1: {
-        tag: 'FLAGSHIP WORKSPACE · THE-1.APP',
-        title: 'THE 1 — All-in-One Student Workspace',
-        desc: 'A calm, unified workspace bringing classes, structured notes, homework, spaced revision, quizzes, and AI-powered learning into one cohesive environment.',
-        url: 'https://the-1.app',
-        linkText: 'Launch the-1.app ↗',
-        meta: 'Education · Productivity · AI Learning',
-        notch: 'Samar Agshikar · THE 1 Workspace'
-      },
-      kerniq: {
-        tag: 'INTELLIGENCE SYSTEM · KERNIQ.THE-1.APP',
-        title: 'Kerniq — Intelligent Learning & Synthesis',
-        desc: 'Designed within the THE 1 ecosystem to power structured reasoning, concept clarity, and AI-assisted study workflows.',
-        url: 'https://kerniq.the-1.app',
-        linkText: 'Launch kerniq.the-1.app ↗',
-        meta: 'AI Systems · Structured Thinking',
-        notch: 'Samar Agshikar · Kerniq Engine'
-      },
-      cci: {
-        tag: 'AI EXPLORATION PLATFORM · HIGHER EDUCATION',
-        title: 'College Chances India — AI University Exploration',
-        desc: 'An AI-powered university exploration platform built to help students navigate higher-education options with clarity and confidence.',
-        url: '#projects',
-        linkText: 'View Platform Details ↓',
-        meta: 'AI · University Exploration · India',
-        notch: 'Samar Agshikar · College Chances India'
-      }
-    };
-
-    document.querySelectorAll('[data-hero-tab]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-hero-tab]').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const item = heroData[btn.dataset.heroTab];
-        document.getElementById('heroPaneTag').textContent = item.tag;
-        document.getElementById('heroPaneTitle').textContent = item.title;
-        document.getElementById('heroPaneDesc').textContent = item.desc;
-        const link = document.getElementById('heroPaneLink');
-        link.href = item.url;
-        link.textContent = item.linkText;
-        if (item.url.startsWith('#')) link.removeAttribute('target');
-        else link.setAttribute('target', '_blank');
-        document.getElementById('heroPaneMeta').textContent = item.meta;
-        document.getElementById('notchStatusText').textContent = item.notch;
-      });
-    });
-
-    /* =========================================================================
-       4. DUAL SHOWCASE MINI-TABS (THE 1 & KERNIQ)
-    ========================================================================= */
-    const the1Content = {
-      timetable: ['Weekly Class & Study Alignment', 'Plan study sessions directly against your real weekly schedule so every subject has dedicated focus time.'],
-      notes: ['Structured Notes & Retrieval', 'Capture clean class notes with instant search and direct links to upcoming revision sessions.'],
-      revision: ['Spaced Review & Active Recall', 'Built around evidence-backed retrieval practice so weaker topics resurface right when needed.'],
-      tutor: ['Context-Aware AI Tutor', 'Explains difficult concepts and works through problems using your own workspace notes as context.']
-    };
-
-    document.querySelectorAll('[data-the1]').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('[data-the1]').forEach((t) => t.classList.remove('active'));
-        tab.classList.add('active');
-        const [heading, copy] = the1Content[tab.dataset.the1];
-        document.getElementById('the1PreviewContent').innerHTML =
-          `<strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">${heading}</strong>${copy}`;
-      });
-    });
-
-    const kerniqContent = {
-      synthesis: ['Connected Knowledge Synthesis', 'Transform raw study material into structured mental models and active recall prompts without friction.'],
-      reasoning: ['Step-by-Step Guided Reasoning', 'Break complex problems down logically rather than jumping straight to surface-level answers.'],
-      ecosystem: ['Seamless THE 1 Integration', 'Operates natively alongside THE 1 at kerniq.the-1.app to extend student workflows with AI intelligence.']
-    };
-
-    document.querySelectorAll('[data-kerniq]').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('[data-kerniq]').forEach((t) => t.classList.remove('active'));
-        tab.classList.add('active');
-        const [heading, copy] = kerniqContent[tab.dataset.kerniq];
-        document.getElementById('kerniqPreviewContent').innerHTML =
-          `<strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">${heading}</strong>${copy}`;
-      });
-    });
-
-    /* =========================================================================
-       5. INTERACTIVE KNOWLEDGE GRAPH & LINKED NOTES READER
-    ========================================================================= */
-    const knowledgeNodes = {
-      ai: {
-        path: '~/samar-agshikar/ai-and-technology.md',
-        title: 'AI & Applied Software Engineering',
-        p1: 'Artificial intelligence becomes most valuable when embedded directly into thoughtful workflows rather than isolated behind generic chat boxes.',
-        p2: 'This philosophy drives projects like THE 1, Kerniq, and College Chances India—combining intelligent assistance with clean, inspectable interfaces that amplify human learning and decision-making.'
-      },
-      math: {
-        path: '~/samar-agshikar/mathematics.md',
-        title: 'Mathematics & Analytical Rigor',
-        p1: 'Mathematics trains clarity of thought: decomposing complex problems into clean axioms, recognizing structure, and verifying every step.',
-        p2: 'Recognized with the SOF Mathematics Gold Medal of Excellence and the 98th percentile (Gold) in ASSET Mathematics alongside the 93rd percentile (Silver) in ASSET Science, this analytical discipline directly shapes how I architect software.'
-      },
-      education: {
-        path: '~/samar-agshikar/education.md',
-        title: 'Reimagining Student Tools & Education',
-        p1: 'Students often juggle disconnected apps for schedules, notes, homework, and university planning—losing focus to unnecessary friction.',
-        p2: 'Through THE 1, Kerniq, and College Chances India, I focus on building calm, reliable educational platforms that empower students to learn deeply and plan their academic futures.'
-      },
-      entrepreneurship: {
-        path: '~/samar-agshikar/entrepreneurship.md',
-        title: 'Entrepreneurship & Building What\'s Next',
-        p1: 'Entrepreneurship is the discipline of spotting real human bottlenecks and taking ownership of building the solution from zero to working product.',
-        p2: 'Through both software products and writing in Building What\'s Next, I explore how technology, design, and execution come together to create lasting value.'
-      },
-      leadership: {
-        path: '~/samar-agshikar/leadership.md',
-        title: 'Student Leadership & Community',
-        p1: 'Building great initiatives requires collaboration, listening, and follow-through across teams and communities.',
-        p2: 'My work across the Student Council, Culture and Events team, Round Square Student Committee (2026–27), and as an Internshala Student Partner reflects a commitment to service, organization, and student empowerment.'
-      }
-    };
-
-    function selectKnowledgeNode(key) {
-      const data = knowledgeNodes[key];
-      if (!data) return;
-      document.querySelectorAll('.graph-node').forEach((n) => n.classList.toggle('active', n.dataset.node === key));
-      document.querySelectorAll('.note-link-pill').forEach((p) => p.classList.toggle('active', p.dataset.node === key));
-      document.getElementById('mdFilePath').textContent = data.path;
-      document.getElementById('mdTitle').textContent = data.title;
-      document.getElementById('mdPara1').textContent = data.p1;
-      document.getElementById('mdPara2').textContent = data.p2;
-    }
-
-    document.querySelectorAll('.graph-node, .note-link-pill').forEach((el) => {
-      el.addEventListener('click', () => selectKnowledgeNode(el.dataset.node));
-    });
-
-    /* =========================================================================
-       6. INTERACTIVE MILESTONES & LEADERSHIP INSPECTOR (01 - 07)
-    ========================================================================= */
-    const milestones = [
-      {
-        tag: '01 · ACADEMIC ACHIEVEMENT',
-        title: 'SOF Mathematics Gold Medal of Excellence',
-        desc: 'Awarded the Gold Medal of Excellence in the Science Olympiad Foundation (SOF) Mathematics Olympiad, recognizing high-precision analytical reasoning and problem-solving capability.',
-        cat: 'Discipline: Mathematics',
-        badge: 'Gold Medal'
-      },
-      {
-        tag: '02 · ACADEMIC ACHIEVEMENT',
-        title: 'ASSET Mathematics: 98th Percentile — Gold',
-        desc: 'Achieved the 98th percentile with Gold distinction in ASSET Mathematics, demonstrating strong conceptual mastery and quantitative reasoning.',
-        cat: 'Discipline: Mathematics',
-        badge: '98th Percentile · Gold'
-      },
-      {
-        tag: '03 · ACADEMIC ACHIEVEMENT',
-        title: 'ASSET Science: 93rd Percentile — Silver',
-        desc: 'Achieved the 93rd percentile with Silver distinction in ASSET Science, reflecting strong scientific reasoning and conceptual application.',
-        cat: 'Discipline: Science',
-        badge: '93rd Percentile · Silver'
-      },
-      {
-        tag: '04 · STUDENT LEADERSHIP',
-        title: 'Round Square Student Committee 2026–27',
-        desc: 'Serving on the Round Square Student Committee for 2026–27, contributing to internationalism, leadership, service, and collaborative student initiatives.',
-        cat: 'Term: 2026–27',
-        badge: 'Committee Member'
-      },
-      {
-        tag: '05 · STUDENT LEADERSHIP',
-        title: 'Student Council',
-        desc: 'Representing peers on the Student Council—bridging student perspectives with constructive initiatives and institutional collaboration.',
-        cat: 'Role: Governance',
-        badge: 'Student Council'
-      },
-      {
-        tag: '06 · STUDENT LEADERSHIP',
-        title: 'Culture and Events Team',
-        desc: 'Planning, coordinating, and executing campus cultural programs and events that bring the student community together.',
-        cat: 'Role: Events & Culture',
-        badge: 'Core Team'
-      },
-      {
-        tag: '07 · STUDENT LEADERSHIP',
-        title: 'Internshala Student Partner',
-        desc: 'Representing Internshala on campus to connect fellow students with skill development, internships, and career-readiness resources.',
-        cat: 'Role: Campus Ambassador',
-        badge: 'Student Partner'
-      }
-    ];
-
-    document.querySelectorAll('#milestoneList .num-row').forEach((row) => {
-      row.addEventListener('click', () => {
-        document.querySelectorAll('#milestoneList .num-row').forEach((r) => r.classList.remove('active'));
-        row.classList.add('active');
-        const m = milestones[Number(row.dataset.milestone)];
-        document.getElementById('inspTag').textContent = m.tag;
-        document.getElementById('inspTitle').textContent = m.title;
-        document.getElementById('inspDesc').textContent = m.desc;
-        document.getElementById('inspCategory').textContent = m.cat;
-        document.getElementById('inspBadgeCopy').textContent = m.badge;
-      });
-    });
-
-    /* =========================================================================
-       7. PUBLICATIONS ESSAY READER MODAL ("BUILDING WHAT'S NEXT")
-    ========================================================================= */
-    const essays = [
-      {
-        meta: "BUILDING WHAT'S NEXT · AI & PRODUCT",
-        title: "Why Student Software Should Feel Calm, Not Crowded",
-        paragraphs: [
-          "Most productivity tools ask students to manage the tool itself before they ever get to their actual work. Tabs multiply, notifications compete for attention, and notes sit disconnected from deadlines.",
-          "When building THE 1 (the-1.app), the central design goal was calm cohesion: keeping timetables, notes, homework, and revision in one unified workspace so every action naturally supports the next.",
-          "Great software doesn't shout for attention—it clears the path so the user can think."
-        ]
-      },
-      {
-        meta: "BUILDING WHAT'S NEXT · TECHNOLOGY & AI",
-        title: "Designing AI That Augments Thinking Instead of Replacing It",
-        paragraphs: [
-          "The most exciting frontier in educational AI is not generating generic answers—it is helping learners build genuine conceptual understanding and make better-informed decisions.",
-          "Across Kerniq (kerniq.the-1.app) and College Chances India, the focus is on structured context: grounding AI assistance in the student's actual notes, goals, and academic profile.",
-          "When AI respects human agency and shows its reasoning clearly, it becomes a multiplier for curiosity."
-        ]
-      },
-      {
-        meta: "BUILDING WHAT'S NEXT · MATHEMATICS & CODE",
-        title: "From Olympiad Problem-Solving to Software Architecture",
-        paragraphs: [
-          "Mathematical problem-solving teaches you to look past surface complexity until the underlying structure becomes clear. Every clean proof relies on well-chosen definitions and logical flow.",
-          "Software engineering rewards the exact same habit. Whether structuring data models for a workspace or designing intuitive user flows, clarity at the foundation prevents complexity later.",
-          "Mathematics and code are two dialects of structured creative thinking."
-        ]
-      },
-      {
-        meta: "BUILDING WHAT'S NEXT · ENTREPRENEURSHIP",
-        title: "Shipping Early as a Student Builder",
-        paragraphs: [
-          "You do not need to wait until graduation to build real tools that solve real problems. Starting as a student gives you direct proximity to the friction points you are solving.",
-          "Combining software development with lessons from student leadership—on the Student Council, Culture and Events team, Round Square Student Committee 2026–27, and as an Internshala Student Partner—reinforces that execution and communication matter just as much as code.",
-          "Building What's Next is a commitment to continuous learning, shipping, and iterating."
-        ]
-      }
-    ];
-
-    const essayModal = document.getElementById('essayModal');
-    document.querySelectorAll('[data-essay]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const e = essays[Number(btn.dataset.essay)];
-        document.getElementById('modalEssayMeta').textContent = e.meta;
-        document.getElementById('modalEssayTitle').textContent = e.title;
-        document.getElementById('modalEssayBody').innerHTML = e.paragraphs.map((p) => `<p>${p}</p>`).join('');
-        essayModal.classList.add('open');
-      });
-    });
-
-    document.getElementById('closeEssayModal').addEventListener('click', () => essayModal.classList.remove('open'));
-    essayModal.addEventListener('click', (e) => {
-      if (e.target === essayModal) essayModal.classList.remove('open');
-    });
-
-    /* =========================================================================
-       8. FAQ ACCORDION
-    ========================================================================= */
-    document.querySelectorAll('.faq-question').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        item.classList.toggle('open');
-      });
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
