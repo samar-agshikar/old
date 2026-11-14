@@ -10,7 +10,7 @@
   />
   <meta name="theme-color" content="#040714" />
 
-  <!-- Ensure the page ALWAYS starts at the very top when opened or refreshed -->
+  <!-- Ensure page always starts cleanly at the top when opened -->
   <script>
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -35,11 +35,10 @@
     :root,
     [data-theme="dark"] {
       --bg-page: #040714;
-      --bg-surface: rgba(9, 15, 36, 0.72);
-      --glass-bg: rgba(12, 20, 48, 0.46);
-      --glass-bg-strong: rgba(10, 17, 42, 0.68);
-      --glass-pill: rgba(13, 22, 54, 0.56);
-      --glass-hover: rgba(255, 255, 255, 0.08);
+      --glass-bg: rgba(12, 20, 48, 0.48);
+      --glass-bg-strong: rgba(10, 17, 42, 0.72);
+      --glass-pill: rgba(13, 22, 54, 0.62);
+      --glass-hover: rgba(255, 255, 255, 0.075);
 
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
@@ -47,63 +46,82 @@
 
       --border-glass: rgba(255, 255, 255, 0.14);
       --border-glass-strong: rgba(255, 255, 255, 0.24);
-      --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.24);
+      --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+
+      --grid-line: rgba(255, 255, 255, 0.065);
+      --track-line: rgba(255, 255, 255, 0.16);
+      --stem-line: rgba(255, 255, 255, 0.24);
+      --stem-active: #c084fc;
 
       /* Dark Mode Signature Palette: Navy Blue, Purple, Red */
       --grad-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 52%, #e11d48 100%);
       --grad-text: linear-gradient(115deg, #60a5fa 0%, #c084fc 50%, #fb7185 100%);
       --grad-bar: linear-gradient(90deg, #2563eb 0%, #9333ea 52%, #f43f5e 100%);
-      --accent-1: #60a5fa; /* Navy / Electric Blue */
-      --accent-2: #c084fc; /* Purple */
-      --accent-3: #fb7185; /* Crimson Red */
+      --accent-1: #60a5fa;
+      --accent-2: #c084fc;
+      --accent-3: #fb7185;
+
+      /* High-contrast SA monogram badge */
+      --logo-bg: linear-gradient(135deg, #1e3a8a 0%, #6d28d9 55%, #be123c 100%);
+      --logo-fg: #ffffff;
+      --logo-border: rgba(255, 255, 255, 0.28);
 
       --cta-bg: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 52%, #e11d48 100%);
       --cta-text: #ffffff;
       --cta-shadow: 0 14px 36px -8px rgba(124, 58, 237, 0.55);
 
       --ambient-mesh:
-        radial-gradient(circle at 14% 12%, rgba(30, 58, 138, 0.55) 0%, transparent 48%),
-        radial-gradient(circle at 84% 18%, rgba(109, 40, 217, 0.44) 0%, transparent 46%),
-        radial-gradient(circle at 72% 62%, rgba(190, 18, 60, 0.34) 0%, transparent 50%),
-        radial-gradient(circle at 22% 78%, rgba(37, 99, 235, 0.36) 0%, transparent 52%);
+        radial-gradient(circle at 14% 12%, rgba(30, 58, 138, 0.52) 0%, transparent 48%),
+        radial-gradient(circle at 84% 18%, rgba(109, 40, 217, 0.42) 0%, transparent 46%),
+        radial-gradient(circle at 72% 62%, rgba(190, 18, 60, 0.32) 0%, transparent 50%),
+        radial-gradient(circle at 22% 78%, rgba(37, 99, 235, 0.34) 0%, transparent 52%);
 
       --shadow-glass: 0 28px 70px -18px rgba(2, 6, 23, 0.85);
     }
 
     [data-theme="light"] {
       --bg-page: #fffcf7;
-      --bg-surface: rgba(255, 255, 255, 0.76);
-      --glass-bg: rgba(255, 255, 255, 0.54);
-      --glass-bg-strong: rgba(255, 255, 255, 0.78);
-      --glass-pill: rgba(255, 255, 255, 0.66);
+      --glass-bg: rgba(255, 255, 255, 0.62);
+      --glass-bg-strong: rgba(255, 255, 255, 0.84);
+      --glass-pill: rgba(255, 255, 255, 0.78);
       --glass-hover: rgba(15, 23, 42, 0.055);
 
       --text-primary: #0f172a;
       --text-secondary: #334155;
       --text-muted: #64748b;
 
-      --border-glass: rgba(255, 255, 255, 0.85);
-      --border-glass-strong: rgba(15, 23, 42, 0.14);
+      --border-glass: rgba(15, 23, 42, 0.11);
+      --border-glass-strong: rgba(15, 23, 42, 0.2);
       --specular-top: inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+
+      --grid-line: rgba(15, 23, 42, 0.075);
+      --track-line: rgba(15, 23, 42, 0.18);
+      --stem-line: rgba(15, 23, 42, 0.24);
+      --stem-active: #ea580c;
 
       /* Light Mode Signature Palette: Orange, Red, Yellow, Green */
       --grad-primary: linear-gradient(135deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
       --grad-text: linear-gradient(115deg, #ea580c 0%, #e11d48 36%, #ca8a04 70%, #059669 100%);
       --grad-bar: linear-gradient(90deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%);
-      --accent-1: #ea580c; /* Orange */
-      --accent-2: #e11d48; /* Red */
-      --accent-3: #059669; /* Green */
+      --accent-1: #ea580c;
+      --accent-2: #e11d48;
+      --accent-3: #059669;
+
+      /* High-contrast SA monogram badge in Light Mode */
+      --logo-bg: #0f172a;
+      --logo-fg: #ffffff;
+      --logo-border: rgba(234, 88, 12, 0.65);
 
       --cta-bg: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #10b981 100%);
       --cta-text: #ffffff;
       --cta-shadow: 0 14px 34px -8px rgba(249, 115, 22, 0.42);
 
       --ambient-mesh:
-        radial-gradient(circle at 12% 14%, rgba(251, 146, 60, 0.34) 0%, transparent 46%),
-        radial-gradient(circle at 86% 16%, rgba(244, 63, 94, 0.26) 0%, transparent 45%),
-        radial-gradient(circle at 52% 48%, rgba(250, 204, 21, 0.28) 0%, transparent 48%),
-        radial-gradient(circle at 80% 82%, rgba(16, 185, 129, 0.28) 0%, transparent 50%),
-        radial-gradient(circle at 18% 84%, rgba(249, 115, 22, 0.24) 0%, transparent 48%);
+        radial-gradient(circle at 12% 14%, rgba(251, 146, 60, 0.32) 0%, transparent 46%),
+        radial-gradient(circle at 86% 16%, rgba(244, 63, 94, 0.24) 0%, transparent 45%),
+        radial-gradient(circle at 52% 48%, rgba(250, 204, 21, 0.25) 0%, transparent 48%),
+        radial-gradient(circle at 80% 82%, rgba(16, 185, 129, 0.26) 0%, transparent 50%),
+        radial-gradient(circle at 18% 84%, rgba(249, 115, 22, 0.22) 0%, transparent 48%);
 
       --shadow-glass: 0 24px 60px -16px rgba(234, 88, 12, 0.14);
     }
@@ -161,7 +179,7 @@
     }
 
     /* =====================================================================
-       2. LIVING AMBIENT GRADIENT FIELD (BACKDROP FOR GLASSMORPHISM)
+       2. AMBIENT GRADIENT FIELD & GLASSMORPHISM SURFACES
     ===================================================================== */
     .ambient-field {
       position: fixed;
@@ -171,19 +189,12 @@
       background-image: var(--ambient-mesh);
       filter: blur(42px);
       animation: auroraFloat 18s ease-in-out infinite alternate;
-      transition: opacity 0.45s ease;
     }
 
     @keyframes auroraFloat {
-      0% {
-        transform: translate3d(-1.5%, -1.5%, 0) scale(1);
-      }
-      50% {
-        transform: translate3d(1.8%, 1.2%, 0) scale(1.04);
-      }
-      100% {
-        transform: translate3d(-0.8%, 2%, 0) scale(1.02);
-      }
+      0% { transform: translate3d(-1.5%, -1.5%, 0) scale(1); }
+      50% { transform: translate3d(1.8%, 1.2%, 0) scale(1.04); }
+      100% { transform: translate3d(-0.8%, 2%, 0) scale(1.02); }
     }
 
     main,
@@ -193,7 +204,6 @@
       z-index: 1;
     }
 
-    /* Reusable Frosted Glass Surface + Cursor Specular Sheen */
     .glass-panel {
       position: relative;
       background: var(--glass-bg);
@@ -227,15 +237,14 @@
       opacity: 1;
     }
 
-    /* Scroll-Driven Staggered Reveal Choreography */
     [data-reveal] {
       opacity: 0;
       filter: blur(10px);
-      transform: translate3d(0, 32px, 0) scale(0.975);
+      transform: translate3d(0, 28px, 0) scale(0.98);
       transition:
-        opacity 0.85s var(--spring),
-        filter 0.85s var(--spring),
-        transform 0.85s var(--spring);
+        opacity 0.8s var(--spring),
+        filter 0.8s var(--spring),
+        transform 0.8s var(--spring);
       transition-delay: var(--delay, 0ms);
     }
 
@@ -246,7 +255,7 @@
     }
 
     /* =====================================================================
-       3. ANIMATED GLASSMORPHIC TOP DOCK (TRACKS SCROLL POSITION LIVE)
+       3. ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
     ===================================================================== */
     .site-header {
       position: fixed;
@@ -273,19 +282,17 @@
       -webkit-backdrop-filter: blur(30px) saturate(190%);
       box-shadow:
         var(--specular-top),
-        0 18px 46px -12px rgba(2, 6, 23, 0.55);
+        0 18px 46px -12px rgba(2, 6, 23, 0.45);
       overflow: hidden;
-      transition: transform 0.35s var(--spring), background-color 0.35s ease;
     }
 
-    /* Live Scroll Progress Beam inside bottom rim of Top Dock */
     .dock-progress-track {
       position: absolute;
       left: 22px;
       right: 22px;
       bottom: 0;
       height: 2.5px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(128, 128, 128, 0.14);
       border-radius: 999px;
       overflow: hidden;
     }
@@ -295,7 +302,6 @@
       width: 0%;
       background: var(--grad-bar);
       border-radius: 999px;
-      box-shadow: 0 0 12px rgba(168, 85, 247, 0.65);
       transition: width 0.08s linear;
     }
 
@@ -310,35 +316,25 @@
       flex-shrink: 0;
     }
 
-    .brand-avatar-wrap {
+    .brand-monogram {
       width: 34px;
       height: 34px;
       border-radius: 10px;
-      overflow: hidden;
-      border: 1.5px solid var(--border-glass-strong);
-      background: var(--grad-primary);
+      border: 1.5px solid var(--logo-border);
+      background: var(--logo-bg);
+      color: var(--logo-fg);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-    }
-
-    .brand-avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 16%;
-      display: block;
-    }
-
-    .brand-fallback {
-      font-size: 0.74rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
       font-weight: 800;
-      color: #ffffff;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
-    /* Sliding Glass Indicator Navigation */
     .dock-nav {
       position: relative;
       display: inline-flex;
@@ -346,7 +342,7 @@
       gap: 2px;
       padding: 3px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(128, 128, 128, 0.06);
       border: 1px solid var(--border-glass);
     }
 
@@ -358,7 +354,7 @@
       width: 74px;
       border-radius: 999px;
       background: var(--grad-primary);
-      box-shadow: 0 6px 20px -4px rgba(124, 58, 237, 0.5);
+      box-shadow: 0 6px 20px -4px rgba(124, 58, 237, 0.45);
       transition:
         transform 0.48s var(--bounce-spring),
         width 0.42s var(--spring);
@@ -374,13 +370,12 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-secondary);
-      transition: color 0.25s ease, transform 0.25s var(--spring);
+      transition: color 0.25s ease;
       white-space: nowrap;
     }
 
     .dock-nav a:hover {
       color: var(--text-primary);
-      transform: translateY(-1px);
     }
 
     .dock-nav a.active {
@@ -421,7 +416,7 @@
     }
 
     .icon-btn:hover {
-      transform: scale(1.08) rotate(8deg);
+      transform: scale(1.08);
       border-color: var(--border-glass-strong);
     }
 
@@ -480,7 +475,7 @@
     }
 
     /* =====================================================================
-       4. HERO SECTION — ZERO OVERLAPPING DATES + SEPARATE ORB & GLASS STAGE
+       4. HERO SECTION — ZERO UNREQUESTED LABELS, ZERO OVERLAPPING DATES
     ===================================================================== */
     .hero-section {
       position: relative;
@@ -517,12 +512,6 @@
       border-radius: 50%;
       background: var(--grad-primary);
       box-shadow: 0 0 12px var(--accent-2);
-      animation: pulseGlow 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.7; }
     }
 
     .hero-title {
@@ -571,7 +560,7 @@
       background: var(--cta-bg);
       color: var(--cta-text);
       box-shadow: var(--cta-shadow);
-      transition: transform 0.35s var(--bounce-spring), box-shadow 0.3s ease;
+      transition: transform 0.35s var(--bounce-spring);
       cursor: pointer;
       border: none;
     }
@@ -623,65 +612,27 @@
       color: var(--text-secondary);
     }
 
-    /* Right Hero Column: Dedicated Orb Stage ABOVE the Snapshot Card (ZERO Overlap!) */
+    /* Right Hero Column: Pure Sculptural 3D Orb above Snapshot Card (Zero Extra Labels, Zero Overlap) */
     .hero-right-stack {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      align-items: stretch;
+      gap: 14px;
+      align-items: center;
     }
 
-    .hero-orb-stage {
-      position: relative;
-      height: 225px;
-      border-radius: 24px;
+    .hero-orb-float {
+      width: 100%;
+      height: 210px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 20px 26px;
-      overflow: hidden;
-    }
-
-    .orb-stage-meta {
-      position: relative;
-      z-index: 2;
-      max-width: 215px;
-    }
-
-    .orb-stage-kicker {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--grad-primary);
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-
-    .orb-stage-meta h2 {
-      font-size: 1.18rem;
-      font-weight: 700;
-      line-height: 1.28;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-
-    .orb-stage-meta p {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
+      justify-content: center;
+      pointer-events: none;
     }
 
     #heroWebGLOrb {
-      width: 210px;
-      height: 210px;
-      flex-shrink: 0;
-      pointer-events: none;
-      filter: drop-shadow(0 14px 28px rgba(124, 58, 237, 0.32));
+      width: 220px;
+      height: 220px;
+      filter: drop-shadow(0 18px 34px rgba(124, 58, 237, 0.32));
     }
 
     .hero-preview-card {
@@ -752,7 +703,6 @@
       color: #ffffff;
       background: var(--grad-primary);
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     }
 
     /* 2-Tab Feature Switcher */
@@ -772,7 +722,7 @@
       border: 1px solid var(--border-glass);
       backdrop-filter: blur(22px) saturate(170%);
       cursor: pointer;
-      transition: transform 0.3s var(--bounce-spring), border-color 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s var(--bounce-spring), border-color 0.25s ease;
     }
 
     .switcher-tab:hover {
@@ -781,7 +731,7 @@
 
     .switcher-tab.active {
       border-color: var(--accent-2);
-      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.35);
+      box-shadow: var(--specular-top), 0 12px 30px -10px rgba(124, 58, 237, 0.3);
     }
 
     .switcher-tab-title {
@@ -812,14 +762,8 @@
     }
 
     @keyframes panelFadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .showcase-copy h3 {
@@ -875,7 +819,7 @@
     }
 
     /* =====================================================================
-       5. ARCHITECTURAL RECOGNITION STRIP
+       5. RECOGNITION & HIGHLIGHTS STRIP
     ===================================================================== */
     .recognition-section {
       padding: 44px 0 80px;
@@ -955,25 +899,26 @@
     }
 
     /* =====================================================================
-       6. TRUE 3D WEBGL CHROMATIC LIGHT-VORTEX -> DISPLACED ORB
-          + COLORFUL CHROMATIC DATE CAPSULES (NO WIREFRAME, NO AI ICONS!)
+       6. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE (MATCHING ATTACHED REFERENCE)
+          + SLOW-SCROLL PINNED EXPERIENCE + 3D DEPTH TUNNEL
     ===================================================================== */
-    .wormhole-section {
+    .timeline-scroll-runway {
       position: relative;
-      height: 500vh;
+      height: 580vh;
     }
 
-    .wormhole-sticky {
+    .timeline-sticky-stage {
       position: sticky;
       top: 0;
       height: 100vh;
       width: 100%;
       overflow: hidden;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
+    /* Subtle 3D Depth Tunnel Backdrop */
     #tunnelWebGLCanvas {
       position: absolute;
       inset: 0;
@@ -981,171 +926,55 @@
       height: 100%;
       z-index: 1;
       pointer-events: none;
+      opacity: 0.65;
     }
 
-    #tunnelWebGLOrb {
+    /* Architectural Vertical Column Grid Lines (Matching Attached Screenshot) */
+    .timeline-arch-grid {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      width: min(74vw, 430px);
-      height: min(74vw, 430px);
-      transform: translate(-50%, -50%) scale(0.05);
-      z-index: 4;
-      opacity: 0;
+      inset: 0;
+      z-index: 2;
       pointer-events: none;
-      will-change: transform, opacity;
-      filter: drop-shadow(0 24px 60px rgba(124, 58, 237, 0.35));
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--grid-line) 0px,
+        var(--grid-line) 1px,
+        transparent 1px,
+        transparent 220px
+      );
     }
 
-    .wh-intro {
-      position: absolute;
-      top: 12vh;
-      left: 50%;
-      transform: translateX(-50%);
+    /* Top Header matching "1999 to Present / Milestones..." in Screenshot */
+    .timeline-stage-header {
+      position: relative;
       z-index: 6;
-      text-align: center;
-      width: min(92vw, 740px);
-      pointer-events: none;
-      will-change: transform, opacity;
+      padding-top: 94px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .wh-clock-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 18px;
-      border-radius: 999px;
-      background: var(--glass-bg);
-      border: 1px solid var(--border-glass-strong);
-      backdrop-filter: blur(20px);
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      box-shadow: var(--specular-top);
-      margin-bottom: 14px;
-    }
-
-    .wh-intro h2 {
-      font-size: clamp(2.05rem, 4.4vw, 3.45rem);
+    .timeline-stage-title {
+      font-size: clamp(2.1rem, 4vw, 3.25rem);
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.08;
-    }
-
-    .wh-capsules-layer {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      pointer-events: none;
-    }
-
-    /* Colorful Frosted-Glass Chromatic Milestone Capsule (Zero AI Icons!) */
-    .chromatic-node {
-      position: absolute;
-      left: 50%;
-      top: 54%;
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      padding: 9px 16px 9px 10px;
-      border-radius: 999px;
-      background: var(--glass-bg-strong);
-      border: 1px solid var(--border-glass-strong);
-      backdrop-filter: blur(22px) saturate(185%);
-      -webkit-backdrop-filter: blur(22px) saturate(185%);
-      box-shadow:
-        var(--specular-top),
-        0 18px 40px -10px rgba(0, 0, 0, 0.45);
-      will-change: transform, opacity;
-      white-space: nowrap;
-    }
-
-    .chromatic-orb-badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: #ffffff;
-      box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.55), 0 6px 16px rgba(0, 0, 0, 0.3);
-      flex-shrink: 0;
-    }
-
-    .chromatic-node-text {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-
-    .chromatic-node-title {
-      font-size: 0.78rem;
-      font-weight: 700;
       color: var(--text-primary);
-      line-height: 1.2;
+      margin-bottom: 6px;
     }
 
-    .chromatic-node-date {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      font-weight: 600;
+    .timeline-stage-sub {
+      font-size: 0.98rem;
       color: var(--text-secondary);
     }
 
-    .wh-orb-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 6;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 15vh clamp(24px, 6vw, 96px) 5vh;
-      pointer-events: none;
-      opacity: 0;
-    }
-
-    .wh-orb-callouts {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .wh-callout-block {
-      max-width: 295px;
-      padding: 20px 24px;
-      border-radius: 20px;
-      background: var(--glass-bg);
-      border: 1px solid var(--border-glass-strong);
-      backdrop-filter: blur(22px);
-      box-shadow: var(--specular-top);
-    }
-
-    .wh-callout-block h3 {
-      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
-    }
-
-    .wh-bottom-dock {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding-top: 12px;
-    }
-
-    .dock-mini-pill {
+    .timeline-controls-bar {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 13px;
+      gap: 10px;
+      padding: 7px 12px;
       border-radius: 999px;
       background: var(--glass-bg-strong);
       border: 1px solid var(--border-glass-strong);
@@ -1153,249 +982,175 @@
       box-shadow: var(--specular-top);
     }
 
-    .dock-mini-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px currentColor;
-    }
-
-    .dock-mini-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    /* =====================================================================
-       7. CHRONOLOGICAL TIMELINE EXPLORER WINDOW (08/2023 -> 11/2026)
-    ===================================================================== */
-    .timeline-explorer-section {
-      position: relative;
-      z-index: 8;
-      padding: 40px 0 96px;
-    }
-
-    .explorer-window {
-      border-radius: 26px;
-      overflow: hidden;
-    }
-
-    .explorer-topbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border-glass);
-      background: var(--glass-hover);
-    }
-
-    .explorer-title-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .explorer-badge {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 11px;
-      border-radius: 999px;
-      background: var(--grad-primary);
-      color: #ffffff;
-    }
-
-    .explorer-body {
-      display: grid;
-      grid-template-columns: 230px 1fr 310px;
-      min-height: 560px;
-    }
-
-    .explorer-sidebar {
-      padding: 20px 16px;
-      border-right: 1px solid var(--border-glass);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .sidebar-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      padding: 6px 10px;
-    }
-
-    .cat-filter-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 10px 13px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.25s var(--spring);
-    }
-
-    .cat-filter-btn:hover {
-      background: var(--glass-hover);
-      color: var(--text-primary);
-    }
-
-    .cat-filter-btn.active {
-      background: var(--grad-primary);
-      color: #ffffff;
-      box-shadow: 0 8px 20px -6px rgba(124, 58, 237, 0.45);
-    }
-
-    .explorer-main {
-      padding: 24px 28px;
-      max-height: 640px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .milestone-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 17px 19px;
-      border-radius: 18px;
-      background: var(--glass-hover);
-      border: 1px solid var(--border-glass);
-      cursor: pointer;
-      transition: transform 0.3s var(--spring), border-color 0.25s ease, background-color 0.25s ease;
-    }
-
-    .milestone-row:hover {
-      transform: translateX(4px);
-      border-color: var(--border-glass-strong);
-    }
-
-    .milestone-row.selected {
-      border-color: var(--accent-2);
-      background: var(--glass-bg-strong);
-      box-shadow: var(--specular-top);
-    }
-
-    .milestone-row.is-hidden {
-      display: none;
-    }
-
-    /* Colorful Chromatic Index Pill (Zero AI Icons!) */
-    .row-chroma-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: #ffffff;
-      flex-shrink: 0;
-      box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, 0.5), 0 8px 18px rgba(0, 0, 0, 0.26);
-      margin-top: 2px;
-    }
-
-    .row-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .mr-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .mr-date {
+    .tl-counter-text {
       font-family: var(--font-mono);
       font-size: 0.78rem;
       font-weight: 700;
+      color: var(--text-primary);
+      padding: 0 6px;
+    }
+
+    .tl-step-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border-glass);
+      background: var(--glass-hover);
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .tl-step-btn:hover {
+      transform: scale(1.08);
+      background: var(--grad-primary);
+      color: #ffffff;
+    }
+
+    /* Horizontal Translating Track Viewport */
+    .timeline-viewport {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .timeline-track-canvas {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      will-change: transform;
+    }
+
+    /* Continuous Horizontal Baseline Track at Bottom */
+    .timeline-baseline {
+      position: absolute;
+      bottom: 72px;
+      left: 0;
+      height: 1.5px;
+      background: var(--track-line);
+    }
+
+    .timeline-baseline-progress {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      height: 3.5px;
+      width: 0px;
+      background: var(--grad-bar);
+      border-radius: 999px;
+      box-shadow: 0 0 14px rgba(168, 85, 247, 0.55);
+    }
+
+    /* Individual Milestone Column + Vertical Stem (Exact Reference Format) */
+    .tl-node {
+      position: absolute;
+      bottom: 72px;
+      width: 280px;
+      cursor: pointer;
+      transition: opacity 0.45s var(--spring), transform 0.45s var(--spring);
+    }
+
+    .tl-node-stem {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1.5px;
+      height: var(--stem-h, 200px);
+      background: var(--stem-line);
+      transition: background-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .tl-node.is-uncovered .tl-node-stem {
+      background: var(--stem-active);
+    }
+
+    .tl-node.is-current .tl-node-stem {
+      width: 2px;
+      background: var(--grad-primary);
+      box-shadow: 0 0 12px var(--accent-2);
+    }
+
+    /* Diamond / Square Anchor Node on the Horizontal Baseline */
+    .tl-node-anchor {
+      position: absolute;
+      left: -4.5px;
+      bottom: -4.5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      transform: rotate(45deg);
+      background: var(--bg-page);
+      border: 2px solid var(--stem-line);
+      transition: transform 0.35s var(--bounce-spring), border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .tl-node.is-uncovered .tl-node-anchor {
+      border-color: var(--stem-active);
+      background: var(--stem-active);
+    }
+
+    .tl-node.is-current .tl-node-anchor {
+      transform: rotate(45deg) scale(1.35);
+      border-color: #ffffff;
+      background: var(--accent-2);
+      box-shadow: 0 0 14px var(--accent-2);
+    }
+
+    /* Text Block Pinned to Top-Right of the Vertical Stem (Matching Screenshot) */
+    .tl-node-content {
+      position: absolute;
+      left: 0;
+      bottom: calc(var(--stem-h, 200px) - 2px);
+      padding-left: 15px;
+      width: 270px;
+      transition: transform 0.4s var(--spring);
+    }
+
+    .tl-node.is-current .tl-node-content {
+      transform: translateY(-3px);
+    }
+
+    .tl-node-date {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .tl-node.is-current .tl-node-date {
       background: var(--grad-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .mr-cat {
-      font-size: 0.68rem;
+    .tl-node-title {
+      font-size: 0.95rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--glass-bg);
-      border: 1px solid var(--border-glass);
-      color: var(--text-secondary);
-    }
-
-    .mr-title {
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.35;
+      line-height: 1.32;
       color: var(--text-primary);
       margin-bottom: 4px;
     }
 
-    .mr-desc {
-      font-size: 0.87rem;
-      line-height: 1.62;
-      color: var(--text-secondary);
-    }
-
-    .explorer-inspector {
-      padding: 22px 20px;
-      border-left: 1px solid var(--border-glass);
-      background: var(--glass-hover);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .inspector-box {
-      padding: 16px;
-      border-radius: 14px;
-      background: var(--glass-bg);
-      border: 1px solid var(--border-glass);
-      box-shadow: var(--specular-top);
-    }
-
-    .inspector-box h4 {
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .inspector-box p {
-      font-size: 0.85rem;
-      line-height: 1.62;
+    .tl-node-desc {
+      font-size: 0.82rem;
+      line-height: 1.5;
       color: var(--text-secondary);
     }
 
     /* =====================================================================
-       8. THREE PILLARS + CASE STUDY SHOWCASE
+       7. PROJECTS SECTION — THREE INITIATIVES + CASE STUDIES
     ===================================================================== */
     .pillars-section {
       padding: 92px 0;
@@ -1597,7 +1352,7 @@
     }
 
     /* =====================================================================
-       9. ENGINEERING ASYMMETRIC BENTO
+       8. ENGINEERING SECTION
     ===================================================================== */
     .engineering-section {
       padding: 92px 0;
@@ -1634,19 +1389,19 @@
     }
 
     .eng-spectrum-box {
-      height: 156px;
+      height: 144px;
       border-radius: 18px;
       background: var(--grad-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      padding: 0 24px;
       text-align: center;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: #ffffff;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
     }
 
     .eng-stack-col {
@@ -1673,7 +1428,7 @@
     }
 
     /* =====================================================================
-       10. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING
+       9. WRITING SPOTLIGHT — SUBSTACK
     ===================================================================== */
     .writing-spotlight {
       position: relative;
@@ -1713,6 +1468,21 @@
       text-align: center;
     }
 
+    .spotlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--glass-hover);
+      border: 1px solid var(--border-glass-strong);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
     .spotlight-card h2 {
       font-size: clamp(1.85rem, 3.2vw, 2.45rem);
       font-weight: 800;
@@ -1729,7 +1499,7 @@
     }
 
     /* =====================================================================
-       11. CLEAN 2-COLUMN EXPANDABLE RECORD
+       10. ACADEMIC & LEADERSHIP RECORD ACCORDION
     ===================================================================== */
     .record-section {
       padding: 92px 0;
@@ -1804,7 +1574,7 @@
     }
 
     /* =====================================================================
-       12. CLOSING CTA & CHROMATIC DOTTED MATRIX FOOTER
+       11. CLOSING CONTACT & FOOTER
     ===================================================================== */
     .closing-section {
       position: relative;
@@ -1836,7 +1606,7 @@
 
     #dotMatrixCanvas {
       width: 100%;
-      height: 210px;
+      height: 180px;
       display: block;
       margin-bottom: 28px;
     }
@@ -1879,7 +1649,7 @@
     }
 
     /* =====================================================================
-       13. RESPONSIVE & REDUCED MOTION
+       12. RESPONSIVE & REDUCED MOTION
     ===================================================================== */
     @media (max-width: 1060px) {
       .dock-nav,
@@ -1902,10 +1672,13 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-orb-stage {
-        height: auto;
-        flex-direction: column;
-        text-align: center;
+      .hero-orb-float {
+        height: 170px;
+      }
+
+      #heroWebGLOrb {
+        width: 175px;
+        height: 175px;
       }
 
       .rec-logos {
@@ -1916,31 +1689,31 @@
       .pillars-grid {
         grid-template-columns: 1fr;
       }
+    }
 
-      .explorer-body {
-        grid-template-columns: 1fr;
+    @media (max-width: 640px) {
+      .timeline-stage-header {
+        padding-top: 84px;
       }
 
-      .explorer-sidebar {
-        border-right: none;
-        border-bottom: 1px solid var(--border-glass);
-        flex-direction: row;
-        flex-wrap: wrap;
+      .tl-node {
+        width: 245px;
       }
 
-      .explorer-inspector {
-        border-left: none;
-        border-top: 1px solid var(--border-glass);
+      .tl-node-content {
+        width: 235px;
       }
 
-      .wh-orb-callouts {
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: center;
+      .tl-node-date {
+        font-size: 1.05rem;
       }
 
-      .wh-bottom-dock {
-        display: none;
+      .tl-node-title {
+        font-size: 0.88rem;
+      }
+
+      .tl-node-desc {
+        font-size: 0.78rem;
       }
     }
 
@@ -1959,45 +1732,33 @@
         transform: none;
       }
 
-      .wormhole-section {
+      .timeline-scroll-runway {
         height: auto;
-        padding: 40px 0;
       }
 
-      .wormhole-sticky {
+      .timeline-sticky-stage {
         position: static;
-        height: auto;
+        height: 620px;
       }
 
-      #tunnelWebGLCanvas,
-      #tunnelWebGLOrb,
-      .wh-capsules-layer,
-      .wh-orb-overlay {
-        display: none;
+      .timeline-viewport {
+        overflow-x: auto;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Living Multi-Layer Ambient Gradient Field (Refracted through Glass Cards) -->
+  <!-- Living Multi-Layer Ambient Gradient Field -->
   <div class="ambient-field" aria-hidden="true"></div>
 
   <!-- ===================================================================
-       ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
+       ANIMATED GLASSMORPHIC TOP DOCK
   =================================================================== -->
   <header class="site-header">
     <div class="container">
       <div class="top-dock-shell" id="topDockShell">
         <a href="#overview" class="brand-link">
-          <span class="brand-avatar-wrap">
-            <img
-              src="1788752177068.png"
-              alt="Samar Agshikar"
-              class="brand-avatar"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
-            />
-            <span class="brand-fallback" style="display: none;">SA</span>
-          </span>
+          <span class="brand-monogram" aria-hidden="true">SA</span>
           <span>Samar Agshikar</span>
         </a>
 
@@ -2070,7 +1831,7 @@
 
   <main>
     <!-- =================================================================
-         1. OVERVIEW / HERO SECTION (ZERO OVERLAPPING DATES!)
+         1. OVERVIEW / HERO SECTION
     ================================================================= -->
     <section class="hero-section" id="overview" data-scroll-section="Overview">
       <div class="container">
@@ -2086,56 +1847,50 @@
             </h1>
 
             <p class="hero-sub">
-              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. Scroll continuously from top to bottom to traverse my 3D chromatic timeline, projects, engineering craft, and record.
+              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education.
             </p>
 
             <div class="hero-cta-row">
               <a href="#timeline" class="btn-luminous">
-                <span>Scroll Into 3D Timeline</span>
+                <span>Explore Timeline</span>
                 <span aria-hidden="true">↓</span>
               </a>
               <a href="#projects" class="btn-glass">
-                <span>View Case Studies</span>
+                <span>View Projects</span>
               </a>
             </div>
 
             <p class="hero-footnote">08/2023 Gymnasium Coswig, Germany → 07/2025 Ahmedabad, India → 11/2026 Present</p>
 
             <div class="hero-mono-bar">
-              <span>Focus: AI · Math · Education · Systems</span>
+              <span>Focus: AI · Mathematics · Technology · Education</span>
               <span>·</span>
               <span>THE 1 &amp; Kerniq</span>
             </div>
           </div>
 
-          <!-- Right Column: Cleanly Stacked 3D Orb Stage ABOVE Chronological Snapshot (Zero Date Overlap) -->
           <div class="hero-right-stack" data-reveal style="--delay: 120ms;">
-            <div class="hero-orb-stage glass-panel" data-tilt>
-              <div class="orb-stage-meta">
-                <span class="orb-stage-kicker">Interactive Shader</span>
-                <h2>Chromatic Intelligence Field</h2>
-                <p>Real-time 3D displaced-mesh surface reactive to theme and scroll.</p>
-              </div>
-              <canvas id="heroWebGLOrb" width="440" height="440" aria-hidden="true"></canvas>
+            <div class="hero-orb-float" aria-hidden="true">
+              <canvas id="heroWebGLOrb" width="440" height="440"></canvas>
             </div>
 
             <div class="hero-preview-card glass-panel" data-tilt>
               <div class="preview-card-bar">
                 <div class="preview-dots"><span></span><span></span><span></span></div>
-                <span>Chronological Snapshot · 2023–2026</span>
+                <span>08/2023 – 11/2026</span>
               </div>
               <div class="preview-rows">
                 <div class="preview-row">
                   <div>
                     <strong>THE 1</strong>
-                    <div style="font-size: 0.76rem; color: var(--text-muted);">ADIS School Pilot &amp; Product Hunt Launch</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">School Pilot &amp; Product Hunt Launch</div>
                   </div>
                   <span class="preview-tag">10/2026</span>
                 </div>
                 <div class="preview-row">
                   <div>
                     <strong>Kerniq &amp; Building What’s Next</strong>
-                    <div style="font-size: 0.76rem; color: var(--text-muted);">AI Reasoning System &amp; Substack Publication</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">THE 1 Ecosystem &amp; Substack Publication</div>
                   </div>
                   <span class="preview-tag">11/2026</span>
                 </div>
@@ -2156,11 +1911,11 @@
           <div class="hero-switcher-tabs" role="tablist" aria-label="Featured software">
             <button class="switcher-tab active" data-showcase="the1" type="button">
               <span class="switcher-tab-title">THE 1</span>
-              <span class="switcher-tab-sub">Unified student workspace</span>
+              <span class="switcher-tab-sub">All-in-one student workspace</span>
             </button>
             <button class="switcher-tab" data-showcase="kerniq" type="button">
               <span class="switcher-tab-title">Kerniq</span>
-              <span class="switcher-tab-sub">Structured AI reasoning</span>
+              <span class="switcher-tab-sub">Within the THE 1 ecosystem</span>
             </button>
           </div>
 
@@ -2169,13 +1924,13 @@
               <div class="showcase-copy">
                 <h3>THE 1 — All-in-one workspace for students</h3>
                 <p>
-                  Started in June 2026 to unify class schedules, structured notes, homework tracking, spaced revision, and context-aware AI study tools. Piloted at Adani International School and launched on Product Hunt in October 2026.
+                  Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
                 </p>
                 <div class="showcase-pills">
                   <span>Timetable</span>
-                  <span>Notes &amp; Tasks</span>
-                  <span>Spaced Revision</span>
-                  <span>Context-Aware AI</span>
+                  <span>Notes &amp; Homework</span>
+                  <span>Revision</span>
+                  <span>AI Study Tools</span>
                 </div>
               </div>
               <div class="showcase-mock">
@@ -2185,10 +1940,10 @@
                 </div>
                 <div class="mock-item">
                   <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-                  <span class="preview-tag">ADIS Pilot</span>
+                  <span class="preview-tag">Pilot</span>
                 </div>
                 <div class="mock-item">
-                  <span><strong>10/2026</strong> · Public launch on Product Hunt</span>
+                  <span><strong>10/2026</strong> · Launched on Product Hunt</span>
                   <span class="preview-tag">Launched</span>
                 </div>
               </div>
@@ -2199,14 +1954,14 @@
     </section>
 
     <!-- =================================================================
-         2. RECOGNITION & MILESTONE HIGHLIGHTS
+         2. RECOGNITION & HIGHLIGHTS STRIP
     ================================================================= -->
     <section class="recognition-section" aria-label="Academic and leadership highlights">
       <div class="container">
         <div class="recognition-top" data-reveal>
           <div>
             <div class="rec-stat-num">16</div>
-            <div class="rec-stat-sub">Chronological milestones · 08/2023 to 11/2026</div>
+            <div class="rec-stat-sub">Milestones · 08/2023 to 11/2026</div>
           </div>
           <div class="rec-logos">
             <div class="rec-badge glass-panel">Gymnasium Coswig</div>
@@ -2220,7 +1975,7 @@
         <div class="rec-cards">
           <div class="rec-card glass-panel" data-tilt data-reveal style="--delay: 60ms;">
             <span class="rec-card-kicker">11/2026 · Technology</span>
-            <p>Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini.</p>
+            <p>Received an invitation from Google Gemini concerning potential involvement with a future version.</p>
           </div>
           <div class="rec-card glass-panel" data-tilt data-reveal style="--delay: 140ms;">
             <span class="rec-card-kicker">10/2026 · Leadership</span>
@@ -2235,126 +1990,58 @@
     </section>
 
     <!-- =================================================================
-         3. 3D WEBGL CHROMATIC LIGHT-VORTEX + COLORFUL MILESTONE CAPSULES
-            (NO WIREFRAME TUNNEL, NO AI ICONS!)
+         3. TIMELINE — ARCHITECTURAL HORIZONTAL-WAVE TRACK (REFERENCE LAYOUT)
+            + SLOW-SCROLL PINNED RUNWAY + 3D DEPTH TUNNEL
     ================================================================= -->
-    <section class="wormhole-section" id="timeline" data-scroll-section="Timeline" aria-label="3D Chronological Vortex">
-      <div class="wormhole-sticky">
+    <section class="timeline-scroll-runway" id="timeline" data-scroll-section="Timeline" aria-label="Chronological Timeline">
+      <div class="timeline-sticky-stage">
         <canvas id="tunnelWebGLCanvas" aria-hidden="true"></canvas>
-        <canvas id="tunnelWebGLOrb" width="760" height="760" aria-hidden="true"></canvas>
+        <div class="timeline-arch-grid" aria-hidden="true"></div>
 
-        <!-- Phase A: Span Pill + Headline -->
-        <div class="wh-intro" id="whIntro">
-          <div class="wh-clock-pill">08/2023 → 11/2026</div>
-          <h2>Every milestone, from beginning to present.</h2>
-        </div>
-
-        <!-- Phase B: All 16 Achievements as Colorful Chromatic Date Capsules -->
-        <div class="wh-capsules-layer" id="whCapsulesLayer" aria-hidden="true"></div>
-
-        <!-- Phase C: Glass Callouts Flanking Emerging WebGL Orb + Bottom Chromatic Dock -->
-        <div class="wh-orb-overlay" id="whOrbOverlay">
-          <div class="wh-orb-callouts">
-            <div class="wh-callout-block">
-              <h3>From Germany to Ahmedabad, India.</h3>
-            </div>
-            <div class="wh-callout-block" style="text-align: right;">
-              <h3>16 milestones in chronological order, ready to explore.</h3>
-            </div>
+        <div class="container timeline-stage-header">
+          <div>
+            <h2 class="timeline-stage-title">08/2023 to 11/2026</h2>
+            <p class="timeline-stage-sub">Milestones from Germany to India that brought me to this moment.</p>
           </div>
 
-          <div class="wh-bottom-dock" id="whBottomDock" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         4. CHRONOLOGICAL TIMELINE EXPLORER WINDOW (08/2023 -> 11/2026)
-    ================================================================= -->
-    <section class="timeline-explorer-section" aria-label="Complete Chronological Timeline">
-      <div class="container">
-        <div class="explorer-window glass-panel" data-reveal>
-          <div class="explorer-topbar">
-            <div class="explorer-title-group">
-              <span>Chronological Timeline</span>
-              <span class="explorer-badge">08/2023 — 11/2026 · Earliest First</span>
-            </div>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">Select any milestone capsule to inspect details</span>
+          <div class="timeline-controls-bar">
+            <button class="tl-step-btn" id="tlPrevBtn" type="button" aria-label="Previous milestone">←</button>
+            <span class="tl-counter-text" id="tlCounterText">01 / 16 · 08/2023</span>
+            <button class="tl-step-btn" id="tlNextBtn" type="button" aria-label="Next milestone">→</button>
           </div>
+        </div>
 
-          <div class="explorer-body">
-            <aside class="explorer-sidebar" aria-label="Filter milestones by category">
-              <span class="sidebar-label">Categories</span>
-              <button class="cat-filter-btn active" data-cat="all" type="button">
-                <span>All Milestones</span>
-                <span>16</span>
-              </button>
-              <button class="cat-filter-btn" data-cat="Education" type="button">
-                <span>Education</span>
-                <span>3</span>
-              </button>
-              <button class="cat-filter-btn" data-cat="Academics" type="button">
-                <span>Academics</span>
-                <span>3</span>
-              </button>
-              <button class="cat-filter-btn" data-cat="Entrepreneurship" type="button">
-                <span>Entrepreneurship</span>
-                <span>3</span>
-              </button>
-              <button class="cat-filter-btn" data-cat="Technology" type="button">
-                <span>Technology</span>
-                <span>4</span>
-              </button>
-              <button class="cat-filter-btn" data-cat="Leadership" type="button">
-                <span>Leadership</span>
-                <span>3</span>
-              </button>
-            </aside>
-
-            <div class="explorer-main" id="timelineList"></div>
-
-            <aside class="explorer-inspector" id="timelineInspector" aria-live="polite">
-              <div class="inspector-box">
-                <h4>Selected Date / Period</h4>
-                <p id="inspDate" style="font-family: var(--font-mono); font-weight: 700; color: var(--text-primary);">08/2023</p>
-              </div>
-              <div class="inspector-box">
-                <h4>Category</h4>
-                <p id="inspCat">Education</p>
-              </div>
-              <div class="inspector-box">
-                <h4>Milestone Context</h4>
-                <p id="inspContext">
-                  Began secondary school studies at Gymnasium Coswig in Germany, building a strong academic foundation in mathematics and science.
-                </p>
-              </div>
-            </aside>
+        <div class="timeline-viewport" id="timelineViewport">
+          <div class="timeline-track-canvas" id="timelineTrackCanvas">
+            <div class="timeline-baseline" id="timelineBaseline">
+              <div class="timeline-baseline-progress" id="timelineBaselineProgress"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =================================================================
-         5. PROJECTS SECTION — THREE PILLARS + INTERACTIVE CASE STUDIES
+         4. PROJECTS SECTION — THREE INITIATIVES + CASE STUDIES
     ================================================================= -->
     <section class="pillars-section" id="projects" data-scroll-section="Projects">
       <div class="container">
         <div class="centered-header" data-reveal>
-          <h2>One builder. Three product initiatives.</h2>
-          <p>Focused on practical software tools that solve real academic and student challenges.</p>
+          <h2>Projects</h2>
+          <p>Software built to solve real student and academic challenges.</p>
         </div>
 
         <div class="pillars-grid">
           <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 60ms;">
             <span class="pillar-badge">06/2026 · Live</span>
             <h3>THE 1</h3>
-            <p>Unified student workspace piloted at Adani International School and launched on Product Hunt.</p>
+            <p>All-in-one student workspace piloted at Adani International School and launched on Product Hunt.</p>
           </div>
 
           <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 140ms;">
             <span class="pillar-badge">11/2026 · Active</span>
             <h3>Kerniq</h3>
-            <p>Structured AI reasoning and conceptual synthesis system within the THE 1 ecosystem.</p>
+            <p>AI tool developed within the THE 1 ecosystem at kerniq.the-1.app.</p>
           </div>
 
           <div class="pillar-card glass-panel" data-tilt data-reveal style="--delay: 220ms;">
@@ -2370,18 +2057,18 @@
       <div class="container">
         <div class="cases-split">
           <div class="cases-left" data-reveal>
-            <span class="case-kicker">Project Case Studies</span>
-            <h2>From student friction to working software.</h2>
-            <p>Select an initiative below to inspect its problem, architecture, real-world testing, and current status.</p>
+            <span class="case-kicker">Project Details</span>
+            <h2>From student problems to working software.</h2>
+            <p>Select a project to view its background, real-world testing, and timeline.</p>
 
             <div class="case-selector-list" role="tablist">
               <button class="case-select-btn active" data-project="the1" type="button">
                 <span class="case-select-num">01</span>
-                <span>THE 1 — Student Workspace</span>
+                <span>THE 1</span>
               </button>
               <button class="case-select-btn" data-project="kerniq" type="button">
                 <span class="case-select-num">02</span>
-                <span>Kerniq — Intelligence Layer</span>
+                <span>Kerniq</span>
               </button>
               <button class="case-select-btn" data-project="cci" type="button">
                 <span class="case-select-num">03</span>
@@ -2400,12 +2087,12 @@
             </div>
             <div class="case-display-body">
               <p>
-                Started in June 2026, THE 1 replaces scattered timetables, note apps, task lists, and generic AI chat tabs with a unified academic workspace.
+                Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
               </p>
               <ul class="case-highlights">
-                <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School to observe real student workflows.</li>
-                <li><strong>Product Hunt Launch (10/2026):</strong> Launched publicly on Product Hunt following refinements from the school pilot.</li>
-                <li><strong>Unified Context:</strong> Connects timetables, subject notes, homework, and spaced revision with context-aware AI tools.</li>
+                <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
+                <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
+                <li><strong>Live Website:</strong> Available at the-1.app.</li>
               </ul>
             </div>
           </div>
@@ -2414,35 +2101,35 @@
     </section>
 
     <!-- =================================================================
-         6. ENGINEERING ASYMMETRIC BENTO
+         5. ENGINEERING SECTION
     ================================================================= -->
     <section class="engineering-section" id="engineering" data-scroll-section="Engineering">
       <div class="container">
         <div class="eng-bento">
           <div class="eng-hero-card glass-panel" data-tilt data-reveal>
             <div>
-              <h2>Engineering with clarity.<br />Built for real use.</h2>
+              <h2>How I build software.</h2>
               <p>
-                I build complete, browser-first applications—prioritizing clean workspace state modeling, fast deterministic workflows, and grounded AI integration over superficial demos.
+                I focus on building clear, responsive web applications that combine dependable daily student tools with practical artificial intelligence.
               </p>
             </div>
             <div class="eng-spectrum-box">
-              <span>HTML5 · CSS · JavaScript / TypeScript · WebGL Shaders · LLM Context Workflows</span>
+              <span>HTML · CSS · JavaScript · AI Integration · Product Iteration</span>
             </div>
           </div>
 
           <div class="eng-stack-col">
             <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 80ms;">
-              <h3>Unified Workspace State</h3>
-              <p>Structuring schedules, notes, deadlines, and revision sessions around a shared subject context so information stays connected.</p>
+              <h3>Connected Student Workflows</h3>
+              <p>Designing timetables, notes, homework, and revision so students do not have to switch across disconnected tools.</p>
             </div>
             <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 160ms;">
-              <h3>Deterministic Core, Grounded AI</h3>
-              <p>Keeping daily student organization reliable and deterministic while allowing AI features in THE 1 and Kerniq to reference explicit user notes.</p>
+              <h3>Practical AI Assistance</h3>
+              <p>Building AI features inside THE 1 and Kerniq that support understanding and structured study.</p>
             </div>
             <div class="eng-sub-card glass-panel" data-tilt data-reveal style="--delay: 240ms;">
-              <h3>Pilot-Led Iteration</h3>
-              <p>Testing THE 1 directly with students at Adani International School prior to the Product Hunt launch to remove real workflow friction.</p>
+              <h3>Real-World Testing</h3>
+              <p>Validating software directly with students—including THE 1’s school pilot at Adani International School—before public launches.</p>
             </div>
           </div>
         </div>
@@ -2450,19 +2137,19 @@
     </section>
 
     <!-- =================================================================
-         7. RADIAL BURST SPOTLIGHT — SUBSTACK WRITING
+         6. WRITING SPOTLIGHT — SUBSTACK
     ================================================================= -->
     <section class="writing-spotlight" id="writing" data-scroll-section="Writing">
       <div class="radial-beams" aria-hidden="true"></div>
       <div class="container">
         <div class="spotlight-card glass-panel" data-tilt data-reveal>
-          <span class="wh-clock-pill" style="margin-bottom: 16px;">Started 11/2026 · Substack Publication</span>
-          <h2>Building What’s Next.</h2>
+          <span class="spotlight-pill">Started 11/2026 · Substack</span>
+          <h2>Building What’s Next</h2>
           <p>
-            My Substack publication exploring artificial intelligence, software craft, education, and the lessons of building products as a student.
+            My Substack publication sharing essays and notes on artificial intelligence, technology, education, and building software as a student.
           </p>
           <a href="#contact" class="btn-luminous">
-            <span>Connect &amp; Follow Updates</span>
+            <span>Get in Touch</span>
             <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -2470,13 +2157,13 @@
     </section>
 
     <!-- =================================================================
-         8. CLEAN 2-COLUMN EXPANDABLE RECORD
+         7. ACADEMIC & LEADERSHIP RECORD
     ================================================================= -->
     <section class="record-section" id="record" data-scroll-section="Record" aria-label="Academic and Leadership Record">
       <div class="container">
         <div class="centered-header" data-reveal>
-          <h2>Academic &amp; leadership record.</h2>
-          <p>Key educational transitions, academic distinctions, and student leadership roles.</p>
+          <h2>Education, academics &amp; leadership.</h2>
+          <p>Academic milestones, distinctions, and leadership roles from 08/2023 to 11/2026.</p>
         </div>
 
         <div class="accordion-columns">
@@ -2489,25 +2176,25 @@
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Began secondary school studies at Gymnasium Coswig in Germany in August 2023 and completed studies in Germany in June 2025.
+                  Began studying at Gymnasium Coswig in Germany in August 2023 and completed studies in Germany in June 2025.
                 </div>
               </div>
               <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
-                  <span>Relocation to Ahmedabad, India (07/2025)</span>
+                  <span>Moved to Ahmedabad, India (07/2025)</span>
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Moved to Ahmedabad, India in July 2025, continuing academic coursework alongside software development and leadership roles.
+                  Moved to Ahmedabad, India in July 2025.
                 </div>
               </div>
               <div class="acc-item glass-panel">
                 <button class="acc-trigger" type="button">
-                  <span>SOF Mathematics Gold Medal of Excellence (11/2025)</span>
+                  <span>SOF Mathematics Gold Medal (11/2025)</span>
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Received the Science Olympiad Foundation (SOF) Mathematics Gold Medal of Excellence in November 2025.
+                  Received the SOF Mathematics Gold Medal of Excellence in November 2025.
                 </div>
               </div>
               <div class="acc-item glass-panel">
@@ -2531,7 +2218,7 @@
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Joined the Student Council and Culture &amp; Events team in July 2026, supporting student representation and school events.
+                  Joined the Student Council and Culture &amp; Events team in July 2026.
                 </div>
               </div>
               <div class="acc-item glass-panel">
@@ -2540,7 +2227,7 @@
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Joined the Round Square Student Committee for the 2026–27 term in October 2026.
+                  Joined the Round Square Student Committee for 2026–27 in October 2026.
                 </div>
               </div>
               <div class="acc-item glass-panel">
@@ -2549,7 +2236,7 @@
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Became an Internshala Student Partner in November 2026, sharing skill-building and internship resources with peers.
+                  Became an Internshala Student Partner in November 2026.
                 </div>
               </div>
               <div class="acc-item glass-panel">
@@ -2558,7 +2245,7 @@
                   <span class="acc-plus">+</span>
                 </button>
                 <div class="acc-panel">
-                  Received an invitation from Google Gemini in November 2026 regarding potential involvement with a future version of Gemini.
+                  Received an invitation from Google Gemini in November 2026 concerning potential involvement with a future version.
                 </div>
               </div>
             </div>
@@ -2568,28 +2255,20 @@
     </section>
 
     <!-- =================================================================
-         9. CLOSING CONTACT & CHROMATIC MATRIX FOOTER
+         8. CLOSING CONTACT & FOOTER
     ================================================================= -->
     <footer class="closing-section" id="contact" data-scroll-section="Contact">
       <div class="container">
         <div class="closing-top" data-reveal>
-          <h2>Let’s connect and build what’s next.</h2>
-          <p>Reach out directly regarding software, AI, education, or new collaborations.</p>
+          <h2>Let’s connect.</h2>
+          <p>Reach out regarding software, artificial intelligence, education, or collaborations.</p>
         </div>
 
         <canvas id="dotMatrixCanvas" aria-hidden="true"></canvas>
 
         <div class="footer-bottom-row" data-reveal>
           <a href="#overview" class="brand-link">
-            <span class="brand-avatar-wrap">
-              <img
-                src="1788752177068.png"
-                alt="Samar Agshikar"
-                class="brand-avatar"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
-              />
-              <span class="brand-fallback" style="display: none;">SA</span>
-            </span>
+            <span class="brand-monogram" aria-hidden="true">SA</span>
             <span>Samar Agshikar</span>
           </a>
 
@@ -2613,7 +2292,7 @@
             <a href="#projects">Projects</a>
             <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
             <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer">Kerniq</a>
-            <a href="#writing">Substack</a>
+            <a href="#writing">Writing</a>
           </nav>
           <div>© 2026 Samar Agshikar · Building What’s Next</div>
         </div>
@@ -2637,205 +2316,115 @@
     });
 
     /* =======================================================================
-       1. ALL 16 CHRONOLOGICAL MILESTONES WITH CHROMATIC PALETTES (NO AI ICONS!)
-          (STRICT CHRONOLOGICAL ORDER: 08/2023 -> 11/2026)
+       1. ALL 16 MILESTONES IN EXACT CHRONOLOGICAL ORDER (08/2023 -> 11/2026)
+          WITH ASCENDING-ARCH STEM HEIGHTS MATCHING ATTACHED REFERENCE
     ======================================================================= */
     const MILESTONES = [
       {
-        num: '01',
         date: '08/2023',
-        shortLabel: 'Gymnasium Coswig',
-        category: 'Education',
-        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%)',
-        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
-        dotColor: '#60a5fa',
-        title: 'Began studying at Gymnasium Coswig in Germany',
-        desc: 'Started secondary school studies at Gymnasium Coswig in Germany, building a strong academic foundation in mathematics and science.'
+        title: 'Gymnasium Coswig',
+        desc: 'Began studying at Gymnasium Coswig in Germany.',
+        stemH: 135
       },
       {
-        num: '02',
         date: '06/2025',
-        shortLabel: 'Germany Studies',
-        category: 'Education',
-        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
-        lightGrad: 'linear-gradient(135deg, #fb923c 0%, #eab308 100%)',
-        dotColor: '#818cf8',
-        title: 'Completed my studies in Germany',
-        desc: 'Concluded secondary school studies at Gymnasium Coswig in Germany.'
+        title: 'Completed studies in Germany',
+        desc: 'Concluded secondary school studies at Gymnasium Coswig in Germany.',
+        stemH: 175
       },
       {
-        num: '03',
         date: '07/2025',
-        shortLabel: 'Ahmedabad, India',
-        category: 'Education',
-        darkGrad: 'linear-gradient(135deg, #4f46e5 0%, #be123c 100%)',
-        lightGrad: 'linear-gradient(135deg, #eab308 0%, #10b981 100%)',
-        dotColor: '#c084fc',
-        title: 'Moved to Ahmedabad, India',
-        desc: 'Relocated to Ahmedabad, India, continuing academic studies while building software projects and joining student initiatives.'
+        title: 'Moved to Ahmedabad',
+        desc: 'Relocated to Ahmedabad, India to continue academic studies.',
+        stemH: 215
       },
       {
-        num: '04',
         date: '11/2025',
-        shortLabel: 'SOF Math Gold',
-        category: 'Academics',
-        darkGrad: 'linear-gradient(135deg, #7c3aed 0%, #e11d48 100%)',
-        lightGrad: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
-        dotColor: '#fb7185',
-        title: 'Received the SOF Mathematics Gold Medal of Excellence',
-        desc: 'Awarded the Science Olympiad Foundation (SOF) Mathematics Gold Medal of Excellence.'
+        title: 'SOF Mathematics Gold Medal',
+        desc: 'Received the SOF Mathematics Gold Medal of Excellence.',
+        stemH: 255
       },
       {
-        num: '05',
         date: '01/2026',
-        shortLabel: 'ASSET Math 98%',
-        category: 'Academics',
-        darkGrad: 'linear-gradient(135deg, #1e40af 0%, #db2777 100%)',
-        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #eab308 100%)',
-        dotColor: '#f43f5e',
-        title: 'Achieved ASSET Mathematics Gold — 98th percentile',
-        desc: 'Earned ASSET Mathematics Gold recognition, scoring in the 98th percentile.'
+        title: 'ASSET Mathematics Gold',
+        desc: 'Achieved ASSET Mathematics Gold, scoring in the 98th percentile.',
+        stemH: 290
       },
       {
-        num: '06',
         date: '01/2026',
-        shortLabel: 'ASSET Science 93%',
-        category: 'Academics',
-        darkGrad: 'linear-gradient(135deg, #3b82f6 0%, #7e22ce 100%)',
-        lightGrad: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        dotColor: '#38bdf8',
-        title: 'Achieved ASSET Science Silver — 93rd percentile',
-        desc: 'Earned ASSET Science Silver recognition, scoring in the 93rd percentile.'
+        title: 'ASSET Science Silver',
+        desc: 'Achieved ASSET Science Silver, scoring in the 93rd percentile.',
+        stemH: 320
       },
       {
-        num: '07',
         date: '05/2026–08/2026',
-        shortLabel: 'College Chances',
-        category: 'Entrepreneurship',
-        darkGrad: 'linear-gradient(135deg, #6d28d9 0%, #be123c 100%)',
-        lightGrad: 'linear-gradient(135deg, #f97316 0%, #10b981 100%)',
-        dotColor: '#a855f7',
-        title: 'College Chances India (May–August 2026)',
-        desc: 'Founded and developed College Chances India across May–August 2026 as an AI-assisted university exploration platform, concluding the project in August 2026.'
+        title: 'College Chances India',
+        desc: 'Founding and initial development of College Chances India, concluding in August 2026.',
+        stemH: 340
       },
       {
-        num: '08',
         date: '06/2026',
-        shortLabel: 'THE 1 Build',
-        category: 'Technology',
-        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #9333ea 55%, #e11d48 100%)',
-        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 55%, #eab308 100%)',
-        dotColor: '#60a5fa',
-        title: 'Started building THE 1',
-        desc: 'Began developing THE 1 (the-1.app) as an integrated student workspace for timetables, notes, homework, revision, and AI study assistance.'
+        title: 'Started THE 1',
+        desc: 'Began building THE 1 (the-1.app), an all-in-one student workspace.',
+        stemH: 350
       },
       {
-        num: '09',
         date: '07/2026',
-        shortLabel: 'Student Council',
-        category: 'Leadership',
-        darkGrad: 'linear-gradient(135deg, #9333ea 0%, #f43f5e 100%)',
-        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #f97316 100%)',
-        dotColor: '#fb7185',
-        title: 'Joined the Student Council and Culture & Events team',
-        desc: 'Joined the Student Council and Culture & Events team to contribute to student representation and school programming.'
+        title: 'Student Council and Culture & Events',
+        desc: 'Joined the Student Council and Culture & Events team.',
+        stemH: 340
       },
       {
-        num: '10',
         date: '10/2026',
-        shortLabel: 'ADIS Pilot',
-        category: 'Entrepreneurship',
-        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)',
-        lightGrad: 'linear-gradient(135deg, #10b981 0%, #eab308 100%)',
-        dotColor: '#818cf8',
-        title: "Conducted THE 1's school pilot at Adani International School",
-        desc: 'Ran a live school pilot of THE 1 at Adani International School to test student workflows and gather direct user feedback.'
+        title: 'THE 1 school pilot',
+        desc: 'Conducted THE 1’s school pilot at Adani International School.',
+        stemH: 320
       },
       {
-        num: '11',
         date: '10/2026',
-        shortLabel: 'Product Hunt',
-        category: 'Technology',
-        darkGrad: 'linear-gradient(135deg, #be123c 0%, #7c3aed 100%)',
-        lightGrad: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)',
-        dotColor: '#f43f5e',
-        title: 'Launched THE 1 on Product Hunt, following the school pilot',
-        desc: 'Launched THE 1 publicly on Product Hunt after incorporating improvements from the Adani International School pilot.'
+        title: 'THE 1 Product Hunt launch',
+        desc: 'Launched THE 1 on Product Hunt, after the school pilot.',
+        stemH: 295
       },
       {
-        num: '12',
         date: '10/2026',
-        shortLabel: 'Round Square',
-        category: 'Leadership',
-        darkGrad: 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)',
-        lightGrad: 'linear-gradient(135deg, #eab308 0%, #f97316 100%)',
-        dotColor: '#c084fc',
-        title: 'Joined the Round Square Student Committee for 2026–27',
-        desc: 'Joined the Round Square Student Committee for the 2026–27 term.'
+        title: 'Round Square Student Committee',
+        desc: 'Joined the Round Square Student Committee for 2026–27.',
+        stemH: 265
       },
       {
-        num: '13',
         date: '11/2026',
-        shortLabel: 'Kerniq',
-        category: 'Technology',
-        darkGrad: 'linear-gradient(135deg, #4338ca 0%, #9333ea 50%, #e11d48 100%)',
-        lightGrad: 'linear-gradient(135deg, #f97316 0%, #eab308 50%, #10b981 100%)',
-        dotColor: '#a855f7',
-        title: 'Started developing Kerniq',
-        desc: 'Began developing Kerniq (kerniq.the-1.app) within the THE 1 ecosystem to explore structured AI reasoning and conceptual synthesis.'
+        title: 'Started Kerniq',
+        desc: 'Started developing Kerniq (kerniq.the-1.app) within the THE 1 ecosystem.',
+        stemH: 235
       },
       {
-        num: '14',
         date: '11/2026',
-        shortLabel: 'Internshala',
-        category: 'Leadership',
-        darkGrad: 'linear-gradient(135deg, #1d4ed8 0%, #be123c 100%)',
-        lightGrad: 'linear-gradient(135deg, #059669 0%, #f97316 100%)',
-        dotColor: '#60a5fa',
-        title: 'Became an Internshala Student Partner',
-        desc: 'Selected as an Internshala Student Partner, connecting peers with skill-building and internship opportunities.'
+        title: 'Internshala Student Partner',
+        desc: 'Became an Internshala Student Partner.',
+        stemH: 205
       },
       {
-        num: '15',
         date: '11/2026',
-        shortLabel: "Building What's Next",
-        category: 'Entrepreneurship',
-        darkGrad: 'linear-gradient(135deg, #7c3aed 0%, #f43f5e 100%)',
-        lightGrad: 'linear-gradient(135deg, #ef4444 0%, #eab308 100%)',
-        dotColor: '#fb7185',
-        title: "Started Building What's Next, my Substack publication",
-        desc: "Launched Building What's Next on Substack to write about AI, software development, education, and student entrepreneurship."
+        title: "Started Building What's Next",
+        desc: "Started Building What's Next, a Substack publication.",
+        stemH: 175
       },
       {
-        num: '16',
         date: '11/2026',
-        shortLabel: 'Google Gemini',
-        category: 'Technology',
-        darkGrad: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f43f5e 100%)',
-        lightGrad: 'linear-gradient(135deg, #f97316 0%, #ef4444 35%, #eab308 70%, #10b981 100%)',
-        dotColor: '#c084fc',
-        title: 'Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini',
-        desc: 'Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini.'
+        title: 'Google Gemini invitation',
+        desc: 'Received an invitation from Google Gemini concerning potential involvement with a future version.',
+        stemH: 145
       }
     ];
 
     /* =======================================================================
-       2. THEME SWITCHER (UPDATES UI & CHROMATIC CAPSULES DYNAMICALLY)
+       2. THEME SWITCHER
     ======================================================================= */
     const htmlEl = document.documentElement;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const iconSun = document.getElementById('themeIconSun');
     const iconMoon = document.getElementById('themeIconMoon');
-
-    function syncChromaticGradients() {
-      const isLight = htmlEl.getAttribute('data-theme') === 'light';
-      document.querySelectorAll('[data-chroma-idx]').forEach((el) => {
-        const m = MILESTONES[Number(el.dataset.chromaIdx)];
-        if (m) {
-          el.style.background = isLight ? m.lightGrad : m.darkGrad;
-        }
-      });
-    }
 
     function applyTheme(theme) {
       htmlEl.setAttribute('data-theme', theme);
@@ -2847,7 +2436,6 @@
         iconSun.style.display = 'block';
         iconMoon.style.display = 'none';
       }
-      syncChromaticGradients();
     }
 
     applyTheme(localStorage.getItem('samar-theme') || 'dark');
@@ -2858,7 +2446,7 @@
     });
 
     /* =======================================================================
-       3. ANIMATED GLASSMORPHIC TOP DOCK (TRACKS ACTIVE SECTION + PROGRESS %)
+       3. ANIMATED GLASSMORPHIC TOP DOCK (LIVE SCROLL TRACKER)
     ======================================================================= */
     const dockNav = document.getElementById('dockNav');
     const navActivePill = document.getElementById('navActivePill');
@@ -2923,7 +2511,7 @@
     requestAnimationFrame(updateDockNavigation);
 
     /* =======================================================================
-       4. MOBILE NAVIGATION, ACCORDION & 3D GLASS TILT + SPECULAR CURSOR
+       4. MOBILE MENU, ACCORDIONS & GLASS SPECULAR TILT
     ======================================================================= */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -2944,7 +2532,6 @@
       });
     });
 
-    // Interactive Cursor Specular Sheen + Subtle 3D Tilt on Glass Panels
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReducedMotion) {
       document.querySelectorAll('.glass-panel').forEach((card) => {
@@ -2956,8 +2543,8 @@
           card.style.setProperty('--my', `${y}px`);
 
           if (card.hasAttribute('data-tilt')) {
-            const rx = ((y / rect.height) - 0.5) * -4.5;
-            const ry = ((x / rect.width) - 0.5) * 4.5;
+            const rx = ((y / rect.height) - 0.5) * -4.2;
+            const ry = ((x / rect.width) - 0.5) * 4.2;
             card.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
           }
         });
@@ -2970,7 +2557,6 @@
       });
     }
 
-    // Staggered Scroll-Reveal Choreography
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -2993,13 +2579,13 @@
           <div class="showcase-copy">
             <h3>THE 1 — All-in-one workspace for students</h3>
             <p>
-              Started in June 2026 to unify class schedules, structured notes, homework tracking, spaced revision, and context-aware AI study tools. Piloted at Adani International School and launched on Product Hunt in October 2026.
+              Started in June 2026 to unify class schedules, structured notes, homework tracking, revision, and AI study tools. Conducted THE 1’s school pilot at Adani International School and launched on Product Hunt in October 2026.
             </p>
             <div class="showcase-pills">
               <span>Timetable</span>
-              <span>Notes &amp; Tasks</span>
-              <span>Spaced Revision</span>
-              <span>Context-Aware AI</span>
+              <span>Notes &amp; Homework</span>
+              <span>Revision</span>
+              <span>AI Study Tools</span>
             </div>
           </div>
           <div class="showcase-mock">
@@ -3009,10 +2595,10 @@
             </div>
             <div class="mock-item">
               <span><strong>10/2026</strong> · School pilot at Adani International School</span>
-              <span class="preview-tag">ADIS Pilot</span>
+              <span class="preview-tag">Pilot</span>
             </div>
             <div class="mock-item">
-              <span><strong>10/2026</strong> · Public launch on Product Hunt</span>
+              <span><strong>10/2026</strong> · Launched on Product Hunt</span>
               <span class="preview-tag">Launched</span>
             </div>
           </div>
@@ -3021,14 +2607,14 @@
       kerniq: `
         <div class="showcase-frame-grid">
           <div class="showcase-copy">
-            <h3>Kerniq — Structured AI reasoning &amp; synthesis</h3>
+            <h3>Kerniq — Within the THE 1 ecosystem</h3>
             <p>
-              Started in November 2026 within the THE 1 ecosystem (kerniq.the-1.app) to help learners break down complex ideas step by step rather than relying on shallow one-line answers.
+              Started in November 2026 within the THE 1 ecosystem (kerniq.the-1.app) to support structured AI learning and concept exploration.
             </p>
             <div class="showcase-pills">
-              <span>Concept Decomposition</span>
-              <span>Step-by-Step Logic</span>
               <span>THE 1 Ecosystem</span>
+              <span>AI Study Support</span>
+              <span>kerniq.the-1.app</span>
             </div>
           </div>
           <div class="showcase-mock">
@@ -3037,7 +2623,7 @@
               <span class="preview-tag">kerniq.the-1.app</span>
             </div>
             <div class="mock-item">
-              <span><strong>Architecture</strong> · Shared workspace subject context</span>
+              <span><strong>Ecosystem</strong> · Integrated with THE 1</span>
               <span class="preview-tag">Active</span>
             </div>
           </div>
@@ -3067,12 +2653,12 @@
         </div>
         <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
-            Started in June 2026, THE 1 replaces scattered timetables, note apps, task lists, and generic AI chat tabs with a unified academic workspace.
+            Started in June 2026, THE 1 brings timetables, notes, homework, revision, and AI study tools together into one student workspace.
           </p>
           <ul class="case-highlights">
-            <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School to observe real student workflows.</li>
-            <li><strong>Product Hunt Launch (10/2026):</strong> Launched publicly on Product Hunt following refinements from the school pilot.</li>
-            <li><strong>Unified Context:</strong> Connects timetables, subject notes, homework, and spaced revision with context-aware AI tools.</li>
+            <li><strong>School Pilot (10/2026):</strong> Conducted THE 1’s school pilot at Adani International School.</li>
+            <li><strong>Product Hunt Launch (10/2026):</strong> Launched THE 1 on Product Hunt following the school pilot.</li>
+            <li><strong>Live Website:</strong> Available at the-1.app.</li>
           </ul>
         </div>
       `,
@@ -3086,11 +2672,11 @@
         </div>
         <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
-            Started in November 2026 within the THE 1 ecosystem, Kerniq explores structured AI reasoning and conceptual synthesis for learners.
+            Started in November 2026 within the THE 1 ecosystem, Kerniq is an AI tool developed to support structured learning.
           </p>
           <ul class="case-highlights">
-            <li><strong>Step-by-Step Clarity:</strong> Decomposes complex problems into verifiable logical stages rather than opaque shortcuts.</li>
-            <li><strong>Ecosystem Integration:</strong> Connects directly with student material inside THE 1 at kerniq.the-1.app.</li>
+            <li><strong>Started (11/2026):</strong> Began developing Kerniq within the THE 1 ecosystem.</li>
+            <li><strong>Live Website:</strong> Available at kerniq.the-1.app.</li>
           </ul>
         </div>
       `,
@@ -3101,11 +2687,11 @@
         </div>
         <div class="case-display-body" style="animation: panelFadeSlide 0.4s var(--spring);">
           <p>
-            Founded in May 2026 and concluded in August 2026, College Chances India was an AI-assisted university exploration platform built to help students compare higher-education pathways in India.
+            Founded in May 2026 and concluded in August 2026, College Chances India was an AI-assisted university exploration platform for students in India.
           </p>
           <ul class="case-highlights">
-            <li><strong>Period:</strong> Founded in May 2026 and developed through August 2026 before concluding.</li>
-            <li><strong>Key Takeaway:</strong> Provided practical lessons in structured data modeling and focused product scoping.</li>
+            <li><strong>Period:</strong> May 2026 – August 2026.</li>
+            <li><strong>Focus:</strong> Founding and initial development of an AI-assisted university exploration platform.</li>
           </ul>
         </div>
       `
@@ -3123,66 +2709,7 @@
     });
 
     /* =======================================================================
-       6. CHRONOLOGICAL TIMELINE EXPLORER + BOTTOM CHROMATIC PILL DOCK
-    ======================================================================= */
-    const timelineList = document.getElementById('timelineList');
-    const inspDate = document.getElementById('inspDate');
-    const inspCat = document.getElementById('inspCat');
-    const inspContext = document.getElementById('inspContext');
-    const bottomDock = document.getElementById('whBottomDock');
-
-    MILESTONES.forEach((m, idx) => {
-      const isLight = htmlEl.getAttribute('data-theme') === 'light';
-      const activeGrad = isLight ? m.lightGrad : m.darkGrad;
-
-      const row = document.createElement('article');
-      row.className = 'milestone-row' + (idx === 0 ? ' selected' : '');
-      row.dataset.category = m.category;
-      row.innerHTML = `
-        <div class="row-chroma-badge" data-chroma-idx="${idx}" style="background: ${activeGrad};">${m.num}</div>
-        <div class="row-content">
-          <div class="mr-top">
-            <span class="mr-date">${m.date}</span>
-            <span class="mr-cat">${m.category}</span>
-          </div>
-          <h3 class="mr-title">${m.title}</h3>
-          <p class="mr-desc">${m.desc}</p>
-        </div>
-      `;
-      row.addEventListener('click', () => {
-        document.querySelectorAll('.milestone-row').forEach((r) => r.classList.remove('selected'));
-        row.classList.add('selected');
-        inspDate.textContent = m.date;
-        inspCat.textContent = m.category;
-        inspContext.textContent = m.desc;
-      });
-      timelineList.appendChild(row);
-
-      if (bottomDock && idx % 2 === 0) {
-        const dockItem = document.createElement('div');
-        dockItem.className = 'dock-mini-pill';
-        dockItem.innerHTML = `
-          <span class="dock-mini-dot" style="background: ${m.dotColor}; color: ${m.dotColor};"></span>
-          <span class="dock-mini-label">${m.shortLabel}</span>
-        `;
-        bottomDock.appendChild(dockItem);
-      }
-    });
-
-    document.querySelectorAll('.cat-filter-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const cat = btn.dataset.cat;
-        document.querySelectorAll('.cat-filter-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.milestone-row').forEach((row) => {
-          const visible = cat === 'all' || row.dataset.category === cat;
-          row.classList.toggle('is-hidden', !visible);
-        });
-      });
-    });
-
-    /* =======================================================================
-       7. TRUE 3D WEBGL DISPLACED-MESH SHADER ORB (THEME-ADAPTIVE PALETTE)
+       6. HERO 3D WEBGL ORB
     ======================================================================= */
     function createWebGLDisplacedOrb(canvas) {
       if (!canvas) return null;
@@ -3239,14 +2766,12 @@
           float band1 = sin(vWorldPos.x * 2.1 + vWorldPos.y * 1.7 + uTime * 0.45) * 0.5 + 0.5;
           float band2 = cos(vWorldPos.y * 2.3 - vWorldPos.z * 1.9 + uTime * 0.35) * 0.5 + 0.5;
 
-          // Dark Mode: Navy Blue, Royal Purple, Crimson Red
           vec3 dNavy   = vec3(0.11, 0.29, 0.78);
           vec3 dPurple = vec3(0.54, 0.22, 0.94);
           vec3 dRed    = vec3(0.92, 0.16, 0.38);
           vec3 darkCol = mix(dNavy, dPurple, band1);
           darkCol = mix(darkCol, dRed, pow(band2, 1.25) * 0.85);
 
-          // Light Mode: Orange, Red, Yellow, Green
           vec3 lOrange = vec3(0.98, 0.45, 0.09);
           vec3 lRed    = vec3(0.94, 0.22, 0.28);
           vec3 lYellow = vec3(0.96, 0.78, 0.12);
@@ -3288,8 +2813,8 @@
       gl.linkProgram(prog);
       gl.useProgram(prog);
 
-      const latBands = 72;
-      const lonBands = 72;
+      const latBands = 64;
+      const lonBands = 64;
       const positions = [];
       const uvs = [];
       const indices = [];
@@ -3354,43 +2879,93 @@
     }
 
     const heroOrbRenderer = createWebGLDisplacedOrb(document.getElementById('heroWebGLOrb'));
-    const tunnelOrbRenderer = createWebGLDisplacedOrb(document.getElementById('tunnelWebGLOrb'));
 
     /* =======================================================================
-       8. SMOOTH-DAMPED 3D WEBGL CHROMATIC LIGHT-VORTEX + COLORFUL CAPSULES
-          (REPLACES WIREFRAME TUNNEL & AI ICONS WITH SILKY CHROMATIC RIBBONS)
+       7. ARCHITECTURAL HORIZONTAL-WAVE TIMELINE + SLOW-SCROLL 3D TUNNEL
+          (FOLLOWS ATTACHED SCREENSHOT & UNCOVERS ACHIEVEMENTS ON SCROLL)
     ======================================================================= */
-    (function initChromaticVortexExperience() {
-      const section = document.getElementById('timeline');
+    (function initArchitecturalTimeline() {
+      const runway = document.getElementById('timeline');
+      const trackCanvas = document.getElementById('timelineTrackCanvas');
+      const baseline = document.getElementById('timelineBaseline');
+      const baselineProgress = document.getElementById('timelineBaselineProgress');
+      const counterText = document.getElementById('tlCounterText');
+      const prevBtn = document.getElementById('tlPrevBtn');
+      const nextBtn = document.getElementById('tlNextBtn');
       const tunnelCanvas = document.getElementById('tunnelWebGLCanvas');
-      const tunnelOrbCanvas = document.getElementById('tunnelWebGLOrb');
-      const introEl = document.getElementById('whIntro');
-      const capsulesLayer = document.getElementById('whCapsulesLayer');
-      const orbOverlay = document.getElementById('whOrbOverlay');
 
-      if (!section || !tunnelCanvas || prefersReducedMotion) return;
+      if (!runway || !trackCanvas) return;
 
-      // Create 16 Colorful Frosted-Glass Chromatic Date Capsules (Zero AI Icons!)
-      const capsuleNodes = MILESTONES.map((m, idx) => {
-        const isLight = htmlEl.getAttribute('data-theme') === 'light';
-        const el = document.createElement('div');
-        el.className = 'chromatic-node';
-        el.innerHTML = `
-          <div class="chromatic-orb-badge" data-chroma-idx="${idx}" style="background: ${isLight ? m.lightGrad : m.darkGrad};">${m.num}</div>
-          <div class="chromatic-node-text">
-            <span class="chromatic-node-title">${m.shortLabel}</span>
-            <span class="chromatic-node-date">${m.date}</span>
+      // Build all 16 Milestone Nodes along the Horizontal Track
+      const nodeEls = MILESTONES.map((m, idx) => {
+        const node = document.createElement('article');
+        node.className = 'tl-node' + (idx === 0 ? ' is-uncovered is-current' : '');
+        node.innerHTML = `
+          <div class="tl-node-stem">
+            <span class="tl-node-anchor"></span>
+          </div>
+          <div class="tl-node-content">
+            <span class="tl-node-date">${m.date}</span>
+            <h3 class="tl-node-title">${m.title}</h3>
+            <p class="tl-node-desc">${m.desc}</p>
           </div>
         `;
-        capsulesLayer.appendChild(el);
-        return { el, idx };
+        node.addEventListener('click', () => scrollToMilestone(idx));
+        trackCanvas.appendChild(node);
+        return node;
       });
 
-      // Full-screen WebGL Fragment Shader for Silky Volumetric Chromatic Light-Vortex
-      const gl = tunnelCanvas.getContext('webgl', { alpha: true, antialias: true });
+      let colStep = 335;
+      let startPad = 90;
+      let totalTrackWidth = 0;
+
+      function layoutNodes() {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        colStep = vw < 640 ? 275 : vw < 960 ? 310 : 340;
+        startPad = Math.max(28, Math.min(120, vw * 0.08));
+
+        // Scale vertical arch heights cleanly so there is never overlap with the top header
+        const availH = Math.max(260, vh - 275);
+        const hScale = Math.min(1, availH / 370);
+
+        nodeEls.forEach((node, idx) => {
+          const x = startPad + idx * colStep;
+          const h = Math.round(MILESTONES[idx].stemH * hScale);
+          node.style.left = `${x}px`;
+          node.style.setProperty('--stem-h', `${h}px`);
+        });
+
+        const lastX = startPad + (MILESTONES.length - 1) * colStep;
+        totalTrackWidth = lastX + 340;
+        trackCanvas.style.width = `${totalTrackWidth}px`;
+        baseline.style.left = `${startPad}px`;
+        baseline.style.width = `${lastX - startPad}px`;
+      }
+
+      layoutNodes();
+      window.addEventListener('resize', layoutNodes, { passive: true });
+
+      function scrollToMilestone(idx) {
+        const clamped = Math.max(0, Math.min(MILESTONES.length - 1, idx));
+        const targetProgress = clamped / (MILESTONES.length - 1);
+        const runwayTop = runway.offsetTop;
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+        window.scrollTo({
+          top: runwayTop + targetProgress * scrollable,
+          behavior: 'smooth'
+        });
+      }
+
+      let currentIdx = 0;
+      if (prevBtn) prevBtn.addEventListener('click', () => scrollToMilestone(currentIdx - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => scrollToMilestone(currentIdx + 1));
+
+      // Subtle 3D WebGL Depth Tunnel Backdrop
+      const gl = tunnelCanvas ? tunnelCanvas.getContext('webgl', { alpha: true, antialias: true }) : null;
       let prog, uResLoc, uTimeLoc, uScrollLoc, uIsLightLoc;
 
-      if (gl) {
+      if (gl && !prefersReducedMotion) {
         const vsSrc = `
           attribute vec2 aPos;
           void main() {
@@ -3410,39 +2985,33 @@
             float dist = length(uv);
             float angle = atan(uv.y, uv.x);
 
-            // Depth-warped chromatic tunnel coordinates
-            float depth = 0.42 / (dist + 0.075) + uScroll * 6.5 + uTime * 0.45;
-            float spiral = angle * 3.0 + depth * 1.15 + sin(depth * 0.7 - uTime * 0.6) * 0.85;
+            float depth = 0.42 / (dist + 0.08) + uScroll * 7.5 + uTime * 0.35;
+            float spiral = angle * 3.0 + depth * 1.1;
 
-            float ribbon1 = smoothstep(0.35, 0.98, sin(spiral) * 0.5 + 0.5);
-            float ribbon2 = smoothstep(0.45, 0.99, cos(angle * 4.0 - depth * 1.45) * 0.5 + 0.5);
-            float pulseRing = smoothstep(0.75, 1.0, sin(depth * 2.4) * 0.5 + 0.5);
+            float ribbon1 = smoothstep(0.4, 0.98, sin(spiral) * 0.5 + 0.5);
+            float ribbon2 = smoothstep(0.5, 0.99, cos(angle * 4.0 - depth * 1.4) * 0.5 + 0.5);
+            float ring = smoothstep(0.82, 1.0, sin(depth * 2.2) * 0.5 + 0.5);
 
-            // Dark Mode: Navy Blue, Royal Purple, Crimson Red
             vec3 dNavy   = vec3(0.09, 0.24, 0.68);
             vec3 dPurple = vec3(0.48, 0.18, 0.88);
             vec3 dRed    = vec3(0.88, 0.14, 0.35);
-            vec3 darkVortex = mix(dNavy, dPurple, ribbon1);
-            darkVortex = mix(darkVortex, dRed, ribbon2 * 0.75);
-            darkVortex += vec3(0.65, 0.55, 1.0) * pulseRing * 0.25;
+            vec3 darkCol = mix(dNavy, dPurple, ribbon1);
+            darkCol = mix(darkCol, dRed, ribbon2 * 0.72);
+            darkCol += vec3(0.65, 0.55, 1.0) * ring * 0.22;
 
-            // Light Mode: Orange, Red, Yellow, Green
             vec3 lOrange = vec3(0.98, 0.46, 0.10);
             vec3 lRed    = vec3(0.92, 0.20, 0.28);
             vec3 lYellow = vec3(0.96, 0.78, 0.12);
             vec3 lGreen  = vec3(0.08, 0.72, 0.46);
-            vec3 lightVortex = mix(lOrange, lRed, ribbon1);
-            lightVortex = mix(lightVortex, lYellow, ribbon2 * 0.72);
-            lightVortex = mix(lightVortex, lGreen, smoothstep(0.2, 0.85, sin(angle + depth * 0.5) * 0.5 + 0.5) * 0.58);
+            vec3 lightCol = mix(lOrange, lRed, ribbon1);
+            lightCol = mix(lightCol, lYellow, ribbon2 * 0.72);
+            lightCol = mix(lightCol, lGreen, smoothstep(0.2, 0.85, sin(angle + depth * 0.5) * 0.5 + 0.5) * 0.58);
 
-            vec3 col = mix(darkVortex, lightVortex, uIsLight);
+            vec3 col = mix(darkCol, lightCol, uIsLight);
+            float outerMask = smoothstep(0.04, 0.2, dist) * (1.0 - smoothstep(0.52, 1.05, dist));
+            float intensity = (ribbon1 * 0.38 + ribbon2 * 0.3 + ring * 0.2) * outerMask;
 
-            // Soft luminous center core + outer vignette
-            float coreGlow = exp(-dist * 4.2) * 0.65;
-            float outerMask = smoothstep(0.03, 0.18, dist) * (1.0 - smoothstep(0.55, 1.05, dist));
-            float intensity = (ribbon1 * 0.45 + ribbon2 * 0.35 + pulseRing * 0.22) * outerMask + coreGlow;
-
-            gl_FragColor = vec4(col, clamp(intensity * 0.82, 0.0, 0.88));
+            gl_FragColor = vec4(col, clamp(intensity * 0.55, 0.0, 0.55));
           }
         `;
 
@@ -3477,96 +3046,84 @@
         gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
       }
 
-      function resize() {
+      function resizeTunnel() {
+        if (!tunnelCanvas) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         tunnelCanvas.width = Math.floor(window.innerWidth * dpr);
         tunnelCanvas.height = Math.floor(window.innerHeight * dpr);
       }
-      resize();
-      window.addEventListener('resize', resize, { passive: true });
+      resizeTunnel();
+      window.addEventListener('resize', resizeTunnel, { passive: true });
 
-      // Smooth-damped scroll progress (spring lerp)
       let smoothProgress = 0;
 
-      function tick(nowMs) {
+      function animateTimeline(nowMs) {
         const tSec = nowMs * 0.001;
         const isLight = htmlEl.getAttribute('data-theme') === 'light' ? 1.0 : 0.0;
 
-        if (heroOrbRenderer) {
+        if (heroOrbRenderer && !prefersReducedMotion) {
           heroOrbRenderer.draw(tSec, 0.14, isLight);
         }
 
-        const rect = section.getBoundingClientRect();
-        const scrollable = Math.max(1, section.offsetHeight - window.innerHeight);
-        const targetProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
-        smoothProgress += (targetProgress - smoothProgress) * 0.09;
-        const progress = smoothProgress;
+        const rect = runway.getBoundingClientRect();
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+        const rawProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        smoothProgress += (rawProgress - smoothProgress) * 0.1;
 
-        const introAlpha = Math.max(0, 1 - progress * 4.5);
-        introEl.style.opacity = introAlpha.toFixed(3);
-        introEl.style.transform = `translate(-50%, ${(-progress * 90).toFixed(1)}px)`;
+        if (!prefersReducedMotion) {
+          const maxPan = Math.max(0, totalTrackWidth - window.innerWidth + startPad * 0.5);
+          const panX = smoothProgress * maxPan;
+          trackCanvas.style.transform = `translate3d(${(-panX).toFixed(1)}px, 0, 0)`;
 
-        if (gl && prog) {
-          const vortexFade = progress > 0.88 ? Math.max(0, 1 - (progress - 0.88) / 0.12) : 1;
-          tunnelCanvas.style.opacity = vortexFade.toFixed(3);
+          const activeFloat = smoothProgress * (MILESTONES.length - 1);
+          currentIdx = Math.round(activeFloat);
 
+          // Advance glowing progress bar along the bottom baseline track
+          const activeLinePx = Math.min(
+            (MILESTONES.length - 1) * colStep,
+            Math.max(0, activeFloat * colStep)
+          );
+          baselineProgress.style.width = `${activeLinePx.toFixed(1)}px`;
+
+          // Uncover achievements progressively as user scrolls forward
+          nodeEls.forEach((node, idx) => {
+            const uncovered = idx <= activeFloat + 0.35;
+            const isCurr = idx === currentIdx;
+            node.classList.toggle('is-uncovered', uncovered);
+            node.classList.toggle('is-current', isCurr);
+            node.style.opacity = uncovered ? '1' : '0.24';
+          });
+
+          if (counterText && MILESTONES[currentIdx]) {
+            const numStr = String(currentIdx + 1).padStart(2, '0');
+            counterText.textContent = `${numStr} / ${MILESTONES.length} · ${MILESTONES[currentIdx].date}`;
+          }
+        } else {
+          nodeEls.forEach((node) => {
+            node.classList.add('is-uncovered');
+            node.style.opacity = '1';
+          });
+        }
+
+        if (gl && prog && !prefersReducedMotion) {
           gl.viewport(0, 0, tunnelCanvas.width, tunnelCanvas.height);
           gl.clearColor(0, 0, 0, 0);
           gl.clear(gl.COLOR_BUFFER_BIT);
           gl.uniform2f(uResLoc, tunnelCanvas.width, tunnelCanvas.height);
           gl.uniform1f(uTimeLoc, tSec);
-          gl.uniform1f(uScrollLoc, progress);
+          gl.uniform1f(uScrollLoc, smoothProgress);
           gl.uniform1f(uIsLightLoc, isLight);
           gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         }
 
-        // Spiral all 16 Colorful Frosted-Glass Chromatic Capsules smoothly
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        capsuleNodes.forEach(({ el, idx }) => {
-          const stagger = idx / MILESTONES.length;
-          const localP = (progress - stagger * 0.42) / 0.28;
-          if (localP <= 0 || localP >= 1) {
-            el.style.opacity = '0';
-            return;
-          }
-          const radiusFactor = 1 - Math.pow(localP, 1.32);
-          const angle = idx * 1.18 + localP * 2.65;
-          const rx = Math.min(w * 0.39, 450) * radiusFactor;
-          const ry = Math.min(h * 0.25, 215) * radiusFactor;
-          const x = Math.cos(angle) * rx;
-          const y = Math.sin(angle) * ry;
-          const scale = 0.42 + radiusFactor * 0.68;
-          const alpha = Math.sin(localP * Math.PI);
-
-          el.style.opacity = alpha.toFixed(3);
-          el.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
-        });
-
-        // Emerge 3D Displaced Chromatic Orb at center
-        const orbGrow = Math.max(0, Math.min(1, (progress - 0.62) / 0.26));
-        if (orbGrow > 0.01) {
-          const eased = 1 - Math.pow(1 - orbGrow, 3);
-          tunnelOrbCanvas.style.opacity = Math.min(1, orbGrow * 1.6).toFixed(3);
-          tunnelOrbCanvas.style.transform = `translate(-50%, -50%) scale(${(0.08 + eased * 0.92).toFixed(3)})`;
-          if (tunnelOrbRenderer) {
-            tunnelOrbRenderer.draw(tSec, 0.14 * eased, isLight);
-          }
-        } else {
-          tunnelOrbCanvas.style.opacity = '0';
-        }
-
-        const overlayAlpha = Math.max(0, Math.min(1, (progress - 0.76) / 0.16));
-        orbOverlay.style.opacity = overlayAlpha.toFixed(3);
-
-        requestAnimationFrame(tick);
+        requestAnimationFrame(animateTimeline);
       }
 
-      requestAnimationFrame(tick);
+      requestAnimationFrame(animateTimeline);
     })();
 
     /* =======================================================================
-       9. THEME-REACTIVE CHROMATIC DOTTED MATRIX HALFTONE FOOTER
+       8. THEME-REACTIVE DOTTED MATRIX FOOTER
     ======================================================================= */
     (function initDotMatrix() {
       const canvas = document.getElementById('dotMatrixCanvas');
@@ -3605,9 +3162,9 @@
             if (wave > 0.2) {
               const colorIdx = (c + r) % palette.length;
               ctx.fillStyle = palette[colorIdx];
-              ctx.globalAlpha = Math.min(0.9, (wave - 0.2) * 0.62);
+              ctx.globalAlpha = Math.min(0.85, (wave - 0.2) * 0.58);
               ctx.beginPath();
-              ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+              ctx.arc(x, y, 2.3, 0, Math.PI * 2);
               ctx.fill();
             }
           }
