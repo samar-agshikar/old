@@ -6,11 +6,11 @@
   <title>Samar Agshikar — Building What's Next</title>
   <meta
     name="description"
-    content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building at the intersection of AI, technology, mathematics, and education."
+    content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building THE 1, Kerniq, College Chances India, and writing Building What's Next."
   />
   <meta name="theme-color" content="#040b1e" />
 
-  <!-- Preconnect & Studio Typography Pairing -->
+  <!-- Studio Typography Pairing -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -42,7 +42,7 @@
       --light-p4-x: 28%;
       --light-p4-y: 74%;
 
-      /* Brand & Spectrum Accents */
+      /* Spectrum Accents */
       --navy-accent: #1d4ed8;
       --green-accent: #34d399;
       --orange-accent: #fb923c;
@@ -143,14 +143,12 @@
       will-change: background-image, background-color;
     }
 
-    /* Balanced Navy Readability Scrim so Bright Green/Orange/Yellow Never Wash Out Text */
     .ambient-vignette {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(4, 11, 30, 0.34) 0%, rgba(3, 8, 22, 0.62) 100%);
+      background: radial-gradient(circle at 50% 45%, rgba(4, 11, 30, 0.34) 0%, rgba(3, 8, 22, 0.64) 100%);
     }
 
     main,
@@ -175,7 +173,7 @@
 
     .site-header.scrolled {
       padding: 13px 0;
-      background: rgba(4, 11, 30, 0.78);
+      background: rgba(4, 11, 30, 0.8);
       backdrop-filter: blur(20px) saturate(165%);
       -webkit-backdrop-filter: blur(20px) saturate(165%);
       border-bottom-color: var(--hairline);
@@ -209,11 +207,11 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 26px;
     }
 
     .nav-menu a {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 450;
       color: var(--text-secondary);
       transition: color 0.25s ease;
@@ -246,14 +244,15 @@
     }
 
     /* =====================================================================
-       4. ACT I — HERO (VOLUMETRIC MULTI-COLOUR RIBBONS & EDITORIAL SCALE)
+       4. ACT I — HERO & STORYTELLING ARC
     ===================================================================== */
     .hero {
       position: relative;
       min-height: 100svh;
       display: flex;
-      align-items: center;
-      padding: 144px 0 96px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 142px 0 84px;
       overflow: hidden;
     }
 
@@ -299,7 +298,7 @@
       line-height: 0.99;
       letter-spacing: -0.04em;
       color: var(--text-primary);
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       text-shadow: 0 10px 34px rgba(3, 8, 22, 0.45);
     }
 
@@ -314,12 +313,12 @@
     }
 
     .hero-lead {
-      font-size: clamp(1.06rem, 1.6vw, 1.24rem);
-      line-height: 1.65;
+      font-size: clamp(1.06rem, 1.55vw, 1.22rem);
+      line-height: 1.66;
       color: #e2e8f0;
-      max-width: 590px;
+      max-width: 610px;
       font-weight: 400;
-      margin-bottom: 38px;
+      margin-bottom: 36px;
       text-shadow: 0 4px 20px rgba(3, 8, 22, 0.5);
     }
 
@@ -380,7 +379,7 @@
       padding-left: 28px;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
       padding-bottom: 6px;
     }
 
@@ -389,13 +388,64 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #fde68a;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .hero-meta-block dd {
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       color: #e2e8f0;
       line-height: 1.55;
+    }
+
+    /* Coherent Storytelling Progression Bar */
+    .journey-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .journey-step {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(4, 11, 30, 0.52);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .journey-step:hover {
+      border-color: rgba(250, 204, 21, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .journey-step-num {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--yellow-accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .journey-step-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .journey-step-sub {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
     }
 
     /* =====================================================================
@@ -419,7 +469,7 @@
       line-height: 1.08;
       letter-spacing: -0.035em;
       color: var(--text-primary);
-      max-width: 760px;
+      max-width: 780px;
     }
 
     .chapter-heading .serif-italic {
@@ -430,6 +480,14 @@
       background: linear-gradient(120deg, #6ee7b7 0%, #fde047 55%, #fb923c 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .chapter-lead {
+      margin-top: 18px;
+      max-width: 680px;
+      font-size: 1.04rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
     }
 
     .reveal {
@@ -444,317 +502,448 @@
     }
 
     /* =====================================================================
-       6. ACT II — ABOUT / DISCIPLINES (NAVY, GREEN & SOLAR YELLOW)
+       6. ACT II — DETAILED PROJECT CASE STUDIES
     ===================================================================== */
-    .domains-section {
-      padding: 108px 0;
-      position: relative;
+    .projects-section {
+      padding: 112px 0 88px;
     }
 
-    .domains-grid {
-      margin-top: 52px;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(4, 11, 30, 0.56);
-      backdrop-filter: blur(14px);
+    .case-study-stack {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
     }
 
-    .domain-cell {
-      padding: 32px 22px;
-      border-right: 1px solid rgba(255, 255, 255, 0.12);
-      transition: background-color 0.35s ease;
+    .case-study {
+      border-radius: 26px;
+      padding: clamp(28px, 4vw, 48px);
+      background: linear-gradient(155deg, rgba(6, 15, 42, 0.82) 0%, rgba(4, 10, 26, 0.92) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow:
+        0 34px 80px -20px rgba(2, 6, 22, 0.86),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
-    .domain-cell:last-child {
-      border-right: none;
+    .case-study--the1 {
+      border-color: rgba(251, 146, 60, 0.34);
     }
 
-    .domain-cell:hover {
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.14), rgba(250, 204, 21, 0.05));
+    .case-study--kerniq {
+      border-color: rgba(52, 211, 153, 0.34);
     }
 
-    .domain-num {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
+    .case-study--cci {
+      border-color: rgba(250, 204, 21, 0.3);
+    }
+
+    .case-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 32px;
+    }
+
+    .case-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .case-num {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange-accent);
+    }
+
+    .case-study--kerniq .case-num {
+      color: var(--green-accent);
+    }
+
+    .case-study--cci .case-num {
       color: var(--yellow-accent);
-      margin-bottom: 18px;
     }
 
-    .domain-name {
-      font-size: 1.12rem;
+    .status-pill {
+      font-size: 0.74rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-      color: var(--text-primary);
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
     }
 
-    .domain-note {
-      font-size: 0.87rem;
+    .status-live {
+      color: #a7f3d0;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(52, 211, 153, 0.38);
+    }
+
+    .status-active {
+      color: #fed7aa;
+      background: rgba(249, 115, 22, 0.16);
+      border: 1px solid rgba(251, 146, 60, 0.38);
+    }
+
+    .status-prototype {
+      color: #fef08a;
+      background: rgba(250, 204, 21, 0.14);
+      border: 1px solid rgba(250, 204, 21, 0.36);
+    }
+
+    .case-title {
+      font-size: clamp(2rem, 3.6vw, 2.85rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    .case-tagline {
+      font-size: 1.04rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+    }
+
+    .case-external-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .case-external-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--yellow-accent);
+      background: rgba(250, 204, 21, 0.14);
+    }
+
+    /* Case Study Interactive Dimension Tabs */
+    .case-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .case-tab {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .case-tab:hover {
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .case-tab.active {
+      color: #040b1e;
+      background: linear-gradient(135deg, #fef08a, #fed7aa);
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .case-study--kerniq .case-tab.active {
+      background: linear-gradient(135deg, #a7f3d0, #fef08a);
+    }
+
+    .case-body-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .case-detail-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .detail-block h4 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--yellow-accent);
+      margin-bottom: 8px;
+    }
+
+    .case-study--kerniq .detail-block h4 {
+      color: var(--green-accent);
+    }
+
+    .detail-block p {
+      font-size: 0.96rem;
+      line-height: 1.68;
+      color: #e2e8f0;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 6px;
+    }
+
+    .detail-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.93rem;
       line-height: 1.6;
       color: var(--text-secondary);
     }
 
-    /* =====================================================================
-       7. ACT III — SELECTED WORK (NAVY, ORANGE, YELLOW & GREEN SHOWCASES)
-    ===================================================================== */
-    .products-intro {
-      padding: 104px 0 48px;
+    .detail-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange-accent);
     }
 
-    .product-chapter--the1 {
-      position: relative;
-      padding: 72px 0 96px;
+    .case-study--kerniq .detail-list li::before {
+      background: var(--green-accent);
     }
 
-    .product-chapter--kerniq {
-      position: relative;
-      padding: 88px 0 96px;
+    .case-study--cci .detail-list li::before {
+      background: var(--yellow-accent);
     }
 
-    .showcase-layout {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: clamp(32px, 5vw, 68px);
+    /* Authentic Architectural Schematic Card */
+    .schematic-card {
+      border-radius: 18px;
+      padding: 22px;
+      background: rgba(3, 8, 22, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .schematic-caption {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-    }
-
-    .showcase-layout--reversed {
-      grid-template-columns: 1.08fr 0.92fr;
-    }
-
-    .product-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-size: 0.74rem;
       text-transform: uppercase;
-      color: var(--orange-accent);
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
       margin-bottom: 14px;
     }
 
-    .product-chapter--kerniq .product-eyebrow {
-      color: var(--green-accent);
+    .schematic-svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .product-name {
-      font-size: clamp(2.4rem, 4.2vw, 3.4rem);
-      font-weight: 600;
-      letter-spacing: -0.035em;
-      line-height: 1.06;
-      margin-bottom: 18px;
-    }
-
-    .product-summary {
-      font-size: 1.04rem;
-      line-height: 1.68;
-      color: #e2e8f0;
-      margin-bottom: 28px;
-    }
-
-    .feature-selector {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 30px;
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .feature-trigger {
-      text-align: left;
-      background: transparent;
-      border: none;
-      padding: 11px 0 11px 18px;
-      margin-left: -1px;
-      border-left: 2px solid transparent;
-      color: var(--text-secondary);
-      font-size: 0.93rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.25s ease, border-color 0.25s ease;
-    }
-
-    .feature-trigger:hover {
-      color: var(--text-primary);
-    }
-
-    .feature-trigger.active {
-      color: var(--text-primary);
-      border-left-color: var(--orange-accent);
-    }
-
-    .product-chapter--kerniq .feature-trigger.active {
-      border-left-color: var(--green-accent);
-    }
-
-    .product-visit-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #fde047;
-      padding-bottom: 4px;
-      border-bottom: 1px solid rgba(253, 224, 71, 0.45);
-      transition: gap 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-    }
-
-    .product-chapter--kerniq .product-visit-link {
-      color: #6ee7b7;
-      border-bottom-color: rgba(110, 231, 183, 0.45);
-    }
-
-    .product-visit-link:hover {
-      gap: 12px;
-      color: #ffffff;
-      border-bottom-color: #ffffff;
-    }
-
-    /* Architectural Product Stage */
-    .product-stage-perspective {
-      perspective: 1400px;
-    }
-
-    .product-stage {
-      position: relative;
-      border-radius: 22px;
-      padding: 28px;
-      background: linear-gradient(155deg, rgba(6, 15, 40, 0.82) 0%, rgba(4, 10, 26, 0.92) 100%);
-      border: 1px solid rgba(251, 146, 60, 0.34);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow:
-        0 34px 80px -20px rgba(2, 6, 22, 0.85),
-        inset 0 1px 0 rgba(254, 240, 138, 0.25);
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform 0.25s ease-out, border-color 0.3s ease;
-    }
-
-    .product-chapter--kerniq .product-stage {
-      border-color: rgba(52, 211, 153, 0.34);
-      box-shadow:
-        0 34px 80px -20px rgba(2, 6, 22, 0.85),
-        inset 0 1px 0 rgba(167, 243, 208, 0.25);
-    }
-
-    .stage-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 18px;
-      margin-bottom: 22px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .stage-brand {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text-primary);
-    }
-
-    .stage-domain {
-      font-size: 0.78rem;
-      color: var(--yellow-accent);
-    }
-
-    .product-chapter--kerniq .stage-domain {
-      color: var(--green-accent);
-    }
-
-    .stage-canvas-body {
-      min-height: 230px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .case-meta-strip {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .stage-headline {
-      font-size: 1.32rem;
+    .case-meta-item dt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .case-meta-item dd {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    /* =====================================================================
+       7. ACT III — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
+    ===================================================================== */
+    .engineering-section {
+      padding: 104px 0;
+    }
+
+    .engineering-grid {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .eng-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(4, 11, 30, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+    }
+
+    .eng-card--wide {
+      grid-column: span 2;
+    }
+
+    .eng-kicker {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green-accent);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .eng-title {
+      font-size: 1.26rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .eng-copy {
+      font-size: 0.94rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
+    }
+
+    .tech-pill-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(250, 204, 21, 0.26);
+    }
+
+    /* =====================================================================
+       8. ACT IV — CHRONOLOGICAL DEVELOPMENT TIMELINE
+    ===================================================================== */
+    .timeline-section {
+      padding: 104px 0;
+    }
+
+    .timeline-track {
+      margin-top: 56px;
+      position: relative;
+      padding-left: 32px;
+      border-left: 1px solid rgba(250, 204, 21, 0.34);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .timeline-node {
+      position: relative;
+      padding: 24px 28px;
+      border-radius: 18px;
+      background: rgba(4, 11, 30, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .timeline-node:hover {
+      border-color: rgba(251, 146, 60, 0.45);
+      transform: translateX(4px);
+    }
+
+    .timeline-node::before {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 28px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-accent), var(--yellow-accent), var(--orange-accent));
+      box-shadow: 0 0 14px rgba(250, 204, 21, 0.65);
+    }
+
+    .timeline-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-phase {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange-accent);
+    }
+
+    .timeline-time {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--yellow-accent);
+    }
+
+    .timeline-title {
+      font-size: 1.18rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--text-primary);
       margin-bottom: 8px;
     }
 
-    .stage-copy {
-      font-size: 0.94rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
-    }
-
-    .stage-modules {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      padding-top: 12px;
-    }
-
-    .stage-module {
-      padding: 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-    }
-
-    .stage-module-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .stage-module-sub {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    /* Chapter C: College Chances India */
-    .product-banner--cci {
-      padding: 56px 0 108px;
-    }
-
-    .cci-band {
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 44px 28px;
-      border-radius: 18px;
-      background: rgba(4, 11, 30, 0.52);
-      backdrop-filter: blur(12px);
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .cci-title {
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-top: 8px;
-    }
-
-    .cci-desc {
-      font-size: 1rem;
-      line-height: 1.68;
+    .timeline-desc {
+      font-size: 0.93rem;
+      line-height: 1.64;
       color: var(--text-secondary);
     }
 
     /* =====================================================================
-       8. ACT IV — ACADEMIC RECOGNITION (NAVY, GOLD, ORANGE & EMERALD)
+       9. ACT V — ACADEMIC RECOGNITION & LEADERSHIP
     ===================================================================== */
     .recognition-section {
-      padding: 108px 0;
+      padding: 104px 0 64px;
     }
 
     .ledger {
-      margin-top: 56px;
+      margin-top: 48px;
       border-top: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(4, 11, 30, 0.5);
+      background: rgba(4, 11, 30, 0.56);
       backdrop-filter: blur(12px);
       padding: 0 28px;
       border-radius: 18px;
@@ -765,7 +954,7 @@
       grid-template-columns: 1.2fr 1.1fr 0.7fr;
       gap: 24px;
       align-items: center;
-      padding: 32px 0;
+      padding: 30px 0;
       border-bottom: 1px solid var(--hairline);
       transition: padding-left 0.3s var(--ease-out-expo), background-color 0.3s ease;
     }
@@ -780,7 +969,7 @@
     }
 
     .ledger-award {
-      font-size: clamp(1.22rem, 2.2vw, 1.55rem);
+      font-size: clamp(1.18rem, 2.1vw, 1.5rem);
       font-weight: 600;
       letter-spacing: -0.025em;
       color: var(--text-primary);
@@ -793,7 +982,7 @@
 
     .ledger-distinction {
       justify-self: end;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       padding: 7px 16px;
@@ -812,11 +1001,8 @@
       border: 1px solid rgba(52, 211, 153, 0.4);
     }
 
-    /* =====================================================================
-       9. ACT V — LEADERSHIP (ASYMMETRIC EDITORIAL COLUMNS)
-    ===================================================================== */
     .leadership-section {
-      padding: 108px 0;
+      padding: 72px 0 104px;
     }
 
     .leadership-layout {
@@ -836,13 +1022,13 @@
     .roles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
+      gap: 24px;
     }
 
     .role-item {
       padding: 24px;
       border-radius: 16px;
-      background: rgba(4, 11, 30, 0.56);
+      background: rgba(4, 11, 30, 0.58);
       border: 1px solid rgba(255, 255, 255, 0.14);
       backdrop-filter: blur(12px);
     }
@@ -858,7 +1044,7 @@
     }
 
     .role-title {
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--text-primary);
@@ -872,137 +1058,84 @@
     }
 
     /* =====================================================================
-       10. ACT VI — WRITING: "BUILDING WHAT'S NEXT"
+       10. ACT VI — WRITING: "BUILDING WHAT'S NEXT" (AUTHENTIC PUBLICATION)
     ===================================================================== */
     .writing-section {
-      padding: 112px 0;
+      padding: 108px 0;
     }
 
-    .publication-header {
+    .publication-shell {
+      border-radius: 26px;
+      padding: clamp(28px, 4.5vw, 52px);
+      background: linear-gradient(155deg, rgba(6, 15, 42, 0.82) 0%, rgba(4, 10, 26, 0.92) 100%);
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 70px -20px rgba(2, 6, 22, 0.82);
+    }
+
+    .publication-top {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      margin-bottom: 36px;
     }
 
-    .publication-sub {
-      max-width: 440px;
-      font-size: 0.96rem;
-      line-height: 1.62;
-      color: #e2e8f0;
-    }
-
-    .editorial-spread {
+    .publication-pillars {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: clamp(32px, 5vw, 64px);
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 32px;
     }
 
-    .lead-essay {
-      padding: 36px;
-      border-radius: 20px;
-      background: linear-gradient(155deg, rgba(6, 15, 42, 0.78), rgba(4, 10, 26, 0.9));
-      border: 1px solid rgba(250, 204, 21, 0.28);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 28px 64px -20px rgba(2, 6, 22, 0.8);
+    .pub-pillar {
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .essay-category {
-      font-size: 0.74rem;
+    .pub-pillar-kicker {
+      font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.09em;
       color: var(--yellow-accent);
       display: block;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
-    .lead-essay-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.9rem, 3.2vw, 2.55rem);
-      font-weight: 400;
-      line-height: 1.14;
-      letter-spacing: -0.01em;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
-
-    .lead-essay-excerpt {
-      font-size: 0.98rem;
-      line-height: 1.68;
-      color: var(--text-secondary);
-      margin-bottom: 26px;
-    }
-
-    .essay-read-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: none;
-      padding: 0;
-      font-size: 0.9rem;
+    .pub-pillar h3 {
+      font-size: 1.1rem;
       font-weight: 600;
-      color: var(--green-accent);
-      cursor: pointer;
-      transition: gap 0.25s ease, color 0.25s ease;
-    }
-
-    .essay-read-trigger:hover {
-      gap: 13px;
-      color: #ffffff;
-    }
-
-    .essay-index {
-      display: flex;
-      flex-direction: column;
-      background: rgba(4, 11, 30, 0.54);
-      backdrop-filter: blur(12px);
-      padding: 8px 26px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .essay-index-item {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--hairline);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .essay-index-item:last-child {
-      border-bottom: none;
-    }
-
-    .essay-index-title {
-      font-size: 1.18rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      margin-bottom: 8px;
       color: var(--text-primary);
-      transition: color 0.2s ease;
     }
 
-    .essay-index-item:hover .essay-index-title {
-      color: #fde047;
-    }
-
-    .essay-index-desc {
+    .pub-pillar p {
       font-size: 0.9rem;
       line-height: 1.6;
       color: var(--text-secondary);
     }
 
+    .publication-note {
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
     /* =====================================================================
-       11. ACT VII — CONTACT & FOOTER (NAVY, GREEN, ORANGE & YELLOW BLEND)
+       11. ACT VII — CONTACT & FOOTER
     ===================================================================== */
     .contact-section {
-      padding: 112px 0 76px;
+      padding: 108px 0 76px;
     }
 
     .contact-header {
@@ -1019,9 +1152,9 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      margin-bottom: 88px;
+      margin-bottom: 84px;
     }
 
     .contact-card {
@@ -1029,10 +1162,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 26px;
+      gap: 24px;
       padding: 28px;
       border-radius: 20px;
-      background: linear-gradient(155deg, rgba(6, 15, 42, 0.78) 0%, rgba(4, 10, 26, 0.9) 100%);
+      background: linear-gradient(155deg, rgba(6, 15, 42, 0.8) 0%, rgba(4, 10, 26, 0.92) 100%);
       border: 1px solid rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -1151,7 +1284,7 @@
     .footer-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 22px;
     }
 
     .footer-nav a {
@@ -1164,97 +1297,28 @@
     }
 
     /* =====================================================================
-       12. DISTRACTION-FREE EDITORIAL READER DRAWER / MODAL
+       12. RESPONSIVE & ACCESSIBILITY
     ===================================================================== */
-    .reader-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(3, 8, 22, 0.84);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .reader-overlay.open {
-      display: flex;
-    }
-
-    .reader-sheet {
-      width: 100%;
-      max-width: 680px;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: clamp(28px, 5vw, 48px);
-      border-radius: 22px;
-      background: linear-gradient(165deg, #071330 0%, #040b1e 100%);
-      border: 1px solid rgba(250, 204, 21, 0.28);
-      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.85);
-    }
-
-    .reader-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 20px;
-      margin-bottom: 26px;
-      border-bottom: 1px solid var(--hairline);
-    }
-
-    .reader-close {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--hairline);
-      color: var(--text-secondary);
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .reader-close:hover {
-      color: var(--text-primary);
-      border-color: var(--hairline-bright);
-    }
-
-    .reader-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3.4vw, 2.45rem);
-      font-weight: 400;
-      line-height: 1.16;
-      margin-bottom: 22px;
-      color: var(--text-primary);
-    }
-
-    .reader-body {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      font-size: 1.02rem;
-      line-height: 1.76;
-      color: var(--text-secondary);
-    }
-
-    /* =====================================================================
-       13. RESPONSIVE & ACCESSIBILITY
-    ===================================================================== */
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .nav-menu {
         display: none;
       }
 
       .hero-grid,
-      .showcase-layout,
-      .showcase-layout--reversed,
-      .cci-band,
+      .case-body-grid,
+      .engineering-grid,
       .leadership-layout,
-      .editorial-spread,
+      .publication-pillars,
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .eng-card--wide {
+        grid-column: span 1;
+      }
+
+      .journey-steps {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .hero-aside {
@@ -1266,16 +1330,8 @@
         flex-wrap: wrap;
       }
 
-      .domains-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .domain-cell:nth-child(2n) {
-        border-right: none;
-      }
-
-      .domain-cell {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      .case-meta-strip {
+        grid-template-columns: 1fr;
       }
 
       .ledger-row {
@@ -1289,14 +1345,9 @@
     }
 
     @media (max-width: 600px) {
-      .domains-grid,
-      .roles-grid,
-      .stage-modules {
+      .journey-steps,
+      .roles-grid {
         grid-template-columns: 1fr;
-      }
-
-      .domain-cell {
-        border-right: none;
       }
     }
 
@@ -1310,7 +1361,8 @@
         transition: none;
       }
       .contact-card,
-      .product-stage {
+      .timeline-node,
+      .journey-step {
         transition: none;
       }
     }
@@ -1332,10 +1384,10 @@
       </a>
 
       <nav class="nav-menu" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">Projects</a>
-        <a href="#recognition">Achievements</a>
-        <a href="#leadership">Leadership</a>
+        <a href="#projects">Case Studies</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#recognition">Recognition</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1349,247 +1401,510 @@
 
   <main id="top">
     <!-- =================================================================
-         ACT I — HERO
+         ACT I — HERO & STORYTELLING ARC
     ================================================================= -->
     <section class="hero">
       <canvas id="auroraCanvas" aria-hidden="true"></canvas>
 
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-kicker">
-            <span class="hero-kicker-line" aria-hidden="true"></span>
-            <span>Student · Software Developer · Aspiring Entrepreneur</span>
-          </div>
-
-          <h1 class="hero-title">
-            Building <span class="serif-italic">What’s Next.</span>
-          </h1>
-
-          <p class="hero-lead">
-            Designing thoughtful, intelligent software at the intersection of artificial intelligence, mathematics, and education—turning ambitious ideas into calm, enduring products.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#work" class="btn-luminous">
-              <span>Explore Selected Work</span>
-              <span aria-hidden="true">↓</span>
-            </a>
-            <a href="#contact" class="btn-quiet">
-              <span>Get in Touch</span>
-            </a>
-          </div>
-        </div>
-
-        <dl class="hero-aside">
-          <div class="hero-meta-block">
-            <dt>Focus Areas</dt>
-            <dd>AI, Technology, Mathematics, Education &amp; Entrepreneurship</dd>
-          </div>
-          <div class="hero-meta-block">
-            <dt>Flagship Products</dt>
-            <dd>THE 1 · Kerniq · College Chances India</dd>
-          </div>
-          <div class="hero-meta-block">
-            <dt>Publication</dt>
-            <dd>Building What’s Next — Essays on AI, technology &amp; product craft</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT II — ABOUT / DISCIPLINES
-    ================================================================= -->
-    <section class="domains-section" id="about">
-      <div class="container reveal">
-        <span class="chapter-label">About &amp; Disciplines</span>
-        <h2 class="chapter-heading">
-          Five domains shaping how I <span class="serif-italic">think and build.</span>
-        </h2>
-
-        <div class="domains-grid">
-          <div class="domain-cell">
-            <span class="domain-num">01</span>
-            <h3 class="domain-name">Artificial Intelligence</h3>
-            <p class="domain-note">Integrating intelligence directly into purposeful software workflows.</p>
-          </div>
-          <div class="domain-cell">
-            <span class="domain-num">02</span>
-            <h3 class="domain-name">Technology</h3>
-            <p class="domain-note">Engineering clean, fast, and reliable web applications from the ground up.</p>
-          </div>
-          <div class="domain-cell">
-            <span class="domain-num">03</span>
-            <h3 class="domain-name">Mathematics</h3>
-            <p class="domain-note">First-principles analytical reasoning and structured problem solving.</p>
-          </div>
-          <div class="domain-cell">
-            <span class="domain-num">04</span>
-            <h3 class="domain-name">Education</h3>
-            <p class="domain-note">Rethinking how students organize knowledge, revise, and explore universities.</p>
-          </div>
-          <div class="domain-cell">
-            <span class="domain-num">05</span>
-            <h3 class="domain-name">Entrepreneurship</h3>
-            <p class="domain-note">Turning real bottlenecks into usable products through continuous iteration.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT III — PROJECTS
-    ================================================================= -->
-    <section class="products-intro" id="work">
-      <div class="container reveal">
-        <span class="chapter-label">Selected Work</span>
-        <h2 class="chapter-heading">
-          Software crafted for <span class="serif-italic">clarity, depth,</span> and student agency.
-        </h2>
-      </div>
-    </section>
-
-    <!-- Chapter 01: THE 1 -->
-    <section class="product-chapter--the1" aria-labelledby="the1-heading">
-      <div class="container showcase-layout reveal">
-        <div>
-          <div class="product-eyebrow">01 · Unified Student Workspace</div>
-          <h3 class="product-name" id="the1-heading">THE 1</h3>
-          <p class="product-summary">
-            An all-in-one workspace built to replace fragmented student tools with a single, cohesive environment—bringing schedules, structured notes, spaced revision, practice quizzes, and context-aware AI together.
-          </p>
-
-          <div class="feature-selector" role="tablist" aria-label="THE 1 capabilities">
-            <button class="feature-trigger active" data-the1-view="workspace" type="button">
-              Unified Academic Workspace
-            </button>
-            <button class="feature-trigger" data-the1-view="revision" type="button">
-              Spaced Revision &amp; Active Recall
-            </button>
-            <button class="feature-trigger" data-the1-view="ai" type="button">
-              Context-Aware AI Assistance
-            </button>
-          </div>
-
-          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="product-visit-link">
-            <span>Visit the-1.app</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <div class="product-stage-perspective">
-          <div class="product-stage" data-tilt-stage>
-            <div class="stage-header">
-              <span class="stage-brand">THE 1</span>
-              <span class="stage-domain">the-1.app</span>
-            </div>
-
-            <div class="stage-canvas-body" id="the1StageBody">
-              <div>
-                <h4 class="stage-headline">One calm environment for every subject.</h4>
-                <p class="stage-copy">
-                  Class timetables, homework deadlines, and structured notes stay connected so students spend less energy organizing tools and more energy learning.
-                </p>
-              </div>
-              <div class="stage-modules">
-                <div class="stage-module">
-                  <div class="stage-module-title">Timetable</div>
-                  <div class="stage-module-sub">Weekly structure aligned with study blocks</div>
-                </div>
-                <div class="stage-module">
-                  <div class="stage-module-title">Notes</div>
-                  <div class="stage-module-sub">Clean capture linked directly to topics</div>
-                </div>
-                <div class="stage-module">
-                  <div class="stage-module-title">Homework</div>
-                  <div class="stage-module-sub">Clear priorities without visual clutter</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Chapter 02: Kerniq -->
-    <section class="product-chapter--kerniq" aria-labelledby="kerniq-heading">
-      <div class="container showcase-layout showcase-layout--reversed reveal">
-        <div class="product-stage-perspective">
-          <div class="product-stage" data-tilt-stage>
-            <div class="stage-header">
-              <span class="stage-brand">Kerniq</span>
-              <span class="stage-domain">kerniq.the-1.app</span>
-            </div>
-
-            <div class="stage-canvas-body" id="kerniqStageBody">
-              <div>
-                <h4 class="stage-headline">Structured intelligence built into the learning flow.</h4>
-                <p class="stage-copy">
-                  Kerniq extends the THE 1 ecosystem with deeper conceptual synthesis, guided step-by-step reasoning, and intelligent study workflows.
-                </p>
-              </div>
-              <div class="stage-modules">
-                <div class="stage-module">
-                  <div class="stage-module-title">Synthesis</div>
-                  <div class="stage-module-sub">Distills raw material into clear frameworks</div>
-                </div>
-                <div class="stage-module">
-                  <div class="stage-module-title">Reasoning</div>
-                  <div class="stage-module-sub">Guides understanding step by step</div>
-                </div>
-                <div class="stage-module">
-                  <div class="stage-module-title">Ecosystem</div>
-                  <div class="stage-module-sub">Connected natively with THE 1</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="product-eyebrow">02 · Intelligence Layer</div>
-          <h3 class="product-name" id="kerniq-heading">Kerniq</h3>
-          <p class="product-summary">
-            Part of the THE 1 ecosystem—designed to help learners move beyond passive reading toward structured conceptual clarity and disciplined reasoning.
-          </p>
-
-          <div class="feature-selector" role="tablist" aria-label="Kerniq capabilities">
-            <button class="feature-trigger active" data-kerniq-view="synthesis" type="button">
-              Conceptual Synthesis
-            </button>
-            <button class="feature-trigger" data-kerniq-view="reasoning" type="button">
-              Guided Step-by-Step Reasoning
-            </button>
-            <button class="feature-trigger" data-kerniq-view="integration" type="button">
-              Native THE 1 Integration
-            </button>
-          </div>
-
-          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="product-visit-link">
-            <span>Visit kerniq.the-1.app</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Chapter 03: College Chances India -->
-    <section class="product-banner--cci" aria-labelledby="cci-heading">
-      <div class="container reveal">
-        <div class="cci-band">
+      <div class="container">
+        <div class="hero-grid">
           <div>
-            <span class="chapter-label" style="margin-bottom: 6px;">03 · AI Platform</span>
-            <h3 class="cci-title" id="cci-heading">College Chances India</h3>
+            <div class="hero-kicker">
+              <span class="hero-kicker-line" aria-hidden="true"></span>
+              <span>Student · Software Developer · Aspiring Entrepreneur</span>
+            </div>
+
+            <h1 class="hero-title">
+              Building <span class="serif-italic">What’s Next.</span>
+            </h1>
+
+            <p class="hero-lead">
+              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. From early prototypes to real school pilots, I build software designed to make learning and thinking clearer.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn-luminous">
+                <span>Explore Project Case Studies</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="#timeline" class="btn-quiet">
+                <span>View Development Timeline</span>
+              </a>
+            </div>
           </div>
-          <p class="cci-desc">
-            An AI-powered university exploration platform built to help students navigate higher-education pathways and evaluate institutional options with clarity and confidence.
-          </p>
+
+          <dl class="hero-aside">
+            <div class="hero-meta-block">
+              <dt>Core Focus</dt>
+              <dd>AI, Technology, Mathematics, Education &amp; Entrepreneurship</dd>
+            </div>
+            <div class="hero-meta-block">
+              <dt>Systems Built &amp; Under Development</dt>
+              <dd>THE 1 (Live · ADIS Pilot) · Kerniq (Active Ecosystem) · College Chances India (Prototype)</dd>
+            </div>
+            <div class="hero-meta-block">
+              <dt>Personal Publication</dt>
+              <dd>Building What’s Next — Writing on AI, technology, entrepreneurship &amp; product building</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Coherent Storytelling Progression: Curiosity -> What's Next -->
+        <div class="journey-strip" aria-label="Journey progression">
+          <div class="journey-steps">
+            <div class="journey-step">
+              <span class="journey-step-num">01</span>
+              <span class="journey-step-label">Curiosity</span>
+              <span class="journey-step-sub">Analytical foundations in mathematics &amp; science</span>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step-num">02</span>
+              <span class="journey-step-label">Learning</span>
+              <span class="journey-step-sub">Mastering software engineering &amp; AI systems</span>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step-num">03</span>
+              <span class="journey-step-label">Experimentation</span>
+              <span class="journey-step-sub">Testing ideas like College Chances India</span>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step-num">04</span>
+              <span class="journey-step-label">Building</span>
+              <span class="journey-step-sub">Shipping THE 1, running the ADIS pilot &amp; Kerniq</span>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step-num">05</span>
+              <span class="journey-step-label">Leadership</span>
+              <span class="journey-step-sub">Student Council, Culture &amp; Events, Round Square</span>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step-num">06</span>
+              <span class="journey-step-label">What’s Next</span>
+              <span class="journey-step-sub">Writing &amp; iterating toward enduring tools</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- =================================================================
-         ACT IV — ACHIEVEMENTS & LEADERSHIP
+         ACT II — DETAILED PROJECT CASE STUDIES
+    ================================================================= -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="reveal">
+          <span class="chapter-label">Project Case Studies</span>
+          <h2 class="chapter-heading">
+            From real student friction to <span class="serif-italic">working software.</span>
+          </h2>
+          <p class="chapter-lead">
+            An honest look at the systems I am building—covering the original problem, architectural structure, my personal contribution, real-world school testing, and what remains under active development.
+          </p>
+        </div>
+
+        <div class="case-study-stack">
+          <!-- =============================================================
+               CASE STUDY 01: THE 1
+          ============================================================== -->
+          <article class="case-study case-study--the1 reveal" aria-labelledby="case-the1-title">
+            <div class="case-header">
+              <div>
+                <div class="case-badges">
+                  <span class="case-num">Case Study 01 · Flagship Product</span>
+                  <span class="status-pill status-live">Live Web App · School Pilot Tested</span>
+                </div>
+                <h3 class="case-title" id="case-the1-title">THE 1</h3>
+                <p class="case-tagline">
+                  An all-in-one student workspace unifying class schedules, structured notes, homework, spaced revision, and context-aware AI assistance.
+                </p>
+              </div>
+              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="case-external-btn">
+                <span>Open the-1.app</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="case-tabs" role="tablist" aria-label="THE 1 case study sections">
+              <button class="case-tab active" data-case="the1" data-tab="overview" type="button">Problem &amp; Vision</button>
+              <button class="case-tab" data-case="the1" data-tab="architecture" type="button">Features &amp; Architecture</button>
+              <button class="case-tab" data-case="the1" data-tab="pilot" type="button">School Leadership &amp; ADIS Pilot</button>
+              <button class="case-tab" data-case="the1" data-tab="roadmap" type="button">Role, Status &amp; Roadmap</button>
+            </div>
+
+            <div class="case-body-grid">
+              <div class="case-detail-panel" id="the1Panel">
+                <div class="detail-block">
+                  <h4>Original Problem &amp; Motivation</h4>
+                  <p>
+                    As a student, I experienced firsthand how fragmented academic workflows become: timetables sit in one app, class notes in another, homework tasks in a third, and AI tools in separate browser tabs with zero awareness of what you are actually studying.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Product Vision</h4>
+                  <p>
+                    THE 1 was created to replace scattered tools with a single, calm student workspace—where daily schedules, subject notes, revision cycles, and AI tutoring stay connected in one coherent environment.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Authentic Architectural Schematic -->
+              <div class="schematic-card">
+                <div class="schematic-caption">
+                  <span>System Architecture Overview</span>
+                  <span>THE 1 Workspace</span>
+                </div>
+                <svg class="schematic-svg" viewBox="0 0 420 230" role="img" aria-label="THE 1 unified workspace architecture diagram">
+                  <rect x="16" y="16" width="118" height="46" rx="10" fill="rgba(249,115,22,0.14)" stroke="rgba(251,146,60,0.5)" />
+                  <text x="75" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Timetable</text>
+
+                  <rect x="151" y="16" width="118" height="46" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.5)" />
+                  <text x="210" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Notes &amp; Tasks</text>
+
+                  <rect x="286" y="16" width="118" height="46" rx="10" fill="rgba(16,185,129,0.14)" stroke="rgba(52,211,153,0.5)" />
+                  <text x="345" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Spaced Revision</text>
+
+                  <line x1="75" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
+                  <line x1="210" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
+                  <line x1="345" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
+
+                  <rect x="60" y="96" width="300" height="50" rx="12" fill="rgba(29,78,216,0.28)" stroke="rgba(147,197,253,0.55)" />
+                  <text x="210" y="125" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">Unified Subject &amp; Workspace Context Layer</text>
+
+                  <line x1="210" y1="146" x2="210" y2="172" stroke="rgba(253,224,71,0.55)" stroke-width="1.5" />
+
+                  <rect x="85" y="172" width="250" height="44" rx="10" fill="rgba(16,185,129,0.16)" stroke="rgba(110,231,183,0.5)" />
+                  <text x="210" y="198" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Context-Aware AI Study &amp; Quiz Engine</text>
+                </svg>
+              </div>
+            </div>
+
+            <dl class="case-meta-strip">
+              <div class="case-meta-item">
+                <dt>My Role</dt>
+                <dd>Founder &amp; Sole Developer — Product design, engineering, school presentation &amp; pilot iteration</dd>
+              </div>
+              <div class="case-meta-item">
+                <dt>Real-World Validation</dt>
+                <dd>Presented to school leadership; tested with students in the ADIS pilot</dd>
+              </div>
+              <div class="case-meta-item">
+                <dt>Current Status</dt>
+                <dd>Live at the-1.app with ongoing product releases and workflow refinements</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- =============================================================
+               CASE STUDY 02: KERNIQ
+          ============================================================== -->
+          <article class="case-study case-study--kerniq reveal" aria-labelledby="case-kerniq-title">
+            <div class="case-header">
+              <div>
+                <div class="case-badges">
+                  <span class="case-num">Case Study 02 · Intelligence Layer</span>
+                  <span class="status-pill status-active">Live Ecosystem System · Active R&amp;D</span>
+                </div>
+                <h3 class="case-title" id="case-kerniq-title">Kerniq</h3>
+                <p class="case-tagline">
+                  The intelligence and structured-reasoning system built within the THE 1 ecosystem to help learners synthesize complex concepts.
+                </p>
+              </div>
+              <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="case-external-btn">
+                <span>Open kerniq.the-1.app</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="case-tabs" role="tablist" aria-label="Kerniq case study sections">
+              <button class="case-tab active" data-case="kerniq" data-tab="vision" type="button">Computing &amp; AI Vision</button>
+              <button class="case-tab" data-case="kerniq" data-tab="components" type="button">Architecture &amp; Concepts</button>
+              <button class="case-tab" data-case="kerniq" data-tab="status" type="button">Current vs. Future Plans</button>
+            </div>
+
+            <div class="case-body-grid">
+              <div class="case-detail-panel" id="kerniqPanel">
+                <div class="detail-block">
+                  <h4>Overall Computing &amp; AI Vision</h4>
+                  <p>
+                    Most AI tools optimize for giving an immediate final answer, which often bypasses genuine understanding. Kerniq explores a different direction: an intelligent computing layer designed to help students structure knowledge, trace reasoning step by step, and build durable mental models.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Ecosystem Role</h4>
+                  <p>
+                    Built directly alongside THE 1 at kerniq.the-1.app, Kerniq serves as the dedicated environment for deeper conceptual synthesis and AI-assisted study workflows.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Authentic Architectural Schematic -->
+              <div class="schematic-card">
+                <div class="schematic-caption">
+                  <span>Conceptual Architecture</span>
+                  <span>Kerniq Intelligence Loop</span>
+                </div>
+                <svg class="schematic-svg" viewBox="0 0 420 230" role="img" aria-label="Kerniq structured reasoning architecture diagram">
+                  <rect x="24" y="22" width="166" height="52" rx="10" fill="rgba(16,185,129,0.16)" stroke="rgba(52,211,153,0.52)" />
+                  <text x="107" y="45" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Student Material</text>
+                  <text x="107" y="61" text-anchor="middle" fill="#94a3b8" font-size="10">Notes, topics &amp; questions</text>
+
+                  <rect x="230" y="22" width="166" height="52" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.5)" />
+                  <text x="313" y="45" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">THE 1 Ecosystem</text>
+                  <text x="313" y="61" text-anchor="middle" fill="#94a3b8" font-size="10">Shared academic context</text>
+
+                  <line x1="107" y1="74" x2="210" y2="104" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
+                  <line x1="313" y1="74" x2="210" y2="104" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
+
+                  <rect x="52" y="104" width="316" height="48" rx="12" fill="rgba(16,185,129,0.22)" stroke="rgba(110,231,183,0.6)" />
+                  <text x="210" y="132" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">Kerniq Decomposition &amp; Synthesis Layer</text>
+
+                  <line x1="210" y1="152" x2="210" y2="174" stroke="rgba(110,231,183,0.55)" stroke-width="1.5" />
+
+                  <rect x="74" y="174" width="272" height="42" rx="10" fill="rgba(249,115,22,0.15)" stroke="rgba(251,146,60,0.48)" />
+                  <text x="210" y="199" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Guided Reasoning &amp; Active Recall Output</text>
+                </svg>
+              </div>
+            </div>
+
+            <dl class="case-meta-strip">
+              <div class="case-meta-item">
+                <dt>Focus</dt>
+                <dd>Structured AI reasoning, concept synthesis &amp; active learning workflows</dd>
+              </div>
+              <div class="case-meta-item">
+                <dt>Key Challenge</dt>
+                <dd>Designing AI guidance that strengthens student thinking without giving shallow shortcuts</dd>
+              </div>
+              <div class="case-meta-item">
+                <dt>Current Status</dt>
+                <dd>Live at kerniq.the-1.app; active experimentation and deeper THE 1 integration</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- =============================================================
+               CASE STUDY 03: COLLEGE CHANCES INDIA
+          ============================================================== -->
+          <article class="case-study case-study--cci reveal" aria-labelledby="case-cci-title">
+            <div class="case-header">
+              <div>
+                <div class="case-badges">
+                  <span class="case-num">Case Study 03 · Higher-Education Discovery</span>
+                  <span class="status-pill status-prototype">Early Prototype &amp; Concept Exploration</span>
+                </div>
+                <h3 class="case-title" id="case-cci-title">College Chances India</h3>
+                <p class="case-tagline">
+                  An AI-powered university exploration platform designed to help students navigate higher-education options in India with greater clarity.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-body-grid">
+              <div class="case-detail-panel">
+                <div class="detail-block">
+                  <h4>Original Problem &amp; Concept</h4>
+                  <p>
+                    Exploring universities and evaluating admission pathways in India often requires sifting through scattered portals, cutoff tables, and conflicting advice. College Chances India started as an initiative to structure university discovery around a student’s academic profile and goals.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>AI-Powered Approach &amp; Current Status</h4>
+                  <p>
+                    The prototype explores using AI to organize program criteria, compare university pathways, and surface realistic options clearly. Built as an early-stage project, it provided foundational lessons in data structuring and AI product design that directly informed my later work on THE 1 and Kerniq.
+                  </p>
+                </div>
+              </div>
+
+              <div class="schematic-card">
+                <div class="schematic-caption">
+                  <span>Exploration Flow</span>
+                  <span>College Chances India</span>
+                </div>
+                <svg class="schematic-svg" viewBox="0 0 420 210" role="img" aria-label="College Chances India exploration flow diagram">
+                  <rect x="30" y="24" width="360" height="44" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.48)" />
+                  <text x="210" y="50" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Student Academic Profile &amp; Preferences</text>
+
+                  <line x1="210" y1="68" x2="210" y2="92" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+
+                  <rect x="55" y="92" width="310" height="44" rx="10" fill="rgba(29,78,216,0.28)" stroke="rgba(147,197,253,0.5)" />
+                  <text x="210" y="118" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="600">AI Program Matching &amp; Pathway Analysis</text>
+
+                  <line x1="210" y1="136" x2="210" y2="158" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+
+                  <rect x="30" y="158" width="360" height="40" rx="10" fill="rgba(16,185,129,0.15)" stroke="rgba(52,211,153,0.48)" />
+                  <text x="210" y="182" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Structured University Comparison &amp; Exploration</text>
+                </svg>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT III — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
+    ================================================================= -->
+    <section class="engineering-section" id="engineering">
+      <div class="container reveal">
+        <span class="chapter-label">Engineering &amp; Craft</span>
+        <h2 class="chapter-heading">
+          How I approach <span class="serif-italic">software architecture</span> and building.
+        </h2>
+        <p class="chapter-lead">
+          I learn by building complete, usable web applications—focusing on clean system design, reliable user workflows, and practical AI integration rather than surface-level demos.
+        </p>
+
+        <div class="engineering-grid">
+          <div class="eng-card">
+            <span class="eng-kicker">01 · Core Technical Problems</span>
+            <h3 class="eng-title">Unified Workspace State &amp; Context Modeling</h3>
+            <p class="eng-copy">
+              Student productivity breaks down when schedules, notes, tasks, and revision live in disconnected silos. My primary engineering focus is designing structured relational workspace models so every note, deadline, and quiz shares a coherent subject context.
+            </p>
+          </div>
+
+          <div class="eng-card">
+            <span class="eng-kicker">02 · Architectural Decisions</span>
+            <h3 class="eng-title">Deterministic Core, Grounded AI Layer</h3>
+            <p class="eng-copy">
+              Rather than making an entire application depend on unpredictable AI outputs, I separate deterministic student workflows (timetables, task tracking, structured notes) from the AI layer—allowing AI features in THE 1 and Kerniq to draw on explicit user context.
+            </p>
+          </div>
+
+          <div class="eng-card">
+            <span class="eng-kicker">03 · Experiments &amp; Lessons Learned</span>
+            <h3 class="eng-title">Real Student Feedback Beats Assumptions</h3>
+            <p class="eng-copy">
+              Presenting THE 1 to school leadership and running the ADIS pilot taught me that real users immediately expose friction you miss while coding alone. Simplicity, fast load times, and clear visual hierarchy matter far more than adding extra buttons.
+            </p>
+          </div>
+
+          <div class="eng-card">
+            <span class="eng-kicker">04 · Technologies &amp; Engineering Stack</span>
+            <h3 class="eng-title">Modern Web Engineering &amp; AI Workflows</h3>
+            <p class="eng-copy">
+              Building responsive, browser-first products with clean front-end architecture, structured data persistence, and API-driven AI integration.
+            </p>
+            <div class="tech-pill-row">
+              <span class="tech-pill">HTML5 &amp; Semantic UI</span>
+              <span class="tech-pill">Modern CSS Architecture</span>
+              <span class="tech-pill">JavaScript / TypeScript</span>
+              <span class="tech-pill">Web App State &amp; Routing</span>
+              <span class="tech-pill">LLM &amp; Context Workflows</span>
+              <span class="tech-pill">Git &amp; GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT IV — CHRONOLOGICAL DEVELOPMENT TIMELINE
+    ================================================================= -->
+    <section class="timeline-section" id="timeline">
+      <div class="container reveal">
+        <span class="chapter-label">Journey</span>
+        <h2 class="chapter-heading">
+          Development <span class="serif-italic">timeline.</span>
+        </h2>
+        <p class="chapter-lead">
+          Key milestones across my academic foundation, software products, school pilot, writing, and student leadership.
+        </p>
+
+        <div class="timeline-track">
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Academic Foundation</span>
+              <span class="timeline-time">Mathematics &amp; Science</span>
+            </div>
+            <h3 class="timeline-title">SOF Mathematics Gold Medal &amp; ASSET Distinctions</h3>
+            <p class="timeline-desc">
+              Awarded the SOF Mathematics Gold Medal of Excellence, alongside the 98th percentile (Gold) in ASSET Mathematics and 93rd percentile (Silver) in ASSET Science—building the analytical discipline that underpins my software engineering.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Early Experimentation</span>
+              <span class="timeline-time">AI &amp; Education</span>
+            </div>
+            <h3 class="timeline-title">Starting College Chances India</h3>
+            <p class="timeline-desc">
+              Initiated an AI-powered university exploration platform concept to help students evaluate higher-education pathways in India with greater transparency.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Product Founding</span>
+              <span class="timeline-time">the-1.app</span>
+            </div>
+            <h3 class="timeline-title">Founding &amp; Developing THE 1</h3>
+            <p class="timeline-desc">
+              Designed and built THE 1 as an all-in-one student workspace uniting timetables, structured notes, homework tracking, spaced revision, and AI study tools.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Institutional Pitch</span>
+              <span class="timeline-time">School Leadership</span>
+            </div>
+            <h3 class="timeline-title">Presenting THE 1 to School Leadership</h3>
+            <p class="timeline-desc">
+              Demonstrated THE 1’s unified student workflow vision and product capabilities to school leadership to prepare for structured student testing.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Real-World Validation</span>
+              <span class="timeline-time">Pilot &amp; Releases</span>
+            </div>
+            <h3 class="timeline-title">The ADIS Pilot &amp; THE 1 Product Releases</h3>
+            <p class="timeline-desc">
+              Conducted the ADIS school pilot with real students, gathering direct usability insights and shipping iterative product releases to refine daily study workflows.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Ecosystem Expansion</span>
+              <span class="timeline-time">kerniq.the-1.app</span>
+            </div>
+            <h3 class="timeline-title">Starting Kerniq</h3>
+            <p class="timeline-desc">
+              Launched Kerniq within the THE 1 ecosystem to explore deeper AI-assisted concept synthesis and guided step-by-step reasoning for learners.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Writing &amp; Synthesis</span>
+              <span class="timeline-time">Publication</span>
+            </div>
+            <h3 class="timeline-title">Developing Building What’s Next</h3>
+            <p class="timeline-desc">
+              Established my personal publication to share reflections on technology, AI, entrepreneurship, and the craft of building software products.
+            </p>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-top">
+              <span class="timeline-phase">Student Leadership</span>
+              <span class="timeline-time">2026–27</span>
+            </div>
+            <h3 class="timeline-title">Round Square Student Committee 2026–27 &amp; Campus Leadership</h3>
+            <p class="timeline-desc">
+              Serving on the Round Square Student Committee (2026–27), Student Council, Culture and Events team, and as an Internshala Student Partner.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT V — ACADEMIC RECOGNITION & LEADERSHIP
     ================================================================= -->
     <section class="recognition-section" id="recognition">
       <div class="container reveal">
@@ -1620,7 +1935,6 @@
       </div>
     </section>
 
-    <!-- Leadership -->
     <section class="leadership-section" id="leadership">
       <div class="container leadership-layout reveal">
         <div>
@@ -1670,74 +1984,52 @@
     </section>
 
     <!-- =================================================================
-         ACT V — WRITING: "BUILDING WHAT'S NEXT"
+         ACT VI — WRITING: "BUILDING WHAT'S NEXT"
     ================================================================= -->
     <section class="writing-section" id="writing">
       <div class="container reveal">
-        <div class="publication-header">
-          <div>
-            <span class="chapter-label">Publication</span>
-            <h2 class="chapter-heading">
-              Building <span class="serif-italic">What’s Next.</span>
-            </h2>
-          </div>
-          <p class="publication-sub">
-            Essays and notes on technology, artificial intelligence, entrepreneurship, and the craft of building products from first principles.
-          </p>
-        </div>
-
-        <div class="editorial-spread">
-          <!-- Featured Lead Essay -->
-          <article class="lead-essay">
-            <span class="essay-category">Featured Essay · AI &amp; Product Design</span>
-            <h3 class="lead-essay-title">Why Student Software Should Feel Calm, Not Crowded</h3>
-            <p class="lead-essay-excerpt">
-              Reflections from building THE 1: why replacing fragmented tabs and noisy notifications with a single, cohesive environment changes how students think and learn.
+        <div class="publication-shell">
+          <div class="publication-top">
+            <div>
+              <span class="chapter-label">Personal Publication · Substack</span>
+              <h2 class="chapter-heading">
+                Building <span class="serif-italic">What’s Next.</span>
+              </h2>
+            </div>
+            <p class="chapter-lead" style="margin-top: 0; max-width: 440px;">
+              My ongoing publication exploring technology, artificial intelligence, entrepreneurship, and the realities of building software products as a student.
             </p>
-            <button class="essay-read-trigger" data-essay-id="0" type="button">
-              <span>Read Essay</span>
-              <span aria-hidden="true">→</span>
-            </button>
-          </article>
+          </div>
 
-          <!-- Curated Essay Index -->
-          <div class="essay-index">
-            <article class="essay-index-item">
-              <span class="essay-category" style="margin-bottom: 2px;">Technology &amp; AI</span>
-              <a href="#writing" class="essay-index-title" data-essay-id="1">
-                Designing AI That Augments Thinking Instead of Replacing It
-              </a>
-              <p class="essay-index-desc">
-                Lessons from Kerniq and College Chances India on grounding AI in structured context and transparent reasoning.
-              </p>
-            </article>
+          <div class="publication-pillars">
+            <div class="pub-pillar">
+              <span class="pub-pillar-kicker">Theme 01</span>
+              <h3>AI &amp; Intelligent Systems</h3>
+              <p>Examining how AI can be designed to deepen human reasoning, clarity, and learning rather than replace thinking.</p>
+            </div>
 
-            <article class="essay-index-item">
-              <span class="essay-category" style="margin-bottom: 2px;">Mathematics &amp; Engineering</span>
-              <a href="#writing" class="essay-index-title" data-essay-id="2">
-                From Olympiad Problem-Solving to Software Architecture
-              </a>
-              <p class="essay-index-desc">
-                How mathematical clarity shapes the way ambiguous product problems are decomposed into clean systems.
-              </p>
-            </article>
+            <div class="pub-pillar">
+              <span class="pub-pillar-kicker">Theme 02</span>
+              <h3>Product Craft &amp; Engineering</h3>
+              <p>Documenting architectural decisions, interface design lessons, and insights from building THE 1 and Kerniq.</p>
+            </div>
 
-            <article class="essay-index-item">
-              <span class="essay-category" style="margin-bottom: 2px;">Entrepreneurship</span>
-              <a href="#writing" class="essay-index-title" data-essay-id="3">
-                Shipping Early as a Student Builder
-              </a>
-              <p class="essay-index-desc">
-                Balancing academics, student leadership, and product development by turning curiosity into working software.
-              </p>
-            </article>
+            <div class="pub-pillar">
+              <span class="pub-pillar-kicker">Theme 03</span>
+              <h3>Entrepreneurship &amp; Education</h3>
+              <p>Reflections on shipping early, running real-world pilots, and reimagining tools for students.</p>
+            </div>
+          </div>
+
+          <div class="publication-note">
+            <strong>Building What’s Next</strong> is published on Substack. Direct links to individual published essays and issues are curated alongside my ongoing writing updates.
           </div>
         </div>
       </div>
     </section>
 
     <!-- =================================================================
-         ACT VI — CONTACT & FOOTER
+         ACT VII — CONTACT & FOOTER
     ================================================================= -->
     <section class="contact-section" id="contact">
       <div class="container reveal">
@@ -1803,6 +2095,22 @@
               <div class="contact-handle">github.com/samar-agshikar</div>
             </div>
           </a>
+
+          <!-- Publication: Building What's Next -->
+          <a href="#writing" class="contact-card" aria-label="Explore Building What's Next publication">
+            <div class="contact-card-top">
+              <span class="contact-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                </svg>
+              </span>
+              <span class="contact-arrow" aria-hidden="true">↑</span>
+            </div>
+            <div class="contact-card-body">
+              <span class="contact-platform">Substack Publication</span>
+              <div class="contact-handle">Building What’s Next</div>
+            </div>
+          </a>
         </div>
 
         <footer class="footer-bar">
@@ -1810,6 +2118,7 @@
           <nav class="footer-nav" aria-label="Footer">
             <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
             <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer">Kerniq</a>
+            <a href="#writing">Building What’s Next</a>
             <a href="mailto:samar.agshikar1@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -1818,20 +2127,6 @@
       </div>
     </section>
   </main>
-
-  <!-- ===================================================================
-       EDITORIAL ESSAY READER MODAL
-  =================================================================== -->
-  <div class="reader-overlay" id="readerOverlay" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
-    <div class="reader-sheet">
-      <div class="reader-top">
-        <span class="essay-category" id="readerCategory" style="margin: 0;">Building What’s Next</span>
-        <button class="reader-close" id="readerClose" type="button">Close ✕</button>
-      </div>
-      <h3 class="reader-title" id="readerTitle"></h3>
-      <div class="reader-body" id="readerBody"></div>
-    </div>
-  </div>
 
   <script>
     /* =======================================================================
@@ -1864,72 +2159,66 @@
 
       const stops = [
         {
-          // 0: Hero — Deep Navy Blue + Emerald Green + Vibrant Orange + Golden Yellow
           base: [5, 13, 34],
-          p1: [16, 185, 129, 0.36],   // Emerald Green
-          p2: [249, 115, 22, 0.32],   // Vibrant Orange
-          p3: [250, 204, 21, 0.25],   // Golden Yellow
-          p4: [29, 78, 216, 0.42],    // Royal Navy-Blue
+          p1: [16, 185, 129, 0.36],
+          p2: [249, 115, 22, 0.32],
+          p3: [250, 204, 21, 0.25],
+          p4: [29, 78, 216, 0.42],
           pos1: [18, 22],
           pos2: [82, 26],
           pos3: [68, 80],
           pos4: [28, 74]
         },
         {
-          // 1: About / Disciplines — Navy Blue + Lush Green + Solar Yellow
           base: [5, 15, 36],
-          p1: [16, 185, 129, 0.40],   // Emerald Green
-          p2: [234, 179, 8, 0.28],    // Solar Yellow
-          p3: [249, 115, 22, 0.24],   // Warm Orange
-          p4: [30, 64, 175, 0.40],    // Deep Navy Blue
+          p1: [16, 185, 129, 0.40],
+          p2: [234, 179, 8, 0.28],
+          p3: [249, 115, 22, 0.24],
+          p4: [30, 64, 175, 0.40],
           pos1: [76, 24],
           pos2: [24, 46],
           pos3: [78, 82],
           pos4: [22, 22]
         },
         {
-          // 2: Projects — Royal Navy + Tangerine Orange + Golden Yellow + Emerald
           base: [6, 14, 36],
-          p1: [249, 115, 22, 0.38],   // Tangerine Orange
-          p2: [250, 204, 21, 0.30],   // Golden Yellow
-          p3: [16, 185, 129, 0.28],   // Emerald Green
-          p4: [29, 78, 216, 0.42],    // Royal Navy Blue
+          p1: [249, 115, 22, 0.38],
+          p2: [250, 204, 21, 0.30],
+          p3: [16, 185, 129, 0.28],
+          p4: [29, 78, 216, 0.42],
           pos1: [22, 30],
           pos2: [78, 52],
           pos3: [30, 84],
           pos4: [76, 20]
         },
         {
-          // 3: Achievements & Leadership — Midnight Navy + Golden Amber + Emerald + Orange
           base: [6, 13, 32],
-          p1: [245, 158, 11, 0.36],   // Amber-Yellow
-          p2: [16, 185, 129, 0.34],   // Emerald Green
-          p3: [234, 88, 12, 0.28],    // Deep Orange
-          p4: [30, 58, 138, 0.44],    // Midnight Navy
+          p1: [245, 158, 11, 0.36],
+          p2: [16, 185, 129, 0.34],
+          p3: [234, 88, 12, 0.28],
+          p4: [30, 58, 138, 0.44],
           pos1: [76, 26],
           pos2: [20, 58],
           pos3: [72, 84],
           pos4: [26, 24]
         },
         {
-          // 4: Writing (Building What's Next) — Deep Navy + Coral Orange + Mint Green + Yellow
           base: [5, 14, 35],
-          p1: [251, 146, 60, 0.36],   // Coral Orange
-          p2: [52, 211, 153, 0.34],   // Mint-Emerald Green
-          p3: [253, 224, 71, 0.26],   // Warm Yellow
-          p4: [29, 78, 216, 0.40],    // Navy Blue
+          p1: [251, 146, 60, 0.36],
+          p2: [52, 211, 153, 0.34],
+          p3: [253, 224, 71, 0.26],
+          p4: [29, 78, 216, 0.40],
           pos1: [24, 24],
           pos2: [78, 44],
           pos3: [64, 84],
           pos4: [22, 76]
         },
         {
-          // 5: Contact & Footer — Full Vibrant Harmony (Navy, Green, Orange, Yellow)
           base: [5, 13, 34],
-          p1: [16, 185, 129, 0.38],   // Emerald Green
-          p2: [249, 115, 22, 0.36],   // Vibrant Orange
-          p3: [250, 204, 21, 0.30],   // Golden Yellow
-          p4: [29, 78, 216, 0.42],    // Navy Blue
+          p1: [16, 185, 129, 0.38],
+          p2: [249, 115, 22, 0.36],
+          p3: [250, 204, 21, 0.30],
+          p4: [29, 78, 216, 0.42],
           pos1: [26, 30],
           pos2: [76, 34],
           pos3: [52, 82],
@@ -2079,7 +2368,7 @@
     })();
 
     /* =======================================================================
-       4. SCROLL REVEAL & SUBTLE 3D PERSPECTIVE SETTLE FOR PRODUCT STAGES
+       4. SCROLL REVEAL
     ======================================================================= */
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(
@@ -2091,217 +2380,133 @@
           }
         });
       },
-      { threshold: 0.14 }
+      { threshold: 0.12 }
     );
     revealEls.forEach((el) => revealObserver.observe(el));
 
-    const tiltStages = document.querySelectorAll('[data-tilt-stage]');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function updateStagePerspective() {
-      if (prefersReducedMotion) return;
-      const vh = window.innerHeight;
-      tiltStages.forEach((stage) => {
-        const rect = stage.getBoundingClientRect();
-        const centerDist = (rect.top + rect.height * 0.5 - vh * 0.5) / vh;
-        const clamped = Math.max(-1, Math.min(1, centerDist));
-        const rotateX = clamped * 5.5;
-        const translateY = clamped * 12;
-        stage.style.transform = `rotateX(${rotateX.toFixed(2)}deg) translateY(${translateY.toFixed(1)}px)`;
-      });
-    }
-    window.addEventListener('scroll', updateStagePerspective, { passive: true });
-    updateStagePerspective();
-
     /* =======================================================================
-       5. INTERACTIVE PRODUCT CHAPTER SWITCHERS (THE 1 & KERNIQ)
+       5. INTERACTIVE CASE STUDY DIMENSION SWITCHERS (THE 1 & KERNIQ)
     ======================================================================= */
-    const the1Views = {
-      workspace: {
-        headline: 'One calm environment for every subject.',
-        copy: 'Class timetables, homework deadlines, and structured notes stay connected so students spend less energy organizing tools and more energy learning.',
-        modules: [
-          ['Timetable', 'Weekly structure aligned with study blocks'],
-          ['Notes', 'Clean capture linked directly to topics'],
-          ['Homework', 'Clear priorities without visual clutter']
-        ]
+    const caseData = {
+      the1: {
+        overview: `
+          <div class="detail-block">
+            <h4>Original Problem &amp; Motivation</h4>
+            <p>
+              As a student, I experienced firsthand how fragmented academic workflows become: timetables sit in one app, class notes in another, homework tasks in a third, and AI tools in separate browser tabs with zero awareness of what you are actually studying.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h4>Product Vision</h4>
+            <p>
+              THE 1 was created to replace scattered tools with a single, calm student workspace—where daily schedules, subject notes, revision cycles, and AI tutoring stay connected in one coherent environment.
+            </p>
+          </div>
+        `,
+        architecture: `
+          <div class="detail-block">
+            <h4>Features &amp; Functionality</h4>
+            <ul class="detail-list">
+              <li><strong>Weekly Timetable Alignment:</strong> Connects class schedules directly with dedicated study sessions.</li>
+              <li><strong>Structured Notes &amp; Homework:</strong> Keeps subject notes and upcoming assignments organized in one view.</li>
+              <li><strong>Spaced Revision &amp; Practice Quizzes:</strong> Reinforces retention through active recall grounded in student material.</li>
+              <li><strong>Context-Aware AI Assistance:</strong> Explains topics using the student’s own workspace notes rather than generic prompts.</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Technical Architecture &amp; Challenges</h4>
+            <p>
+              Engineered as a unified web application with a shared workspace context layer so schedules, notes, and AI workflows stay synchronized. A central design challenge was keeping the interface calm and fast while supporting multiple interconnected study modes.
+            </p>
+          </div>
+        `,
+        pilot: `
+          <div class="detail-block">
+            <h4>Presenting to School Leadership</h4>
+            <p>
+              To validate THE 1 beyond personal use, I presented the platform’s vision, student workflow design, and educational safeguards to school leadership.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h4>The ADIS Pilot Experience</h4>
+            <p>
+              Through the ADIS pilot, real students used THE 1 in their academic routines. Observing how students navigated timetables, note-taking, and revision revealed practical usability improvements that shaped subsequent product releases.
+            </p>
+          </div>
+        `,
+        roadmap: `
+          <div class="detail-block">
+            <h4>Personal Contribution &amp; Current Status</h4>
+            <p>
+              As founder and developer, I led product conception, interface design, full-stack web engineering, school leadership presentations, and pilot iterations. THE 1 is live at <strong>the-1.app</strong> with ongoing releases.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h4>Future Roadmap</h4>
+            <ul class="detail-list">
+              <li>Refining core note-taking, homework, and spaced-revision speed based on student pilot feedback.</li>
+              <li>Deepening bidirectional intelligence workflows with Kerniq (kerniq.the-1.app).</li>
+              <li>Expanding structured study analytics so students can track topic mastery clearly.</li>
+            </ul>
+          </div>
+        `
       },
-      revision: {
-        headline: 'Built around retrieval and spaced retention.',
-        copy: 'Turn class notes into practice quizzes and scheduled revision cycles so key concepts stay sharp before exams.',
-        modules: [
-          ['Spaced Review', 'Surfaces topics right before they fade'],
-          ['Quizzes', 'Active recall grounded in your own material'],
-          ['Progress', 'Clear visibility into topic mastery']
-        ]
-      },
-      ai: {
-        headline: 'Context-aware AI that knows what you are studying.',
-        copy: 'Ask questions, clarify difficult concepts, and work through problems with AI grounded directly in your workspace notes.',
-        modules: [
-          ['Note Context', 'Answers anchored to your actual syllabus'],
-          ['Concept Clarity', 'Clear explanations without distractions'],
-          ['Study Flow', 'Integrated right beside your notes']
-        ]
+      kerniq: {
+        vision: `
+          <div class="detail-block">
+            <h4>Overall Computing &amp; AI Vision</h4>
+            <p>
+              Most AI tools optimize for giving an immediate final answer, which often bypasses genuine understanding. Kerniq explores a different direction: an intelligent computing layer designed to help students structure knowledge, trace reasoning step by step, and build durable mental models.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h4>Ecosystem Role</h4>
+            <p>
+              Built directly alongside THE 1 at kerniq.the-1.app, Kerniq serves as the dedicated environment for deeper conceptual synthesis and AI-assisted study workflows.
+            </p>
+          </div>
+        `,
+        components: `
+          <div class="detail-block">
+            <h4>Architecture &amp; Major Components</h4>
+            <ul class="detail-list">
+              <li><strong>Context Ingestion Layer:</strong> Structures raw notes, topics, and learner questions into clean representations.</li>
+              <li><strong>Step-by-Step Reasoning Engine:</strong> Breaks complex concepts into logical stages instead of opaque single-paragraph answers.</li>
+              <li><strong>Active Recall &amp; Synthesis Interface:</strong> Turns studied concepts into structured summaries and self-check prompts.</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Technical Concepts Being Explored</h4>
+            <p>
+              Exploring structured prompt orchestration, context grounding across subject notes, and interface patterns that keep the student actively engaged in verifying each step.
+            </p>
+          </div>
+        `,
+        status: `
+          <div class="detail-block">
+            <h4>Current Implementation vs. Future Plans</h4>
+            <p>
+              <strong>Current Implementation:</strong> Live web environment at kerniq.the-1.app integrated within the THE 1 ecosystem, supporting structured study synthesis and guided reasoning workflows.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>Future Plans &amp; Challenges:</strong> Ongoing work focuses on tighter cross-workspace memory with THE 1, reducing latency in multi-step reasoning, and ensuring AI explanations remain accurate and pedagogically sound.
+            </p>
+          </div>
+        `
       }
     };
 
-    document.querySelectorAll('[data-the1-view]').forEach((btn) => {
+    document.querySelectorAll('.case-tab').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-the1-view]').forEach((b) => b.classList.remove('active'));
+        const caseKey = btn.dataset.case;
+        const tabKey = btn.dataset.tab;
+        document.querySelectorAll(`.case-tab[data-case="${caseKey}"]`).forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        const view = the1Views[btn.dataset.the1View];
-        document.getElementById('the1StageBody').innerHTML = `
-          <div>
-            <h4 class="stage-headline">${view.headline}</h4>
-            <p class="stage-copy">${view.copy}</p>
-          </div>
-          <div class="stage-modules">
-            ${view.modules
-              .map(
-                ([title, sub]) => `
-              <div class="stage-module">
-                <div class="stage-module-title">${title}</div>
-                <div class="stage-module-sub">${sub}</div>
-              </div>`
-              )
-              .join('')}
-          </div>
-        `;
+        const panel = document.getElementById(`${caseKey}Panel`);
+        if (panel && caseData[caseKey]?.[tabKey]) {
+          panel.innerHTML = caseData[caseKey][tabKey];
+        }
       });
-    });
-
-    const kerniqViews = {
-      synthesis: {
-        headline: 'Structured intelligence built into the learning flow.',
-        copy: 'Kerniq extends the THE 1 ecosystem with deeper conceptual synthesis, guided step-by-step reasoning, and intelligent study workflows.',
-        modules: [
-          ['Synthesis', 'Distills raw material into clear frameworks'],
-          ['Reasoning', 'Guides understanding step by step'],
-          ['Ecosystem', 'Connected natively with THE 1']
-        ]
-      },
-      reasoning: {
-        headline: 'Step-by-step reasoning over surface-level answers.',
-        copy: 'Designed to help students trace how a solution works—building durable intuition rather than shortcutting the learning process.',
-        modules: [
-          ['First Principles', 'Breaks complex ideas into clear steps'],
-          ['Verification', 'Checks understanding along the way'],
-          ['Clarity', 'Focused interface free of visual noise']
-        ]
-      },
-      integration: {
-        headline: 'Seamless connection across the THE 1 ecosystem.',
-        copy: 'Accessible at kerniq.the-1.app, Kerniq works alongside THE 1 to bring deeper intelligence to everyday academic workflows.',
-        modules: [
-          ['Shared Context', 'Works alongside your notes and subjects'],
-          ['Fast Access', 'Available directly on the web'],
-          ['Unified Craft', 'Consistent design and calm interaction']
-        ]
-      }
-    };
-
-    document.querySelectorAll('[data-kerniq-view]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-kerniq-view]').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const view = kerniqViews[btn.dataset.kerniqView];
-        document.getElementById('kerniqStageBody').innerHTML = `
-          <div>
-            <h4 class="stage-headline">${view.headline}</h4>
-            <p class="stage-copy">${view.copy}</p>
-          </div>
-          <div class="stage-modules">
-            ${view.modules
-              .map(
-                ([title, sub]) => `
-              <div class="stage-module">
-                <div class="stage-module-title">${title}</div>
-                <div class="stage-module-sub">${sub}</div>
-              </div>`
-              )
-              .join('')}
-          </div>
-        `;
-      });
-    });
-
-    /* =======================================================================
-       6. PUBLICATION ESSAY READER MODAL ("BUILDING WHAT'S NEXT")
-    ======================================================================= */
-    const essays = [
-      {
-        category: 'Building What’s Next · AI & Product Design',
-        title: 'Why Student Software Should Feel Calm, Not Crowded',
-        paragraphs: [
-          'Most productivity tools ask students to manage the tool itself before they ever reach their actual work. Tabs multiply, notifications compete for attention, and notes sit disconnected from schedules and revision.',
-          'When building THE 1 (the-1.app), the guiding principle was calm cohesion: uniting timetables, structured notes, homework, spaced revision, and AI assistance inside one quiet workspace where every element reinforces the next.',
-          'Thoughtful software respects human attention—clearing away friction so deep thinking becomes effortless.'
-        ]
-      },
-      {
-        category: 'Building What’s Next · Technology & AI',
-        title: 'Designing AI That Augments Thinking Instead of Replacing It',
-        paragraphs: [
-          'The real promise of artificial intelligence in education is not generating generic answers—it is helping learners build genuine conceptual understanding and make better-informed decisions.',
-          'Across Kerniq (kerniq.the-1.app) and College Chances India, the focus is on structured context: grounding AI in the student’s actual notes, academic goals, and questions.',
-          'When AI shows clear reasoning and keeps the human in control, it becomes a genuine multiplier for curiosity.'
-        ]
-      },
-      {
-        category: 'Building What’s Next · Mathematics & Engineering',
-        title: 'From Olympiad Problem-Solving to Software Architecture',
-        paragraphs: [
-          'Mathematical problem-solving trains you to look past surface complexity until the underlying structure becomes clear. Every clean proof depends on well-chosen definitions and logical flow.',
-          'Software architecture rewards the exact same discipline. Whether modeling data for a student workspace or designing intuitive interactions, clarity at the foundation prevents complexity later.',
-          'Mathematics and software engineering are two expressions of structured creative thinking.'
-        ]
-      },
-      {
-        category: 'Building What’s Next · Entrepreneurship',
-        title: 'Shipping Early as a Student Builder',
-        paragraphs: [
-          'Starting to build while still a student gives you direct proximity to real problems. You experience the friction firsthand and can iterate immediately.',
-          'Balancing product development with academics and student leadership—across the Student Council, Culture and Events team, Round Square Student Committee 2026–27, and Internshala Student Partner—reinforces that execution and communication matter just as much as code.',
-          'Building What’s Next is an ongoing commitment to learning in public, shipping thoughtfully, and improving every detail.'
-        ]
-      }
-    ];
-
-    const readerOverlay = document.getElementById('readerOverlay');
-    const readerCategory = document.getElementById('readerCategory');
-    const readerTitle = document.getElementById('readerTitle');
-    const readerBody = document.getElementById('readerBody');
-    const readerClose = document.getElementById('readerClose');
-
-    function openEssay(index) {
-      const essay = essays[index];
-      if (!essay) return;
-      readerCategory.textContent = essay.category;
-      readerTitle.textContent = essay.title;
-      readerBody.innerHTML = essay.paragraphs.map((p) => `<p>${p}</p>`).join('');
-      readerOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      readerClose.focus();
-    }
-
-    function closeEssay() {
-      readerOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('[data-essay-id]').forEach((trigger) => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        openEssay(Number(trigger.dataset.essayId));
-      });
-    });
-
-    readerClose.addEventListener('click', closeEssay);
-    readerOverlay.addEventListener('click', (e) => {
-      if (e.target === readerOverlay) closeEssay();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && readerOverlay.classList.contains('open')) closeEssay();
     });
   </script>
 </body>
