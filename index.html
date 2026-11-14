@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samar Agshikar — Building What's Next</title>
+  <title>Timeline — Samar Agshikar</title>
   <meta
     name="description"
-    content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building THE 1, Kerniq, College Chances India, and writing Building What's Next."
+    content="Chronological timeline of Samar Agshikar's education, academic distinctions, software products, leadership roles, and milestones from August 2023 to November 2026."
   />
   <meta name="theme-color" content="#040b1e" />
 
@@ -20,46 +20,34 @@
 
   <style>
     /* =====================================================================
-       1. DESIGN TOKENS & MULTI-COLOUR ATMOSPHERIC PALETTE
+       1. DESIGN TOKENS — MIDNIGHT NAVY, COBALT, INDIGO & CYAN IDENTITY
     ===================================================================== */
     :root {
       --bg-navy-deep: #040b1e;
-      --bg-navy-mid: #071330;
+      --bg-navy-surface: #07122e;
+      --env-base: rgb(4, 11, 30);
 
-      /* Scroll-Driven Multi-Colour Tokens (Navy, Green, Orange, Yellow) */
-      --env-base: rgb(5, 13, 34);
-      --light-primary: rgba(16, 185, 129, 0.34);     /* Emerald Green */
-      --light-secondary: rgba(249, 115, 22, 0.30);   /* Vibrant Orange */
-      --light-tertiary: rgba(250, 204, 21, 0.24);    /* Golden Yellow */
-      --light-quaternary: rgba(29, 78, 216, 0.38);   /* Rich Navy-Cobalt */
+      --light-primary: rgba(34, 211, 238, 0.22);     /* Luminous Cyan */
+      --light-secondary: rgba(29, 78, 216, 0.34);    /* Deep Cobalt */
+      --light-tertiary: rgba(79, 70, 229, 0.28);     /* Rich Indigo */
+      --light-quaternary: rgba(14, 165, 233, 0.20);  /* Sky Cyan */
 
-      --light-p1-x: 18%;
-      --light-p1-y: 22%;
-      --light-p2-x: 82%;
-      --light-p2-y: 26%;
-      --light-p3-x: 68%;
-      --light-p3-y: 80%;
-      --light-p4-x: 28%;
-      --light-p4-y: 74%;
-
-      /* Spectrum Accents */
-      --navy-accent: #1d4ed8;
-      --green-accent: #34d399;
-      --orange-accent: #fb923c;
-      --yellow-accent: #facc15;
-      --warm-cream: #fef3c7;
+      --cobalt-accent: #3b82f6;
+      --indigo-accent: #818cf8;
+      --cyan-accent: #22d3ee;
+      --cyan-soft: #a5f3fc;
 
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
-      --text-muted: #8fa1c2;
+      --text-muted: #8fa3c4;
 
-      --hairline: rgba(226, 232, 240, 0.14);
-      --hairline-bright: rgba(253, 224, 71, 0.28);
+      --hairline: rgba(148, 163, 184, 0.16);
+      --hairline-cyan: rgba(34, 211, 238, 0.32);
 
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'Instrument Serif', Georgia, serif;
 
-      --container: 1180px;
+      --container: 1120px;
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -84,13 +72,14 @@
     body {
       background-color: var(--env-base);
       color: var(--text-primary);
-      line-height: 1.6;
+      line-height: 1.75;
       overflow-x: clip;
       position: relative;
+      min-height: 100vh;
     }
 
     ::selection {
-      background: rgba(249, 115, 22, 0.35);
+      background: rgba(34, 211, 238, 0.3);
       color: #ffffff;
     }
 
@@ -107,11 +96,11 @@
       width: 100%;
       max-width: var(--container);
       margin: 0 auto;
-      padding: 0 clamp(20px, 4vw, 40px);
+      padding: 0 clamp(22px, 5vw, 48px);
     }
 
     /* =====================================================================
-       2. CONTINUOUS MULTI-COLOUR SCROLL-REACTIVE ENVIRONMENT
+       2. ATMOSPHERIC MIDNIGHT NAVY & COBALT/INDIGO/CYAN ENVIRONMENT
     ===================================================================== */
     .ambient-environment {
       position: fixed;
@@ -120,27 +109,23 @@
       pointer-events: none;
       background-color: var(--env-base);
       background-image:
-        radial-gradient(
-          ellipse 66% 56% at var(--light-p1-x) var(--light-p1-y),
-          var(--light-primary) 0%,
-          transparent 68%
-        ),
-        radial-gradient(
-          ellipse 64% 54% at var(--light-p2-x) var(--light-p2-y),
-          var(--light-secondary) 0%,
-          transparent 66%
-        ),
-        radial-gradient(
-          ellipse 62% 52% at var(--light-p3-x) var(--light-p3-y),
-          var(--light-tertiary) 0%,
-          transparent 66%
-        ),
-        radial-gradient(
-          ellipse 78% 68% at var(--light-p4-x) var(--light-p4-y),
-          var(--light-quaternary) 0%,
-          transparent 72%
-        );
-      will-change: background-image, background-color;
+        radial-gradient(ellipse 62% 52% at 16% 18%, var(--light-primary) 0%, transparent 68%),
+        radial-gradient(ellipse 68% 58% at 84% 24%, var(--light-secondary) 0%, transparent 68%),
+        radial-gradient(ellipse 66% 56% at 72% 82%, var(--light-tertiary) 0%, transparent 68%),
+        radial-gradient(ellipse 74% 64% at 24% 76%, var(--light-quaternary) 0%, transparent 72%);
+    }
+
+    .ambient-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 0.85) 0%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 0.85) 0%, transparent 80%);
     }
 
     .ambient-vignette {
@@ -148,7 +133,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 45%, rgba(4, 11, 30, 0.34) 0%, rgba(3, 8, 22, 0.64) 100%);
+      background: radial-gradient(circle at 50% 40%, rgba(4, 11, 30, 0.25) 0%, rgba(3, 8, 22, 0.72) 100%);
     }
 
     main,
@@ -158,7 +143,7 @@
     }
 
     /* =====================================================================
-       3. ARCHITECTURAL NAVIGATION
+       3. NAVIGATION (DESKTOP + RESPONSIVE MOBILE MENU)
     ===================================================================== */
     .site-header {
       position: fixed;
@@ -166,14 +151,14 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 18px 0;
-      transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+      padding: 20px 0;
+      transition: background-color 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
       border-bottom: 1px solid transparent;
     }
 
     .site-header.scrolled {
-      padding: 13px 0;
-      background: rgba(4, 11, 30, 0.82);
+      padding: 14px 0;
+      background: rgba(4, 11, 30, 0.86);
       backdrop-filter: blur(20px) saturate(165%);
       -webkit-backdrop-filter: blur(20px) saturate(165%);
       border-bottom-color: var(--hairline);
@@ -189,9 +174,9 @@
     .wordmark {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      gap: 12px;
       font-weight: 600;
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       letter-spacing: -0.02em;
       color: var(--text-primary);
     }
@@ -200,1199 +185,462 @@
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--green-accent), var(--yellow-accent) 52%, var(--orange-accent));
-      box-shadow: 0 0 16px rgba(251, 146, 60, 0.65);
+      background: linear-gradient(135deg, var(--cyan-accent), var(--cobalt-accent) 55%, var(--indigo-accent));
+      box-shadow: 0 0 16px rgba(34, 211, 238, 0.7);
     }
 
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 30px;
     }
 
     .nav-menu a {
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       font-weight: 450;
       color: var(--text-secondary);
       transition: color 0.25s ease;
+      position: relative;
     }
 
     .nav-menu a:hover,
-    .nav-menu a:focus-visible {
+    .nav-menu a:focus-visible,
+    .nav-menu a.active {
       color: var(--text-primary);
+    }
+
+    .nav-menu a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan-accent), var(--indigo-accent));
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .nav-action {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 8px 16px;
+      gap: 8px;
+      padding: 9px 18px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-primary);
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(249, 115, 22, 0.22));
-      border: 1px solid rgba(250, 204, 21, 0.34);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.16), rgba(79, 70, 229, 0.24));
+      border: 1px solid rgba(34, 211, 238, 0.34);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
       transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease, background 0.25s ease;
     }
 
     .nav-action:hover {
       transform: translateY(-1px);
-      border-color: rgba(250, 204, 21, 0.65);
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.34), rgba(249, 115, 22, 0.34));
+      border-color: rgba(34, 211, 238, 0.65);
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.26), rgba(79, 70, 229, 0.34));
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--hairline);
+      background: rgba(7, 18, 46, 0.75);
+      color: var(--text-primary);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 16px;
+      right: 16px;
+      z-index: 99;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(5, 13, 35, 0.96);
+      border: 1px solid var(--hairline-cyan);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: 0 28px 64px rgba(2, 6, 22, 0.88);
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-drawer a:hover,
+    .mobile-drawer a.active {
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--text-primary);
     }
 
     /* =====================================================================
-       4. ACT I — HERO & STORYTELLING ARC
+       4. TIMELINE PAGE HEADER & FILTER CONTROLS
     ===================================================================== */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 142px 0 84px;
-      overflow: hidden;
-    }
-
-    #auroraCanvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.9;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 48px;
-      align-items: end;
+    .timeline-hero {
+      padding: 158px 0 68px;
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.84rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--warm-cream);
-      margin-bottom: 24px;
+      gap: 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan-accent);
+      margin-bottom: 22px;
     }
 
     .hero-kicker-line {
       width: 28px;
       height: 2px;
       border-radius: 2px;
-      background: linear-gradient(90deg, var(--green-accent), var(--yellow-accent), var(--orange-accent));
+      background: linear-gradient(90deg, var(--cyan-accent), var(--cobalt-accent), var(--indigo-accent));
     }
 
-    .hero-title {
-      font-size: clamp(3.1rem, 7.2vw, 6.2rem);
+    .page-title {
+      font-size: clamp(2.8rem, 6.2vw, 4.9rem);
       font-weight: 600;
-      line-height: 0.99;
+      line-height: 1.04;
       letter-spacing: -0.04em;
       color: var(--text-primary);
-      margin-bottom: 26px;
-      text-shadow: 0 10px 34px rgba(3, 8, 22, 0.45);
+      margin-bottom: 24px;
     }
 
-    .hero-title .serif-italic {
+    .page-title .serif-italic {
       font-family: var(--font-serif);
       font-style: italic;
       font-weight: 400;
       letter-spacing: -0.015em;
-      background: linear-gradient(120deg, #6ee7b7 0%, #fde047 50%, #fb923c 100%);
+      background: linear-gradient(120deg, #a5f3fc 0%, #38bdf8 48%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero-lead {
-      font-size: clamp(1.06rem, 1.55vw, 1.22rem);
-      line-height: 1.66;
-      color: #e2e8f0;
-      max-width: 610px;
-      font-weight: 400;
+    .page-lead {
+      font-size: clamp(1.02rem, 1.45vw, 1.15rem);
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 64ch;
       margin-bottom: 36px;
-      text-shadow: 0 4px 20px rgba(3, 8, 22, 0.5);
     }
 
-    .hero-actions {
+    .timeline-meta-bar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 16px;
-    }
-
-    .btn-luminous {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #040b1e;
-      background: linear-gradient(135deg, #ffffff 0%, #fef08a 55%, #fed7aa 100%);
-      box-shadow:
-        0 14px 36px -8px rgba(249, 115, 22, 0.45),
-        0 0 0 1px rgba(255, 255, 255, 0.65);
-      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
-    }
-
-    .btn-luminous:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 20px 44px -8px rgba(250, 204, 21, 0.58),
-        0 0 0 1px #ffffff;
-    }
-
-    .btn-quiet {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      background: rgba(5, 13, 34, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      backdrop-filter: blur(14px);
-      transition: transform 0.3s var(--ease-out-expo), background 0.25s ease, border-color 0.25s ease;
-    }
-
-    .btn-quiet:hover {
-      transform: translateY(-2px);
-      background: rgba(16, 185, 129, 0.22);
-      border-color: rgba(110, 231, 183, 0.55);
-    }
-
-    .hero-aside {
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
-      padding-left: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      padding-bottom: 6px;
-    }
-
-    .hero-meta-block dt {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #fde68a;
-      margin-bottom: 5px;
-    }
-
-    .hero-meta-block dd {
-      font-size: 0.93rem;
-      color: #e2e8f0;
-      line-height: 1.55;
-    }
-
-    .journey-strip {
-      position: relative;
-      z-index: 2;
-      margin-top: 64px;
+      justify-content: space-between;
+      gap: 20px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-top: 1px solid var(--hairline);
     }
 
-    .journey-steps {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 14px;
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .journey-step {
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(4, 11, 30, 0.52);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .journey-step:hover {
-      border-color: rgba(250, 204, 21, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .journey-step-num {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--yellow-accent);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .journey-step-label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .journey-step-sub {
-      font-size: 0.76rem;
+    .filter-pill {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
       color: var(--text-secondary);
-      line-height: 1.4;
+      background: rgba(7, 18, 46, 0.72);
+      border: 1px solid var(--hairline);
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .filter-pill:hover {
+      color: var(--text-primary);
+      border-color: rgba(34, 211, 238, 0.42);
+    }
+
+    .filter-pill.active {
+      color: #040b1e;
+      font-weight: 600;
+      background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 55%, #93c5fd 100%);
+      border-color: transparent;
+      box-shadow: 0 8px 24px -6px rgba(34, 211, 238, 0.5);
+    }
+
+    .span-indicator {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
     }
 
     /* =====================================================================
-       5. SHARED EDITORIAL CHAPTER HEADERS & SCROLL REVEAL
+       5. VERTICAL CHRONOLOGICAL TIMELINE ARCHITECTURE
     ===================================================================== */
-    .chapter-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.76rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--green-accent);
-      margin-bottom: 16px;
+    .timeline-section {
+      padding: 28px 0 128px;
     }
 
-    .chapter-heading {
-      font-size: clamp(2.1rem, 4.4vw, 3.5rem);
-      font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-      color: var(--text-primary);
-      max-width: 780px;
+    .timeline-track-wrapper {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
     }
 
-    .chapter-heading .serif-italic {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      background: linear-gradient(120deg, #6ee7b7 0%, #fde047 55%, #fb923c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Continuous Vertical Timeline Line */
+    .timeline-spine {
+      position: absolute;
+      top: 14px;
+      bottom: 14px;
+      left: 196px;
+      width: 2px;
+      background: rgba(148, 163, 184, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
     }
 
-    .chapter-lead {
-      margin-top: 18px;
-      max-width: 680px;
-      font-size: 1.04rem;
-      line-height: 1.68;
-      color: var(--text-secondary);
+    .timeline-spine-fill {
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, var(--cyan-accent) 0%, var(--cobalt-accent) 55%, var(--indigo-accent) 100%);
+      box-shadow: 0 0 14px rgba(34, 211, 238, 0.7);
+      border-radius: 999px;
+      transition: height 0.12s linear;
     }
 
-    .reveal {
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    .timeline-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: 172px 48px 1fr;
+      align-items: start;
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+      transform: translateY(22px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
     }
 
-    .reveal.is-visible {
+    .timeline-entry.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* =====================================================================
-       6. ACT II — 3D SCROLL-PINNED ACHIEVEMENT TUNNEL
-          (Apple-style Sticky Z-Space Choreography)
-    ===================================================================== */
-    .tunnel-runway {
-      position: relative;
-      height: 560vh;
-      z-index: 3;
+    .timeline-entry.is-hidden {
+      display: none;
     }
 
-    .tunnel-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 86px 0 30px;
-    }
-
-    /* 3D Perspective Stage */
-    .tunnel-perspective-viewport {
-      position: absolute;
-      inset: 0;
-      perspective: 1150px;
-      perspective-origin: 50% 52%;
-      transform-style: preserve-3d;
-      pointer-events: none;
-    }
-
-    .tunnel-world {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
-    }
-
-    /* Concentric Glowing Tunnel Portals & Depth Guides */
-    .tunnel-portal {
-      position: absolute;
-      left: 50%;
-      top: 52%;
-      width: min(86vw, 940px);
-      height: min(64vh, 520px);
-      margin-left: calc(min(86vw, 940px) * -0.5);
-      margin-top: calc(min(64vh, 520px) * -0.5);
-      border-radius: 34px;
-      border: 1px solid rgba(52, 211, 153, 0.22);
-      box-shadow:
-        inset 0 0 42px rgba(29, 78, 216, 0.16),
-        0 0 36px rgba(249, 115, 22, 0.08);
-      will-change: transform, opacity;
-    }
-
-    .tunnel-portal:nth-child(2n) {
-      border-color: rgba(251, 146, 60, 0.22);
-    }
-
-    .tunnel-portal:nth-child(3n) {
-      border-color: rgba(250, 204, 21, 0.22);
-    }
-
-    /* Tunnel Perspective Corner Sightlines */
-    .tunnel-sightlines {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.35;
-    }
-
-    /* 3D Milestone Cards inside Z-Space */
-    .tunnel-card {
-      position: absolute;
-      left: 50%;
-      top: 52%;
-      width: min(88vw, 660px);
-      margin-left: calc(min(88vw, 660px) * -0.5);
-      transform: translate3d(0, -50%, -2000px);
-      padding: clamp(24px, 3.6vw, 38px);
-      border-radius: 24px;
-      background: linear-gradient(155deg, rgba(6, 16, 44, 0.92) 0%, rgba(4, 10, 26, 0.96) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      box-shadow:
-        0 34px 80px -16px rgba(2, 6, 22, 0.92),
-        inset 0 1px 0 rgba(255, 255, 255, 0.22);
-      will-change: transform, opacity;
-      pointer-events: auto;
-    }
-
-    .tunnel-card[data-accent="gold"] {
-      border-color: rgba(250, 204, 21, 0.45);
-      box-shadow:
-        0 34px 80px -16px rgba(2, 6, 22, 0.92),
-        0 0 42px -12px rgba(250, 204, 21, 0.25),
-        inset 0 1px 0 rgba(254, 240, 138, 0.3);
-    }
-
-    .tunnel-card[data-accent="green"] {
-      border-color: rgba(52, 211, 153, 0.45);
-      box-shadow:
-        0 34px 80px -16px rgba(2, 6, 22, 0.92),
-        0 0 42px -12px rgba(16, 185, 129, 0.25),
-        inset 0 1px 0 rgba(167, 243, 208, 0.3);
-    }
-
-    .tunnel-card[data-accent="orange"] {
-      border-color: rgba(251, 146, 60, 0.45);
-      box-shadow:
-        0 34px 80px -16px rgba(2, 6, 22, 0.92),
-        0 0 42px -12px rgba(249, 115, 22, 0.28),
-        inset 0 1px 0 rgba(254, 215, 170, 0.3);
-    }
-
-    .tunnel-card-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .tunnel-step-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--yellow-accent);
-    }
-
-    .tunnel-card[data-accent="green"] .tunnel-step-badge {
-      color: var(--green-accent);
-    }
-
-    .tunnel-card[data-accent="orange"] .tunnel-step-badge {
-      color: var(--orange-accent);
-    }
-
-    .tunnel-time-tag {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 999px;
-      color: #f8fafc;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-    }
-
-    .tunnel-card-title {
-      font-size: clamp(1.45rem, 2.7vw, 2.05rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .tunnel-card-desc {
-      font-size: 0.98rem;
-      line-height: 1.66;
-      color: #e2e8f0;
-      margin-bottom: 18px;
-    }
-
-    .tunnel-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tunnel-tag {
-      font-size: 0.76rem;
-      font-weight: 500;
-      padding: 5px 12px;
-      border-radius: 999px;
-      color: var(--warm-cream);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    /* Pinned Top & Bottom Tunnel HUD */
-    .tunnel-hud-top {
-      position: relative;
-      z-index: 5;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      pointer-events: none;
-    }
-
-    .tunnel-hud-title {
-      font-size: clamp(1.5rem, 3vw, 2.3rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    .tunnel-hud-title .serif-italic {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      background: linear-gradient(120deg, #6ee7b7 0%, #fde047 55%, #fb923c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .tunnel-scroll-cue {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: rgba(4, 11, 30, 0.68);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(12px);
-    }
-
-    .tunnel-hud-bottom {
-      position: relative;
-      z-index: 5;
-      pointer-events: auto;
-    }
-
-    .tunnel-scrubber-bar {
-      padding: 14px 20px;
-      border-radius: 18px;
-      background: rgba(4, 11, 30, 0.78);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(18px);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .tunnel-scrubber-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      font-size: 0.8rem;
-    }
-
-    .tunnel-active-label {
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .tunnel-depth-readout {
-      font-variant-numeric: tabular-nums;
-      color: var(--yellow-accent);
-      font-weight: 600;
-    }
-
-    .tunnel-progress-track {
-      width: 100%;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-    }
-
-    .tunnel-progress-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--green-accent), var(--yellow-accent), var(--orange-accent));
-      transition: width 0.08s linear;
-    }
-
-    .tunnel-dots {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .tunnel-dot-btn {
-      flex: 1;
-      background: transparent;
-      border: none;
-      padding: 4px 2px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .tunnel-dot-btn:hover,
-    .tunnel-dot-btn.active {
-      color: var(--text-primary);
-    }
-
-    .tunnel-dot-pip {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.24);
-      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .tunnel-dot-btn.active .tunnel-dot-pip {
-      transform: scale(1.35);
-      background: var(--yellow-accent);
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
-    }
-
-    /* =====================================================================
-       7. ACT III — DETAILED PROJECT CASE STUDIES
-    ===================================================================== */
-    .projects-section {
-      padding: 112px 0 88px;
-    }
-
-    .case-study-stack {
-      margin-top: 64px;
-      display: flex;
-      flex-direction: column;
-      gap: 64px;
-    }
-
-    .case-study {
-      border-radius: 26px;
-      padding: clamp(28px, 4vw, 48px);
-      background: linear-gradient(155deg, rgba(6, 15, 42, 0.82) 0%, rgba(4, 10, 26, 0.92) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow:
-        0 34px 80px -20px rgba(2, 6, 22, 0.86),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    }
-
-    .case-study--the1 {
-      border-color: rgba(251, 146, 60, 0.34);
-    }
-
-    .case-study--kerniq {
-      border-color: rgba(52, 211, 153, 0.34);
-    }
-
-    .case-study--cci {
-      border-color: rgba(250, 204, 21, 0.3);
-    }
-
-    .case-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      margin-bottom: 32px;
-    }
-
-    .case-badges {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .case-num {
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--orange-accent);
-    }
-
-    .case-study--kerniq .case-num {
-      color: var(--green-accent);
-    }
-
-    .case-study--cci .case-num {
-      color: var(--yellow-accent);
-    }
-
-    .status-pill {
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 999px;
-      letter-spacing: 0.02em;
-    }
-
-    .status-live {
-      color: #a7f3d0;
-      background: rgba(16, 185, 129, 0.16);
-      border: 1px solid rgba(52, 211, 153, 0.38);
-    }
-
-    .status-active {
-      color: #fed7aa;
-      background: rgba(249, 115, 22, 0.16);
-      border: 1px solid rgba(251, 146, 60, 0.38);
-    }
-
-    .status-prototype {
-      color: #fef08a;
-      background: rgba(250, 204, 21, 0.14);
-      border: 1px solid rgba(250, 204, 21, 0.36);
-    }
-
-    .case-title {
-      font-size: clamp(2rem, 3.6vw, 2.85rem);
-      font-weight: 600;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      margin-bottom: 8px;
-    }
-
-    .case-tagline {
-      font-size: 1.04rem;
-      color: var(--text-secondary);
-      max-width: 680px;
-    }
-
-    .case-external-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 20px;
-      border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .case-external-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--yellow-accent);
-      background: rgba(250, 204, 21, 0.14);
-    }
-
-    .case-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .case-tab {
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .case-tab:hover {
-      color: var(--text-primary);
-      border-color: rgba(255, 255, 255, 0.28);
-    }
-
-    .case-tab.active {
-      color: #040b1e;
-      background: linear-gradient(135deg, #fef08a, #fed7aa);
-      border-color: transparent;
-      font-weight: 600;
-    }
-
-    .case-study--kerniq .case-tab.active {
-      background: linear-gradient(135deg, #a7f3d0, #fef08a);
-    }
-
-    .case-body-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .case-detail-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .detail-block h4 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--yellow-accent);
-      margin-bottom: 8px;
-    }
-
-    .case-study--kerniq .detail-block h4 {
-      color: var(--green-accent);
-    }
-
-    .detail-block p {
-      font-size: 0.96rem;
-      line-height: 1.68;
-      color: #e2e8f0;
-    }
-
-    .detail-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      margin-top: 6px;
-    }
-
-    .detail-list li {
-      position: relative;
-      padding-left: 18px;
-      font-size: 0.93rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    .detail-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.62em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--orange-accent);
-    }
-
-    .case-study--kerniq .detail-list li::before {
-      background: var(--green-accent);
-    }
-
-    .case-study--cci .detail-list li::before {
-      background: var(--yellow-accent);
-    }
-
-    .schematic-card {
-      border-radius: 18px;
-      padding: 22px;
-      background: rgba(3, 8, 22, 0.74);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .schematic-caption {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .schematic-svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .case-meta-strip {
-      margin-top: 28px;
+    /* Left Column: Exact Month / Year or Period Range */
+    .entry-date-col {
       padding-top: 22px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      padding-right: 12px;
+      text-align: right;
     }
 
-    .case-meta-item dt {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .case-meta-item dd {
-      font-size: 0.9rem;
-      color: var(--text-primary);
-      line-height: 1.5;
-    }
-
-    /* =====================================================================
-       8. ACT IV — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
-    ===================================================================== */
-    .engineering-section {
-      padding: 104px 0;
-    }
-
-    .engineering-grid {
-      margin-top: 52px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .eng-card {
-      padding: 30px;
-      border-radius: 20px;
-      background: rgba(4, 11, 30, 0.62);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(14px);
-    }
-
-    .eng-kicker {
-      font-size: 0.74rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--green-accent);
+    .entry-date-code {
       display: block;
-      margin-bottom: 10px;
-    }
-
-    .eng-title {
-      font-size: 1.26rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .eng-copy {
-      font-size: 0.94rem;
-      line-height: 1.68;
-      color: var(--text-secondary);
-    }
-
-    .tech-pill-row {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tech-pill {
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #f8fafc;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(250, 204, 21, 0.26);
-    }
-
-    /* =====================================================================
-       9. ACT V — WRITING: "BUILDING WHAT'S NEXT"
-    ===================================================================== */
-    .writing-section {
-      padding: 108px 0;
-    }
-
-    .publication-shell {
-      border-radius: 26px;
-      padding: clamp(28px, 4.5vw, 52px);
-      background: linear-gradient(155deg, rgba(6, 15, 42, 0.82) 0%, rgba(4, 10, 26, 0.92) 100%);
-      border: 1px solid rgba(250, 204, 21, 0.3);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 30px 70px -20px rgba(2, 6, 22, 0.82);
-    }
-
-    .publication-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-      margin-bottom: 36px;
-    }
-
-    .publication-pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-bottom: 32px;
-    }
-
-    .pub-pillar {
-      padding: 22px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .pub-pillar-kicker {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--yellow-accent);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .pub-pillar h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-
-    .pub-pillar p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    .publication-note {
-      padding: 18px 22px;
-      border-radius: 14px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.28);
       font-size: 0.92rem;
-      color: #e2e8f0;
-      line-height: 1.6;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
+      color: var(--cyan-soft);
     }
 
-    /* =====================================================================
-       10. ACT VI — CONTACT & FOOTER
-    ===================================================================== */
-    .contact-section {
-      padding: 108px 0 76px;
+    .entry-date-label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
     }
 
-    .contact-header {
-      max-width: 680px;
-      margin-bottom: 48px;
-    }
-
-    .contact-sub {
-      margin-top: 16px;
-      font-size: 1.04rem;
-      line-height: 1.66;
-      color: #e2e8f0;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 84px;
-    }
-
-    .contact-card {
+    /* Center Column: Connected Milestone Marker on Spine */
+    .entry-marker-col {
       position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 28px;
+      justify-content: center;
+      padding-top: 26px;
+    }
+
+    .entry-marker {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg-navy-deep);
+      border: 2.5px solid var(--cobalt-accent);
+      box-shadow: 0 0 0 5px rgba(4, 11, 30, 0.92);
+      z-index: 2;
+      transition: transform 0.35s var(--ease-out-expo), border-color 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .timeline-entry.is-visible .entry-marker {
+      border-color: var(--cyan-accent);
+      background: var(--cyan-accent);
+      box-shadow:
+        0 0 0 5px rgba(4, 11, 30, 0.92),
+        0 0 18px rgba(34, 211, 238, 0.75);
+    }
+
+    .timeline-entry:hover .entry-marker {
+      transform: scale(1.22);
+    }
+
+    /* Right Column: Milestone Card */
+    .entry-card {
+      position: relative;
+      padding: 26px 30px;
       border-radius: 20px;
-      background: linear-gradient(155deg, rgba(6, 15, 42, 0.8) 0%, rgba(4, 10, 26, 0.92) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(155deg, rgba(8, 20, 52, 0.82) 0%, rgba(4, 11, 30, 0.92) 100%);
+      border: 1px solid var(--hairline);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       box-shadow:
-        0 24px 54px -18px rgba(2, 6, 22, 0.8),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-      overflow: hidden;
-      transition:
-        transform 0.35s var(--ease-out-expo),
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+        0 20px 48px -18px rgba(2, 6, 22, 0.82),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      transition: transform 0.3s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .contact-card::before {
+    .entry-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        340px circle at var(--cx, 50%) var(--cy, 0%),
-        rgba(249, 115, 22, 0.22),
-        rgba(16, 185, 129, 0.14) 45%,
-        transparent 75%
-      );
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
+      left: -12px;
+      top: 32px;
+      width: 12px;
+      height: 1px;
+      background: rgba(34, 211, 238, 0.35);
     }
 
-    .contact-card:hover,
-    .contact-card:focus-visible {
-      transform: translateY(-4px);
-      border-color: rgba(250, 204, 21, 0.55);
+    .timeline-entry:hover .entry-card {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, 0.42);
       box-shadow:
-        0 30px 64px -16px rgba(4, 11, 30, 0.85),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        0 26px 56px -16px rgba(2, 6, 22, 0.9),
+        0 0 32px -12px rgba(34, 211, 238, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
-    .contact-card:hover::before,
-    .contact-card:focus-visible::before {
-      opacity: 1;
-    }
-
-    .contact-card-top {
+    .entry-card-top {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
-    .contact-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, rgba(16, 185, 129, 0.24), rgba(249, 115, 22, 0.24));
-      border: 1px solid rgba(250, 204, 21, 0.32);
-      color: #fef08a;
-      transition: transform 0.3s var(--ease-out-expo), border-color 0.3s ease;
+    .entry-mobile-date {
+      display: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cyan-soft);
+      font-variant-numeric: tabular-nums;
     }
 
-    .contact-card:hover .contact-icon-wrap {
-      transform: scale(1.05);
-      border-color: rgba(250, 204, 21, 0.65);
-      color: #ffffff;
-    }
-
-    .contact-arrow {
-      font-size: 1rem;
-      color: var(--text-muted);
-      transition: transform 0.3s var(--ease-out-expo), color 0.3s ease;
-    }
-
-    .contact-card:hover .contact-arrow {
-      transform: translate(3px, -3px);
-      color: #fde047;
-    }
-
-    .contact-card-body {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-platform {
-      font-size: 0.75rem;
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.71rem;
       font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--green-accent);
-      margin-bottom: 6px;
-      display: block;
     }
 
-    .contact-handle {
-      font-size: 1.05rem;
+    .cat-education {
+      color: #a5f3fc;
+      background: rgba(34, 211, 238, 0.13);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+    }
+
+    .cat-academics {
+      color: #bfdbfe;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(96, 165, 250, 0.34);
+    }
+
+    .cat-entrepreneurship {
+      color: #c7d2fe;
+      background: rgba(99, 102, 241, 0.18);
+      border: 1px solid rgba(129, 140, 248, 0.36);
+    }
+
+    .cat-technology {
+      color: #67e8f9;
+      background: rgba(6, 182, 212, 0.16);
+      border: 1px solid rgba(34, 211, 238, 0.38);
+    }
+
+    .cat-leadership {
+      color: #ddd6fe;
+      background: rgba(139, 92, 246, 0.16);
+      border: 1px solid rgba(167, 139, 250, 0.34);
+    }
+
+    .entry-title {
+      font-size: clamp(1.14rem, 2vw, 1.32rem);
       font-weight: 600;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.02em;
+      line-height: 1.32;
       color: var(--text-primary);
-      word-break: break-word;
+      margin-bottom: 10px;
+    }
+
+    .entry-desc {
+      font-size: 0.95rem;
+      line-height: 1.74;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       6. FOOTER
+    ===================================================================== */
+    .site-footer {
+      padding: 40px 0 64px;
     }
 
     .footer-bar {
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 34px;
+      border-top: 1px solid var(--hairline);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
     }
 
     .footer-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 24px;
     }
 
     .footer-nav a {
@@ -1401,50 +649,56 @@
     }
 
     .footer-nav a:hover {
-      color: #fde047;
+      color: var(--cyan-accent);
     }
 
     /* =====================================================================
-       11. RESPONSIVE & REDUCED MOTION FALLBACK
+       7. RESPONSIVE & ACCESSIBILITY
     ===================================================================== */
     @media (max-width: 980px) {
       .nav-menu {
         display: none;
       }
 
-      .hero-grid,
-      .case-body-grid,
-      .engineering-grid,
-      .publication-pillars,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .journey-steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .hero-aside {
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.18);
-        padding-left: 0;
-        padding-top: 24px;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .case-meta-strip {
-        grid-template-columns: 1fr;
+      .mobile-menu-btn {
+        display: inline-flex;
       }
     }
 
-    @media (max-width: 640px) {
-      .journey-steps {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+      .timeline-hero {
+        padding: 132px 0 48px;
       }
 
-      .tunnel-dot-label {
+      .timeline-spine {
+        left: 15px;
+      }
+
+      .timeline-entry {
+        grid-template-columns: 32px 1fr;
+      }
+
+      .entry-date-col {
         display: none;
+      }
+
+      .entry-marker-col {
+        padding-top: 24px;
+        justify-content: center;
+      }
+
+      .entry-mobile-date {
+        display: inline-block;
+      }
+
+      .entry-card {
+        padding: 22px 22px;
+      }
+
+      .entry-card::before {
+        left: -8px;
+        width: 8px;
+        top: 30px;
       }
     }
 
@@ -1452,50 +706,19 @@
       html {
         scroll-behavior: auto;
       }
-      .reveal {
+
+      .timeline-entry {
         opacity: 1;
         transform: none;
         transition: none;
-      }
-      .tunnel-runway {
-        height: auto;
-        padding: 96px 0;
-      }
-      .tunnel-sticky {
-        position: static;
-        height: auto;
-        padding: 0;
-      }
-      .tunnel-perspective-viewport {
-        position: static;
-        perspective: none;
-        pointer-events: auto;
-      }
-      .tunnel-world {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        margin-top: 32px;
-      }
-      .tunnel-portal,
-      .tunnel-sightlines,
-      .tunnel-hud-bottom,
-      .tunnel-scroll-cue {
-        display: none;
-      }
-      .tunnel-card {
-        position: static;
-        width: 100%;
-        margin: 0;
-        transform: none !important;
-        opacity: 1 !important;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Continuous Multi-Colour Scroll-Reactive Environment -->
-  <div class="ambient-environment" id="ambientEnv" aria-hidden="true"></div>
+  <!-- Midnight Navy, Cobalt, Indigo & Cyan Ambient Backdrop -->
+  <div class="ambient-environment" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
   <div class="ambient-vignette" aria-hidden="true"></div>
 
   <!-- ===================================================================
@@ -1503,789 +726,462 @@
   =================================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-inner">
-      <a href="#top" class="wordmark">
+      <a href="index.html" class="wordmark">
         <span class="wordmark-mark" aria-hidden="true"></span>
         <span>Samar Agshikar</span>
       </a>
 
       <nav class="nav-menu" aria-label="Primary">
-        <a href="#timeline">3D Timeline</a>
-        <a href="#projects">Case Studies</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="timeline.html" class="active" aria-current="page">Timeline</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#engineering">Engineering</a>
+        <a href="index.html#writing">Writing</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
 
-      <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="nav-action">
-        <span>THE 1</span>
-        <span aria-hidden="true">↗</span>
-      </a>
+      <div class="nav-right">
+        <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="nav-action">
+          <span>THE 1</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <!-- =================================================================
-         ACT I — HERO & STORYTELLING ARC
-    ================================================================= -->
-    <section class="hero">
-      <canvas id="auroraCanvas" aria-hidden="true"></canvas>
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a>
+    <a href="timeline.html" class="active" aria-current="page">Timeline</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#engineering">Engineering</a>
+    <a href="index.html#writing">Writing</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 
+  <main>
+    <!-- =================================================================
+         TIMELINE HEADER
+    ================================================================= -->
+    <section class="timeline-hero">
       <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="hero-kicker">
-              <span class="hero-kicker-line" aria-hidden="true"></span>
-              <span>Student · Software Developer · Aspiring Entrepreneur</span>
-            </div>
-
-            <h1 class="hero-title">
-              Building <span class="serif-italic">What’s Next.</span>
-            </h1>
-
-            <p class="hero-lead">
-              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. Scroll down to enter the 3D chronological tunnel of my milestones, products, and leadership journey.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#timeline" class="btn-luminous">
-                <span>Enter 3D Achievement Tunnel</span>
-                <span aria-hidden="true">↓</span>
-              </a>
-              <a href="#projects" class="btn-quiet">
-                <span>Explore Project Case Studies</span>
-              </a>
-            </div>
-          </div>
-
-          <dl class="hero-aside">
-            <div class="hero-meta-block">
-              <dt>Core Focus</dt>
-              <dd>AI, Technology, Mathematics, Education &amp; Entrepreneurship</dd>
-            </div>
-            <div class="hero-meta-block">
-              <dt>Systems Built &amp; Under Development</dt>
-              <dd>THE 1 (Live · ADIS Pilot) · Kerniq (Active Ecosystem) · College Chances India (Prototype)</dd>
-            </div>
-            <div class="hero-meta-block">
-              <dt>Personal Publication</dt>
-              <dd>Building What’s Next — Writing on AI, technology, entrepreneurship &amp; product building</dd>
-            </div>
-          </dl>
+        <div class="hero-kicker">
+          <span class="hero-kicker-line" aria-hidden="true"></span>
+          <span>Chronological Record · 08/2023 — 11/2026</span>
         </div>
 
-        <!-- Coherent Storytelling Progression -->
-        <div class="journey-strip" aria-label="Journey progression">
-          <div class="journey-steps">
-            <div class="journey-step">
-              <span class="journey-step-num">01</span>
-              <span class="journey-step-label">Curiosity</span>
-              <span class="journey-step-sub">Analytical foundations in mathematics &amp; science</span>
-            </div>
-            <div class="journey-step">
-              <span class="journey-step-num">02</span>
-              <span class="journey-step-label">Learning</span>
-              <span class="journey-step-sub">Mastering software engineering &amp; AI systems</span>
-            </div>
-            <div class="journey-step">
-              <span class="journey-step-num">03</span>
-              <span class="journey-step-label">Experimentation</span>
-              <span class="journey-step-sub">Testing ideas like College Chances India</span>
-            </div>
-            <div class="journey-step">
-              <span class="journey-step-num">04</span>
-              <span class="journey-step-label">Building</span>
-              <span class="journey-step-sub">Shipping THE 1, running the ADIS pilot &amp; Kerniq</span>
-            </div>
-            <div class="journey-step">
-              <span class="journey-step-num">05</span>
-              <span class="journey-step-label">Leadership</span>
-              <span class="journey-step-sub">Student Council, Culture &amp; Events, Round Square</span>
-            </div>
-            <div class="journey-step">
-              <span class="journey-step-num">06</span>
-              <span class="journey-step-label">What’s Next</span>
-              <span class="journey-step-sub">Writing &amp; iterating toward enduring tools</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <h1 class="page-title">
+          Journey &amp; <span class="serif-italic">Timeline.</span>
+        </h1>
 
-    <!-- =================================================================
-         ACT II — 3D SCROLL-PINNED CHRONOLOGICAL ACHIEVEMENT TUNNEL
-    ================================================================= -->
-    <section class="tunnel-runway" id="timeline" aria-label="3D Chronological Milestones Tunnel">
-      <div class="tunnel-sticky">
-        <!-- Top Pinned HUD -->
-        <div class="container tunnel-hud-top">
-          <div>
-            <span class="chapter-label" style="margin-bottom: 6px;">3D Chronological Tunnel · 01 — 08</span>
-            <h2 class="tunnel-hud-title">
-              Through time, into <span class="serif-italic">What’s Next.</span>
-            </h2>
-          </div>
-          <div class="tunnel-scroll-cue">Scroll slowly to travel deeper ↓</div>
-        </div>
-
-        <!-- 3D Z-Space Viewport -->
-        <div class="tunnel-perspective-viewport">
-          <!-- Perspective Sightlines -->
-          <svg class="tunnel-sightlines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="0" y1="0" x2="460" y2="330" stroke="rgba(52,211,153,0.28)" stroke-width="1" />
-            <line x1="1200" y1="0" x2="740" y2="330" stroke="rgba(251,146,60,0.28)" stroke-width="1" />
-            <line x1="0" y1="800" x2="460" y2="490" stroke="rgba(250,204,21,0.28)" stroke-width="1" />
-            <line x1="1200" y1="800" x2="740" y2="490" stroke="rgba(59,130,246,0.32)" stroke-width="1" />
-          </svg>
-
-          <div class="container tunnel-world" id="tunnelWorld">
-            <!-- 6 Streaming Tunnel Portal Frames -->
-            <div class="tunnel-portal" data-portal="0"></div>
-            <div class="tunnel-portal" data-portal="1"></div>
-            <div class="tunnel-portal" data-portal="2"></div>
-            <div class="tunnel-portal" data-portal="3"></div>
-            <div class="tunnel-portal" data-portal="4"></div>
-            <div class="tunnel-portal" data-portal="5"></div>
-
-            <!-- 01: Academic Distinctions -->
-            <article class="tunnel-card" data-milestone="0" data-accent="gold">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">01 / 08 · Quantitative Foundation</span>
-                <span class="tunnel-time-tag">Academic Distinctions</span>
-              </div>
-              <h3 class="tunnel-card-title">SOF Mathematics Gold Medal &amp; ASSET Distinctions</h3>
-              <p class="tunnel-card-desc">
-                Awarded the SOF Mathematics Gold Medal of Excellence, alongside achieving the 98th percentile (Gold Distinction) in ASSET Mathematics and 93rd percentile (Silver Distinction) in ASSET Science—building the analytical foundation behind how I design systems.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">SOF Math Gold Medal</span>
-                <span class="tunnel-tag">ASSET Math · 98th Percentile</span>
-                <span class="tunnel-tag">ASSET Science · 93rd Percentile</span>
-              </div>
-            </article>
-
-            <!-- 02: College Chances India -->
-            <article class="tunnel-card" data-milestone="1" data-accent="orange">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">02 / 08 · Early AI Experimentation</span>
-                <span class="tunnel-time-tag">Prototype Initiative</span>
-              </div>
-              <h3 class="tunnel-card-title">Starting College Chances India</h3>
-              <p class="tunnel-card-desc">
-                Initiated an AI-powered university exploration platform concept to help students evaluate higher-education pathways in India with structured data instead of scattered admission guesswork.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">AI &amp; Education</span>
-                <span class="tunnel-tag">University Discovery</span>
-                <span class="tunnel-tag">Early Prototype</span>
-              </div>
-            </article>
-
-            <!-- 03: Founding THE 1 -->
-            <article class="tunnel-card" data-milestone="2" data-accent="orange">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">03 / 08 · Flagship Product Founding</span>
-                <span class="tunnel-time-tag">the-1.app</span>
-              </div>
-              <h3 class="tunnel-card-title">Founding &amp; Developing THE 1</h3>
-              <p class="tunnel-card-desc">
-                Designed and engineered THE 1 as an all-in-one student workspace unifying class timetables, structured notes, homework tracking, spaced revision, practice quizzes, and context-aware AI tools.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">Founder &amp; Developer</span>
-                <span class="tunnel-tag">Unified Student Workspace</span>
-                <span class="tunnel-tag">Context-Aware AI</span>
-              </div>
-            </article>
-
-            <!-- 04: Presenting to School Leadership -->
-            <article class="tunnel-card" data-milestone="3" data-accent="gold">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">04 / 08 · Institutional Pitch</span>
-                <span class="tunnel-time-tag">School Leadership</span>
-              </div>
-              <h3 class="tunnel-card-title">Presenting THE 1 to School Leadership</h3>
-              <p class="tunnel-card-desc">
-                Presented THE 1’s product vision, student workflow architecture, and classroom alignment directly to school leadership—bridging independent software development with real institutional adoption.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">Product Demonstration</span>
-                <span class="tunnel-tag">School Leadership</span>
-                <span class="tunnel-tag">Pilot Preparation</span>
-              </div>
-            </article>
-
-            <!-- 05: ADIS Pilot & Product Releases -->
-            <article class="tunnel-card" data-milestone="4" data-accent="green">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">05 / 08 · Real-World Student Testing</span>
-                <span class="tunnel-time-tag">Pilot &amp; Releases</span>
-              </div>
-              <h3 class="tunnel-card-title">The ADIS Pilot &amp; THE 1 Product Releases</h3>
-              <p class="tunnel-card-desc">
-                Deployed THE 1 with real students during the ADIS pilot, observing authentic daily study workflows and shipping iterative product releases to sharpen speed, clarity, and reliability.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">ADIS School Pilot</span>
-                <span class="tunnel-tag">User Feedback Loop</span>
-                <span class="tunnel-tag">Iterative Releases</span>
-              </div>
-            </article>
-
-            <!-- 06: Starting Kerniq -->
-            <article class="tunnel-card" data-milestone="5" data-accent="green">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">06 / 08 · Ecosystem Intelligence Layer</span>
-                <span class="tunnel-time-tag">kerniq.the-1.app</span>
-              </div>
-              <h3 class="tunnel-card-title">Starting Kerniq</h3>
-              <p class="tunnel-card-desc">
-                Launched Kerniq within the THE 1 ecosystem to explore structured AI reasoning, conceptual synthesis, and guided step-by-step learning workflows that strengthen understanding rather than giving shallow shortcuts.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">Structured AI Reasoning</span>
-                <span class="tunnel-tag">Conceptual Synthesis</span>
-                <span class="tunnel-tag">THE 1 Ecosystem</span>
-              </div>
-            </article>
-
-            <!-- 07: Developing Building What's Next -->
-            <article class="tunnel-card" data-milestone="6" data-accent="gold">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">07 / 08 · Personal Publication</span>
-                <span class="tunnel-time-tag">Substack</span>
-              </div>
-              <h3 class="tunnel-card-title">Developing Building What’s Next</h3>
-              <p class="tunnel-card-desc">
-                Created my personal publication to document clear thinking on artificial intelligence, software engineering, entrepreneurship, and lessons from building products as a student.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">Building What’s Next</span>
-                <span class="tunnel-tag">AI &amp; Product Craft</span>
-                <span class="tunnel-tag">Substack Writing</span>
-              </div>
-            </article>
-
-            <!-- 08: Leadership & Campus Responsibility -->
-            <article class="tunnel-card" data-milestone="7" data-accent="orange">
-              <div class="tunnel-card-top">
-                <span class="tunnel-step-badge">08 / 08 · Governance &amp; Community</span>
-                <span class="tunnel-time-tag">2026–27</span>
-              </div>
-              <h3 class="tunnel-card-title">Round Square Committee 2026–27 &amp; Student Leadership</h3>
-              <p class="tunnel-card-desc">
-                Serving on the Round Square Student Committee (2026–27), Student Council, Culture and Events team, and as an Internshala Student Partner—connecting peers with service, campus events, and career opportunities.
-              </p>
-              <div class="tunnel-card-tags">
-                <span class="tunnel-tag">Round Square 2026–27</span>
-                <span class="tunnel-tag">Student Council</span>
-                <span class="tunnel-tag">Culture &amp; Events</span>
-                <span class="tunnel-tag">Internshala Partner</span>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Bottom Pinned Depth Scrubber HUD -->
-        <div class="container tunnel-hud-bottom">
-          <div class="tunnel-scrubber-bar">
-            <div class="tunnel-scrubber-meta">
-              <span class="tunnel-active-label" id="tunnelActiveLabel">01 · SOF Mathematics Gold Medal &amp; ASSET Distinctions</span>
-              <span class="tunnel-depth-readout" id="tunnelDepthReadout">01 / 08</span>
-            </div>
-            <div class="tunnel-progress-track">
-              <div class="tunnel-progress-fill" id="tunnelProgressFill"></div>
-            </div>
-            <div class="tunnel-dots" role="tablist" aria-label="Jump to milestone in 3D tunnel">
-              <button class="tunnel-dot-btn active" data-jump="0" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">01 Academics</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="1" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">02 CCI</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="2" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">03 THE 1</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="3" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">04 Pitch</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="4" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">05 ADIS Pilot</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="5" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">06 Kerniq</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="6" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">07 Writing</span>
-              </button>
-              <button class="tunnel-dot-btn" data-jump="7" type="button">
-                <span class="tunnel-dot-pip"></span>
-                <span class="tunnel-dot-label">08 Leadership</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT III — DETAILED PROJECT CASE STUDIES
-    ================================================================= -->
-    <section class="projects-section" id="projects">
-      <div class="container">
-        <div class="reveal">
-          <span class="chapter-label">Project Case Studies</span>
-          <h2 class="chapter-heading">
-            From real student friction to <span class="serif-italic">working software.</span>
-          </h2>
-          <p class="chapter-lead">
-            An honest look at the systems I am building—covering the original problem, architectural structure, my personal contribution, real-world school testing, and what remains under active development.
-          </p>
-        </div>
-
-        <div class="case-study-stack">
-          <!-- CASE STUDY 01: THE 1 -->
-          <article class="case-study case-study--the1 reveal" aria-labelledby="case-the1-title">
-            <div class="case-header">
-              <div>
-                <div class="case-badges">
-                  <span class="case-num">Case Study 01 · Flagship Product</span>
-                  <span class="status-pill status-live">Live Web App · School Pilot Tested</span>
-                </div>
-                <h3 class="case-title" id="case-the1-title">THE 1</h3>
-                <p class="case-tagline">
-                  An all-in-one student workspace unifying class schedules, structured notes, homework, spaced revision, and context-aware AI assistance.
-                </p>
-              </div>
-              <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="case-external-btn">
-                <span>Open the-1.app</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-
-            <div class="case-tabs" role="tablist" aria-label="THE 1 case study sections">
-              <button class="case-tab active" data-case="the1" data-tab="overview" type="button">Problem &amp; Vision</button>
-              <button class="case-tab" data-case="the1" data-tab="architecture" type="button">Features &amp; Architecture</button>
-              <button class="case-tab" data-case="the1" data-tab="pilot" type="button">School Leadership &amp; ADIS Pilot</button>
-              <button class="case-tab" data-case="the1" data-tab="roadmap" type="button">Role, Status &amp; Roadmap</button>
-            </div>
-
-            <div class="case-body-grid">
-              <div class="case-detail-panel" id="the1Panel">
-                <div class="detail-block">
-                  <h4>Original Problem &amp; Motivation</h4>
-                  <p>
-                    As a student, I experienced firsthand how fragmented academic workflows become: timetables sit in one app, class notes in another, homework tasks in a third, and AI tools in separate browser tabs with zero awareness of what you are actually studying.
-                  </p>
-                </div>
-                <div class="detail-block">
-                  <h4>Product Vision</h4>
-                  <p>
-                    THE 1 was created to replace scattered tools with a single, calm student workspace—where daily schedules, subject notes, revision cycles, and AI tutoring stay connected in one coherent environment.
-                  </p>
-                </div>
-              </div>
-
-              <div class="schematic-card">
-                <div class="schematic-caption">
-                  <span>System Architecture Overview</span>
-                  <span>THE 1 Workspace</span>
-                </div>
-                <svg class="schematic-svg" viewBox="0 0 420 230" role="img" aria-label="THE 1 unified workspace architecture diagram">
-                  <rect x="16" y="16" width="118" height="46" rx="10" fill="rgba(249,115,22,0.14)" stroke="rgba(251,146,60,0.5)" />
-                  <text x="75" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Timetable</text>
-
-                  <rect x="151" y="16" width="118" height="46" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.5)" />
-                  <text x="210" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Notes &amp; Tasks</text>
-
-                  <rect x="286" y="16" width="118" height="46" rx="10" fill="rgba(16,185,129,0.14)" stroke="rgba(52,211,153,0.5)" />
-                  <text x="345" y="43" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Spaced Revision</text>
-
-                  <line x1="75" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
-                  <line x1="210" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
-                  <line x1="345" y1="62" x2="210" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
-
-                  <rect x="60" y="96" width="300" height="50" rx="12" fill="rgba(29,78,216,0.28)" stroke="rgba(147,197,253,0.55)" />
-                  <text x="210" y="125" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">Unified Subject &amp; Workspace Context Layer</text>
-
-                  <line x1="210" y1="146" x2="210" y2="172" stroke="rgba(253,224,71,0.55)" stroke-width="1.5" />
-
-                  <rect x="85" y="172" width="250" height="44" rx="10" fill="rgba(16,185,129,0.16)" stroke="rgba(110,231,183,0.5)" />
-                  <text x="210" y="198" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Context-Aware AI Study &amp; Quiz Engine</text>
-                </svg>
-              </div>
-            </div>
-
-            <dl class="case-meta-strip">
-              <div class="case-meta-item">
-                <dt>My Role</dt>
-                <dd>Founder &amp; Sole Developer — Product design, engineering, school presentation &amp; pilot iteration</dd>
-              </div>
-              <div class="case-meta-item">
-                <dt>Real-World Validation</dt>
-                <dd>Presented to school leadership; tested with students in the ADIS pilot</dd>
-              </div>
-              <div class="case-meta-item">
-                <dt>Current Status</dt>
-                <dd>Live at the-1.app with ongoing product releases and workflow refinements</dd>
-              </div>
-            </dl>
-          </article>
-
-          <!-- CASE STUDY 02: KERNIQ -->
-          <article class="case-study case-study--kerniq reveal" aria-labelledby="case-kerniq-title">
-            <div class="case-header">
-              <div>
-                <div class="case-badges">
-                  <span class="case-num">Case Study 02 · Intelligence Layer</span>
-                  <span class="status-pill status-active">Live Ecosystem System · Active R&amp;D</span>
-                </div>
-                <h3 class="case-title" id="case-kerniq-title">Kerniq</h3>
-                <p class="case-tagline">
-                  The intelligence and structured-reasoning system built within the THE 1 ecosystem to help learners synthesize complex concepts.
-                </p>
-              </div>
-              <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="case-external-btn">
-                <span>Open kerniq.the-1.app</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-
-            <div class="case-tabs" role="tablist" aria-label="Kerniq case study sections">
-              <button class="case-tab active" data-case="kerniq" data-tab="vision" type="button">Computing &amp; AI Vision</button>
-              <button class="case-tab" data-case="kerniq" data-tab="components" type="button">Architecture &amp; Concepts</button>
-              <button class="case-tab" data-case="kerniq" data-tab="status" type="button">Current vs. Future Plans</button>
-            </div>
-
-            <div class="case-body-grid">
-              <div class="case-detail-panel" id="kerniqPanel">
-                <div class="detail-block">
-                  <h4>Overall Computing &amp; AI Vision</h4>
-                  <p>
-                    Most AI tools optimize for giving an immediate final answer, which often bypasses genuine understanding. Kerniq explores a different direction: an intelligent computing layer designed to help students structure knowledge, trace reasoning step by step, and build durable mental models.
-                  </p>
-                </div>
-                <div class="detail-block">
-                  <h4>Ecosystem Role</h4>
-                  <p>
-                    Built directly alongside THE 1 at kerniq.the-1.app, Kerniq serves as the dedicated environment for deeper conceptual synthesis and AI-assisted study workflows.
-                  </p>
-                </div>
-              </div>
-
-              <div class="schematic-card">
-                <div class="schematic-caption">
-                  <span>Conceptual Architecture</span>
-                  <span>Kerniq Intelligence Loop</span>
-                </div>
-                <svg class="schematic-svg" viewBox="0 0 420 230" role="img" aria-label="Kerniq structured reasoning architecture diagram">
-                  <rect x="24" y="22" width="166" height="52" rx="10" fill="rgba(16,185,129,0.16)" stroke="rgba(52,211,153,0.52)" />
-                  <text x="107" y="45" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Student Material</text>
-                  <text x="107" y="61" text-anchor="middle" fill="#94a3b8" font-size="10">Notes, topics &amp; questions</text>
-
-                  <rect x="230" y="22" width="166" height="52" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.5)" />
-                  <text x="313" y="45" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">THE 1 Ecosystem</text>
-                  <text x="313" y="61" text-anchor="middle" fill="#94a3b8" font-size="10">Shared academic context</text>
-
-                  <line x1="107" y1="74" x2="210" y2="104" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
-                  <line x1="313" y1="74" x2="210" y2="104" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" />
-
-                  <rect x="52" y="104" width="316" height="48" rx="12" fill="rgba(16,185,129,0.22)" stroke="rgba(110,231,183,0.6)" />
-                  <text x="210" y="132" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">Kerniq Decomposition &amp; Synthesis Layer</text>
-
-                  <line x1="210" y1="152" x2="210" y2="174" stroke="rgba(110,231,183,0.55)" stroke-width="1.5" />
-
-                  <rect x="74" y="174" width="272" height="42" rx="10" fill="rgba(249,115,22,0.15)" stroke="rgba(251,146,60,0.48)" />
-                  <text x="210" y="199" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Guided Reasoning &amp; Active Recall Output</text>
-                </svg>
-              </div>
-            </div>
-
-            <dl class="case-meta-strip">
-              <div class="case-meta-item">
-                <dt>Focus</dt>
-                <dd>Structured AI reasoning, concept synthesis &amp; active learning workflows</dd>
-              </div>
-              <div class="case-meta-item">
-                <dt>Key Challenge</dt>
-                <dd>Designing AI guidance that strengthens student thinking without giving shallow shortcuts</dd>
-              </div>
-              <div class="case-meta-item">
-                <dt>Current Status</dt>
-                <dd>Live at kerniq.the-1.app; active experimentation and deeper THE 1 integration</dd>
-              </div>
-            </dl>
-          </article>
-
-          <!-- CASE STUDY 03: COLLEGE CHANCES INDIA -->
-          <article class="case-study case-study--cci reveal" aria-labelledby="case-cci-title">
-            <div class="case-header">
-              <div>
-                <div class="case-badges">
-                  <span class="case-num">Case Study 03 · Higher-Education Discovery</span>
-                  <span class="status-pill status-prototype">Early Prototype &amp; Concept Exploration</span>
-                </div>
-                <h3 class="case-title" id="case-cci-title">College Chances India</h3>
-                <p class="case-tagline">
-                  An AI-powered university exploration platform designed to help students navigate higher-education options in India with greater clarity.
-                </p>
-              </div>
-            </div>
-
-            <div class="case-body-grid">
-              <div class="case-detail-panel">
-                <div class="detail-block">
-                  <h4>Original Problem &amp; Concept</h4>
-                  <p>
-                    Exploring universities and evaluating admission pathways in India often requires sifting through scattered portals, cutoff tables, and conflicting advice. College Chances India started as an initiative to structure university discovery around a student’s academic profile and goals.
-                  </p>
-                </div>
-                <div class="detail-block">
-                  <h4>AI-Powered Approach &amp; Current Status</h4>
-                  <p>
-                    The prototype explores using AI to organize program criteria, compare university pathways, and surface realistic options clearly. Built as an early-stage project, it provided foundational lessons in data structuring and AI product design that directly informed my later work on THE 1 and Kerniq.
-                  </p>
-                </div>
-              </div>
-
-              <div class="schematic-card">
-                <div class="schematic-caption">
-                  <span>Exploration Flow</span>
-                  <span>College Chances India</span>
-                </div>
-                <svg class="schematic-svg" viewBox="0 0 420 210" role="img" aria-label="College Chances India exploration flow diagram">
-                  <rect x="30" y="24" width="360" height="44" rx="10" fill="rgba(250,204,21,0.14)" stroke="rgba(250,204,21,0.48)" />
-                  <text x="210" y="50" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Student Academic Profile &amp; Preferences</text>
-
-                  <line x1="210" y1="68" x2="210" y2="92" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-
-                  <rect x="55" y="92" width="310" height="44" rx="10" fill="rgba(29,78,216,0.28)" stroke="rgba(147,197,253,0.5)" />
-                  <text x="210" y="118" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="600">AI Program Matching &amp; Pathway Analysis</text>
-
-                  <line x1="210" y1="136" x2="210" y2="158" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-
-                  <rect x="30" y="158" width="360" height="40" rx="10" fill="rgba(16,185,129,0.15)" stroke="rgba(52,211,153,0.48)" />
-                  <text x="210" y="182" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="600">Structured University Comparison &amp; Exploration</text>
-                </svg>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT IV — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
-    ================================================================= -->
-    <section class="engineering-section" id="engineering">
-      <div class="container reveal">
-        <span class="chapter-label">Engineering &amp; Craft</span>
-        <h2 class="chapter-heading">
-          How I approach <span class="serif-italic">software architecture</span> and building.
-        </h2>
-        <p class="chapter-lead">
-          I learn by building complete, usable web applications—focusing on clean system design, reliable user workflows, and practical AI integration rather than surface-level demos.
+        <p class="page-lead">
+          A chronological record of moving between Germany and India, academic milestones, building software products, running a school pilot, writing, and taking on student leadership responsibilities.
         </p>
 
-        <div class="engineering-grid">
-          <div class="eng-card">
-            <span class="eng-kicker">01 · Core Technical Problems</span>
-            <h3 class="eng-title">Unified Workspace State &amp; Context Modeling</h3>
-            <p class="eng-copy">
-              Student productivity breaks down when schedules, notes, tasks, and revision live in disconnected silos. My primary engineering focus is designing structured relational workspace models so every note, deadline, and quiz shares a coherent subject context.
-            </p>
+        <div class="timeline-meta-bar">
+          <div class="filter-pills" role="group" aria-label="Filter timeline by category">
+            <button class="filter-pill active" data-filter="all" type="button">All Milestones (16)</button>
+            <button class="filter-pill" data-filter="Education" type="button">Education</button>
+            <button class="filter-pill" data-filter="Academics" type="button">Academics</button>
+            <button class="filter-pill" data-filter="Entrepreneurship" type="button">Entrepreneurship</button>
+            <button class="filter-pill" data-filter="Technology" type="button">Technology</button>
+            <button class="filter-pill" data-filter="Leadership" type="button">Leadership</button>
+          </div>
+          <span class="span-indicator">Earliest → Latest (08/2023 – 11/2026)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         VERTICAL CHRONOLOGICAL TIMELINE
+    ================================================================= -->
+    <section class="timeline-section" aria-label="Chronological milestones">
+      <div class="container">
+        <div class="timeline-track-wrapper" id="timelineWrapper">
+          <!-- Continuous Vertical Line -->
+          <div class="timeline-spine" aria-hidden="true">
+            <div class="timeline-spine-fill" id="timelineSpineFill"></div>
           </div>
 
-          <div class="eng-card">
-            <span class="eng-kicker">02 · Architectural Decisions</span>
-            <h3 class="eng-title">Deterministic Core, Grounded AI Layer</h3>
-            <p class="eng-copy">
-              Rather than making an entire application depend on unpredictable AI outputs, I separate deterministic student workflows (timetables, task tracking, structured notes) from the AI layer—allowing AI features in THE 1 and Kerniq to draw on explicit user context.
-            </p>
-          </div>
+          <div class="timeline-list" id="timelineList">
+            <!-- 01 · 08/2023 -->
+            <article class="timeline-entry" data-category="Education">
+              <div class="entry-date-col">
+                <span class="entry-date-code">08/2023</span>
+                <span class="entry-date-label">August 2023</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">08/2023 · August 2023</span>
+                  <span class="category-badge cat-education">Education</span>
+                </div>
+                <h2 class="entry-title">Began studying at Gymnasium Coswig in Germany</h2>
+                <p class="entry-desc">
+                  Started secondary school studies at Gymnasium Coswig in Germany, adapting to an international academic curriculum and building foundational discipline in mathematics and science.
+                </p>
+              </div>
+            </article>
 
-          <div class="eng-card">
-            <span class="eng-kicker">03 · Experiments &amp; Lessons Learned</span>
-            <h3 class="eng-title">Real Student Feedback Beats Assumptions</h3>
-            <p class="eng-copy">
-              Presenting THE 1 to school leadership and running the ADIS pilot taught me that real users immediately expose friction you miss while coding alone. Simplicity, fast load times, and clear visual hierarchy matter far more than adding extra buttons.
-            </p>
-          </div>
+            <!-- 02 · 06/2025 -->
+            <article class="timeline-entry" data-category="Education">
+              <div class="entry-date-col">
+                <span class="entry-date-code">06/2025</span>
+                <span class="entry-date-label">June 2025</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">06/2025 · June 2025</span>
+                  <span class="category-badge cat-education">Education</span>
+                </div>
+                <h2 class="entry-title">Completed my studies in Germany</h2>
+                <p class="entry-desc">
+                  Concluded my coursework at Gymnasium Coswig in Germany, wrapping up two formative years of international schooling.
+                </p>
+              </div>
+            </article>
 
-          <div class="eng-card">
-            <span class="eng-kicker">04 · Technologies &amp; Engineering Stack</span>
-            <h3 class="eng-title">Modern Web Engineering &amp; AI Workflows</h3>
-            <p class="eng-copy">
-              Building responsive, browser-first products with clean front-end architecture, structured data persistence, and API-driven AI integration.
-            </p>
-            <div class="tech-pill-row">
-              <span class="tech-pill">HTML5 &amp; Semantic UI</span>
-              <span class="tech-pill">Modern CSS Architecture</span>
-              <span class="tech-pill">JavaScript / TypeScript</span>
-              <span class="tech-pill">Web App State &amp; Routing</span>
-              <span class="tech-pill">LLM &amp; Context Workflows</span>
-              <span class="tech-pill">Git &amp; GitHub</span>
-            </div>
+            <!-- 03 · 07/2025 -->
+            <article class="timeline-entry" data-category="Education">
+              <div class="entry-date-col">
+                <span class="entry-date-code">07/2025</span>
+                <span class="entry-date-label">July 2025</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">07/2025 · July 2025</span>
+                  <span class="category-badge cat-education">Education</span>
+                </div>
+                <h2 class="entry-title">Moved to Ahmedabad, India</h2>
+                <p class="entry-desc">
+                  Relocated to Ahmedabad, India, beginning a new chapter of academic study, independent software development, and student community involvement.
+                </p>
+              </div>
+            </article>
+
+            <!-- 04 · 11/2025 -->
+            <article class="timeline-entry" data-category="Academics">
+              <div class="entry-date-col">
+                <span class="entry-date-code">11/2025</span>
+                <span class="entry-date-label">November 2025</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">11/2025 · November 2025</span>
+                  <span class="category-badge cat-academics">Academics</span>
+                </div>
+                <h2 class="entry-title">Received the SOF Mathematics Gold Medal of Excellence</h2>
+                <p class="entry-desc">
+                  Awarded the Science Olympiad Foundation (SOF) Mathematics Gold Medal of Excellence for strong quantitative reasoning and problem-solving performance.
+                </p>
+              </div>
+            </article>
+
+            <!-- 05 · 01/2026 (1 of 2) -->
+            <article class="timeline-entry" data-category="Academics">
+              <div class="entry-date-col">
+                <span class="entry-date-code">01/2026</span>
+                <span class="entry-date-label">January 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">01/2026 · January 2026</span>
+                  <span class="category-badge cat-academics">Academics</span>
+                </div>
+                <h2 class="entry-title">Achieved ASSET Mathematics Gold — 98th percentile</h2>
+                <p class="entry-desc">
+                  Earned a Gold distinction in the ASSET Mathematics assessment, scoring in the 98th percentile.
+                </p>
+              </div>
+            </article>
+
+            <!-- 06 · 01/2026 (2 of 2) -->
+            <article class="timeline-entry" data-category="Academics">
+              <div class="entry-date-col">
+                <span class="entry-date-code">01/2026</span>
+                <span class="entry-date-label">January 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">01/2026 · January 2026</span>
+                  <span class="category-badge cat-academics">Academics</span>
+                </div>
+                <h2 class="entry-title">Achieved ASSET Science Silver — 93rd percentile</h2>
+                <p class="entry-desc">
+                  Earned a Silver distinction in the ASSET Science assessment, scoring in the 93rd percentile.
+                </p>
+              </div>
+            </article>
+
+            <!-- 07 · 05/2026–08/2026 (Period Range) -->
+            <article class="timeline-entry" data-category="Entrepreneurship">
+              <div class="entry-date-col">
+                <span class="entry-date-code">05/2026–08/2026</span>
+                <span class="entry-date-label">May–August 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">05/2026–08/2026 · May–August 2026</span>
+                  <span class="category-badge cat-entrepreneurship">Entrepreneurship</span>
+                </div>
+                <h2 class="entry-title">College Chances India</h2>
+                <p class="entry-desc">
+                  Founded and developed College Chances India over May–August 2026 as an AI-assisted university exploration initiative for students in India, concluding the project in August 2026 with practical lessons in data structuring and product focus.
+                </p>
+              </div>
+            </article>
+
+            <!-- 08 · 06/2026 -->
+            <article class="timeline-entry" data-category="Technology">
+              <div class="entry-date-col">
+                <span class="entry-date-code">06/2026</span>
+                <span class="entry-date-label">June 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">06/2026 · June 2026</span>
+                  <span class="category-badge cat-technology">Technology</span>
+                </div>
+                <h2 class="entry-title">Started building THE 1</h2>
+                <p class="entry-desc">
+                  Began building THE 1 (the-1.app) as an integrated student workspace bringing class timetables, structured notes, homework tracking, revision tools, and context-aware AI assistance into one environment.
+                </p>
+              </div>
+            </article>
+
+            <!-- 09 · 07/2026 -->
+            <article class="timeline-entry" data-category="Leadership">
+              <div class="entry-date-col">
+                <span class="entry-date-code">07/2026</span>
+                <span class="entry-date-label">July 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">07/2026 · July 2026</span>
+                  <span class="category-badge cat-leadership">Leadership</span>
+                </div>
+                <h2 class="entry-title">Joined the Student Council and Culture &amp; Events team</h2>
+                <p class="entry-desc">
+                  Joined the Student Council alongside the Culture &amp; Events team, contributing to student representation, school programming, and campus community initiatives.
+                </p>
+              </div>
+            </article>
+
+            <!-- 10 · 10/2026 (1 of 3) -->
+            <article class="timeline-entry" data-category="Entrepreneurship">
+              <div class="entry-date-col">
+                <span class="entry-date-code">10/2026</span>
+                <span class="entry-date-label">October 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">10/2026 · October 2026</span>
+                  <span class="category-badge cat-entrepreneurship">Entrepreneurship</span>
+                </div>
+                <h2 class="entry-title">Conducted THE 1's school pilot at Adani International School</h2>
+                <p class="entry-desc">
+                  Ran a live school pilot of THE 1 at Adani International School, observing real student study workflows and gathering direct feedback to refine usability and reliability.
+                </p>
+              </div>
+            </article>
+
+            <!-- 11 · 10/2026 (2 of 3) -->
+            <article class="timeline-entry" data-category="Technology">
+              <div class="entry-date-col">
+                <span class="entry-date-code">10/2026</span>
+                <span class="entry-date-label">October 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">10/2026 · October 2026</span>
+                  <span class="category-badge cat-technology">Technology</span>
+                </div>
+                <h2 class="entry-title">Launched THE 1 on Product Hunt, following the school pilot</h2>
+                <p class="entry-desc">
+                  Launched THE 1 publicly on Product Hunt after incorporating improvements from the Adani International School pilot.
+                </p>
+              </div>
+            </article>
+
+            <!-- 12 · 10/2026 (3 of 3) -->
+            <article class="timeline-entry" data-category="Leadership">
+              <div class="entry-date-col">
+                <span class="entry-date-code">10/2026</span>
+                <span class="entry-date-label">October 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">10/2026 · October 2026</span>
+                  <span class="category-badge cat-leadership">Leadership</span>
+                </div>
+                <h2 class="entry-title">Joined the Round Square Student Committee for 2026–27</h2>
+                <p class="entry-desc">
+                  Joined the Round Square Student Committee for the 2026–27 term, helping coordinate student-led service, leadership, and internationalism projects.
+                </p>
+              </div>
+            </article>
+
+            <!-- 13 · 11/2026 (1 of 4) -->
+            <article class="timeline-entry" data-category="Technology">
+              <div class="entry-date-col">
+                <span class="entry-date-code">11/2026</span>
+                <span class="entry-date-label">November 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">11/2026 · November 2026</span>
+                  <span class="category-badge cat-technology">Technology</span>
+                </div>
+                <h2 class="entry-title">Started developing Kerniq</h2>
+                <p class="entry-desc">
+                  Began developing Kerniq (kerniq.the-1.app) within the THE 1 ecosystem to explore structured AI reasoning and step-by-step conceptual synthesis for students.
+                </p>
+              </div>
+            </article>
+
+            <!-- 14 · 11/2026 (2 of 4) -->
+            <article class="timeline-entry" data-category="Leadership">
+              <div class="entry-date-col">
+                <span class="entry-date-code">11/2026</span>
+                <span class="entry-date-label">November 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">11/2026 · November 2026</span>
+                  <span class="category-badge cat-leadership">Leadership</span>
+                </div>
+                <h2 class="entry-title">Became an Internshala Student Partner</h2>
+                <p class="entry-desc">
+                  Selected as an Internshala Student Partner, connecting peers with skill-building resources, internships, and early career opportunities.
+                </p>
+              </div>
+            </article>
+
+            <!-- 15 · 11/2026 (3 of 4) -->
+            <article class="timeline-entry" data-category="Entrepreneurship">
+              <div class="entry-date-col">
+                <span class="entry-date-code">11/2026</span>
+                <span class="entry-date-label">November 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">11/2026 · November 2026</span>
+                  <span class="category-badge cat-entrepreneurship">Entrepreneurship</span>
+                </div>
+                <h2 class="entry-title">Started <em>Building What’s Next</em>, my Substack publication</h2>
+                <p class="entry-desc">
+                  Launched <em>Building What’s Next</em> on Substack to share clear writing on artificial intelligence, software engineering, entrepreneurship, and building products as a student.
+                </p>
+              </div>
+            </article>
+
+            <!-- 16 · 11/2026 (4 of 4) -->
+            <article class="timeline-entry" data-category="Technology">
+              <div class="entry-date-col">
+                <span class="entry-date-code">11/2026</span>
+                <span class="entry-date-label">November 2026</span>
+              </div>
+              <div class="entry-marker-col" aria-hidden="true">
+                <span class="entry-marker"></span>
+              </div>
+              <div class="entry-card">
+                <div class="entry-card-top">
+                  <span class="entry-mobile-date">11/2026 · November 2026</span>
+                  <span class="category-badge cat-technology">Technology</span>
+                </div>
+                <h2 class="entry-title">Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini</h2>
+                <p class="entry-desc">
+                  Received an invitation from Google Gemini regarding potential involvement with a future version of Gemini.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =================================================================
-         ACT V — WRITING: "BUILDING WHAT'S NEXT"
+         FOOTER
     ================================================================= -->
-    <section class="writing-section" id="writing">
-      <div class="container reveal">
-        <div class="publication-shell">
-          <div class="publication-top">
-            <div>
-              <span class="chapter-label">Personal Publication · Substack</span>
-              <h2 class="chapter-heading">
-                Building <span class="serif-italic">What’s Next.</span>
-              </h2>
-            </div>
-            <p class="chapter-lead" style="margin-top: 0; max-width: 440px;">
-              My ongoing publication exploring technology, artificial intelligence, entrepreneurship, and the realities of building software products as a student.
-            </p>
-          </div>
-
-          <div class="publication-pillars">
-            <div class="pub-pillar">
-              <span class="pub-pillar-kicker">Theme 01</span>
-              <h3>AI &amp; Intelligent Systems</h3>
-              <p>Examining how AI can be designed to deepen human reasoning, clarity, and learning rather than replace thinking.</p>
-            </div>
-
-            <div class="pub-pillar">
-              <span class="pub-pillar-kicker">Theme 02</span>
-              <h3>Product Craft &amp; Engineering</h3>
-              <p>Documenting architectural decisions, interface design lessons, and insights from building THE 1 and Kerniq.</p>
-            </div>
-
-            <div class="pub-pillar">
-              <span class="pub-pillar-kicker">Theme 03</span>
-              <h3>Entrepreneurship &amp; Education</h3>
-              <p>Reflections on shipping early, running real-world pilots, and reimagining tools for students.</p>
-            </div>
-          </div>
-
-          <div class="publication-note">
-            <strong>Building What’s Next</strong> is published on Substack. Direct links to individual published essays and issues are curated alongside my ongoing writing updates.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT VI — CONTACT & FOOTER
-    ================================================================= -->
-    <section class="contact-section" id="contact">
-      <div class="container reveal">
-        <div class="contact-header">
-          <span class="chapter-label">Contact</span>
-          <h2 class="chapter-heading">
-            Let’s connect and <span class="serif-italic">build what’s next.</span>
-          </h2>
-          <p class="contact-sub">
-            Whether you want to discuss AI, software products, education, or new ideas—reach out directly through any of the channels below.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <!-- Email -->
-          <a href="mailto:samar.agshikar1@gmail.com" class="contact-card" aria-label="Email Samar Agshikar">
-            <div class="contact-card-top">
-              <span class="contact-icon-wrap" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="3" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </span>
-              <span class="contact-arrow" aria-hidden="true">↗</span>
-            </div>
-            <div class="contact-card-body">
-              <span class="contact-platform">Email</span>
-              <div class="contact-handle">samar.agshikar1@gmail.com</div>
-            </div>
-          </a>
-
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Connect with Samar Agshikar on LinkedIn">
-            <div class="contact-card-top">
-              <span class="contact-icon-wrap" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </span>
-              <span class="contact-arrow" aria-hidden="true">↗</span>
-            </div>
-            <div class="contact-card-body">
-              <span class="contact-platform">LinkedIn</span>
-              <div class="contact-handle">linkedin.com/in/samar-agshikar</div>
-            </div>
-          </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="View Samar Agshikar on GitHub">
-            <div class="contact-card-top">
-              <span class="contact-icon-wrap" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                  <path d="M9 18c-4.51 2-5-2-7-2" />
-                </svg>
-              </span>
-              <span class="contact-arrow" aria-hidden="true">↗</span>
-            </div>
-            <div class="contact-card-body">
-              <span class="contact-platform">GitHub</span>
-              <div class="contact-handle">github.com/samar-agshikar</div>
-            </div>
-          </a>
-
-          <!-- Publication: Building What's Next -->
-          <a href="#writing" class="contact-card" aria-label="Explore Building What's Next publication">
-            <div class="contact-card-top">
-              <span class="contact-icon-wrap" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                </svg>
-              </span>
-              <span class="contact-arrow" aria-hidden="true">↑</span>
-            </div>
-            <div class="contact-card-body">
-              <span class="contact-platform">Substack Publication</span>
-              <div class="contact-handle">Building What’s Next</div>
-            </div>
-          </a>
-        </div>
-
-        <footer class="footer-bar">
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-bar">
           <div>© 2026 Samar Agshikar · Building What’s Next</div>
           <nav class="footer-nav" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="timeline.html">Timeline</a>
             <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
             <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer">Kerniq</a>
-            <a href="#writing">Building What’s Next</a>
+            <a href="index.html#writing">Writing</a>
             <a href="mailto:samar.agshikar1@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener noreferrer">GitHub</a>
           </nav>
-        </footer>
+        </div>
       </div>
-    </section>
+    </footer>
   </main>
 
   <script>
-    /* =======================================================================
-       1. NAVIGATION SCROLL STATE & CONTACT CARD SPOTLIGHT
-    ======================================================================= */
+    /* 1. Sticky Header State */
     const siteHeader = document.getElementById('siteHeader');
     window.addEventListener(
       'scroll',
@@ -2295,479 +1191,79 @@
       { passive: true }
     );
 
-    document.querySelectorAll('.contact-card').forEach((card) => {
-      card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--cx', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--cy', `${e.clientY - rect.top}px`);
-      });
-    });
-
-    /* =======================================================================
-       2. MULTI-COLOUR SCROLL-DRIVEN ATMOSPHERIC TRANSITION ENGINE
-          (Navy Blue · Emerald Green · Vibrant Orange · Golden Yellow)
-    ======================================================================= */
-    (function initScrollAtmosphere() {
-      const root = document.documentElement;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      const stops = [
-        {
-          base: [5, 13, 34],
-          p1: [16, 185, 129, 0.36],
-          p2: [249, 115, 22, 0.32],
-          p3: [250, 204, 21, 0.25],
-          p4: [29, 78, 216, 0.42],
-          pos1: [18, 22],
-          pos2: [82, 26],
-          pos3: [68, 80],
-          pos4: [28, 74]
-        },
-        {
-          base: [5, 15, 36],
-          p1: [16, 185, 129, 0.40],
-          p2: [234, 179, 8, 0.28],
-          p3: [249, 115, 22, 0.24],
-          p4: [30, 64, 175, 0.40],
-          pos1: [76, 24],
-          pos2: [24, 46],
-          pos3: [78, 82],
-          pos4: [22, 22]
-        },
-        {
-          base: [6, 14, 36],
-          p1: [249, 115, 22, 0.38],
-          p2: [250, 204, 21, 0.30],
-          p3: [16, 185, 129, 0.28],
-          p4: [29, 78, 216, 0.42],
-          pos1: [22, 30],
-          pos2: [78, 52],
-          pos3: [30, 84],
-          pos4: [76, 20]
-        },
-        {
-          base: [6, 13, 32],
-          p1: [245, 158, 11, 0.36],
-          p2: [16, 185, 129, 0.34],
-          p3: [234, 88, 12, 0.28],
-          p4: [30, 58, 138, 0.44],
-          pos1: [76, 26],
-          pos2: [20, 58],
-          pos3: [72, 84],
-          pos4: [26, 24]
-        },
-        {
-          base: [5, 14, 35],
-          p1: [251, 146, 60, 0.36],
-          p2: [52, 211, 153, 0.34],
-          p3: [253, 224, 71, 0.26],
-          p4: [29, 78, 216, 0.40],
-          pos1: [24, 24],
-          pos2: [78, 44],
-          pos3: [64, 84],
-          pos4: [22, 76]
-        },
-        {
-          base: [5, 13, 34],
-          p1: [16, 185, 129, 0.38],
-          p2: [249, 115, 22, 0.36],
-          p3: [250, 204, 21, 0.30],
-          p4: [29, 78, 216, 0.42],
-          pos1: [26, 30],
-          pos2: [76, 34],
-          pos3: [52, 82],
-          pos4: [50, 20]
-        }
-      ];
-
-      const lerp = (a, b, t) => a + (b - a) * t;
-      const lerpColor = (c1, c2, t) => [
-        Math.round(lerp(c1[0], c2[0], t)),
-        Math.round(lerp(c1[1], c2[1], t)),
-        Math.round(lerp(c1[2], c2[2], t)),
-        c1.length === 4 ? lerp(c1[3], c2[3], t).toFixed(3) : 1
-      ];
-
-      let currentProgress = 0;
-
-      function applyAtmosphere(progress, time = 0) {
-        const scaled = Math.max(0, Math.min(stops.length - 1, progress * (stops.length - 1)));
-        const idx = Math.floor(scaled);
-        const nextIdx = Math.min(stops.length - 1, idx + 1);
-        const t = scaled - idx;
-
-        const a = stops[idx];
-        const b = stops[nextIdx];
-
-        const base = lerpColor(a.base, b.base, t);
-        const p1 = lerpColor(a.p1, b.p1, t);
-        const p2 = lerpColor(a.p2, b.p2, t);
-        const p3 = lerpColor(a.p3, b.p3, t);
-        const p4 = lerpColor(a.p4, b.p4, t);
-
-        const driftX = prefersReducedMotion ? 0 : Math.sin(time * 0.00038) * 4.0;
-        const driftY = prefersReducedMotion ? 0 : Math.cos(time * 0.00031) * 3.5;
-
-        root.style.setProperty('--env-base', `rgb(${base[0]}, ${base[1]}, ${base[2]})`);
-        root.style.setProperty('--light-primary', `rgba(${p1[0]}, ${p1[1]}, ${p1[2]}, ${p1[3]})`);
-        root.style.setProperty('--light-secondary', `rgba(${p2[0]}, ${p2[1]}, ${p2[2]}, ${p2[3]})`);
-        root.style.setProperty('--light-tertiary', `rgba(${p3[0]}, ${p3[1]}, ${p3[2]}, ${p3[3]})`);
-        root.style.setProperty('--light-quaternary', `rgba(${p4[0]}, ${p4[1]}, ${p4[2]}, ${p4[3]})`);
-
-        root.style.setProperty('--light-p1-x', `${(lerp(a.pos1[0], b.pos1[0], t) + driftX).toFixed(2)}%`);
-        root.style.setProperty('--light-p1-y', `${(lerp(a.pos1[1], b.pos1[1], t) + driftY).toFixed(2)}%`);
-        root.style.setProperty('--light-p2-x', `${(lerp(a.pos2[0], b.pos2[0], t) - driftX).toFixed(2)}%`);
-        root.style.setProperty('--light-p2-y', `${(lerp(a.pos2[1], b.pos2[1], t) + driftY).toFixed(2)}%`);
-        root.style.setProperty('--light-p3-x', `${(lerp(a.pos3[0], b.pos3[0], t) + driftX * 0.8).toFixed(2)}%`);
-        root.style.setProperty('--light-p3-y', `${(lerp(a.pos3[1], b.pos3[1], t) - driftY * 0.8).toFixed(2)}%`);
-        root.style.setProperty('--light-p4-x', `${(lerp(a.pos4[0], b.pos4[0], t) - driftX * 0.6).toFixed(2)}%`);
-        root.style.setProperty('--light-p4-y', `${(lerp(a.pos4[1], b.pos4[1], t) + driftY * 0.6).toFixed(2)}%`);
-      }
-
-      function tick(time) {
-        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        const targetProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-        currentProgress += (targetProgress - currentProgress) * 0.09;
-        applyAtmosphere(currentProgress, time);
-        if (!prefersReducedMotion) {
-          requestAnimationFrame(tick);
-        }
-      }
-
-      if (prefersReducedMotion) {
-        applyAtmosphere(0, 0);
-      } else {
-        requestAnimationFrame(tick);
-      }
-    })();
-
-    /* =======================================================================
-       3. MULTI-COLOUR VOLUMETRIC HERO AURORA RIBBON CANVAS
-    ======================================================================= */
-    (function initAuroraCanvas() {
-      const canvas = document.getElementById('auroraCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      let w = (canvas.width = canvas.offsetWidth);
-      let h = (canvas.height = canvas.offsetHeight);
-      let pointerX = 0.5;
-      let pointerY = 0.35;
-
-      window.addEventListener('resize', () => {
-        w = canvas.width = canvas.offsetWidth;
-        h = canvas.height = canvas.offsetHeight;
-        if (prefersReducedMotion) drawFrame(0);
+    /* 2. Mobile Navigation Toggle */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (mobileMenuBtn && mobileDrawer) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileDrawer.classList.toggle('open');
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
       });
 
-      window.addEventListener(
-        'pointermove',
-        (e) => {
-          pointerX = e.clientX / Math.max(1, window.innerWidth);
-          pointerY = e.clientY / Math.max(1, window.innerHeight);
-        },
-        { passive: true }
-      );
-
-      const ribbons = [
-        { color: 'rgba(16, 185, 129, 0.22)', amp: 56, freq: 0.0021, speed: 0.0005, yRatio: 0.36 },
-        { color: 'rgba(249, 115, 22, 0.20)', amp: 68, freq: 0.0017, speed: -0.00038, yRatio: 0.46 },
-        { color: 'rgba(250, 204, 21, 0.16)', amp: 46, freq: 0.0026, speed: 0.00062, yRatio: 0.55 }
-      ];
-
-      function drawFrame(time) {
-        ctx.clearRect(0, 0, w, h);
-        const scrollShift = Math.min(1, window.scrollY / Math.max(1, window.innerHeight)) * 80;
-
-        ribbons.forEach((r, idx) => {
-          ctx.beginPath();
-          const baseY = h * r.yRatio + scrollShift * (idx + 1) * 0.32 + (pointerY - 0.5) * 32;
-          ctx.moveTo(0, h);
-
-          for (let x = 0; x <= w; x += 24) {
-            const wave1 = Math.sin(x * r.freq + time * r.speed + idx * 1.4) * r.amp;
-            const wave2 = Math.cos(x * r.freq * 0.55 - time * r.speed * 0.8 + pointerX * 2.2) * (r.amp * 0.55);
-            ctx.lineTo(x, baseY + wave1 + wave2);
-          }
-
-          ctx.lineTo(w, h);
-          ctx.closePath();
-
-          const grad = ctx.createLinearGradient(0, baseY - r.amp, 0, h);
-          grad.addColorStop(0, r.color);
-          grad.addColorStop(1, 'rgba(4, 11, 30, 0)');
-          ctx.fillStyle = grad;
-          ctx.fill();
-        });
-
-        if (!prefersReducedMotion) {
-          requestAnimationFrame(drawFrame);
-        }
-      }
-
-      if (prefersReducedMotion) {
-        drawFrame(0);
-      } else {
-        requestAnimationFrame(drawFrame);
-      }
-    })();
-
-    /* =======================================================================
-       4. 3D STICKY SCROLL-DRIVEN ACHIEVEMENT TUNNEL ENGINE
-    ======================================================================= */
-    (function init3DTunnel() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const runway = document.getElementById('timeline');
-      const cards = Array.from(document.querySelectorAll('.tunnel-card'));
-      const portals = Array.from(document.querySelectorAll('.tunnel-portal'));
-      const dotBtns = Array.from(document.querySelectorAll('.tunnel-dot-btn'));
-      const activeLabel = document.getElementById('tunnelActiveLabel');
-      const depthReadout = document.getElementById('tunnelDepthReadout');
-      const progressFill = document.getElementById('tunnelProgressFill');
-
-      if (!runway || !cards.length) return;
-
-      const STEP_Z = 920; // Distance in px between consecutive milestones in 3D Z-space
-      const totalCards = cards.length;
-      const maxCameraZ = (totalCards - 1) * STEP_Z;
-
-      const milestoneTitles = [
-        '01 · SOF Mathematics Gold Medal & ASSET Distinctions',
-        '02 · Starting College Chances India',
-        '03 · Founding & Developing THE 1',
-        '04 · Presenting THE 1 to School Leadership',
-        '05 · The ADIS Pilot & THE 1 Product Releases',
-        '06 · Starting Kerniq',
-        '07 · Developing Building What’s Next',
-        '08 · Round Square Committee 2026–27 & Student Leadership'
-      ];
-
-      let smoothProgress = 0;
-
-      function getTargetProgress() {
-        const rect = runway.getBoundingClientRect();
-        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
-        const scrolled = -rect.top;
-        return Math.min(1, Math.max(0, scrolled / scrollable));
-      }
-
-      // Clickable scrubber dots smoothly scroll to exact tunnel depth
-      dotBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const idx = Number(btn.dataset.jump);
-          const runwayTop = runway.getBoundingClientRect().top + window.scrollY;
-          const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
-          const targetY = runwayTop + (idx / (totalCards - 1)) * scrollable;
-          window.scrollTo({ top: targetY, behavior: 'smooth' });
+      mobileDrawer.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('open');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
       });
 
-      function renderTunnel() {
-        const target = getTargetProgress();
-        // Smooth inertial damping so scrolling feels weighted & cinematic
-        smoothProgress += (target - smoothProgress) * 0.11;
-
-        const cameraZ = smoothProgress * maxCameraZ;
-        const activeIdx = Math.min(totalCards - 1, Math.max(0, Math.round(smoothProgress * (totalCards - 1))));
-
-        // Update HUD readout
-        if (progressFill) progressFill.style.width = `${(smoothProgress * 100).toFixed(2)}%`;
-        if (depthReadout) depthReadout.textContent = `${String(activeIdx + 1).padStart(2, '0')} / ${String(totalCards).padStart(2, '0')}`;
-        if (activeLabel && activeLabel.textContent !== milestoneTitles[activeIdx]) {
-          activeLabel.textContent = milestoneTitles[activeIdx];
+      document.addEventListener('click', (e) => {
+        if (!mobileDrawer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          mobileDrawer.classList.remove('open');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
+      });
+    }
 
-        dotBtns.forEach((btn, idx) => {
-          btn.classList.toggle('active', idx === activeIdx);
-        });
-
-        // Animate repeating 3D tunnel portal rings streaming past the camera
-        const portalSpan = 2700;
-        const portalSpacing = portalSpan / portals.length;
-        portals.forEach((portal, i) => {
-          const baseZ = -i * portalSpacing;
-          // Continuous wrap-around in Z-space as camera moves forward
-          let relZ = ((baseZ + cameraZ * 1.15) % portalSpan);
-          if (relZ > 320) relZ -= portalSpan;
-          const depthRatio = Math.max(0, Math.min(1, 1 - Math.abs(relZ) / portalSpan));
-          portal.style.transform = `translate3d(0, 0, ${relZ.toFixed(1)}px)`;
-          portal.style.opacity = (depthRatio * 0.65).toFixed(3);
-        });
-
-        // Position each chronological milestone card along the Z-axis
-        cards.forEach((card, i) => {
-          const cardZ = i * STEP_Z;
-          const relZ = cameraZ - cardZ; // 0 = centered in focal plane; negative = deeper in tunnel; positive = flying past camera
-
-          // Subtle lateral offset when deep in tunnel so upcoming cards peek out behind active card
-          const sideSign = i % 2 === 0 ? -1 : 1;
-          const depthFactor = Math.min(1, Math.abs(relZ) / STEP_Z);
-          const offsetX = relZ < 0 ? sideSign * depthFactor * 72 : 0;
-
-          let opacity = 0;
-          if (relZ <= 0 && relZ > -STEP_Z * 2.6) {
-            // Approaching from deep inside the tunnel
-            opacity = 1 - Math.abs(relZ) / (STEP_Z * 2.6);
-            opacity = Math.pow(Math.max(0, opacity), 1.35);
-          } else if (relZ > 0 && relZ < 520) {
-            // Passing past the viewer's lens
-            opacity = 1 - relZ / 520;
-          }
-
-          card.style.transform = `translate3d(${offsetX.toFixed(1)}px, -50%, ${relZ.toFixed(1)}px)`;
-          card.style.opacity = opacity.toFixed(3);
-          card.style.pointerEvents = Math.abs(relZ) < 260 ? 'auto' : 'none';
-          card.style.zIndex = String(100 - Math.round(Math.abs(relZ) / 50));
-        });
-
-        requestAnimationFrame(renderTunnel);
-      }
-
-      requestAnimationFrame(renderTunnel);
-    })();
-
-    /* =======================================================================
-       5. SCROLL REVEAL FOR STANDARD SECTIONS
-    ======================================================================= */
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
+    /* 3. Scroll-Reveal for Timeline Entries */
+    const entries = Array.from(document.querySelectorAll('.timeline-entry'));
+    const entryObserver = new IntersectionObserver(
+      (items) => {
+        items.forEach((item) => {
+          if (item.isIntersecting) {
+            item.target.classList.add('is-visible');
+            entryObserver.unobserve(item.target);
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
-    revealEls.forEach((el) => revealObserver.observe(el));
+    entries.forEach((entry) => entryObserver.observe(entry));
 
-    /* =======================================================================
-       6. INTERACTIVE CASE STUDY DIMENSION SWITCHERS (THE 1 & KERNIQ)
-    ======================================================================= */
-    const caseData = {
-      the1: {
-        overview: `
-          <div class="detail-block">
-            <h4>Original Problem &amp; Motivation</h4>
-            <p>
-              As a student, I experienced firsthand how fragmented academic workflows become: timetables sit in one app, class notes in another, homework tasks in a third, and AI tools in separate browser tabs with zero awareness of what you are actually studying.
-            </p>
-          </div>
-          <div class="detail-block">
-            <h4>Product Vision</h4>
-            <p>
-              THE 1 was created to replace scattered tools with a single, calm student workspace—where daily schedules, subject notes, revision cycles, and AI tutoring stay connected in one coherent environment.
-            </p>
-          </div>
-        `,
-        architecture: `
-          <div class="detail-block">
-            <h4>Features &amp; Functionality</h4>
-            <ul class="detail-list">
-              <li><strong>Weekly Timetable Alignment:</strong> Connects class schedules directly with dedicated study sessions.</li>
-              <li><strong>Structured Notes &amp; Homework:</strong> Keeps subject notes and upcoming assignments organized in one view.</li>
-              <li><strong>Spaced Revision &amp; Practice Quizzes:</strong> Reinforces retention through active recall grounded in student material.</li>
-              <li><strong>Context-Aware AI Assistance:</strong> Explains topics using the student’s own workspace notes rather than generic prompts.</li>
-            </ul>
-          </div>
-          <div class="detail-block">
-            <h4>Technical Architecture &amp; Challenges</h4>
-            <p>
-              Engineered as a unified web application with a shared workspace context layer so schedules, notes, and AI workflows stay synchronized. A central design challenge was keeping the interface calm and fast while supporting multiple interconnected study modes.
-            </p>
-          </div>
-        `,
-        pilot: `
-          <div class="detail-block">
-            <h4>Presenting to School Leadership</h4>
-            <p>
-              To validate THE 1 beyond personal use, I presented the platform’s vision, student workflow design, and educational safeguards to school leadership.
-            </p>
-          </div>
-          <div class="detail-block">
-            <h4>The ADIS Pilot Experience</h4>
-            <p>
-              Through the ADIS pilot, real students used THE 1 in their academic routines. Observing how students navigated timetables, note-taking, and revision revealed practical usability improvements that shaped subsequent product releases.
-            </p>
-          </div>
-        `,
-        roadmap: `
-          <div class="detail-block">
-            <h4>Personal Contribution &amp; Current Status</h4>
-            <p>
-              As founder and developer, I led product conception, interface design, full-stack web engineering, school leadership presentations, and pilot iterations. THE 1 is live at <strong>the-1.app</strong> with ongoing releases.
-            </p>
-          </div>
-          <div class="detail-block">
-            <h4>Future Roadmap</h4>
-            <ul class="detail-list">
-              <li>Refining core note-taking, homework, and spaced-revision speed based on student pilot feedback.</li>
-              <li>Deepening bidirectional intelligence workflows with Kerniq (kerniq.the-1.app).</li>
-              <li>Expanding structured study analytics so students can track topic mastery clearly.</li>
-            </ul>
-          </div>
-        `
-      },
-      kerniq: {
-        vision: `
-          <div class="detail-block">
-            <h4>Overall Computing &amp; AI Vision</h4>
-            <p>
-              Most AI tools optimize for giving an immediate final answer, which often bypasses genuine understanding. Kerniq explores a different direction: an intelligent computing layer designed to help students structure knowledge, trace reasoning step by step, and build durable mental models.
-            </p>
-          </div>
-          <div class="detail-block">
-            <h4>Ecosystem Role</h4>
-            <p>
-              Built directly alongside THE 1 at kerniq.the-1.app, Kerniq serves as the dedicated environment for deeper conceptual synthesis and AI-assisted study workflows.
-            </p>
-          </div>
-        `,
-        components: `
-          <div class="detail-block">
-            <h4>Architecture &amp; Major Components</h4>
-            <ul class="detail-list">
-              <li><strong>Context Ingestion Layer:</strong> Structures raw notes, topics, and learner questions into clean representations.</li>
-              <li><strong>Step-by-Step Reasoning Engine:</strong> Breaks complex concepts into logical stages instead of opaque single-paragraph answers.</li>
-              <li><strong>Active Recall &amp; Synthesis Interface:</strong> Turns studied concepts into structured summaries and self-check prompts.</li>
-            </ul>
-          </div>
-          <div class="detail-block">
-            <h4>Technical Concepts Being Explored</h4>
-            <p>
-              Exploring structured prompt orchestration, context grounding across subject notes, and interface patterns that keep the student actively engaged in verifying each step.
-            </p>
-          </div>
-        `,
-        status: `
-          <div class="detail-block">
-            <h4>Current Implementation vs. Future Plans</h4>
-            <p>
-              <strong>Current Implementation:</strong> Live web environment at kerniq.the-1.app integrated within the THE 1 ecosystem, supporting structured study synthesis and guided reasoning workflows.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>Future Plans &amp; Challenges:</strong> Ongoing work focuses on tighter cross-workspace memory with THE 1, reducing latency in multi-step reasoning, and ensuring AI explanations remain accurate and pedagogically sound.
-            </p>
-          </div>
-        `
-      }
-    };
+    /* 4. Continuous Vertical Spine Progress Fill */
+    const timelineWrapper = document.getElementById('timelineWrapper');
+    const timelineSpineFill = document.getElementById('timelineSpineFill');
 
-    document.querySelectorAll('.case-tab').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const caseKey = btn.dataset.case;
-        const tabKey = btn.dataset.tab;
-        document.querySelectorAll(`.case-tab[data-case="${caseKey}"]`).forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const panel = document.getElementById(`${caseKey}Panel`);
-        if (panel && caseData[caseKey]?.[tabKey]) {
-          panel.innerHTML = caseData[caseKey][tabKey];
-        }
+    function updateSpineProgress() {
+      if (!timelineWrapper || !timelineSpineFill) return;
+      const rect = timelineWrapper.getBoundingClientRect();
+      const viewportAnchor = window.innerHeight * 0.62;
+      const traveled = viewportAnchor - rect.top;
+      const ratio = Math.min(1, Math.max(0, traveled / Math.max(1, rect.height)));
+      timelineSpineFill.style.height = `${(ratio * 100).toFixed(2)}%`;
+    }
+
+    window.addEventListener('scroll', updateSpineProgress, { passive: true });
+    window.addEventListener('resize', updateSpineProgress, { passive: true });
+    updateSpineProgress();
+
+    /* 5. Category Filter Pills (Preserves Strict Chronological Order) */
+    const filterPills = document.querySelectorAll('.filter-pill');
+    filterPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const selected = pill.dataset.filter;
+        filterPills.forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        entries.forEach((entry) => {
+          const matches = selected === 'all' || entry.dataset.category === selected;
+          entry.classList.toggle('is-hidden', !matches);
+          if (matches) {
+            entry.classList.add('is-visible');
+          }
+        });
+
+        requestAnimationFrame(updateSpineProgress);
       });
     });
   </script>
