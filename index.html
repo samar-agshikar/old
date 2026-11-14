@@ -78,14 +78,14 @@
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     body {
       background-color: var(--env-base);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: clip;
       position: relative;
     }
 
@@ -173,7 +173,7 @@
 
     .site-header.scrolled {
       padding: 13px 0;
-      background: rgba(4, 11, 30, 0.8);
+      background: rgba(4, 11, 30, 0.82);
       backdrop-filter: blur(20px) saturate(165%);
       -webkit-backdrop-filter: blur(20px) saturate(165%);
       border-bottom-color: var(--hairline);
@@ -397,7 +397,6 @@
       line-height: 1.55;
     }
 
-    /* Coherent Storytelling Progression Bar */
     .journey-strip {
       position: relative;
       z-index: 2;
@@ -502,7 +501,327 @@
     }
 
     /* =====================================================================
-       6. ACT II — DETAILED PROJECT CASE STUDIES
+       6. ACT II — 3D SCROLL-PINNED ACHIEVEMENT TUNNEL
+          (Apple-style Sticky Z-Space Choreography)
+    ===================================================================== */
+    .tunnel-runway {
+      position: relative;
+      height: 560vh;
+      z-index: 3;
+    }
+
+    .tunnel-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 86px 0 30px;
+    }
+
+    /* 3D Perspective Stage */
+    .tunnel-perspective-viewport {
+      position: absolute;
+      inset: 0;
+      perspective: 1150px;
+      perspective-origin: 50% 52%;
+      transform-style: preserve-3d;
+      pointer-events: none;
+    }
+
+    .tunnel-world {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+    }
+
+    /* Concentric Glowing Tunnel Portals & Depth Guides */
+    .tunnel-portal {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      width: min(86vw, 940px);
+      height: min(64vh, 520px);
+      margin-left: calc(min(86vw, 940px) * -0.5);
+      margin-top: calc(min(64vh, 520px) * -0.5);
+      border-radius: 34px;
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      box-shadow:
+        inset 0 0 42px rgba(29, 78, 216, 0.16),
+        0 0 36px rgba(249, 115, 22, 0.08);
+      will-change: transform, opacity;
+    }
+
+    .tunnel-portal:nth-child(2n) {
+      border-color: rgba(251, 146, 60, 0.22);
+    }
+
+    .tunnel-portal:nth-child(3n) {
+      border-color: rgba(250, 204, 21, 0.22);
+    }
+
+    /* Tunnel Perspective Corner Sightlines */
+    .tunnel-sightlines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.35;
+    }
+
+    /* 3D Milestone Cards inside Z-Space */
+    .tunnel-card {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      width: min(88vw, 660px);
+      margin-left: calc(min(88vw, 660px) * -0.5);
+      transform: translate3d(0, -50%, -2000px);
+      padding: clamp(24px, 3.6vw, 38px);
+      border-radius: 24px;
+      background: linear-gradient(155deg, rgba(6, 16, 44, 0.92) 0%, rgba(4, 10, 26, 0.96) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow:
+        0 34px 80px -16px rgba(2, 6, 22, 0.92),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      will-change: transform, opacity;
+      pointer-events: auto;
+    }
+
+    .tunnel-card[data-accent="gold"] {
+      border-color: rgba(250, 204, 21, 0.45);
+      box-shadow:
+        0 34px 80px -16px rgba(2, 6, 22, 0.92),
+        0 0 42px -12px rgba(250, 204, 21, 0.25),
+        inset 0 1px 0 rgba(254, 240, 138, 0.3);
+    }
+
+    .tunnel-card[data-accent="green"] {
+      border-color: rgba(52, 211, 153, 0.45);
+      box-shadow:
+        0 34px 80px -16px rgba(2, 6, 22, 0.92),
+        0 0 42px -12px rgba(16, 185, 129, 0.25),
+        inset 0 1px 0 rgba(167, 243, 208, 0.3);
+    }
+
+    .tunnel-card[data-accent="orange"] {
+      border-color: rgba(251, 146, 60, 0.45);
+      box-shadow:
+        0 34px 80px -16px rgba(2, 6, 22, 0.92),
+        0 0 42px -12px rgba(249, 115, 22, 0.28),
+        inset 0 1px 0 rgba(254, 215, 170, 0.3);
+    }
+
+    .tunnel-card-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tunnel-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--yellow-accent);
+    }
+
+    .tunnel-card[data-accent="green"] .tunnel-step-badge {
+      color: var(--green-accent);
+    }
+
+    .tunnel-card[data-accent="orange"] .tunnel-step-badge {
+      color: var(--orange-accent);
+    }
+
+    .tunnel-time-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .tunnel-card-title {
+      font-size: clamp(1.45rem, 2.7vw, 2.05rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .tunnel-card-desc {
+      font-size: 0.98rem;
+      line-height: 1.66;
+      color: #e2e8f0;
+      margin-bottom: 18px;
+    }
+
+    .tunnel-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tunnel-tag {
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: var(--warm-cream);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Pinned Top & Bottom Tunnel HUD */
+    .tunnel-hud-top {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      pointer-events: none;
+    }
+
+    .tunnel-hud-title {
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .tunnel-hud-title .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(120deg, #6ee7b7 0%, #fde047 55%, #fb923c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tunnel-scroll-cue {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(4, 11, 30, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+    }
+
+    .tunnel-hud-bottom {
+      position: relative;
+      z-index: 5;
+      pointer-events: auto;
+    }
+
+    .tunnel-scrubber-bar {
+      padding: 14px 20px;
+      border-radius: 18px;
+      background: rgba(4, 11, 30, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tunnel-scrubber-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.8rem;
+    }
+
+    .tunnel-active-label {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .tunnel-depth-readout {
+      font-variant-numeric: tabular-nums;
+      color: var(--yellow-accent);
+      font-weight: 600;
+    }
+
+    .tunnel-progress-track {
+      width: 100%;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+    }
+
+    .tunnel-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green-accent), var(--yellow-accent), var(--orange-accent));
+      transition: width 0.08s linear;
+    }
+
+    .tunnel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .tunnel-dot-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 4px 2px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .tunnel-dot-btn:hover,
+    .tunnel-dot-btn.active {
+      color: var(--text-primary);
+    }
+
+    .tunnel-dot-pip {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.24);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .tunnel-dot-btn.active .tunnel-dot-pip {
+      transform: scale(1.35);
+      background: var(--yellow-accent);
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
+    }
+
+    /* =====================================================================
+       7. ACT III — DETAILED PROJECT CASE STUDIES
     ===================================================================== */
     .projects-section {
       padding: 112px 0 88px;
@@ -634,7 +953,6 @@
       background: rgba(250, 204, 21, 0.14);
     }
 
-    /* Case Study Interactive Dimension Tabs */
     .case-tabs {
       display: flex;
       flex-wrap: wrap;
@@ -737,7 +1055,6 @@
       background: var(--yellow-accent);
     }
 
-    /* Authentic Architectural Schematic Card */
     .schematic-card {
       border-radius: 18px;
       padding: 22px;
@@ -786,7 +1103,7 @@
     }
 
     /* =====================================================================
-       7. ACT III — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
+       8. ACT IV — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
     ===================================================================== */
     .engineering-section {
       padding: 104px 0;
@@ -805,10 +1122,6 @@
       background: rgba(4, 11, 30, 0.62);
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(14px);
-    }
-
-    .eng-card--wide {
-      grid-column: span 2;
     }
 
     .eng-kicker {
@@ -853,212 +1166,7 @@
     }
 
     /* =====================================================================
-       8. ACT IV — CHRONOLOGICAL DEVELOPMENT TIMELINE
-    ===================================================================== */
-    .timeline-section {
-      padding: 104px 0;
-    }
-
-    .timeline-track {
-      margin-top: 56px;
-      position: relative;
-      padding-left: 32px;
-      border-left: 1px solid rgba(250, 204, 21, 0.34);
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .timeline-node {
-      position: relative;
-      padding: 24px 28px;
-      border-radius: 18px;
-      background: rgba(4, 11, 30, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .timeline-node:hover {
-      border-color: rgba(251, 146, 60, 0.45);
-      transform: translateX(4px);
-    }
-
-    .timeline-node::before {
-      content: "";
-      position: absolute;
-      left: -38px;
-      top: 28px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--green-accent), var(--yellow-accent), var(--orange-accent));
-      box-shadow: 0 0 14px rgba(250, 204, 21, 0.65);
-    }
-
-    .timeline-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .timeline-phase {
-      font-size: 0.74rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--orange-accent);
-    }
-
-    .timeline-time {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: var(--yellow-accent);
-    }
-
-    .timeline-title {
-      font-size: 1.18rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    .timeline-desc {
-      font-size: 0.93rem;
-      line-height: 1.64;
-      color: var(--text-secondary);
-    }
-
-    /* =====================================================================
-       9. ACT V — ACADEMIC RECOGNITION & LEADERSHIP
-    ===================================================================== */
-    .recognition-section {
-      padding: 104px 0 64px;
-    }
-
-    .ledger {
-      margin-top: 48px;
-      border-top: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(4, 11, 30, 0.56);
-      backdrop-filter: blur(12px);
-      padding: 0 28px;
-      border-radius: 18px;
-    }
-
-    .ledger-row {
-      display: grid;
-      grid-template-columns: 1.2fr 1.1fr 0.7fr;
-      gap: 24px;
-      align-items: center;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--hairline);
-      transition: padding-left 0.3s var(--ease-out-expo), background-color 0.3s ease;
-    }
-
-    .ledger-row:last-child {
-      border-bottom: none;
-    }
-
-    .ledger-row:hover {
-      padding-left: 12px;
-      background: linear-gradient(90deg, rgba(250, 204, 21, 0.08), transparent 70%);
-    }
-
-    .ledger-award {
-      font-size: clamp(1.18rem, 2.1vw, 1.5rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      color: var(--text-primary);
-    }
-
-    .ledger-discipline {
-      font-size: 0.94rem;
-      color: var(--text-secondary);
-    }
-
-    .ledger-distinction {
-      justify-self: end;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 7px 16px;
-      border-radius: 999px;
-    }
-
-    .distinction-gold {
-      color: #fef08a;
-      background: rgba(250, 204, 21, 0.16);
-      border: 1px solid rgba(250, 204, 21, 0.42);
-    }
-
-    .distinction-silver {
-      color: #a7f3d0;
-      background: rgba(16, 185, 129, 0.16);
-      border: 1px solid rgba(52, 211, 153, 0.4);
-    }
-
-    .leadership-section {
-      padding: 72px 0 104px;
-    }
-
-    .leadership-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: clamp(36px, 6vw, 80px);
-      align-items: start;
-    }
-
-    .leadership-intro-copy {
-      margin-top: 18px;
-      font-size: 1rem;
-      line-height: 1.68;
-      color: #e2e8f0;
-    }
-
-    .roles-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .role-item {
-      padding: 24px;
-      border-radius: 16px;
-      background: rgba(4, 11, 30, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-    }
-
-    .role-tag {
-      font-size: 0.74rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--orange-accent);
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .role-title {
-      font-size: 1.18rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    .role-desc {
-      font-size: 0.91rem;
-      line-height: 1.62;
-      color: var(--text-secondary);
-    }
-
-    /* =====================================================================
-       10. ACT VI — WRITING: "BUILDING WHAT'S NEXT" (AUTHENTIC PUBLICATION)
+       9. ACT V — WRITING: "BUILDING WHAT'S NEXT"
     ===================================================================== */
     .writing-section {
       padding: 108px 0;
@@ -1132,7 +1240,7 @@
     }
 
     /* =====================================================================
-       11. ACT VII — CONTACT & FOOTER
+       10. ACT VI — CONTACT & FOOTER
     ===================================================================== */
     .contact-section {
       padding: 108px 0 76px;
@@ -1297,7 +1405,7 @@
     }
 
     /* =====================================================================
-       12. RESPONSIVE & ACCESSIBILITY
+       11. RESPONSIVE & REDUCED MOTION FALLBACK
     ===================================================================== */
     @media (max-width: 980px) {
       .nav-menu {
@@ -1307,14 +1415,9 @@
       .hero-grid,
       .case-body-grid,
       .engineering-grid,
-      .leadership-layout,
       .publication-pillars,
       .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .eng-card--wide {
-        grid-column: span 1;
       }
 
       .journey-steps {
@@ -1333,21 +1436,15 @@
       .case-meta-strip {
         grid-template-columns: 1fr;
       }
-
-      .ledger-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .ledger-distinction {
-        justify-self: start;
-      }
     }
 
-    @media (max-width: 600px) {
-      .journey-steps,
-      .roles-grid {
+    @media (max-width: 640px) {
+      .journey-steps {
         grid-template-columns: 1fr;
+      }
+
+      .tunnel-dot-label {
+        display: none;
       }
     }
 
@@ -1360,10 +1457,38 @@
         transform: none;
         transition: none;
       }
-      .contact-card,
-      .timeline-node,
-      .journey-step {
-        transition: none;
+      .tunnel-runway {
+        height: auto;
+        padding: 96px 0;
+      }
+      .tunnel-sticky {
+        position: static;
+        height: auto;
+        padding: 0;
+      }
+      .tunnel-perspective-viewport {
+        position: static;
+        perspective: none;
+        pointer-events: auto;
+      }
+      .tunnel-world {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 32px;
+      }
+      .tunnel-portal,
+      .tunnel-sightlines,
+      .tunnel-hud-bottom,
+      .tunnel-scroll-cue {
+        display: none;
+      }
+      .tunnel-card {
+        position: static;
+        width: 100%;
+        margin: 0;
+        transform: none !important;
+        opacity: 1 !important;
       }
     }
   </style>
@@ -1384,10 +1509,9 @@
       </a>
 
       <nav class="nav-menu" aria-label="Primary">
+        <a href="#timeline">3D Timeline</a>
         <a href="#projects">Case Studies</a>
         <a href="#engineering">Engineering</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#recognition">Recognition</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1419,16 +1543,16 @@
             </h1>
 
             <p class="hero-lead">
-              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. From early prototypes to real school pilots, I build software designed to make learning and thinking clearer.
+              I’m Samar Agshikar—a student builder working at the intersection of artificial intelligence, mathematics, technology, and education. Scroll down to enter the 3D chronological tunnel of my milestones, products, and leadership journey.
             </p>
 
             <div class="hero-actions">
-              <a href="#projects" class="btn-luminous">
-                <span>Explore Project Case Studies</span>
+              <a href="#timeline" class="btn-luminous">
+                <span>Enter 3D Achievement Tunnel</span>
                 <span aria-hidden="true">↓</span>
               </a>
-              <a href="#timeline" class="btn-quiet">
-                <span>View Development Timeline</span>
+              <a href="#projects" class="btn-quiet">
+                <span>Explore Project Case Studies</span>
               </a>
             </div>
           </div>
@@ -1449,7 +1573,7 @@
           </dl>
         </div>
 
-        <!-- Coherent Storytelling Progression: Curiosity -> What's Next -->
+        <!-- Coherent Storytelling Progression -->
         <div class="journey-strip" aria-label="Journey progression">
           <div class="journey-steps">
             <div class="journey-step">
@@ -1488,7 +1612,230 @@
     </section>
 
     <!-- =================================================================
-         ACT II — DETAILED PROJECT CASE STUDIES
+         ACT II — 3D SCROLL-PINNED CHRONOLOGICAL ACHIEVEMENT TUNNEL
+    ================================================================= -->
+    <section class="tunnel-runway" id="timeline" aria-label="3D Chronological Milestones Tunnel">
+      <div class="tunnel-sticky">
+        <!-- Top Pinned HUD -->
+        <div class="container tunnel-hud-top">
+          <div>
+            <span class="chapter-label" style="margin-bottom: 6px;">3D Chronological Tunnel · 01 — 08</span>
+            <h2 class="tunnel-hud-title">
+              Through time, into <span class="serif-italic">What’s Next.</span>
+            </h2>
+          </div>
+          <div class="tunnel-scroll-cue">Scroll slowly to travel deeper ↓</div>
+        </div>
+
+        <!-- 3D Z-Space Viewport -->
+        <div class="tunnel-perspective-viewport">
+          <!-- Perspective Sightlines -->
+          <svg class="tunnel-sightlines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="0" x2="460" y2="330" stroke="rgba(52,211,153,0.28)" stroke-width="1" />
+            <line x1="1200" y1="0" x2="740" y2="330" stroke="rgba(251,146,60,0.28)" stroke-width="1" />
+            <line x1="0" y1="800" x2="460" y2="490" stroke="rgba(250,204,21,0.28)" stroke-width="1" />
+            <line x1="1200" y1="800" x2="740" y2="490" stroke="rgba(59,130,246,0.32)" stroke-width="1" />
+          </svg>
+
+          <div class="container tunnel-world" id="tunnelWorld">
+            <!-- 6 Streaming Tunnel Portal Frames -->
+            <div class="tunnel-portal" data-portal="0"></div>
+            <div class="tunnel-portal" data-portal="1"></div>
+            <div class="tunnel-portal" data-portal="2"></div>
+            <div class="tunnel-portal" data-portal="3"></div>
+            <div class="tunnel-portal" data-portal="4"></div>
+            <div class="tunnel-portal" data-portal="5"></div>
+
+            <!-- 01: Academic Distinctions -->
+            <article class="tunnel-card" data-milestone="0" data-accent="gold">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">01 / 08 · Quantitative Foundation</span>
+                <span class="tunnel-time-tag">Academic Distinctions</span>
+              </div>
+              <h3 class="tunnel-card-title">SOF Mathematics Gold Medal &amp; ASSET Distinctions</h3>
+              <p class="tunnel-card-desc">
+                Awarded the SOF Mathematics Gold Medal of Excellence, alongside achieving the 98th percentile (Gold Distinction) in ASSET Mathematics and 93rd percentile (Silver Distinction) in ASSET Science—building the analytical foundation behind how I design systems.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">SOF Math Gold Medal</span>
+                <span class="tunnel-tag">ASSET Math · 98th Percentile</span>
+                <span class="tunnel-tag">ASSET Science · 93rd Percentile</span>
+              </div>
+            </article>
+
+            <!-- 02: College Chances India -->
+            <article class="tunnel-card" data-milestone="1" data-accent="orange">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">02 / 08 · Early AI Experimentation</span>
+                <span class="tunnel-time-tag">Prototype Initiative</span>
+              </div>
+              <h3 class="tunnel-card-title">Starting College Chances India</h3>
+              <p class="tunnel-card-desc">
+                Initiated an AI-powered university exploration platform concept to help students evaluate higher-education pathways in India with structured data instead of scattered admission guesswork.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">AI &amp; Education</span>
+                <span class="tunnel-tag">University Discovery</span>
+                <span class="tunnel-tag">Early Prototype</span>
+              </div>
+            </article>
+
+            <!-- 03: Founding THE 1 -->
+            <article class="tunnel-card" data-milestone="2" data-accent="orange">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">03 / 08 · Flagship Product Founding</span>
+                <span class="tunnel-time-tag">the-1.app</span>
+              </div>
+              <h3 class="tunnel-card-title">Founding &amp; Developing THE 1</h3>
+              <p class="tunnel-card-desc">
+                Designed and engineered THE 1 as an all-in-one student workspace unifying class timetables, structured notes, homework tracking, spaced revision, practice quizzes, and context-aware AI tools.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">Founder &amp; Developer</span>
+                <span class="tunnel-tag">Unified Student Workspace</span>
+                <span class="tunnel-tag">Context-Aware AI</span>
+              </div>
+            </article>
+
+            <!-- 04: Presenting to School Leadership -->
+            <article class="tunnel-card" data-milestone="3" data-accent="gold">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">04 / 08 · Institutional Pitch</span>
+                <span class="tunnel-time-tag">School Leadership</span>
+              </div>
+              <h3 class="tunnel-card-title">Presenting THE 1 to School Leadership</h3>
+              <p class="tunnel-card-desc">
+                Presented THE 1’s product vision, student workflow architecture, and classroom alignment directly to school leadership—bridging independent software development with real institutional adoption.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">Product Demonstration</span>
+                <span class="tunnel-tag">School Leadership</span>
+                <span class="tunnel-tag">Pilot Preparation</span>
+              </div>
+            </article>
+
+            <!-- 05: ADIS Pilot & Product Releases -->
+            <article class="tunnel-card" data-milestone="4" data-accent="green">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">05 / 08 · Real-World Student Testing</span>
+                <span class="tunnel-time-tag">Pilot &amp; Releases</span>
+              </div>
+              <h3 class="tunnel-card-title">The ADIS Pilot &amp; THE 1 Product Releases</h3>
+              <p class="tunnel-card-desc">
+                Deployed THE 1 with real students during the ADIS pilot, observing authentic daily study workflows and shipping iterative product releases to sharpen speed, clarity, and reliability.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">ADIS School Pilot</span>
+                <span class="tunnel-tag">User Feedback Loop</span>
+                <span class="tunnel-tag">Iterative Releases</span>
+              </div>
+            </article>
+
+            <!-- 06: Starting Kerniq -->
+            <article class="tunnel-card" data-milestone="5" data-accent="green">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">06 / 08 · Ecosystem Intelligence Layer</span>
+                <span class="tunnel-time-tag">kerniq.the-1.app</span>
+              </div>
+              <h3 class="tunnel-card-title">Starting Kerniq</h3>
+              <p class="tunnel-card-desc">
+                Launched Kerniq within the THE 1 ecosystem to explore structured AI reasoning, conceptual synthesis, and guided step-by-step learning workflows that strengthen understanding rather than giving shallow shortcuts.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">Structured AI Reasoning</span>
+                <span class="tunnel-tag">Conceptual Synthesis</span>
+                <span class="tunnel-tag">THE 1 Ecosystem</span>
+              </div>
+            </article>
+
+            <!-- 07: Developing Building What's Next -->
+            <article class="tunnel-card" data-milestone="6" data-accent="gold">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">07 / 08 · Personal Publication</span>
+                <span class="tunnel-time-tag">Substack</span>
+              </div>
+              <h3 class="tunnel-card-title">Developing Building What’s Next</h3>
+              <p class="tunnel-card-desc">
+                Created my personal publication to document clear thinking on artificial intelligence, software engineering, entrepreneurship, and lessons from building products as a student.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">Building What’s Next</span>
+                <span class="tunnel-tag">AI &amp; Product Craft</span>
+                <span class="tunnel-tag">Substack Writing</span>
+              </div>
+            </article>
+
+            <!-- 08: Leadership & Campus Responsibility -->
+            <article class="tunnel-card" data-milestone="7" data-accent="orange">
+              <div class="tunnel-card-top">
+                <span class="tunnel-step-badge">08 / 08 · Governance &amp; Community</span>
+                <span class="tunnel-time-tag">2026–27</span>
+              </div>
+              <h3 class="tunnel-card-title">Round Square Committee 2026–27 &amp; Student Leadership</h3>
+              <p class="tunnel-card-desc">
+                Serving on the Round Square Student Committee (2026–27), Student Council, Culture and Events team, and as an Internshala Student Partner—connecting peers with service, campus events, and career opportunities.
+              </p>
+              <div class="tunnel-card-tags">
+                <span class="tunnel-tag">Round Square 2026–27</span>
+                <span class="tunnel-tag">Student Council</span>
+                <span class="tunnel-tag">Culture &amp; Events</span>
+                <span class="tunnel-tag">Internshala Partner</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Bottom Pinned Depth Scrubber HUD -->
+        <div class="container tunnel-hud-bottom">
+          <div class="tunnel-scrubber-bar">
+            <div class="tunnel-scrubber-meta">
+              <span class="tunnel-active-label" id="tunnelActiveLabel">01 · SOF Mathematics Gold Medal &amp; ASSET Distinctions</span>
+              <span class="tunnel-depth-readout" id="tunnelDepthReadout">01 / 08</span>
+            </div>
+            <div class="tunnel-progress-track">
+              <div class="tunnel-progress-fill" id="tunnelProgressFill"></div>
+            </div>
+            <div class="tunnel-dots" role="tablist" aria-label="Jump to milestone in 3D tunnel">
+              <button class="tunnel-dot-btn active" data-jump="0" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">01 Academics</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="1" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">02 CCI</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="2" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">03 THE 1</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="3" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">04 Pitch</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="4" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">05 ADIS Pilot</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="5" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">06 Kerniq</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="6" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">07 Writing</span>
+              </button>
+              <button class="tunnel-dot-btn" data-jump="7" type="button">
+                <span class="tunnel-dot-pip"></span>
+                <span class="tunnel-dot-label">08 Leadership</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT III — DETAILED PROJECT CASE STUDIES
     ================================================================= -->
     <section class="projects-section" id="projects">
       <div class="container">
@@ -1503,9 +1850,7 @@
         </div>
 
         <div class="case-study-stack">
-          <!-- =============================================================
-               CASE STUDY 01: THE 1
-          ============================================================== -->
+          <!-- CASE STUDY 01: THE 1 -->
           <article class="case-study case-study--the1 reveal" aria-labelledby="case-the1-title">
             <div class="case-header">
               <div>
@@ -1547,7 +1892,6 @@
                 </div>
               </div>
 
-              <!-- Authentic Architectural Schematic -->
               <div class="schematic-card">
                 <div class="schematic-caption">
                   <span>System Architecture Overview</span>
@@ -1594,9 +1938,7 @@
             </dl>
           </article>
 
-          <!-- =============================================================
-               CASE STUDY 02: KERNIQ
-          ============================================================== -->
+          <!-- CASE STUDY 02: KERNIQ -->
           <article class="case-study case-study--kerniq reveal" aria-labelledby="case-kerniq-title">
             <div class="case-header">
               <div>
@@ -1637,7 +1979,6 @@
                 </div>
               </div>
 
-              <!-- Authentic Architectural Schematic -->
               <div class="schematic-card">
                 <div class="schematic-caption">
                   <span>Conceptual Architecture</span>
@@ -1682,9 +2023,7 @@
             </dl>
           </article>
 
-          <!-- =============================================================
-               CASE STUDY 03: COLLEGE CHANCES INDIA
-          ============================================================== -->
+          <!-- CASE STUDY 03: COLLEGE CHANCES INDIA -->
           <article class="case-study case-study--cci reveal" aria-labelledby="case-cci-title">
             <div class="case-header">
               <div>
@@ -1742,7 +2081,7 @@
     </section>
 
     <!-- =================================================================
-         ACT III — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
+         ACT IV — TECHNICAL CREDIBILITY & ENGINEERING PRACTICE
     ================================================================= -->
     <section class="engineering-section" id="engineering">
       <div class="container reveal">
@@ -1799,192 +2138,7 @@
     </section>
 
     <!-- =================================================================
-         ACT IV — CHRONOLOGICAL DEVELOPMENT TIMELINE
-    ================================================================= -->
-    <section class="timeline-section" id="timeline">
-      <div class="container reveal">
-        <span class="chapter-label">Journey</span>
-        <h2 class="chapter-heading">
-          Development <span class="serif-italic">timeline.</span>
-        </h2>
-        <p class="chapter-lead">
-          Key milestones across my academic foundation, software products, school pilot, writing, and student leadership.
-        </p>
-
-        <div class="timeline-track">
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Academic Foundation</span>
-              <span class="timeline-time">Mathematics &amp; Science</span>
-            </div>
-            <h3 class="timeline-title">SOF Mathematics Gold Medal &amp; ASSET Distinctions</h3>
-            <p class="timeline-desc">
-              Awarded the SOF Mathematics Gold Medal of Excellence, alongside the 98th percentile (Gold) in ASSET Mathematics and 93rd percentile (Silver) in ASSET Science—building the analytical discipline that underpins my software engineering.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Early Experimentation</span>
-              <span class="timeline-time">AI &amp; Education</span>
-            </div>
-            <h3 class="timeline-title">Starting College Chances India</h3>
-            <p class="timeline-desc">
-              Initiated an AI-powered university exploration platform concept to help students evaluate higher-education pathways in India with greater transparency.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Product Founding</span>
-              <span class="timeline-time">the-1.app</span>
-            </div>
-            <h3 class="timeline-title">Founding &amp; Developing THE 1</h3>
-            <p class="timeline-desc">
-              Designed and built THE 1 as an all-in-one student workspace uniting timetables, structured notes, homework tracking, spaced revision, and AI study tools.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Institutional Pitch</span>
-              <span class="timeline-time">School Leadership</span>
-            </div>
-            <h3 class="timeline-title">Presenting THE 1 to School Leadership</h3>
-            <p class="timeline-desc">
-              Demonstrated THE 1’s unified student workflow vision and product capabilities to school leadership to prepare for structured student testing.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Real-World Validation</span>
-              <span class="timeline-time">Pilot &amp; Releases</span>
-            </div>
-            <h3 class="timeline-title">The ADIS Pilot &amp; THE 1 Product Releases</h3>
-            <p class="timeline-desc">
-              Conducted the ADIS school pilot with real students, gathering direct usability insights and shipping iterative product releases to refine daily study workflows.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Ecosystem Expansion</span>
-              <span class="timeline-time">kerniq.the-1.app</span>
-            </div>
-            <h3 class="timeline-title">Starting Kerniq</h3>
-            <p class="timeline-desc">
-              Launched Kerniq within the THE 1 ecosystem to explore deeper AI-assisted concept synthesis and guided step-by-step reasoning for learners.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Writing &amp; Synthesis</span>
-              <span class="timeline-time">Publication</span>
-            </div>
-            <h3 class="timeline-title">Developing Building What’s Next</h3>
-            <p class="timeline-desc">
-              Established my personal publication to share reflections on technology, AI, entrepreneurship, and the craft of building software products.
-            </p>
-          </div>
-
-          <div class="timeline-node">
-            <div class="timeline-top">
-              <span class="timeline-phase">Student Leadership</span>
-              <span class="timeline-time">2026–27</span>
-            </div>
-            <h3 class="timeline-title">Round Square Student Committee 2026–27 &amp; Campus Leadership</h3>
-            <p class="timeline-desc">
-              Serving on the Round Square Student Committee (2026–27), Student Council, Culture and Events team, and as an Internshala Student Partner.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT V — ACADEMIC RECOGNITION & LEADERSHIP
-    ================================================================= -->
-    <section class="recognition-section" id="recognition">
-      <div class="container reveal">
-        <span class="chapter-label">Academic Recognition</span>
-        <h2 class="chapter-heading">
-          Grounded in <span class="serif-italic">quantitative rigor</span> and scientific inquiry.
-        </h2>
-
-        <div class="ledger">
-          <div class="ledger-row">
-            <div class="ledger-award">SOF Mathematics Gold Medal of Excellence</div>
-            <div class="ledger-discipline">Science Olympiad Foundation · Mathematics</div>
-            <div class="ledger-distinction distinction-gold">Gold Medal</div>
-          </div>
-
-          <div class="ledger-row">
-            <div class="ledger-award">ASSET Mathematics — 98th Percentile</div>
-            <div class="ledger-discipline">Quantitative &amp; Analytical Reasoning</div>
-            <div class="ledger-distinction distinction-gold">Gold Distinction</div>
-          </div>
-
-          <div class="ledger-row">
-            <div class="ledger-award">ASSET Science — 93rd Percentile</div>
-            <div class="ledger-discipline">Scientific Reasoning &amp; Application</div>
-            <div class="ledger-distinction distinction-silver">Silver Distinction</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="leadership-section" id="leadership">
-      <div class="container leadership-layout reveal">
-        <div>
-          <span class="chapter-label">Leadership</span>
-          <h2 class="chapter-heading">
-            Responsibility beyond <span class="serif-italic">the screen.</span>
-          </h2>
-          <p class="leadership-intro-copy">
-            Leading student initiatives, organizing campus experiences, and connecting peers with opportunities across governance, culture, and career readiness.
-          </p>
-        </div>
-
-        <div class="roles-grid">
-          <div class="role-item">
-            <span class="role-tag">Term 2026–27</span>
-            <h3 class="role-title">Round Square Student Committee 2026–27</h3>
-            <p class="role-desc">
-              Contributing to student leadership, service, and internationalism initiatives within the Round Square framework.
-            </p>
-          </div>
-
-          <div class="role-item">
-            <span class="role-tag">Governance</span>
-            <h3 class="role-title">Student Council</h3>
-            <p class="role-desc">
-              Representing the student body and collaborating on constructive campus initiatives.
-            </p>
-          </div>
-
-          <div class="role-item">
-            <span class="role-tag">Campus Life</span>
-            <h3 class="role-title">Culture and Events Team</h3>
-            <p class="role-desc">
-              Planning, coordinating, and delivering cultural programming and student events.
-            </p>
-          </div>
-
-          <div class="role-item">
-            <span class="role-tag">Career Ecosystem</span>
-            <h3 class="role-title">Internshala Student Partner</h3>
-            <p class="role-desc">
-              Connecting fellow students with skill-building programs, internships, and career resources.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         ACT VI — WRITING: "BUILDING WHAT'S NEXT"
+         ACT V — WRITING: "BUILDING WHAT'S NEXT"
     ================================================================= -->
     <section class="writing-section" id="writing">
       <div class="container reveal">
@@ -2029,7 +2183,7 @@
     </section>
 
     <!-- =================================================================
-         ACT VII — CONTACT & FOOTER
+         ACT VI — CONTACT & FOOTER
     ================================================================= -->
     <section class="contact-section" id="contact">
       <div class="container reveal">
@@ -2281,14 +2435,6 @@
       }
 
       if (prefersReducedMotion) {
-        window.addEventListener(
-          'scroll',
-          () => {
-            const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-            applyAtmosphere(window.scrollY / maxScroll, 0);
-          },
-          { passive: true }
-        );
         applyAtmosphere(0, 0);
       } else {
         requestAnimationFrame(tick);
@@ -2368,7 +2514,123 @@
     })();
 
     /* =======================================================================
-       4. SCROLL REVEAL
+       4. 3D STICKY SCROLL-DRIVEN ACHIEVEMENT TUNNEL ENGINE
+    ======================================================================= */
+    (function init3DTunnel() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const runway = document.getElementById('timeline');
+      const cards = Array.from(document.querySelectorAll('.tunnel-card'));
+      const portals = Array.from(document.querySelectorAll('.tunnel-portal'));
+      const dotBtns = Array.from(document.querySelectorAll('.tunnel-dot-btn'));
+      const activeLabel = document.getElementById('tunnelActiveLabel');
+      const depthReadout = document.getElementById('tunnelDepthReadout');
+      const progressFill = document.getElementById('tunnelProgressFill');
+
+      if (!runway || !cards.length) return;
+
+      const STEP_Z = 920; // Distance in px between consecutive milestones in 3D Z-space
+      const totalCards = cards.length;
+      const maxCameraZ = (totalCards - 1) * STEP_Z;
+
+      const milestoneTitles = [
+        '01 · SOF Mathematics Gold Medal & ASSET Distinctions',
+        '02 · Starting College Chances India',
+        '03 · Founding & Developing THE 1',
+        '04 · Presenting THE 1 to School Leadership',
+        '05 · The ADIS Pilot & THE 1 Product Releases',
+        '06 · Starting Kerniq',
+        '07 · Developing Building What’s Next',
+        '08 · Round Square Committee 2026–27 & Student Leadership'
+      ];
+
+      let smoothProgress = 0;
+
+      function getTargetProgress() {
+        const rect = runway.getBoundingClientRect();
+        const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+        const scrolled = -rect.top;
+        return Math.min(1, Math.max(0, scrolled / scrollable));
+      }
+
+      // Clickable scrubber dots smoothly scroll to exact tunnel depth
+      dotBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.jump);
+          const runwayTop = runway.getBoundingClientRect().top + window.scrollY;
+          const scrollable = Math.max(1, runway.offsetHeight - window.innerHeight);
+          const targetY = runwayTop + (idx / (totalCards - 1)) * scrollable;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        });
+      });
+
+      function renderTunnel() {
+        const target = getTargetProgress();
+        // Smooth inertial damping so scrolling feels weighted & cinematic
+        smoothProgress += (target - smoothProgress) * 0.11;
+
+        const cameraZ = smoothProgress * maxCameraZ;
+        const activeIdx = Math.min(totalCards - 1, Math.max(0, Math.round(smoothProgress * (totalCards - 1))));
+
+        // Update HUD readout
+        if (progressFill) progressFill.style.width = `${(smoothProgress * 100).toFixed(2)}%`;
+        if (depthReadout) depthReadout.textContent = `${String(activeIdx + 1).padStart(2, '0')} / ${String(totalCards).padStart(2, '0')}`;
+        if (activeLabel && activeLabel.textContent !== milestoneTitles[activeIdx]) {
+          activeLabel.textContent = milestoneTitles[activeIdx];
+        }
+
+        dotBtns.forEach((btn, idx) => {
+          btn.classList.toggle('active', idx === activeIdx);
+        });
+
+        // Animate repeating 3D tunnel portal rings streaming past the camera
+        const portalSpan = 2700;
+        const portalSpacing = portalSpan / portals.length;
+        portals.forEach((portal, i) => {
+          const baseZ = -i * portalSpacing;
+          // Continuous wrap-around in Z-space as camera moves forward
+          let relZ = ((baseZ + cameraZ * 1.15) % portalSpan);
+          if (relZ > 320) relZ -= portalSpan;
+          const depthRatio = Math.max(0, Math.min(1, 1 - Math.abs(relZ) / portalSpan));
+          portal.style.transform = `translate3d(0, 0, ${relZ.toFixed(1)}px)`;
+          portal.style.opacity = (depthRatio * 0.65).toFixed(3);
+        });
+
+        // Position each chronological milestone card along the Z-axis
+        cards.forEach((card, i) => {
+          const cardZ = i * STEP_Z;
+          const relZ = cameraZ - cardZ; // 0 = centered in focal plane; negative = deeper in tunnel; positive = flying past camera
+
+          // Subtle lateral offset when deep in tunnel so upcoming cards peek out behind active card
+          const sideSign = i % 2 === 0 ? -1 : 1;
+          const depthFactor = Math.min(1, Math.abs(relZ) / STEP_Z);
+          const offsetX = relZ < 0 ? sideSign * depthFactor * 72 : 0;
+
+          let opacity = 0;
+          if (relZ <= 0 && relZ > -STEP_Z * 2.6) {
+            // Approaching from deep inside the tunnel
+            opacity = 1 - Math.abs(relZ) / (STEP_Z * 2.6);
+            opacity = Math.pow(Math.max(0, opacity), 1.35);
+          } else if (relZ > 0 && relZ < 520) {
+            // Passing past the viewer's lens
+            opacity = 1 - relZ / 520;
+          }
+
+          card.style.transform = `translate3d(${offsetX.toFixed(1)}px, -50%, ${relZ.toFixed(1)}px)`;
+          card.style.opacity = opacity.toFixed(3);
+          card.style.pointerEvents = Math.abs(relZ) < 260 ? 'auto' : 'none';
+          card.style.zIndex = String(100 - Math.round(Math.abs(relZ) / 50));
+        });
+
+        requestAnimationFrame(renderTunnel);
+      }
+
+      requestAnimationFrame(renderTunnel);
+    })();
+
+    /* =======================================================================
+       5. SCROLL REVEAL FOR STANDARD SECTIONS
     ======================================================================= */
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(
@@ -2385,7 +2647,7 @@
     revealEls.forEach((el) => revealObserver.observe(el));
 
     /* =======================================================================
-       5. INTERACTIVE CASE STUDY DIMENSION SWITCHERS (THE 1 & KERNIQ)
+       6. INTERACTIVE CASE STUDY DIMENSION SWITCHERS (THE 1 & KERNIQ)
     ======================================================================= */
     const caseData = {
       the1: {
