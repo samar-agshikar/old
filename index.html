@@ -1,613 +1,1952 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080d18">
-  <meta name="description" content="Samar Agshikar — exploring technology, AI, entrepreneurship and the future of software.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samar Agshikar — Building What's Next</title>
+  <meta
+    name="description"
+    content="Samar Agshikar — Student, software developer, and aspiring entrepreneur building at the intersection of AI, technology, mathematics, and education."
+  />
+  <meta name="theme-color" content="#030714" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect & Studio Typography Pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
+    /* =====================================================================
+       1. DESIGN TOKENS & ATMOSPHERIC PALETTE
+    ===================================================================== */
     :root {
-      --bg: #080d18;
-      --surface: #101a2b;
-      --text: #f3f6fc;
-      --muted: #9baac0;
-      --blue: #76aaff;
-      --border: rgba(255,255,255,.09);
+      --bg-abyss: #020510;
+      --bg-midnight: #04091a;
+      --bg-navy: #071029;
+      --bg-surface: rgba(10, 21, 52, 0.52);
+      --bg-surface-strong: rgba(12, 25, 62, 0.78);
+
+      --cobalt: #2563eb;
+      --electric-blue: #3b82f6;
+      --cyan-accent: #38bdf8;
+      --ice-blue: #bae6fd;
+      --indigo-accent: #6366f1;
+      --violet-accent: #7c3aed;
+
+      --gold-specular: #fbbf24;
+      --silver-specular: #cbd5e1;
+
+      --text-primary: #f4f7ff;
+      --text-secondary: #a5b6d9;
+      --text-muted: #687ca6;
+
+      --hairline: rgba(148, 187, 255, 0.14);
+      --hairline-bright: rgba(186, 230, 253, 0.28);
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+
+      --container: 1180px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.7;
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-abyss);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(1100px, 88%);
-      margin: auto;
+    body {
+      background-color: var(--bg-abyss);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    nav {
-      position: sticky;
+    ::selection {
+      background: rgba(56, 189, 248, 0.28);
+      color: #ffffff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+
+    /* =====================================================================
+       2. ARCHITECTURAL NAVIGATION
+    ===================================================================== */
+    .site-header {
+      position: fixed;
       top: 0;
-      z-index: 10;
-      background: rgba(8,13,24,.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      padding: 13px 0;
+      background: rgba(3, 8, 22, 0.76);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border-bottom-color: var(--hairline);
     }
 
     .nav-inner {
-      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
 
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: -1px;
-    }
-
-    .logo span { color: var(--blue); }
-
-    .nav-links {
-      display: flex;
-      gap: 27px;
+    .wordmark {
+      display: inline-flex;
       align-items: center;
-      font-size: 13px;
-      color: var(--muted);
+      gap: 11px;
+      font-weight: 600;
+      font-size: 0.96rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
 
-    .nav-links a:hover { color: white; }
+    .wordmark-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan-accent), var(--cobalt) 60%, var(--violet-accent));
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
+    }
 
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-menu a {
+      font-size: 0.85rem;
+      font-weight: 450;
+      color: var(--text-secondary);
+      transition: color 0.25s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible {
+      color: var(--text-primary);
+    }
+
+    .nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.26), rgba(99, 102, 241, 0.22));
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .nav-action:hover {
+      transform: translateY(-1px);
+      border-color: rgba(186, 230, 253, 0.55);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.42), rgba(99, 102, 241, 0.34));
+    }
+
+    /* =====================================================================
+       3. ACT I — HERO (VOLUMETRIC ATMOSPHERE & EDITORIAL SCALE)
+    ===================================================================== */
     .hero {
-      min-height: 650px;
+      position: relative;
+      min-height: 100svh;
       display: flex;
       align-items: center;
-      position: relative;
+      padding: 144px 0 96px;
       overflow: hidden;
+      background:
+        radial-gradient(ellipse 85% 60% at 68% 18%, rgba(37, 99, 235, 0.32) 0%, transparent 62%),
+        radial-gradient(ellipse 65% 55% at 24% 32%, rgba(99, 102, 241, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 45% at 50% 92%, rgba(56, 189, 248, 0.12) 0%, transparent 65%),
+        linear-gradient(180deg, #030714 0%, #050c24 58%, #04091c 100%);
     }
 
-    .hero::before {
+    #auroraCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.92;
+    }
+
+    .hero::after {
       content: "";
       position: absolute;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(53,116,220,.19), transparent 68%);
-      top: -140px;
-      right: -170px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 140px;
+      background: linear-gradient(180deg, transparent 0%, var(--bg-midnight) 100%);
       pointer-events: none;
     }
 
-    .eyebrow {
-      color: var(--blue);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 22px;
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: end;
     }
 
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(52px, 8vw, 88px);
-      line-height: 1.03;
-      letter-spacing: -5px;
-      max-width: 850px;
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--ice-blue);
+      margin-bottom: 24px;
     }
 
-    h1 span {
-      background: linear-gradient(100deg, #8abaff, #d3e5ff);
+    .hero-kicker-line {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan-accent), transparent);
+    }
+
+    .hero-title {
+      font-size: clamp(3.1rem, 7.2vw, 6.2rem);
+      font-weight: 600;
+      line-height: 0.99;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      margin-bottom: 28px;
+    }
+
+    .hero-title .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      background: linear-gradient(125deg, #ffffff 10%, var(--ice-blue) 52%, #93c5fd 95%);
       -webkit-background-clip: text;
-      color: transparent;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero-description {
-      color: var(--muted);
-      font-size: 17px;
+    .hero-lead {
+      font-size: clamp(1.06rem, 1.6vw, 1.24rem);
+      line-height: 1.65;
+      color: var(--text-secondary);
       max-width: 590px;
-      margin: 28px 0 34px;
-    }
-
-    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
-
-    .button {
-      padding: 12px 21px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      transition: .2s;
-    }
-
-    .button.primary {
-      background: #dceaff;
-      color: #101827;
-      border-color: #dceaff;
-    }
-
-    .button:hover { transform: translateY(-3px); }
-
-    section { padding: 105px 0; }
-
-    .section-label {
-      color: var(--blue);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 13px;
-    }
-
-    h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(34px, 5vw, 48px);
-      letter-spacing: -2px;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      max-width: 650px;
+      font-weight: 400;
       margin-bottom: 38px;
     }
 
-    .about-grid {
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-luminous {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #030714;
+      background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+      box-shadow:
+        0 14px 36px -8px rgba(56, 189, 248, 0.42),
+        0 0 0 1px rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+    }
+
+    .btn-luminous:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px -8px rgba(56, 189, 248, 0.58),
+        0 0 0 1px #ffffff;
+    }
+
+    .btn-quiet {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      background: rgba(15, 29, 68, 0.42);
+      border: 1px solid var(--hairline-bright);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s var(--ease-out-expo), background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn-quiet:hover {
+      transform: translateY(-2px);
+      background: rgba(29, 53, 118, 0.55);
+      border-color: rgba(186, 230, 253, 0.55);
+    }
+
+    .hero-aside {
+      border-left: 1px solid var(--hairline);
+      padding-left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 6px;
+    }
+
+    .hero-meta-block dt {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-meta-block dd {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* =====================================================================
+       4. SHARED EDITORIAL CHAPTER HEADERS & SCROLL REVEAL
+    ===================================================================== */
+    .chapter-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan-accent);
+      margin-bottom: 16px;
+    }
+
+    .chapter-heading {
+      font-size: clamp(2.1rem, 4.4vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text-primary);
+      max-width: 760px;
+    }
+
+    .chapter-heading .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ice-blue);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================================================================
+       5. ACT II — FLAGSHIP PRODUCT SHOWCASES (APPLE-STYLE CHAPTERS)
+    ===================================================================== */
+    .products-intro {
+      padding: 112px 0 56px;
+      background: var(--bg-midnight);
+    }
+
+    /* Chapter A: THE 1 — Rich Cobalt & Cyan Stage */
+    .product-chapter--the1 {
+      position: relative;
+      padding: 88px 0 104px;
+      background:
+        radial-gradient(ellipse 75% 65% at 78% 50%, rgba(37, 99, 235, 0.26) 0%, transparent 66%),
+        radial-gradient(ellipse 55% 45% at 18% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg-midnight) 0%, #061233 50%, #050d26 100%);
+      border-top: 1px solid var(--hairline);
+    }
+
+    /* Chapter B: Kerniq — Deep Indigo & Electric Violet Stage */
+    .product-chapter--kerniq {
+      position: relative;
+      padding: 96px 0 108px;
+      background:
+        radial-gradient(ellipse 75% 65% at 22% 50%, rgba(99, 102, 241, 0.25) 0%, transparent 66%),
+        radial-gradient(ellipse 55% 50% at 85% 30%, rgba(124, 58, 237, 0.18) 0%, transparent 62%),
+        linear-gradient(180deg, #050d26 0%, #0a1036 52%, #050a20 100%);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .showcase-layout {
       display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 55px;
-      align-items: start;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: clamp(32px, 5vw, 68px);
+      align-items: center;
     }
 
-    .about-text {
-      color: var(--muted);
-      font-size: 16px;
+    .showcase-layout--reversed {
+      grid-template-columns: 1.08fr 0.92fr;
     }
 
-    .about-text p { margin-bottom: 17px; }
-
-    .interest-box {
-      padding: 27px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      background: linear-gradient(145deg, #111e33, #0b1220);
+    .product-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ice-blue);
+      margin-bottom: 14px;
     }
 
-    .interest-box h3 {
-      font-family: 'Space Grotesk', sans-serif;
+    .product-chapter--kerniq .product-eyebrow {
+      color: #c4b5fd;
+    }
+
+    .product-name {
+      font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
       margin-bottom: 18px;
     }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 9px; }
-
-    .tag {
-      border: 1px solid rgba(118,170,255,.2);
-      background: rgba(118,170,255,.07);
-      color: #c4dcff;
-      border-radius: 6px;
-      padding: 7px 11px;
-      font-size: 12px;
+    .product-summary {
+      font-size: 1.04rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
     }
 
-    .projects {
-      background: #0b1220;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .feature-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 30px;
+      border-left: 1px solid var(--hairline);
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 17px;
+    .feature-trigger {
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 11px 0 11px 18px;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.25s ease, border-color 0.25s ease;
     }
 
-    .project-card {
-      padding: 29px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      transition: .25s;
+    .feature-trigger:hover {
+      color: var(--text-secondary);
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(118,170,255,.4);
+    .feature-trigger.active {
+      color: var(--text-primary);
+      border-left-color: var(--cyan-accent);
     }
 
-    .project-number {
-      color: var(--blue);
-      font-size: 12px;
+    .product-chapter--kerniq .feature-trigger.active {
+      border-left-color: #a78bfa;
+    }
+
+    .product-visit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ice-blue);
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(186, 230, 253, 0.35);
+      transition: gap 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .product-chapter--kerniq .product-visit-link {
+      color: #ddd6fe;
+      border-bottom-color: rgba(221, 214, 254, 0.35);
+    }
+
+    .product-visit-link:hover {
+      gap: 12px;
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    /* Architectural Product Stage (3D Subtle Tilt on Scroll) */
+    .product-stage-perspective {
+      perspective: 1400px;
+    }
+
+    .product-stage {
+      position: relative;
+      border-radius: 22px;
+      padding: 28px;
+      background: linear-gradient(155deg, rgba(16, 33, 78, 0.72) 0%, rgba(5, 11, 30, 0.9) 100%);
+      border: 1px solid rgba(148, 197, 255, 0.22);
+      box-shadow:
+        0 34px 80px -20px rgba(2, 6, 22, 0.88),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s ease-out, border-color 0.3s ease;
+    }
+
+    .product-chapter--kerniq .product-stage {
+      background: linear-gradient(155deg, rgba(28, 25, 78, 0.72) 0%, rgba(7, 10, 30, 0.92) 100%);
+      border-color: rgba(167, 139, 250, 0.24);
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
       margin-bottom: 22px;
-      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .project-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 23px;
-      margin-bottom: 10px;
+    .stage-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
     }
 
-    .project-card p {
-      color: var(--muted);
-      font-size: 14px;
-      min-height: 72px;
+    .stage-domain {
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    .project-link {
-      display: inline-block;
-      color: var(--blue);
-      font-size: 13px;
-      margin-top: 20px;
-      font-weight: 700;
+    .stage-canvas-body {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .achievement-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .achievement {
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .achievement strong {
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 25px;
-      color: var(--blue);
+    .stage-headline {
+      font-size: 1.32rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
 
-    .achievement p {
-      color: var(--muted);
-      font-size: 13px;
+    .stage-copy {
+      font-size: 0.94rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
     }
 
-    .leadership {
-      background: #0b1220;
-      border-top: 1px solid var(--border);
+    .stage-modules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding-top: 12px;
     }
 
-    .leadership-list { border-top: 1px solid var(--border); }
+    .stage-module {
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
 
-    .leadership-item {
+    .stage-module-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .stage-module-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Chapter C: College Chances India — Panoramic Architectural Strip */
+    .product-banner--cci {
+      padding: 72px 0 112px;
+      background: linear-gradient(180deg, #050a20 0%, var(--bg-midnight) 100%);
+    }
+
+    .cci-band {
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 44px 0;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .cci-title {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-top: 8px;
+    }
+
+    .cci-desc {
+      font-size: 1rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       6. ACT III — AREAS OF FOCUS (ARCHITECTURAL 5-COLUMN MATRIX)
+    ===================================================================== */
+    .domains-section {
+      padding: 104px 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(37, 99, 235, 0.14) 0%, transparent 70%),
+        var(--bg-abyss);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .domains-grid {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .domain-cell {
+      padding: 32px 22px;
+      border-right: 1px solid var(--hairline);
+      transition: background-color 0.35s ease;
+    }
+
+    .domain-cell:last-child {
+      border-right: none;
+    }
+
+    .domain-cell:hover {
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.06), transparent);
+    }
+
+    .domain-num {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--cyan-accent);
+      margin-bottom: 18px;
+    }
+
+    .domain-name {
+      font-size: 1.12rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .domain-note {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       7. ACT IV — ACADEMIC RECOGNITION (EDITORIAL LEDGER)
+    ===================================================================== */
+    .recognition-section {
+      padding: 112px 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 85% 25%, rgba(251, 191, 36, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 60% at 15% 75%, rgba(37, 99, 235, 0.16) 0%, transparent 65%),
+        var(--bg-midnight);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .ledger {
+      margin-top: 56px;
+      border-top: 1px solid var(--hairline-bright);
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr 0.7fr;
+      gap: 24px;
+      align-items: center;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--hairline);
+      transition: padding-left 0.3s var(--ease-out-expo), background-color 0.3s ease;
+    }
+
+    .ledger-row:hover {
+      padding-left: 12px;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.04), transparent 70%);
+    }
+
+    .ledger-award {
+      font-size: clamp(1.22rem, 2.2vw, 1.55rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .ledger-discipline {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+    }
+
+    .ledger-distinction {
+      justify-self: end;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 7px 16px;
+      border-radius: 999px;
+    }
+
+    .distinction-gold {
+      color: #fde68a;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.32);
+    }
+
+    .distinction-silver {
+      color: #e2e8f0;
+      background: rgba(203, 213, 225, 0.1);
+      border: 1px solid rgba(203, 213, 225, 0.28);
+    }
+
+    /* =====================================================================
+       8. ACT V — LEADERSHIP (ASYMMETRIC EDITORIAL COLUMNS)
+    ===================================================================== */
+    .leadership-section {
+      padding: 112px 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 25% 30%, rgba(99, 102, 241, 0.16) 0%, transparent 65%),
+        var(--bg-abyss);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .leadership-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(36px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .leadership-intro-copy {
+      margin-top: 18px;
+      font-size: 1rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px 32px;
+    }
+
+    .role-item {
+      padding-top: 22px;
+      border-top: 1px solid var(--hairline-bright);
+    }
+
+    .role-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #a5b4fc;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .role-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .role-desc {
+      font-size: 0.91rem;
+      line-height: 1.62;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       9. ACT VI — WRITING: "BUILDING WHAT'S NEXT" (EDITORIAL PUBLICATION)
+    ===================================================================== */
+    .writing-section {
+      padding: 116px 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(124, 58, 237, 0.14) 0%, transparent 65%),
+        linear-gradient(180deg, #04091b 0%, #030714 100%);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .publication-header {
       display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--hairline-bright);
+      margin-bottom: 48px;
+    }
+
+    .publication-sub {
+      max-width: 440px;
+      font-size: 0.96rem;
+      line-height: 1.62;
+      color: var(--text-secondary);
+    }
+
+    .editorial-spread {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    .lead-essay {
+      padding: 36px;
+      border-radius: 20px;
+      background: linear-gradient(155deg, rgba(16, 33, 76, 0.56), rgba(6, 13, 34, 0.82));
+      border: 1px solid var(--hairline-bright);
+      box-shadow: 0 28px 64px -20px rgba(2, 6, 22, 0.8);
+    }
+
+    .essay-category {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cyan-accent);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .lead-essay-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.2vw, 2.55rem);
+      font-weight: 400;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .lead-essay-excerpt {
+      font-size: 0.98rem;
+      line-height: 1.68;
+      color: var(--text-secondary);
+      margin-bottom: 26px;
+    }
+
+    .essay-read-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ice-blue);
+      cursor: pointer;
+      transition: gap 0.25s ease, color 0.25s ease;
+    }
+
+    .essay-read-trigger:hover {
+      gap: 13px;
+      color: #ffffff;
+    }
+
+    .essay-index {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .essay-index-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .essay-index-item:first-child {
+      padding-top: 4px;
+    }
+
+    .essay-index-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      transition: color 0.2s ease;
+    }
+
+    .essay-index-item:hover .essay-index-title {
+      color: var(--ice-blue);
+    }
+
+    .essay-index-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       10. CLOSING HORIZON & FOOTER
+    ===================================================================== */
+    .closing-horizon {
+      padding: 112px 0 84px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 100%, rgba(37, 99, 235, 0.28) 0%, transparent 68%),
+        radial-gradient(ellipse 50% 45% at 50% 85%, rgba(99, 102, 241, 0.2) 0%, transparent 65%),
+        var(--bg-abyss);
+      border-top: 1px solid var(--hairline);
+    }
+
+    .closing-title {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      max-width: 720px;
+      margin: 0 auto 20px;
+    }
+
+    .closing-title .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ice-blue);
+    }
+
+    .closing-sub {
+      font-size: 1.04rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+
+    .closing-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 84px;
+    }
+
+    .footer-bar {
+      padding-top: 32px;
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--text-muted);
     }
 
-    .leadership-item h3 {
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .leadership-item p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .writing-card {
-      padding: 38px;
-      border: 1px solid rgba(118,170,255,.2);
-      border-radius: 15px;
-      background: linear-gradient(120deg, #142541, #101827);
-    }
-
-    .writing-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 29px;
-      margin-bottom: 12px;
-    }
-
-    .writing-card p {
-      color: var(--muted);
-      max-width: 650px;
-      margin-bottom: 22px;
-    }
-
-    .contact {
-      text-align: center;
-      background: linear-gradient(180deg, var(--bg), #101d32);
-    }
-
-    .contact p {
-      color: var(--muted);
-      max-width: 500px;
-      margin: 0 auto 28px;
-    }
-
-    .socials {
+    .footer-nav {
       display: flex;
-      justify-content: center;
-      gap: 22px;
       flex-wrap: wrap;
-      color: #b9c9df;
-      font-size: 13px;
+      gap: 26px;
     }
 
-    .socials a:hover { color: var(--blue); }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 25px 0;
-      color: #78869a;
-      font-size: 12px;
+    .footer-nav a {
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
     }
 
-    footer .container {
+    .footer-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    /* =====================================================================
+       11. DISTRACTION-FREE EDITORIAL READER DRAWER / MODAL
+    ===================================================================== */
+    .reader-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(2, 5, 16, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .reader-overlay.open {
       display: flex;
-      justify-content: space-between;
-      gap: 15px;
     }
 
-    @media(max-width: 700px) {
-      .nav-links { gap: 13px; font-size: 11px; }
-      .nav-links a:nth-child(3),
-      .nav-links a:nth-child(4) { display: none; }
-      .hero { min-height: 580px; }
-      h1 { letter-spacing: -3px; }
-      section { padding: 75px 0; }
-      .about-grid, .project-grid { grid-template-columns: 1fr; }
-      .achievement-grid { grid-template-columns: 1fr 1fr; }
-      .leadership-item { flex-direction: column; gap: 5px; }
-      footer .container { flex-direction: column; }
+    .reader-sheet {
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: clamp(28px, 5vw, 48px);
+      border-radius: 22px;
+      background: linear-gradient(165deg, #091432 0%, #04091b 100%);
+      border: 1px solid var(--hairline-bright);
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.85);
+    }
+
+    .reader-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .reader-close {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--hairline);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .reader-close:hover {
+      color: var(--text-primary);
+      border-color: var(--hairline-bright);
+    }
+
+    .reader-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.4vw, 2.45rem);
+      font-weight: 400;
+      line-height: 1.16;
+      margin-bottom: 22px;
+      color: var(--text-primary);
+    }
+
+    .reader-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      font-size: 1.02rem;
+      line-height: 1.76;
+      color: var(--text-secondary);
+    }
+
+    /* =====================================================================
+       12. RESPONSIVE & ACCESSIBILITY
+    ===================================================================== */
+    @media (max-width: 960px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hero-grid,
+      .showcase-layout,
+      .showcase-layout--reversed,
+      .cci-band,
+      .leadership-layout,
+      .editorial-spread {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-aside {
+        border-left: none;
+        border-top: 1px solid var(--hairline);
+        padding-left: 0;
+        padding-top: 24px;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .domains-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .domain-cell:nth-child(2n) {
+        border-right: none;
+      }
+
+      .domain-cell {
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .ledger-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .ledger-distinction {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .domains-grid,
+      .roles-grid,
+      .stage-modules {
+        grid-template-columns: 1fr;
+      }
+
+      .domain-cell {
+        border-right: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <nav>
+  <!-- ===================================================================
+       NAVIGATION
+  =================================================================== -->
+  <header class="site-header" id="siteHeader">
     <div class="container nav-inner">
-      <a href="#" class="logo">S<span>.</span>A</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#academics">Academics</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+      <a href="#top" class="wordmark">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span>Samar Agshikar</span>
+      </a>
 
-  <header class="hero">
-    <div class="container">
-      <div class="eyebrow">Technology · AI · Entrepreneurship</div>
-      <h1>I'm Samar.<br>I'm here to build <span>what's next.</span></h1>
-      <p class="hero-description">
-        Exploring the intersection of technology, artificial intelligence
-        and entrepreneurship — learning by building, experimenting and
-        turning ideas into real products.
-      </p>
-      <div class="actions">
-        <a href="#projects" class="button primary">Explore my work ↗</a>
-        <a href="#about" class="button">A little about me</a>
-      </div>
+      <nav class="nav-menu" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#recognition">Recognition</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#writing">Writing</a>
+      </nav>
+
+      <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="nav-action">
+        <span>THE 1</span>
+        <span aria-hidden="true">↗</span>
+      </a>
     </div>
   </header>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-label">01 / About</div>
-      <div class="about-grid">
+  <main id="top">
+    <!-- =================================================================
+         ACT I — HERO
+    ================================================================= -->
+    <section class="hero">
+      <canvas id="auroraCanvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-grid">
         <div>
-          <h2>Curiosity is where everything starts.</h2>
-          <div class="about-text">
-            <p>
-              I'm Samar Agshikar, a student, developer and aspiring
-              entrepreneur interested in how technology can change the
-              way people learn, work and interact with the world.
-            </p>
-            <p>
-              My interests span artificial intelligence, software
-              development, education and aerospace. I enjoy taking an
-              idea, exploring how it could work and building something
-              tangible from it.
-            </p>
-            <p>
-              I believe you don't have to wait until college to start
-              creating. You can learn, experiment and contribute today.
-            </p>
+          <div class="hero-kicker">
+            <span class="hero-kicker-line" aria-hidden="true"></span>
+            <span>Student · Software Developer · Aspiring Entrepreneur</span>
+          </div>
+
+          <h1 class="hero-title">
+            Building <span class="serif-italic">What’s Next.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Designing thoughtful, intelligent software at the intersection of artificial intelligence, mathematics, and education—turning ambitious ideas into calm, enduring products.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="btn-luminous">
+              <span>Explore Selected Work</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a href="#writing" class="btn-quiet">
+              <span>Read Building What’s Next</span>
+            </a>
           </div>
         </div>
 
-        <div class="interest-box">
-          <h3>Areas I'm exploring</h3>
-          <div class="tags">
-            <span class="tag">Artificial Intelligence</span>
-            <span class="tag">Software Engineering</span>
-            <span class="tag">Entrepreneurship</span>
-            <span class="tag">Education Technology</span>
-            <span class="tag">Mathematics</span>
-            <span class="tag">Aerospace</span>
-            <span class="tag">Product Design</span>
+        <dl class="hero-aside">
+          <div class="hero-meta-block">
+            <dt>Focus Areas</dt>
+            <dd>AI, Technology, Mathematics, Education &amp; Entrepreneurship</dd>
+          </div>
+          <div class="hero-meta-block">
+            <dt>Flagship Products</dt>
+            <dd>THE 1 · Kerniq · College Chances India</dd>
+          </div>
+          <div class="hero-meta-block">
+            <dt>Publication</dt>
+            <dd>Building What’s Next — Essays on AI, technology &amp; product craft</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT II — SELECTED WORK (APPLE-STYLE PRODUCT CHAPTERS)
+    ================================================================= -->
+    <section class="products-intro" id="work">
+      <div class="container reveal">
+        <span class="chapter-label">Selected Work</span>
+        <h2 class="chapter-heading">
+          Software crafted for <span class="serif-italic">clarity, depth,</span> and student agency.
+        </h2>
+      </div>
+    </section>
+
+    <!-- Chapter 01: THE 1 (Cobalt & Icy Cyan Lighting Stage) -->
+    <section class="product-chapter--the1" aria-labelledby="the1-heading">
+      <div class="container showcase-layout reveal">
+        <div>
+          <div class="product-eyebrow">01 · Unified Student Workspace</div>
+          <h3 class="product-name" id="the1-heading">THE 1</h3>
+          <p class="product-summary">
+            An all-in-one workspace built to replace fragmented student tools with a single, cohesive environment—bringing schedules, structured notes, spaced revision, practice quizzes, and context-aware AI together.
+          </p>
+
+          <div class="feature-selector" role="tablist" aria-label="THE 1 capabilities">
+            <button class="feature-trigger active" data-the1-view="workspace" type="button">
+              Unified Academic Workspace
+            </button>
+            <button class="feature-trigger" data-the1-view="revision" type="button">
+              Spaced Revision &amp; Active Recall
+            </button>
+            <button class="feature-trigger" data-the1-view="ai" type="button">
+              Context-Aware AI Assistance
+            </button>
+          </div>
+
+          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="product-visit-link">
+            <span>Visit the-1.app</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="product-stage-perspective">
+          <div class="product-stage" data-tilt-stage>
+            <div class="stage-header">
+              <span class="stage-brand">THE 1</span>
+              <span class="stage-domain">the-1.app</span>
+            </div>
+
+            <div class="stage-canvas-body" id="the1StageBody">
+              <div>
+                <h4 class="stage-headline">One calm environment for every subject.</h4>
+                <p class="stage-copy">
+                  Class timetables, homework deadlines, and structured notes stay connected so students spend less energy organizing tools and more energy learning.
+                </p>
+              </div>
+              <div class="stage-modules">
+                <div class="stage-module">
+                  <div class="stage-module-title">Timetable</div>
+                  <div class="stage-module-sub">Weekly structure aligned with study blocks</div>
+                </div>
+                <div class="stage-module">
+                  <div class="stage-module-title">Notes</div>
+                  <div class="stage-module-sub">Clean capture linked directly to topics</div>
+                </div>
+                <div class="stage-module">
+                  <div class="stage-module-title">Homework</div>
+                  <div class="stage-module-sub">Clear priorities without visual clutter</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="projects" id="projects">
-    <div class="container">
-      <div class="section-label">02 / Selected work</div>
-      <h2>Ideas turned into projects.</h2>
-      <p class="section-intro">
-        A selection of products and initiatives I'm developing and
-        contributing to.
-      </p>
+    <!-- Chapter 02: Kerniq (Deep Indigo & Electric Violet Lighting Stage) -->
+    <section class="product-chapter--kerniq" aria-labelledby="kerniq-heading">
+      <div class="container showcase-layout showcase-layout--reversed reveal">
+        <div class="product-stage-perspective">
+          <div class="product-stage" data-tilt-stage>
+            <div class="stage-header">
+              <span class="stage-brand">Kerniq</span>
+              <span class="stage-domain">kerniq.the-1.app</span>
+            </div>
 
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-number">PROJECT 01</div>
-          <h3>THE 1</h3>
-          <p>
-            An AI-powered student workspace designed to bring learning,
-            organisation and productivity together in one place.
-          </p>
-          <a class="project-link" href="https://the-1.app" target="_blank" rel="noopener">Explore THE 1 ↗</a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-number">PROJECT 02</div>
-          <h3>Kerniq</h3>
-          <p>
-            An emerging software and AI initiative exploring new ways
-            to build useful technology and intelligent tools.
-          </p>
-          <a class="project-link" href="https://kerniq.the-1.app" target="_blank" rel="noopener">Explore Kerniq ↗</a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-number">PROJECT 03</div>
-          <h3>College Chances India</h3>
-          <p>
-            An AI-powered platform focused on helping students explore
-            universities, opportunities and possible academic pathways.
-          </p>
-          <span class="project-link">Education initiative</span>
-        </article>
-
-        <article class="project-card">
-          <div class="project-number">PROJECT 04</div>
-          <h3>More to come</h3>
-          <p>
-            This portfolio will evolve alongside the ideas, experiments
-            and products I work on.
-          </p>
-          <a class="project-link" href="#contact">Stay connected ↗</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="academics">
-    <div class="container">
-      <div class="section-label">03 / Academics</div>
-      <h2>Learning beyond the classroom.</h2>
-      <p class="section-intro">
-        Some academic milestones that reflect my interest in
-        mathematics, science and continuous learning.
-      </p>
-
-      <div class="achievement-grid">
-        <div class="achievement">
-          <strong>Gold</strong>
-          <p>SOF Mathematics Gold Medal of Excellence</p>
+            <div class="stage-canvas-body" id="kerniqStageBody">
+              <div>
+                <h4 class="stage-headline">Structured intelligence built into the learning flow.</h4>
+                <p class="stage-copy">
+                  Kerniq extends the THE 1 ecosystem with deeper conceptual synthesis, guided step-by-step reasoning, and intelligent study workflows.
+                </p>
+              </div>
+              <div class="stage-modules">
+                <div class="stage-module">
+                  <div class="stage-module-title">Synthesis</div>
+                  <div class="stage-module-sub">Distills raw material into clear frameworks</div>
+                </div>
+                <div class="stage-module">
+                  <div class="stage-module-title">Reasoning</div>
+                  <div class="stage-module-sub">Guides understanding step by step</div>
+                </div>
+                <div class="stage-module">
+                  <div class="stage-module-title">Ecosystem</div>
+                  <div class="stage-module-sub">Connected natively with THE 1</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="achievement">
-          <strong>98th</strong>
-          <p>ASSET Mathematics percentile</p>
-        </div>
-        <div class="achievement">
-          <strong>93rd</strong>
-          <p>ASSET Science percentile</p>
+
+        <div>
+          <div class="product-eyebrow">02 · Intelligence Layer</div>
+          <h3 class="product-name" id="kerniq-heading">Kerniq</h3>
+          <p class="product-summary">
+            Part of the THE 1 ecosystem—designed to help learners move beyond passive reading toward structured conceptual clarity and disciplined reasoning.
+          </p>
+
+          <div class="feature-selector" role="tablist" aria-label="Kerniq capabilities">
+            <button class="feature-trigger active" data-kerniq-view="synthesis" type="button">
+              Conceptual Synthesis
+            </button>
+            <button class="feature-trigger" data-kerniq-view="reasoning" type="button">
+              Guided Step-by-Step Reasoning
+            </button>
+            <button class="feature-trigger" data-kerniq-view="integration" type="button">
+              Native THE 1 Integration
+            </button>
+          </div>
+
+          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="product-visit-link">
+            <span>Visit kerniq.the-1.app</span>
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="leadership" id="leadership">
-    <div class="container">
-      <div class="section-label">04 / Leadership</div>
-      <h2>Taking ideas beyond myself.</h2>
-      <p class="section-intro">
-        Learning to collaborate, contribute and take responsibility
-        through school and student initiatives.
-      </p>
-
-      <div class="leadership-list">
-        <div class="leadership-item">
+    <!-- Chapter 03: College Chances India -->
+    <section class="product-banner--cci" aria-labelledby="cci-heading">
+      <div class="container reveal">
+        <div class="cci-band">
           <div>
-            <h3>Student Council</h3>
-            <p>Student leadership and school initiatives</p>
+            <span class="chapter-label" style="margin-bottom: 6px;">03 · AI Platform</span>
+            <h3 class="cci-title" id="cci-heading">College Chances India</h3>
           </div>
-          <p>ADIS</p>
-        </div>
-        <div class="leadership-item">
-          <div>
-            <h3>Round Square Student Committee</h3>
-            <p>Student participation and community initiatives</p>
-          </div>
-          <p>2026–27</p>
-        </div>
-        <div class="leadership-item">
-          <div>
-            <h3>Internshala Student Partner</h3>
-            <p>Student outreach and engagement</p>
-          </div>
-          <p>Student initiative</p>
+          <p class="cci-desc">
+            An AI-powered university exploration platform built to help students navigate higher-education pathways and evaluate institutional options with clarity and confidence.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="writing">
-    <div class="container">
-      <div class="section-label">05 / Writing & ideas</div>
-      <div class="writing-card">
-        <div class="eyebrow">My publication</div>
-        <h3>Building What's Next</h3>
-        <p>
-          Documenting my journey through technology, AI and
-          entrepreneurship — the experiments, lessons, challenges
-          and ideas behind building products from scratch.
+    <!-- =================================================================
+         ACT III — INTELLECTUAL TERRAIN (5-COLUMN ARCHITECTURAL MATRIX)
+    ================================================================= -->
+    <section class="domains-section">
+      <div class="container reveal">
+        <span class="chapter-label">Disciplines</span>
+        <h2 class="chapter-heading">
+          Five domains shaping how I <span class="serif-italic">think and build.</span>
+        </h2>
+
+        <div class="domains-grid">
+          <div class="domain-cell">
+            <span class="domain-num">01</span>
+            <h3 class="domain-name">Artificial Intelligence</h3>
+            <p class="domain-note">Integrating intelligence directly into purposeful software workflows.</p>
+          </div>
+          <div class="domain-cell">
+            <span class="domain-num">02</span>
+            <h3 class="domain-name">Technology</h3>
+            <p class="domain-note">Engineering clean, fast, and reliable web applications from the ground up.</p>
+          </div>
+          <div class="domain-cell">
+            <span class="domain-num">03</span>
+            <h3 class="domain-name">Mathematics</h3>
+            <p class="domain-note">First-principles analytical reasoning and structured problem solving.</p>
+          </div>
+          <div class="domain-cell">
+            <span class="domain-num">04</span>
+            <h3 class="domain-name">Education</h3>
+            <p class="domain-note">Rethinking how students organize knowledge, revise, and explore universities.</p>
+          </div>
+          <div class="domain-cell">
+            <span class="domain-num">05</span>
+            <h3 class="domain-name">Entrepreneurship</h3>
+            <p class="domain-note">Turning real bottlenecks into usable products through continuous iteration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT IV — ACADEMIC RECOGNITION (EDITORIAL LEDGER)
+    ================================================================= -->
+    <section class="recognition-section" id="recognition">
+      <div class="container reveal">
+        <span class="chapter-label">Academic Recognition</span>
+        <h2 class="chapter-heading">
+          Grounded in <span class="serif-italic">quantitative rigor</span> and scientific inquiry.
+        </h2>
+
+        <div class="ledger">
+          <div class="ledger-row">
+            <div class="ledger-award">SOF Mathematics Gold Medal of Excellence</div>
+            <div class="ledger-discipline">Science Olympiad Foundation · Mathematics</div>
+            <div class="ledger-distinction distinction-gold">Gold Medal</div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-award">ASSET Mathematics — 98th Percentile</div>
+            <div class="ledger-discipline">Quantitative &amp; Analytical Reasoning</div>
+            <div class="ledger-distinction distinction-gold">Gold Distinction</div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-award">ASSET Science — 93rd Percentile</div>
+            <div class="ledger-discipline">Scientific Reasoning &amp; Application</div>
+            <div class="ledger-distinction distinction-silver">Silver Distinction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT V — LEADERSHIP (ASYMMETRIC EDITORIAL COLUMNS)
+    ================================================================= -->
+    <section class="leadership-section" id="leadership">
+      <div class="container leadership-layout reveal">
+        <div>
+          <span class="chapter-label">Leadership</span>
+          <h2 class="chapter-heading">
+            Responsibility beyond <span class="serif-italic">the screen.</span>
+          </h2>
+          <p class="leadership-intro-copy">
+            Leading student initiatives, organizing campus experiences, and connecting peers with opportunities across governance, culture, and career readiness.
+          </p>
+        </div>
+
+        <div class="roles-grid">
+          <div class="role-item">
+            <span class="role-tag">Term 2026–27</span>
+            <h3 class="role-title">Round Square Student Committee 2026–27</h3>
+            <p class="role-desc">
+              Contributing to student leadership, service, and internationalism initiatives within the Round Square framework.
+            </p>
+          </div>
+
+          <div class="role-item">
+            <span class="role-tag">Governance</span>
+            <h3 class="role-title">Student Council</h3>
+            <p class="role-desc">
+              Representing the student body and collaborating on constructive campus initiatives.
+            </p>
+          </div>
+
+          <div class="role-item">
+            <span class="role-tag">Campus Life</span>
+            <h3 class="role-title">Culture and Events Team</h3>
+            <p class="role-desc">
+              Planning, coordinating, and delivering cultural programming and student events.
+            </p>
+          </div>
+
+          <div class="role-item">
+            <span class="role-tag">Career Ecosystem</span>
+            <h3 class="role-title">Internshala Student Partner</h3>
+            <p class="role-desc">
+              Connecting fellow students with skill-building programs, internships, and career resources.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT VI — WRITING: "BUILDING WHAT'S NEXT" (PUBLICATION SPREAD)
+    ================================================================= -->
+    <section class="writing-section" id="writing">
+      <div class="container reveal">
+        <div class="publication-header">
+          <div>
+            <span class="chapter-label">Publication</span>
+            <h2 class="chapter-heading">
+              Building <span class="serif-italic">What’s Next.</span>
+            </h2>
+          </div>
+          <p class="publication-sub">
+            Essays and notes on technology, artificial intelligence, entrepreneurship, and the craft of building products from first principles.
+          </p>
+        </div>
+
+        <div class="editorial-spread">
+          <!-- Featured Lead Essay -->
+          <article class="lead-essay">
+            <span class="essay-category">Featured Essay · AI &amp; Product Design</span>
+            <h3 class="lead-essay-title">Why Student Software Should Feel Calm, Not Crowded</h3>
+            <p class="lead-essay-excerpt">
+              Reflections from building THE 1: why replacing fragmented tabs and noisy notifications with a single, cohesive environment changes how students think and learn.
+            </p>
+            <button class="essay-read-trigger" data-essay-id="0" type="button">
+              <span>Read Essay</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </article>
+
+          <!-- Curated Essay Index -->
+          <div class="essay-index">
+            <article class="essay-index-item">
+              <span class="essay-category" style="margin-bottom: 2px;">Technology &amp; AI</span>
+              <a href="#writing" class="essay-index-title" data-essay-id="1">
+                Designing AI That Augments Thinking Instead of Replacing It
+              </a>
+              <p class="essay-index-desc">
+                Lessons from Kerniq and College Chances India on grounding AI in structured context and transparent reasoning.
+              </p>
+            </article>
+
+            <article class="essay-index-item">
+              <span class="essay-category" style="margin-bottom: 2px;">Mathematics &amp; Engineering</span>
+              <a href="#writing" class="essay-index-title" data-essay-id="2">
+                From Olympiad Problem-Solving to Software Architecture
+              </a>
+              <p class="essay-index-desc">
+                How mathematical clarity shapes the way ambiguous product problems are decomposed into clean systems.
+              </p>
+            </article>
+
+            <article class="essay-index-item">
+              <span class="essay-category" style="margin-bottom: 2px;">Entrepreneurship</span>
+              <a href="#writing" class="essay-index-title" data-essay-id="3">
+                Shipping Early as a Student Builder
+              </a>
+              <p class="essay-index-desc">
+                Balancing academics, student leadership, and product development by turning curiosity into working software.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ACT VII — CLOSING HORIZON & FOOTER
+    ================================================================= -->
+    <section class="closing-horizon">
+      <div class="container reveal">
+        <span class="chapter-label" style="justify-content: center;">Samar Agshikar</span>
+        <h2 class="closing-title">
+          Focused on <span class="serif-italic">building what’s next.</span>
+        </h2>
+        <p class="closing-sub">
+          Explore live products across student productivity, intelligent learning, and university discovery.
         </p>
-        <a class="button primary" href="https://substack.com/" target="_blank" rel="noopener">
-          Read my writing ↗
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-label">06 / Connect</div>
-      <h2>Let's connect.</h2>
-      <p>
-        Interested in technology, building products or exchanging ideas?
-        Find me across these platforms.
-      </p>
-      <div class="socials">
-        <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://the-1.app" target="_blank" rel="noopener">THE 1 ↗</a>
-      </div>
-    </div>
-  </section>
+        <div class="closing-links">
+          <a href="https://the-1.app" target="_blank" rel="noopener noreferrer" class="btn-luminous">
+            <span>Open THE 1</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer" class="btn-quiet">
+            <span>Open Kerniq</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
 
-  <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Samar Agshikar</span>
-      <span>Built with curiosity. Always evolving.</span>
+        <footer class="footer-bar">
+          <div>© 2026 Samar Agshikar</div>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="https://the-1.app" target="_blank" rel="noopener noreferrer">THE 1</a>
+            <a href="https://kerniq.the-1.app" target="_blank" rel="noopener noreferrer">Kerniq</a>
+            <a href="#work">College Chances India</a>
+            <a href="#recognition">Recognition</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#writing">Building What’s Next</a>
+          </nav>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       EDITORIAL ESSAY READER MODAL
+  =================================================================== -->
+  <div class="reader-overlay" id="readerOverlay" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+    <div class="reader-sheet">
+      <div class="reader-top">
+        <span class="essay-category" id="readerCategory" style="margin: 0;">Building What’s Next</span>
+        <button class="reader-close" id="readerClose" type="button">Close ✕</button>
+      </div>
+      <h3 class="reader-title" id="readerTitle"></h3>
+      <div class="reader-body" id="readerBody"></div>
     </div>
-  </footer>
+  </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    /* =======================================================================
+       1. NAVIGATION SCROLL STATE
+    ======================================================================= */
+    const siteHeader = document.getElementById('siteHeader');
+    window.addEventListener(
+      'scroll',
+      () => {
+        siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+      },
+      { passive: true }
+    );
 
+    /* =======================================================================
+       2. VOLUMETRIC AURORA & LIGHT RIBBON CANVAS (SUBTLE 3D DEPTH ON SCROLL)
+    ======================================================================= */
+    (function initAuroraCanvas() {
+      const canvas = document.getElementById('auroraCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let w = (canvas.width = canvas.offsetWidth);
+      let h = (canvas.height = canvas.offsetHeight);
+      let pointerX = 0.5;
+      let pointerY = 0.35;
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+        if (prefersReducedMotion) drawFrame(0);
+      });
+
+      window.addEventListener(
+        'pointermove',
+        (e) => {
+          pointerX = e.clientX / Math.max(1, window.innerWidth);
+          pointerY = e.clientY / Math.max(1, window.innerHeight);
+        },
+        { passive: true }
+      );
+
+      const ribbons = [
+        { color: 'rgba(37, 99, 235, 0.22)', amp: 58, freq: 0.0022, speed: 0.00055, yRatio: 0.38 },
+        { color: 'rgba(99, 102, 241, 0.18)', amp: 72, freq: 0.0017, speed: -0.00042, yRatio: 0.48 },
+        { color: 'rgba(56, 189, 248, 0.14)', amp: 44, freq: 0.0028, speed: 0.0007, yRatio: 0.56 }
+      ];
+
+      function drawFrame(time) {
+        ctx.clearRect(0, 0, w, h);
+        const scrollShift = Math.min(1, window.scrollY / Math.max(1, window.innerHeight)) * 90;
+
+        ribbons.forEach((r, idx) => {
+          ctx.beginPath();
+          const baseY = h * r.yRatio + scrollShift * (idx + 1) * 0.35 + (pointerY - 0.5) * 36;
+          ctx.moveTo(0, h);
+
+          for (let x = 0; x <= w; x += 24) {
+            const wave1 = Math.sin(x * r.freq + time * r.speed + idx * 1.4) * r.amp;
+            const wave2 = Math.cos(x * r.freq * 0.55 - time * r.speed * 0.8 + pointerX * 2.2) * (r.amp * 0.55);
+            ctx.lineTo(x, baseY + wave1 + wave2);
+          }
+
+          ctx.lineTo(w, h);
+          ctx.closePath();
+
+          const grad = ctx.createLinearGradient(0, baseY - r.amp, 0, h);
+          grad.addColorStop(0, r.color);
+          grad.addColorStop(1, 'rgba(3, 7, 20, 0)');
+          ctx.fillStyle = grad;
+          ctx.fill();
+        });
+
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(drawFrame);
+        }
+      }
+
+      if (prefersReducedMotion) {
+        drawFrame(0);
+      } else {
+        requestAnimationFrame(drawFrame);
+      }
+    })();
+
+    /* =======================================================================
+       3. SCROLL REVEAL & SUBTLE 3D PERSPECTIVE SETTLE FOR PRODUCT STAGES
+    ======================================================================= */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const tiltStages = document.querySelectorAll('[data-tilt-stage]');
+    function updateStagePerspective() {
+      const vh = window.innerHeight;
+      tiltStages.forEach((stage) => {
+        const rect = stage.getBoundingClientRect();
+        const centerDist = (rect.top + rect.height * 0.5 - vh * 0.5) / vh;
+        const clamped = Math.max(-1, Math.min(1, centerDist));
+        const rotateX = clamped * 6;
+        const translateY = clamped * 14;
+        stage.style.transform = `rotateX(${rotateX.toFixed(2)}deg) translateY(${translateY.toFixed(1)}px)`;
+      });
+    }
+    window.addEventListener('scroll', updateStagePerspective, { passive: true });
+    updateStagePerspective();
+
+    /* =======================================================================
+       4. INTERACTIVE PRODUCT CHAPTER SWITCHERS (THE 1 & KERNIQ)
+    ======================================================================= */
+    const the1Views = {
+      workspace: {
+        headline: 'One calm environment for every subject.',
+        copy: 'Class timetables, homework deadlines, and structured notes stay connected so students spend less energy organizing tools and more energy learning.',
+        modules: [
+          ['Timetable', 'Weekly structure aligned with study blocks'],
+          ['Notes', 'Clean capture linked directly to topics'],
+          ['Homework', 'Clear priorities without visual clutter']
+        ]
+      },
+      revision: {
+        headline: 'Built around retrieval and spaced retention.',
+        copy: 'Turn class notes into practice quizzes and scheduled revision cycles so key concepts stay sharp before exams.',
+        modules: [
+          ['Spaced Review', 'Surfaces topics right before they fade'],
+          ['Quizzes', 'Active recall grounded in your own material'],
+          ['Progress', 'Clear visibility into topic mastery']
+        ]
+      },
+      ai: {
+        headline: 'Context-aware AI that knows what you are studying.',
+        copy: 'Ask questions, clarify difficult concepts, and work through problems with AI grounded directly in your workspace notes.',
+        modules: [
+          ['Note Context', 'Answers anchored to your actual syllabus'],
+          ['Concept Clarity', 'Clear explanations without distractions'],
+          ['Study Flow', 'Integrated right beside your notes']
+        ]
+      }
+    };
+
+    document.querySelectorAll('[data-the1-view]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-the1-view]').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const view = the1Views[btn.dataset.the1View];
+        document.getElementById('the1StageBody').innerHTML = `
+          <div>
+            <h4 class="stage-headline">${view.headline}</h4>
+            <p class="stage-copy">${view.copy}</p>
+          </div>
+          <div class="stage-modules">
+            ${view.modules
+              .map(
+                ([title, sub]) => `
+              <div class="stage-module">
+                <div class="stage-module-title">${title}</div>
+                <div class="stage-module-sub">${sub}</div>
+              </div>`
+              )
+              .join('')}
+          </div>
+        `;
+      });
+    });
+
+    const kerniqViews = {
+      synthesis: {
+        headline: 'Structured intelligence built into the learning flow.',
+        copy: 'Kerniq extends the THE 1 ecosystem with deeper conceptual synthesis, guided step-by-step reasoning, and intelligent study workflows.',
+        modules: [
+          ['Synthesis', 'Distills raw material into clear frameworks'],
+          ['Reasoning', 'Guides understanding step by step'],
+          ['Ecosystem', 'Connected natively with THE 1']
+        ]
+      },
+      reasoning: {
+        headline: 'Step-by-step reasoning over surface-level answers.',
+        copy: 'Designed to help students trace how a solution works—building durable intuition rather than shortcutting the learning process.',
+        modules: [
+          ['First Principles', 'Breaks complex ideas into clear steps'],
+          ['Verification', 'Checks understanding along the way'],
+          ['Clarity', 'Focused interface free of visual noise']
+        ]
+      },
+      integration: {
+        headline: 'Seamless connection across the THE 1 ecosystem.',
+        copy: 'Accessible at kerniq.the-1.app, Kerniq works alongside THE 1 to bring deeper intelligence to everyday academic workflows.',
+        modules: [
+          ['Shared Context', 'Works alongside your notes and subjects'],
+          ['Fast Access', 'Available directly on the web'],
+          ['Unified Craft', 'Consistent design and calm interaction']
+        ]
+      }
+    };
+
+    document.querySelectorAll('[data-kerniq-view]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-kerniq-view]').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const view = kerniqViews[btn.dataset.kerniqView];
+        document.getElementById('kerniqStageBody').innerHTML = `
+          <div>
+            <h4 class="stage-headline">${view.headline}</h4>
+            <p class="stage-copy">${view.copy}</p>
+          </div>
+          <div class="stage-modules">
+            ${view.modules
+              .map(
+                ([title, sub]) => `
+              <div class="stage-module">
+                <div class="stage-module-title">${title}</div>
+                <div class="stage-module-sub">${sub}</div>
+              </div>`
+              )
+              .join('')}
+          </div>
+        `;
+      });
+    });
+
+    /* =======================================================================
+       5. PUBLICATION ESSAY READER MODAL ("BUILDING WHAT'S NEXT")
+    ======================================================================= */
+    const essays = [
+      {
+        category: 'Building What’s Next · AI & Product Design',
+        title: 'Why Student Software Should Feel Calm, Not Crowded',
+        paragraphs: [
+          'Most productivity tools ask students to manage the tool itself before they ever reach their actual work. Tabs multiply, notifications compete for attention, and notes sit disconnected from schedules and revision.',
+          'When building THE 1 (the-1.app), the guiding principle was calm cohesion: uniting timetables, structured notes, homework, spaced revision, and AI assistance inside one quiet workspace where every element reinforces the next.',
+          'Thoughtful software respects human attention—clearing away friction so deep thinking becomes effortless.'
+        ]
+      },
+      {
+        category: 'Building What’s Next · Technology & AI',
+        title: 'Designing AI That Augments Thinking Instead of Replacing It',
+        paragraphs: [
+          'The real promise of artificial intelligence in education is not generating generic answers—it is helping learners build genuine conceptual understanding and make better-informed decisions.',
+          'Across Kerniq (kerniq.the-1.app) and College Chances India, the focus is on structured context: grounding AI in the student’s actual notes, academic goals, and questions.',
+          'When AI shows clear reasoning and keeps the human in control, it becomes a genuine multiplier for curiosity.'
+        ]
+      },
+      {
+        category: 'Building What’s Next · Mathematics & Engineering',
+        title: 'From Olympiad Problem-Solving to Software Architecture',
+        paragraphs: [
+          'Mathematical problem-solving trains you to look past surface complexity until the underlying structure becomes clear. Every clean proof depends on well-chosen definitions and logical flow.',
+          'Software architecture rewards the exact same discipline. Whether modeling data for a student workspace or designing intuitive interactions, clarity at the foundation prevents complexity later.',
+          'Mathematics and software engineering are two expressions of structured creative thinking.'
+        ]
+      },
+      {
+        category: 'Building What’s Next · Entrepreneurship',
+        title: 'Shipping Early as a Student Builder',
+        paragraphs: [
+          'Starting to build while still a student gives you direct proximity to real problems. You experience the friction firsthand and can iterate immediately.',
+          'Balancing product development with academics and student leadership—across the Student Council, Culture and Events team, Round Square Student Committee 2026–27, and Internshala Student Partner—reinforces that execution and communication matter just as much as code.',
+          'Building What’s Next is an ongoing commitment to learning in public, shipping thoughtfully, and improving every detail.'
+        ]
+      }
+    ];
+
+    const readerOverlay = document.getElementById('readerOverlay');
+    const readerCategory = document.getElementById('readerCategory');
+    const readerTitle = document.getElementById('readerTitle');
+    const readerBody = document.getElementById('readerBody');
+    const readerClose = document.getElementById('readerClose');
+
+    function openEssay(index) {
+      const essay = essays[index];
+      if (!essay) return;
+      readerCategory.textContent = essay.category;
+      readerTitle.textContent = essay.title;
+      readerBody.innerHTML = essay.paragraphs.map((p) => `<p>${p}</p>`).join('');
+      readerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      readerClose.focus();
+    }
+
+    function closeEssay() {
+      readerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-essay-id]').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEssay(Number(trigger.dataset.essayId));
+      });
+    });
+
+    readerClose.addEventListener('click', closeEssay);
+    readerOverlay.addEventListener('click', (e) => {
+      if (e.target === readerOverlay) closeEssay();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && readerOverlay.classList.contains('open')) closeEssay();
+    });
+  </script>
 </body>
 </html>
