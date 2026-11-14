@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Samar Agshikar — exploring technology, AI, entrepreneurship and the future of software.">
+  <title>Samar Agshikar — Building What's Next</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #101a2b;
+      --text: #f3f6fc;
+      --muted: #9baac0;
+      --blue: #76aaff;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, 88%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,13,24,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 27px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(53,116,220,.19), transparent 68%);
+      top: -140px;
+      right: -170px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 1.03;
+      letter-spacing: -5px;
+      max-width: 850px;
+    }
+
+    h1 span {
+      background: linear-gradient(100deg, #8abaff, #d3e5ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 590px;
+      margin: 28px 0 34px;
+    }
+
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
+
+    .button {
+      padding: 12px 21px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: .2s;
+    }
+
+    .button.primary {
+      background: #dceaff;
+      color: #101827;
+      border-color: #dceaff;
+    }
+
+    .button:hover { transform: translateY(-3px); }
+
+    section { padding: 105px 0; }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(34px, 5vw, 48px);
+      letter-spacing: -2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 38px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-text p { margin-bottom: 17px; }
+
+    .interest-box {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: linear-gradient(145deg, #111e33, #0b1220);
+    }
+
+    .interest-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 18px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+
+    .tag {
+      border: 1px solid rgba(118,170,255,.2);
+      background: rgba(118,170,255,.07);
+      color: #c4dcff;
+      border-radius: 6px;
+      padding: 7px 11px;
+      font-size: 12px;
+    }
+
+    .projects {
+      background: #0b1220;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    .project-card {
+      padding: 29px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(118,170,255,.4);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 12px;
+      margin-bottom: 22px;
+      letter-spacing: 1px;
+    }
+
+    .project-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      min-height: 72px;
+    }
+
+    .project-link {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 13px;
+      margin-top: 20px;
+      font-weight: 700;
+    }
+
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .achievement {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .achievement strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .leadership {
+      background: #0b1220;
+      border-top: 1px solid var(--border);
+    }
+
+    .leadership-list { border-top: 1px solid var(--border); }
+
+    .leadership-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .leadership-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .leadership-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .writing-card {
+      padding: 38px;
+      border: 1px solid rgba(118,170,255,.2);
+      border-radius: 15px;
+      background: linear-gradient(120deg, #142541, #101827);
+    }
+
+    .writing-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .writing-card p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 22px;
+    }
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg), #101d32);
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: #b9c9df;
+      font-size: 13px;
+    }
+
+    .socials a:hover { color: var(--blue); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: #78869a;
+      font-size: 12px;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    @media(max-width: 700px) {
+      .nav-links { gap: 13px; font-size: 11px; }
+      .nav-links a:nth-child(3),
+      .nav-links a:nth-child(4) { display: none; }
+      .hero { min-height: 580px; }
+      h1 { letter-spacing: -3px; }
+      section { padding: 75px 0; }
+      .about-grid, .project-grid { grid-template-columns: 1fr; }
+      .achievement-grid { grid-template-columns: 1fr 1fr; }
+      .leadership-item { flex-direction: column; gap: 5px; }
+      footer .container { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">S<span>.</span>A</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#academics">Academics</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">Technology · AI · Entrepreneurship</div>
+      <h1>I'm Samar.<br>I'm here to build <span>what's next.</span></h1>
+      <p class="hero-description">
+        Exploring the intersection of technology, artificial intelligence
+        and entrepreneurship — learning by building, experimenting and
+        turning ideas into real products.
+      </p>
+      <div class="actions">
+        <a href="#projects" class="button primary">Explore my work ↗</a>
+        <a href="#about" class="button">A little about me</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-label">01 / About</div>
+      <div class="about-grid">
+        <div>
+          <h2>Curiosity is where everything starts.</h2>
+          <div class="about-text">
+            <p>
+              I'm Samar Agshikar, a student, developer and aspiring
+              entrepreneur interested in how technology can change the
+              way people learn, work and interact with the world.
+            </p>
+            <p>
+              My interests span artificial intelligence, software
+              development, education and aerospace. I enjoy taking an
+              idea, exploring how it could work and building something
+              tangible from it.
+            </p>
+            <p>
+              I believe you don't have to wait until college to start
+              creating. You can learn, experiment and contribute today.
+            </p>
+          </div>
+        </div>
+
+        <div class="interest-box">
+          <h3>Areas I'm exploring</h3>
+          <div class="tags">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Entrepreneurship</span>
+            <span class="tag">Education Technology</span>
+            <span class="tag">Mathematics</span>
+            <span class="tag">Aerospace</span>
+            <span class="tag">Product Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-label">02 / Selected work</div>
+      <h2>Ideas turned into projects.</h2>
+      <p class="section-intro">
+        A selection of products and initiatives I'm developing and
+        contributing to.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-number">PROJECT 01</div>
+          <h3>THE 1</h3>
+          <p>
+            An AI-powered student workspace designed to bring learning,
+            organisation and productivity together in one place.
+          </p>
+          <a class="project-link" href="https://the-1.app" target="_blank" rel="noopener">Explore THE 1 ↗</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 02</div>
+          <h3>Kerniq</h3>
+          <p>
+            An emerging software and AI initiative exploring new ways
+            to build useful technology and intelligent tools.
+          </p>
+          <a class="project-link" href="https://kerniq.the-1.app" target="_blank" rel="noopener">Explore Kerniq ↗</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 03</div>
+          <h3>College Chances India</h3>
+          <p>
+            An AI-powered platform focused on helping students explore
+            universities, opportunities and possible academic pathways.
+          </p>
+          <span class="project-link">Education initiative</span>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 04</div>
+          <h3>More to come</h3>
+          <p>
+            This portfolio will evolve alongside the ideas, experiments
+            and products I work on.
+          </p>
+          <a class="project-link" href="#contact">Stay connected ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="academics">
+    <div class="container">
+      <div class="section-label">03 / Academics</div>
+      <h2>Learning beyond the classroom.</h2>
+      <p class="section-intro">
+        Some academic milestones that reflect my interest in
+        mathematics, science and continuous learning.
+      </p>
+
+      <div class="achievement-grid">
+        <div class="achievement">
+          <strong>Gold</strong>
+          <p>SOF Mathematics Gold Medal of Excellence</p>
+        </div>
+        <div class="achievement">
+          <strong>98th</strong>
+          <p>ASSET Mathematics percentile</p>
+        </div>
+        <div class="achievement">
+          <strong>93rd</strong>
+          <p>ASSET Science percentile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="section-label">04 / Leadership</div>
+      <h2>Taking ideas beyond myself.</h2>
+      <p class="section-intro">
+        Learning to collaborate, contribute and take responsibility
+        through school and student initiatives.
+      </p>
+
+      <div class="leadership-list">
+        <div class="leadership-item">
+          <div>
+            <h3>Student Council</h3>
+            <p>Student leadership and school initiatives</p>
+          </div>
+          <p>ADIS</p>
+        </div>
+        <div class="leadership-item">
+          <div>
+            <h3>Round Square Student Committee</h3>
+            <p>Student participation and community initiatives</p>
+          </div>
+          <p>2026–27</p>
+        </div>
+        <div class="leadership-item">
+          <div>
+            <h3>Internshala Student Partner</h3>
+            <p>Student outreach and engagement</p>
+          </div>
+          <p>Student initiative</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="container">
+      <div class="section-label">05 / Writing & ideas</div>
+      <div class="writing-card">
+        <div class="eyebrow">My publication</div>
+        <h3>Building What's Next</h3>
+        <p>
+          Documenting my journey through technology, AI and
+          entrepreneurship — the experiments, lessons, challenges
+          and ideas behind building products from scratch.
+        </p>
+        <a class="button primary" href="https://substack.com/" target="_blank" rel="noopener">
+          Read my writing ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label">06 / Connect</div>
+      <h2>Let's connect.</h2>
+      <p>
+        Interested in technology, building products or exchanging ideas?
+        Find me across these platforms.
+      </p>
+      <div class="socials">
+        <a href="https://github.com/samar-agshikar" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/samar-agshikar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://the-1.app" target="_blank" rel="noopener">THE 1 ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Samar Agshikar</span>
+      <span>Built with curiosity. Always evolving.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
